@@ -5,6 +5,7 @@ import {
   getSingleEmployee,
   editEmployee,
   removeEmployee,
+  employeeLogin,
 } from "../Controllers/employeeController.js";
 
 import { uploadFor } from "../Middleware/uploadMiddleware.js";
@@ -12,6 +13,8 @@ import { uploadFor } from "../Middleware/uploadMiddleware.js";
 const router = express.Router();
 const employeeUpload = uploadFor("employee"); // Folder: uploads/employee/
 
+
+router.post("/login", employeeLogin); // employee login
 router.post("/add", employeeUpload.single("image"), addEmployee);
 router.get("/all", getEmployees);
 router.get("/:id", getSingleEmployee);

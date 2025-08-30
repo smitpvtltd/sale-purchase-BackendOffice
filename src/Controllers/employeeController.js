@@ -5,7 +5,48 @@ import {
   updateEmployee,
   deleteEmployee
 } from '../Services/employeeService.js';
+import Employee from "../Models/employeeModel.js";
+import jwt from "jsonwebtoken";
 
+const JWT_SECRET = process.env.JWT_SECRET;
+
+// employee login
+export const employeeLogin = async (req, res) => {
+  const { username, password } = req.body;
+
+  if (!username || !password)
+    return res.status(400).json({ message: "Username and password required" });
+
+  try {
+    const user = await Employee.findOne({ where: { userName: username } });
+    if (!user) return res.status(401).json({ message: "Invalid credentials" });
+
+    // Plain password comparison for employee
+    if (password !== user.password)
+      return res.status(401).json({ message: "Invalid credentials" });
+
+    // Generate JWT token
+    const payload = {
+      id: user.id,
+      username: user.userName,
+      role: "employee",
+      viewPages: user.viewPages,
+    };
+
+    const token = jwt.sign(payload, JWT_SECRET, { expiresIn: "1h" });
+
+    return res.json({
+      token,
+      role: "employee",
+      userId: user.id,
+      username: user.userName,
+      viewPages: user.viewPages,
+    });
+  } catch (error) {
+    console.error("Employee login error:", error);
+    res.status(500).json({ message: "Server error" });
+  }
+};
 
 
 // add employee
