@@ -1,8 +1,12 @@
+import dotenv from "dotenv";
 import multer from "multer";
 import path from "path";
 import fs from "fs";
 
-const baseUploadDir = "./uploads";
+dotenv.config();
+
+const baseUploadDir = process.env.BASE_UPLOAD_DIR;
+
 
 function getStorage(folderName) {
   const folderPath = path.join(baseUploadDir, folderName);
