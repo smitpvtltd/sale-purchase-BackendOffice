@@ -2,6 +2,10 @@ import { Sequelize } from 'sequelize';
 import dotenv from 'dotenv';
 
 dotenv.config();
+console.log(process.env.DB_PASSWORD);
+console.log(process.env.DB_USER);
+console.log(process.env.DB_DATABASE);
+
 
 const sequelize = new Sequelize(
   process.env.DB_DATABASE,
