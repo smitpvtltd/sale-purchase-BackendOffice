@@ -5,7 +5,7 @@ import fs from "fs";
 
 dotenv.config();
 
-const baseUploadDir = process.env.baseUploadDir;
+const baseUploadDir = process.env.BASE_UPLOAD_DIR;
 
 
 function getStorage(folderName) {
