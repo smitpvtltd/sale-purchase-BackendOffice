@@ -1,0 +1,3611 @@
+[
+ {
+   "Id": 1,
+   "dt": "2025-03-07",
+   "item_full_name": "KURTI SET (2PC)",
+   "item_short_name": "1551",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-03-07 15:36:24"
+ },
+ {
+   "Id": 2,
+   "dt": "2025-03-07",
+   "item_full_name": "KURTI SET (2PC) (1551)",
+   "item_short_name": "NR",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-03-07 16:44:11"
+ },
+ {
+   "Id": 3,
+   "dt": "2025-03-07",
+   "item_full_name": "KURTI SET (2PC) (1551)(NR)",
+   "item_short_name": "1551",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-03-07 20:07:06"
+ },
+ {
+   "Id": 4,
+   "dt": "2025-03-07",
+   "item_full_name": "KURTI SET 3PC  1659 D",
+   "item_short_name": "NR",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-03-07 20:22:09"
+ },
+ {
+   "Id": 5,
+   "dt": "2025-03-07",
+   "item_full_name": "KURTI",
+   "item_short_name": "1344",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-03-07 21:03:02"
+ },
+ {
+   "Id": 6,
+   "dt": "2025-03-07",
+   "item_full_name": "",
+   "item_short_name": "",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-03-07 22:51:15"
+ },
+ {
+   "Id": 7,
+   "dt": "2025-03-07",
+   "item_full_name": "KURTI(1344)",
+   "item_short_name": "NR",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-03-07 23:15:58"
+ },
+ {
+   "Id": 8,
+   "dt": "2025-03-07",
+   "item_full_name": "CO-ORD SET(1614F)",
+   "item_short_name": "NR",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-03-07 23:17:43"
+ },
+ {
+   "Id": 9,
+   "dt": "2025-03-07",
+   "item_full_name": "MIDI KURTI(1628)",
+   "item_short_name": "NR",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-03-07 23:46:27"
+ },
+ {
+   "Id": 10,
+   "dt": "2025-03-07",
+   "item_full_name": "KURTI(1641)",
+   "item_short_name": "NR",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-03-07 23:50:36"
+ },
+ {
+   "Id": 11,
+   "dt": "2025-03-07",
+   "item_full_name": "KURTI(1648 P)",
+   "item_short_name": "NR",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-03-07 23:52:38"
+ },
+ {
+   "Id": 12,
+   "dt": "2025-03-07",
+   "item_full_name": "KURTI(1653 1)",
+   "item_short_name": "NR",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-03-07 23:53:49"
+ },
+ {
+   "Id": 13,
+   "dt": "2025-03-07",
+   "item_full_name": "KURTI(1602)",
+   "item_short_name": "NR",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-03-07 23:55:35"
+ },
+ {
+   "Id": 14,
+   "dt": "2025-03-08",
+   "item_full_name": "KURTI SET(3PC)(1639 A)",
+   "item_short_name": "NR",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-03-08 00:07:43"
+ },
+ {
+   "Id": 15,
+   "dt": "2025-03-08",
+   "item_full_name": "KURTI SET(2PC)(1551 1)",
+   "item_short_name": "NR",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-03-08 00:09:44"
+ },
+ {
+   "Id": 16,
+   "dt": "2025-03-08",
+   "item_full_name": "KURTI(894)",
+   "item_short_name": "NR",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-03-08 00:11:57"
+ },
+ {
+   "Id": 17,
+   "dt": "2025-03-08",
+   "item_full_name": "DENIM CO-ORD(1697)",
+   "item_short_name": "NR",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-03-08 00:13:57"
+ },
+ {
+   "Id": 18,
+   "dt": "2025-03-08",
+   "item_full_name": "DENIM CO-ORD(1703)",
+   "item_short_name": "NR",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-03-08 00:15:31"
+ },
+ {
+   "Id": 19,
+   "dt": "2025-03-08",
+   "item_full_name": "KURTI(1602 V)",
+   "item_short_name": "NR",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-03-08 00:27:12"
+ },
+ {
+   "Id": 20,
+   "dt": "2025-03-08",
+   "item_full_name": "DENIM KURTI(1685)",
+   "item_short_name": "NR",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-03-08 00:31:30"
+ },
+ {
+   "Id": 21,
+   "dt": "2025-03-08",
+   "item_full_name": "KURTI(1628 R)",
+   "item_short_name": "NR",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-03-08 00:33:21"
+ },
+ {
+   "Id": 22,
+   "dt": "2025-03-08",
+   "item_full_name": "KACHBO(1628)",
+   "item_short_name": "NR",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-03-08 00:41:00"
+ },
+ {
+   "Id": 23,
+   "dt": "2025-03-08",
+   "item_full_name": "LONG GOWN DENIM(1554 B)",
+   "item_short_name": "NR",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-03-08 00:44:33"
+ },
+ {
+   "Id": 24,
+   "dt": "2025-03-08",
+   "item_full_name": "DENIM SHORT KURTI(1629)",
+   "item_short_name": "NR",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-03-08 01:12:22"
+ },
+ {
+   "Id": 25,
+   "dt": "2025-03-08",
+   "item_full_name": "DENIM SHORT KURTI(1669)",
+   "item_short_name": "NR",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-03-08 01:19:52"
+ },
+ {
+   "Id": 26,
+   "dt": "2025-03-08",
+   "item_full_name": "KURTI(843)",
+   "item_short_name": "NR",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-03-08 01:22:33"
+ },
+ {
+   "Id": 27,
+   "dt": "2025-03-08",
+   "item_full_name": "SONALI KURTI SET(3PC)",
+   "item_short_name": "NR",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-03-08 01:26:36"
+ },
+ {
+   "Id": 28,
+   "dt": "2025-03-08",
+   "item_full_name": "KURTI SET(3PC)(1661)",
+   "item_short_name": "NR",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-03-08 01:42:24"
+ },
+ {
+   "Id": 29,
+   "dt": "2025-03-08",
+   "item_full_name": "SHORT KURTI(1342 H)",
+   "item_short_name": "NR",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-03-08 01:45:37"
+ },
+ {
+   "Id": 30,
+   "dt": "2025-03-08",
+   "item_full_name": "KACHBO SHORT KURTI(1342)",
+   "item_short_name": "NR",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-03-08 01:47:57"
+ },
+ {
+   "Id": 31,
+   "dt": "2025-03-08",
+   "item_full_name": "KACHBO SHORT KURTI(894)",
+   "item_short_name": "NR",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-03-08 01:49:56"
+ },
+ {
+   "Id": 32,
+   "dt": "2025-03-08",
+   "item_full_name": "SHORT KURTI(1342)",
+   "item_short_name": "NR",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-03-08 02:00:34"
+ },
+ {
+   "Id": 33,
+   "dt": "2025-03-08",
+   "item_full_name": "CO-ORD(1704)",
+   "item_short_name": "NR",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-03-08 02:32:52"
+ },
+ {
+   "Id": 34,
+   "dt": "2025-03-08",
+   "item_full_name": "KURTI(2PC)(1606)",
+   "item_short_name": "NR",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-03-08 02:34:21"
+ },
+ {
+   "Id": 35,
+   "dt": "2025-03-08",
+   "item_full_name": "CO-ORD(1614)",
+   "item_short_name": "NR",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-03-08 02:35:55"
+ },
+ {
+   "Id": 36,
+   "dt": "2025-03-08",
+   "item_full_name": "CO-ORD(1692 V)",
+   "item_short_name": "NR",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-03-08 02:37:39"
+ },
+ {
+   "Id": 37,
+   "dt": "2025-03-08",
+   "item_full_name": "KURTI(2PC)(1701)",
+   "item_short_name": "NR",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-03-08 02:39:13"
+ },
+ {
+   "Id": 38,
+   "dt": "2025-03-08",
+   "item_full_name": "KURTI(2PC)(1692 K)",
+   "item_short_name": "NR",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-03-08 02:40:24"
+ },
+ {
+   "Id": 39,
+   "dt": "2025-03-08",
+   "item_full_name": "CO-ORD(1692 P)",
+   "item_short_name": "NR",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-03-08 02:41:47"
+ },
+ {
+   "Id": 40,
+   "dt": "2025-03-08",
+   "item_full_name": "COTTON PLAIN PANT",
+   "item_short_name": "NR",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-03-08 02:55:04"
+ },
+ {
+   "Id": 41,
+   "dt": "2025-03-08",
+   "item_full_name": "DIVIDER SET(3992)",
+   "item_short_name": "TC",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-03-08 13:48:47"
+ },
+ {
+   "Id": 42,
+   "dt": "2025-03-08",
+   "item_full_name": "DIVIDER SET(3949)",
+   "item_short_name": "TC",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-03-08 13:50:29"
+ },
+ {
+   "Id": 43,
+   "dt": "2025-03-08",
+   "item_full_name": "DIVIDER SET(3889)",
+   "item_short_name": "TC",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-03-08 13:54:04"
+ },
+ {
+   "Id": 44,
+   "dt": "2025-03-08",
+   "item_full_name": "STRAIGHT PANT SET(3889)",
+   "item_short_name": "TC",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-03-08 13:58:40"
+ },
+ {
+   "Id": 45,
+   "dt": "2025-03-08",
+   "item_full_name": "KALI SET(3682)",
+   "item_short_name": "TC",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-03-08 14:00:15"
+ },
+ {
+   "Id": 46,
+   "dt": "2025-03-08",
+   "item_full_name": "DIVIDER SET(3746)",
+   "item_short_name": "TC",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-03-08 14:01:27"
+ },
+ {
+   "Id": 47,
+   "dt": "2025-03-08",
+   "item_full_name": "DIVIDER SET(3806)",
+   "item_short_name": "TC",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-03-08 14:02:31"
+ },
+ {
+   "Id": 48,
+   "dt": "2025-03-08",
+   "item_full_name": "SHOULDER KALI SET(3780)",
+   "item_short_name": "TC",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-03-08 14:03:39"
+ },
+ {
+   "Id": 49,
+   "dt": "2025-03-08",
+   "item_full_name": "DIVIDER SET(3880)",
+   "item_short_name": "TC",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-03-08 14:04:54"
+ },
+ {
+   "Id": 50,
+   "dt": "2025-03-08",
+   "item_full_name": "DIVIDER SET(3927)",
+   "item_short_name": "TC",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-03-08 14:05:46"
+ },
+ {
+   "Id": 51,
+   "dt": "2025-03-08",
+   "item_full_name": "KALI SET(3583)",
+   "item_short_name": "TC",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-03-08 14:08:01"
+ },
+ {
+   "Id": 52,
+   "dt": "2025-03-08",
+   "item_full_name": "JACQUARD SET(3877)",
+   "item_short_name": "TC",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-03-08 14:09:24"
+ },
+ {
+   "Id": 53,
+   "dt": "2025-03-08",
+   "item_full_name": "CORD SET(3877)",
+   "item_short_name": "TC",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-03-08 14:10:18"
+ },
+ {
+   "Id": 54,
+   "dt": "2025-03-08",
+   "item_full_name": "CORD SET(3735)",
+   "item_short_name": "TC",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-03-08 14:11:00"
+ },
+ {
+   "Id": 55,
+   "dt": "2025-03-08",
+   "item_full_name": "KUPRO PANT SET(3453)",
+   "item_short_name": "TC",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-03-08 14:14:27"
+ },
+ {
+   "Id": 56,
+   "dt": "2025-03-08",
+   "item_full_name": "GOWN(3080)",
+   "item_short_name": "TC",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-03-08 14:17:58"
+ },
+ {
+   "Id": 57,
+   "dt": "2025-03-08",
+   "item_full_name": "STRAIGHT PANT SET(3807 NX",
+   "item_short_name": "TC",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-03-08 14:19:52"
+ },
+ {
+   "Id": 58,
+   "dt": "2025-03-08",
+   "item_full_name": "STRGHT PANT SET(3807 NX",
+   "item_short_name": "TC",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-03-08 14:22:15"
+ },
+ {
+   "Id": 59,
+   "dt": "2025-03-08",
+   "item_full_name": "PANT SET(3662)",
+   "item_short_name": "TC",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-03-08 14:26:53"
+ },
+ {
+   "Id": 60,
+   "dt": "2025-03-08",
+   "item_full_name": "PANT SET(3542)",
+   "item_short_name": "TC",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-03-08 14:38:54"
+ },
+ {
+   "Id": 61,
+   "dt": "2025-03-08",
+   "item_full_name": "GOWN(2701)",
+   "item_short_name": "TC",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-03-08 14:40:51"
+ },
+ {
+   "Id": 62,
+   "dt": "2025-03-08",
+   "item_full_name": "JACQUARD SET(3645)",
+   "item_short_name": "TC",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-03-08 14:42:51"
+ },
+ {
+   "Id": 63,
+   "dt": "2025-03-08",
+   "item_full_name": "CORD SET(3200)",
+   "item_short_name": "TC",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-03-08 14:51:54"
+ },
+ {
+   "Id": 64,
+   "dt": "2025-03-08",
+   "item_full_name": "CORD SET(3161)",
+   "item_short_name": "TC",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-03-08 14:53:06"
+ },
+ {
+   "Id": 65,
+   "dt": "2025-03-08",
+   "item_full_name": "MUSLIN SET(3751)",
+   "item_short_name": "TC",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-03-08 14:54:55"
+ },
+ {
+   "Id": 66,
+   "dt": "2025-03-08",
+   "item_full_name": "MUSLIN SET(3751 NX)",
+   "item_short_name": "TC",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-03-08 14:55:54"
+ },
+ {
+   "Id": 67,
+   "dt": "2025-03-08",
+   "item_full_name": "PANT SET(3PC)(3703)",
+   "item_short_name": "TC",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-03-08 15:00:33"
+ },
+ {
+   "Id": 68,
+   "dt": "2025-03-08",
+   "item_full_name": "RUSSIAN SCHIEFLI SET(3701)",
+   "item_short_name": "TC",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-03-08 15:03:07"
+ },
+ {
+   "Id": 69,
+   "dt": "2025-03-08",
+   "item_full_name": "RUSSIAN SCHIEFLI(3701)",
+   "item_short_name": "TC",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-03-08 15:03:15"
+ },
+ {
+   "Id": 70,
+   "dt": "2025-03-08",
+   "item_full_name": "JACQUARD SET(3815)",
+   "item_short_name": "TC",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-03-08 15:08:32"
+ },
+ {
+   "Id": 71,
+   "dt": "2025-03-08",
+   "item_full_name": "JACQUARD SET(3527)",
+   "item_short_name": "TC",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-03-08 15:09:19"
+ },
+ {
+   "Id": 72,
+   "dt": "2025-03-08",
+   "item_full_name": "DIVIDER SET( 3924)",
+   "item_short_name": "T",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-03-08 16:10:26"
+ },
+ {
+   "Id": 73,
+   "dt": "2025-03-08",
+   "item_full_name": "KURTI SET(3PC)(3966)",
+   "item_short_name": "TC",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-03-08 16:22:04"
+ },
+ {
+   "Id": 74,
+   "dt": "2025-03-08",
+   "item_full_name": "KURTI SET(3PC)(3959)",
+   "item_short_name": "TC",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-03-08 16:25:43"
+ },
+ {
+   "Id": 75,
+   "dt": "2025-03-08",
+   "item_full_name": "KURTI SET(3PC)(3837)",
+   "item_short_name": "TC",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-03-08 16:28:21"
+ },
+ {
+   "Id": 76,
+   "dt": "2025-03-08",
+   "item_full_name": "PANT SET(3581 NX)",
+   "item_short_name": "TC",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-03-08 16:31:44"
+ },
+ {
+   "Id": 77,
+   "dt": "2025-03-08",
+   "item_full_name": "PANT SET(3624)",
+   "item_short_name": "TC",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-03-08 16:37:19"
+ },
+ {
+   "Id": 78,
+   "dt": "2025-03-08",
+   "item_full_name": "JACQUARD SET(3956)",
+   "item_short_name": "TC",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-03-08 16:40:48"
+ },
+ {
+   "Id": 79,
+   "dt": "2025-03-08",
+   "item_full_name": "KURTI SET(3PC)(3961)",
+   "item_short_name": "TC",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-03-08 16:42:12"
+ },
+ {
+   "Id": 80,
+   "dt": "2025-03-08",
+   "item_full_name": "PANT SET(3714)",
+   "item_short_name": "TC",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-03-08 16:47:19"
+ },
+ {
+   "Id": 81,
+   "dt": "2025-03-08",
+   "item_full_name": "JACQUARD SET(3826)",
+   "item_short_name": "TC",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-03-08 16:51:50"
+ },
+ {
+   "Id": 82,
+   "dt": "2025-03-08",
+   "item_full_name": "KAFTAN SET(3808)",
+   "item_short_name": "TC",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-03-08 16:54:29"
+ },
+ {
+   "Id": 83,
+   "dt": "2025-03-08",
+   "item_full_name": "SCHIEFLI SET(3580)",
+   "item_short_name": "TC",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-03-08 16:55:33"
+ },
+ {
+   "Id": 84,
+   "dt": "2025-03-08",
+   "item_full_name": "GIZZA COTTON SET(3394)",
+   "item_short_name": "TC",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-03-08 16:56:27"
+ },
+ {
+   "Id": 85,
+   "dt": "2025-03-08",
+   "item_full_name": "KURTI SET(3PC)(3338)",
+   "item_short_name": "TC",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-03-08 16:57:15"
+ },
+ {
+   "Id": 86,
+   "dt": "2025-03-08",
+   "item_full_name": "KURTI SET(3PC)(3854)",
+   "item_short_name": "TC",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-03-08 17:25:17"
+ },
+ {
+   "Id": 87,
+   "dt": "2025-03-08",
+   "item_full_name": "JACQUARD SET(3791)",
+   "item_short_name": "TC",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-03-08 17:26:47"
+ },
+ {
+   "Id": 88,
+   "dt": "2025-03-08",
+   "item_full_name": "RUSSIAN SET(3685)",
+   "item_short_name": "TC",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-03-08 17:27:28"
+ },
+ {
+   "Id": 89,
+   "dt": "2025-03-08",
+   "item_full_name": "KURTI SET(3PC)(3891)",
+   "item_short_name": "TC",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-03-08 17:31:12"
+ },
+ {
+   "Id": 90,
+   "dt": "2025-03-08",
+   "item_full_name": "DIVIDER SET(3771)",
+   "item_short_name": "TC",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-03-08 17:32:12"
+ },
+ {
+   "Id": 91,
+   "dt": "2025-03-08",
+   "item_full_name": "HEAVY JACQUARD SET(3539)",
+   "item_short_name": "TC",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-03-08 17:35:08"
+ },
+ {
+   "Id": 92,
+   "dt": "2025-03-08",
+   "item_full_name": "CORD SET(3076)",
+   "item_short_name": "TC",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-03-08 17:38:15"
+ },
+ {
+   "Id": 93,
+   "dt": "2025-03-08",
+   "item_full_name": "JACQUARD SET(3526)",
+   "item_short_name": "TC",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-03-08 17:40:14"
+ },
+ {
+   "Id": 94,
+   "dt": "2025-03-08",
+   "item_full_name": "JACQUARD SET(3885)",
+   "item_short_name": "TC",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-03-08 17:42:27"
+ },
+ {
+   "Id": 95,
+   "dt": "2025-03-08",
+   "item_full_name": "KURTI SET(3PC)(3448)",
+   "item_short_name": "TC",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-03-08 17:43:28"
+ },
+ {
+   "Id": 96,
+   "dt": "2025-03-08",
+   "item_full_name": "KURTI SET(3PC)(3691)",
+   "item_short_name": "TC",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-03-08 18:22:23"
+ },
+ {
+   "Id": 97,
+   "dt": "2025-03-08",
+   "item_full_name": "KURTI SET(3PC)(3748)",
+   "item_short_name": "TC",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-03-08 18:24:21"
+ },
+ {
+   "Id": 98,
+   "dt": "2025-03-08",
+   "item_full_name": "KURTI SET(3PC)(3823 NX)",
+   "item_short_name": "TC",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-03-08 18:25:41"
+ },
+ {
+   "Id": 99,
+   "dt": "2025-03-08",
+   "item_full_name": "GOWN(2411)",
+   "item_short_name": "TC",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-03-08 18:28:16"
+ },
+ {
+   "Id": 100,
+   "dt": "2025-03-08",
+   "item_full_name": "JACQUARD SET(3886)",
+   "item_short_name": "TC",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-03-08 18:29:34"
+ },
+ {
+   "Id": 101,
+   "dt": "2025-03-08",
+   "item_full_name": "ORGANZA PANT SET(3851)",
+   "item_short_name": "TC",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-03-08 18:30:46"
+ },
+ {
+   "Id": 102,
+   "dt": "2025-03-08",
+   "item_full_name": "KALI SET(3820)",
+   "item_short_name": "TC",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-03-08 18:31:52"
+ },
+ {
+   "Id": 103,
+   "dt": "2025-03-08",
+   "item_full_name": "KALI SET(3831)",
+   "item_short_name": "TC",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-03-08 18:33:45"
+ },
+ {
+   "Id": 104,
+   "dt": "2025-03-08",
+   "item_full_name": "DIVIDER SET(3803)",
+   "item_short_name": "TC",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-03-08 18:36:00"
+ },
+ {
+   "Id": 105,
+   "dt": "2025-03-08",
+   "item_full_name": "COTTON KALI SET(3530)",
+   "item_short_name": "TC",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-03-08 18:37:05"
+ },
+ {
+   "Id": 106,
+   "dt": "2025-03-08",
+   "item_full_name": "JACQUARD SET(3528)",
+   "item_short_name": "TC",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-03-08 18:38:47"
+ },
+ {
+   "Id": 107,
+   "dt": "2025-03-08",
+   "item_full_name": "DENIM CORD SET(3734)",
+   "item_short_name": "TC",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-03-08 18:46:08"
+ },
+ {
+   "Id": 108,
+   "dt": "2025-03-08",
+   "item_full_name": "KALI SET(3833)",
+   "item_short_name": "TC",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-03-08 18:46:57"
+ },
+ {
+   "Id": 109,
+   "dt": "2025-03-08",
+   "item_full_name": "KALI SET(3630)",
+   "item_short_name": "TC",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-03-08 18:47:51"
+ },
+ {
+   "Id": 110,
+   "dt": "2025-03-08",
+   "item_full_name": "COTTON SCHIEFLI(3599 NX)",
+   "item_short_name": "TC",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-03-08 18:49:24"
+ },
+ {
+   "Id": 111,
+   "dt": "2025-03-08",
+   "item_full_name": "SIMAR PANT SET(3654)",
+   "item_short_name": "TC",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-03-08 18:51:32"
+ },
+ {
+   "Id": 112,
+   "dt": "2025-03-08",
+   "item_full_name": "JACQUARD SET(3538)",
+   "item_short_name": "TC",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-03-08 18:52:34"
+ },
+ {
+   "Id": 113,
+   "dt": "2025-03-08",
+   "item_full_name": "CORD SET(3190)",
+   "item_short_name": "TC",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-03-08 18:55:53"
+ },
+ {
+   "Id": 114,
+   "dt": "2025-03-08",
+   "item_full_name": "KAFTAN AND PANT",
+   "item_short_name": "TC",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-03-08 18:56:52"
+ },
+ {
+   "Id": 115,
+   "dt": "2025-03-12",
+   "item_full_name": "NIGHT SUIT SATIN PLAIN",
+   "item_short_name": "FI",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-03-12 19:37:38"
+ },
+ {
+   "Id": 116,
+   "dt": "2025-03-13",
+   "item_full_name": "NIGHT SUIT SATIN PRT",
+   "item_short_name": "FI",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-03-13 14:39:56"
+ },
+ {
+   "Id": 117,
+   "dt": "2025-03-13",
+   "item_full_name": "NIGHT SUIT SATIN PRT",
+   "item_short_name": "ARLS",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-03-13 14:50:06"
+ },
+ {
+   "Id": 118,
+   "dt": "2025-03-19",
+   "item_full_name": "PAD 40+10",
+   "item_short_name": "EC",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-03-19 11:14:02"
+ },
+ {
+   "Id": 119,
+   "dt": "2025-03-19",
+   "item_full_name": "FASHION SET",
+   "item_short_name": "LL",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-03-19 12:00:07"
+ },
+ {
+   "Id": 120,
+   "dt": "2025-03-19",
+   "item_full_name": "FASHION BRA",
+   "item_short_name": "LL",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-03-19 12:23:06"
+ },
+ {
+   "Id": 121,
+   "dt": "2025-03-20",
+   "item_full_name": "ALPINE NIGHTY",
+   "item_short_name": "ABLN",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-03-20 13:08:07"
+ },
+ {
+   "Id": 122,
+   "dt": "2025-03-20",
+   "item_full_name": "SHINE MODAL NIGHTY",
+   "item_short_name": "CMFT",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-03-20 13:12:23"
+ },
+ {
+   "Id": 123,
+   "dt": "2025-03-20",
+   "item_full_name": "MATERNITY FD KURTY",
+   "item_short_name": "ABLN",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-03-20 13:15:13"
+ },
+ {
+   "Id": 124,
+   "dt": "2025-03-20",
+   "item_full_name": "MATERNITY FD KAFTAN",
+   "item_short_name": "ABLN",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-03-20 13:16:43"
+ },
+ {
+   "Id": 125,
+   "dt": "2025-03-20",
+   "item_full_name": "MATERNITY FD DENIM KURTY",
+   "item_short_name": "ABLN",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-03-20 13:21:07"
+ },
+ {
+   "Id": 126,
+   "dt": "2025-03-20",
+   "item_full_name": "PANTIES",
+   "item_short_name": "RR",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-03-20 13:39:03"
+ },
+ {
+   "Id": 127,
+   "dt": "2025-03-20",
+   "item_full_name": "BEDROOM WEAR 2PC",
+   "item_short_name": "FI",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-03-20 16:21:58"
+ },
+ {
+   "Id": 128,
+   "dt": "2025-03-20",
+   "item_full_name": "SWIM WEAR",
+   "item_short_name": "LBSTR",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-03-20 18:21:35"
+ },
+ {
+   "Id": 129,
+   "dt": "2025-03-23",
+   "item_full_name": "LEGGING ANKLE",
+   "item_short_name": "FI",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-03-23 13:36:50"
+ },
+ {
+   "Id": 130,
+   "dt": "2025-03-23",
+   "item_full_name": "LEGGING CHUDI",
+   "item_short_name": "FI",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-03-23 13:43:10"
+ },
+ {
+   "Id": 131,
+   "dt": "2025-03-23",
+   "item_full_name": "LEGGINGS",
+   "item_short_name": "",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-03-23 15:04:11"
+ },
+ {
+   "Id": 132,
+   "dt": "2025-03-23",
+   "item_full_name": "LEGGINGS CHUDI ",
+   "item_short_name": "LYRA",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-03-23 15:25:11"
+ },
+ {
+   "Id": 133,
+   "dt": "2025-03-23",
+   "item_full_name": "LEGGINGS ANKLE",
+   "item_short_name": "LYRA",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-03-23 15:26:16"
+ },
+ {
+   "Id": 134,
+   "dt": "2025-03-23",
+   "item_full_name": "KURTI PANT",
+   "item_short_name": "DLR",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-03-23 15:28:10"
+ },
+ {
+   "Id": 135,
+   "dt": "2025-03-23",
+   "item_full_name": "LEGGING ANKLE",
+   "item_short_name": "DLR",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-03-23 15:29:31"
+ },
+ {
+   "Id": 136,
+   "dt": "2025-03-23",
+   "item_full_name": "LEGGING ANKLE SMR",
+   "item_short_name": "SL",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-03-23 15:32:07"
+ },
+ {
+   "Id": 137,
+   "dt": "2025-03-23",
+   "item_full_name": "KURTI PANT",
+   "item_short_name": "ZVR",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-03-23 15:33:30"
+ },
+ {
+   "Id": 138,
+   "dt": "2025-03-23",
+   "item_full_name": "BEDROOM WEAR 6PC",
+   "item_short_name": "FI",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-03-23 15:37:12"
+ },
+ {
+   "Id": 139,
+   "dt": "2025-03-23",
+   "item_full_name": "BEDROOM WEAR 4PC",
+   "item_short_name": "FI",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-03-23 15:37:46"
+ },
+ {
+   "Id": 140,
+   "dt": "2025-03-26",
+   "item_full_name": "SWIM T SHIRT",
+   "item_short_name": "LBSTR",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-03-26 15:29:51"
+ },
+ {
+   "Id": 141,
+   "dt": "2025-04-02",
+   "item_full_name": "TRACK PANT",
+   "item_short_name": "FI",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-04-02 19:32:57"
+ },
+ {
+   "Id": 142,
+   "dt": "2025-04-02",
+   "item_full_name": "TRACK PANT",
+   "item_short_name": "ARLS",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-04-02 20:16:27"
+ },
+ {
+   "Id": 143,
+   "dt": "2025-04-02",
+   "item_full_name": "TRACK PANT",
+   "item_short_name": "RR",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-04-02 20:55:33"
+ },
+ {
+   "Id": 144,
+   "dt": "2025-04-04",
+   "item_full_name": "T SHIRT ",
+   "item_short_name": "FI",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-04-04 12:18:31"
+ },
+ {
+   "Id": 145,
+   "dt": "2025-04-04",
+   "item_full_name": "TRACK PANT AQ.FT",
+   "item_short_name": "FI",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-04-04 12:43:43"
+ },
+ {
+   "Id": 146,
+   "dt": "2025-04-04",
+   "item_full_name": "TRACK PANT",
+   "item_short_name": "JUST FEEL",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-04-04 12:49:04"
+ },
+ {
+   "Id": 147,
+   "dt": "2025-04-04",
+   "item_full_name": "FLARED PANT",
+   "item_short_name": "JOCKEY",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-04-04 12:52:56"
+ },
+ {
+   "Id": 148,
+   "dt": "2025-04-05",
+   "item_full_name": "CO-ORD SET",
+   "item_short_name": "MATRICS SPT",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-04-05 12:39:56"
+ },
+ {
+   "Id": 149,
+   "dt": "2025-04-05",
+   "item_full_name": "CO-ORD SET",
+   "item_short_name": "M.SPT",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-04-05 12:49:06"
+ },
+ {
+   "Id": 150,
+   "dt": "2025-04-05",
+   "item_full_name": "BEDROOM WEAR",
+   "item_short_name": "BNW",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-04-05 16:29:07"
+ },
+ {
+   "Id": 151,
+   "dt": "2025-04-05",
+   "item_full_name": "CO-ORD SET",
+   "item_short_name": "BNW",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-04-05 17:08:02"
+ },
+ {
+   "Id": 152,
+   "dt": "2025-04-05",
+   "item_full_name": "SATIN NIGHT SUIT",
+   "item_short_name": "BNW",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-04-05 17:19:47"
+ },
+ {
+   "Id": 153,
+   "dt": "2025-04-05",
+   "item_full_name": "SATIN NAIGHT SUIT",
+   "item_short_name": "BNW",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-04-05 17:28:42"
+ },
+ {
+   "Id": 154,
+   "dt": "2025-04-05",
+   "item_full_name": "MALAI NIGHTY",
+   "item_short_name": "BNW",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-04-05 17:47:57"
+ },
+ {
+   "Id": 155,
+   "dt": "2025-04-10",
+   "item_full_name": "TOP ",
+   "item_short_name": "JF",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-04-10 11:24:47"
+ },
+ {
+   "Id": 156,
+   "dt": "2025-04-10",
+   "item_full_name": "TOPS",
+   "item_short_name": "(JF)",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-04-10 12:43:34"
+ },
+ {
+   "Id": 157,
+   "dt": "2025-04-18",
+   "item_full_name": "AC",
+   "item_short_name": "NIGHTY",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-04-18 11:24:40"
+ },
+ {
+   "Id": 158,
+   "dt": "2025-04-18",
+   "item_full_name": "NIGHTY",
+   "item_short_name": "AC",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-04-18 11:28:50"
+ },
+ {
+   "Id": 159,
+   "dt": "2025-04-19",
+   "item_full_name": "BACKLESS PADED BRA",
+   "item_short_name": "INVISIBRA LL",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-04-19 13:47:23"
+ },
+ {
+   "Id": 160,
+   "dt": "2025-04-20",
+   "item_full_name": "KYRA SPORTS BRA",
+   "item_short_name": "SONARI",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-04-20 18:20:49"
+ },
+ {
+   "Id": 161,
+   "dt": "2025-04-27",
+   "item_full_name": "KURTI 2PC",
+   "item_short_name": "NRC",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-04-27 12:51:30"
+ },
+ {
+   "Id": 162,
+   "dt": "2025-04-27",
+   "item_full_name": "KURTI GOWN 1PC",
+   "item_short_name": "NRC",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-04-27 12:57:18"
+ },
+ {
+   "Id": 163,
+   "dt": "2025-04-27",
+   "item_full_name": "KURTI 1PC",
+   "item_short_name": "NRC",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-04-27 13:01:10"
+ },
+ {
+   "Id": 164,
+   "dt": "2025-04-27",
+   "item_full_name": "LONG CORD SET",
+   "item_short_name": "NRC",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-04-27 13:09:41"
+ },
+ {
+   "Id": 165,
+   "dt": "2025-04-27",
+   "item_full_name": "CORD SET",
+   "item_short_name": "NRC",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-04-27 13:12:43"
+ },
+ {
+   "Id": 166,
+   "dt": "2025-04-27",
+   "item_full_name": "KURTI 3PC",
+   "item_short_name": "NRC",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-04-27 13:21:25"
+ },
+ {
+   "Id": 167,
+   "dt": "2025-04-28",
+   "item_full_name": "PATIALA DRESS 2PC.",
+   "item_short_name": "(NRC)",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-04-28 15:36:04"
+ },
+ {
+   "Id": 168,
+   "dt": "2025-04-30",
+   "item_full_name": "DENIM PANT",
+   "item_short_name": "(NRC)",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-04-30 15:30:10"
+ },
+ {
+   "Id": 169,
+   "dt": "2025-05-01",
+   "item_full_name": "KAFTAN (3491)",
+   "item_short_name": "HINAL",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-05-01 15:13:29"
+ },
+ {
+   "Id": 170,
+   "dt": "2025-05-01",
+   "item_full_name": "KAFTAN",
+   "item_short_name": "HINAL",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-05-01 15:18:44"
+ },
+ {
+   "Id": 171,
+   "dt": "2025-05-01",
+   "item_full_name": "NIGHTY",
+   "item_short_name": "HINAL",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-05-01 15:20:25"
+ },
+ {
+   "Id": 172,
+   "dt": "2025-05-02",
+   "item_full_name": "NIGHT SUIT",
+   "item_short_name": "HINAL",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-05-02 13:34:42"
+ },
+ {
+   "Id": 173,
+   "dt": "2025-05-03",
+   "item_full_name": "BATHROBE",
+   "item_short_name": "HINAL",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-05-03 15:14:15"
+ },
+ {
+   "Id": 174,
+   "dt": "2025-05-03",
+   "item_full_name": "T SHIRT",
+   "item_short_name": "P",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-05-03 15:43:38"
+ },
+ {
+   "Id": 175,
+   "dt": "2025-05-13",
+   "item_full_name": "ABSORB P.P.",
+   "item_short_name": "SONARI",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-05-13 18:10:09"
+ },
+ {
+   "Id": 176,
+   "dt": "2025-05-13",
+   "item_full_name": "RED ROSE ",
+   "item_short_name": "BATHROBE",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-05-13 18:28:42"
+ },
+ {
+   "Id": 177,
+   "dt": "2025-05-13",
+   "item_full_name": "SMOKING NIGHTY",
+   "item_short_name": "F.F.",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-05-13 18:33:32"
+ },
+ {
+   "Id": 178,
+   "dt": "2025-05-13",
+   "item_full_name": "COTTON PROCIAN NIGHTY",
+   "item_short_name": "F.F.",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-05-13 18:36:32"
+ },
+ {
+   "Id": 179,
+   "dt": "2025-05-13",
+   "item_full_name": "COTTON SUPER NIGHTY",
+   "item_short_name": "F.F.",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-05-13 18:37:38"
+ },
+ {
+   "Id": 180,
+   "dt": "2025-05-13",
+   "item_full_name": "FEEDING  NIGHTY",
+   "item_short_name": "A.",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-05-13 18:41:10"
+ },
+ {
+   "Id": 181,
+   "dt": "2025-05-16",
+   "item_full_name": "NIGHT PAJAMA",
+   "item_short_name": "R.R.",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-05-16 12:04:51"
+ },
+ {
+   "Id": 182,
+   "dt": "2025-05-16",
+   "item_full_name": "NIGHT SHORTS",
+   "item_short_name": "R.R.",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-05-16 12:17:12"
+ },
+ {
+   "Id": 183,
+   "dt": "2025-05-25",
+   "item_full_name": "KURTI SET 3PC ",
+   "item_short_name": "JF",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-05-25 12:12:18"
+ },
+ {
+   "Id": 184,
+   "dt": "2025-05-25",
+   "item_full_name": "KURTIS",
+   "item_short_name": "JF",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-05-25 12:21:24"
+ },
+ {
+   "Id": 185,
+   "dt": "2025-05-29",
+   "item_full_name": "T SHIRT [F]",
+   "item_short_name": "F",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-05-29 16:28:58"
+ },
+ {
+   "Id": 186,
+   "dt": "2025-05-29",
+   "item_full_name": "LEGGINGS CHUDIDAR",
+   "item_short_name": "MA",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-05-29 16:31:51"
+ },
+ {
+   "Id": 187,
+   "dt": "2025-05-29",
+   "item_full_name": "TRACK PANT ",
+   "item_short_name": "JK",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-05-29 16:49:56"
+ },
+ {
+   "Id": 188,
+   "dt": "2025-05-29",
+   "item_full_name": "YOGA PANT",
+   "item_short_name": "IMP",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-05-29 20:41:59"
+ },
+ {
+   "Id": 189,
+   "dt": "2025-06-04",
+   "item_full_name": "KURTI 3PC",
+   "item_short_name": "TQ",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-06-04 15:09:28"
+ },
+ {
+   "Id": 190,
+   "dt": "2025-06-04",
+   "item_full_name": "KURTI 3PC ",
+   "item_short_name": "TC",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-06-04 15:43:18"
+ },
+ {
+   "Id": 191,
+   "dt": "2025-06-04",
+   "item_full_name": "KURTY SET 3PC",
+   "item_short_name": "TC",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-06-04 15:52:55"
+ },
+ {
+   "Id": 192,
+   "dt": "2025-06-04",
+   "item_full_name": "KURTI 2PC",
+   "item_short_name": "TC",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-06-04 17:56:00"
+ },
+ {
+   "Id": 193,
+   "dt": "2025-06-04",
+   "item_full_name": "KALI SET 3PC",
+   "item_short_name": "TC",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-06-04 17:58:22"
+ },
+ {
+   "Id": 194,
+   "dt": "2025-06-04",
+   "item_full_name": "DUPATTA KURTI 2PC",
+   "item_short_name": "TC",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-06-04 18:01:22"
+ },
+ {
+   "Id": 195,
+   "dt": "2025-06-04",
+   "item_full_name": "AFGHAN KURTI SET 2PC",
+   "item_short_name": "TC",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-06-04 18:05:46"
+ },
+ {
+   "Id": 196,
+   "dt": "2025-06-04",
+   "item_full_name": "KURTI SET 3PC",
+   "item_short_name": "TC",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-06-04 18:07:36"
+ },
+ {
+   "Id": 197,
+   "dt": "2025-06-04",
+   "item_full_name": "KASHMIRI KURTI SET 3PC",
+   "item_short_name": "TC",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-06-04 18:09:52"
+ },
+ {
+   "Id": 198,
+   "dt": "2025-06-04",
+   "item_full_name": "GOWN 1PC",
+   "item_short_name": "TC",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-06-04 18:16:50"
+ },
+ {
+   "Id": 199,
+   "dt": "2025-06-04",
+   "item_full_name": "JACKET KURTI  3PC",
+   "item_short_name": "TC",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-06-04 18:22:46"
+ },
+ {
+   "Id": 200,
+   "dt": "2025-06-04",
+   "item_full_name": "SHORT KURTI",
+   "item_short_name": "TC",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-06-04 18:26:52"
+ },
+ {
+   "Id": 201,
+   "dt": "2025-06-04",
+   "item_full_name": "SHARARA KURTI SET 3PC",
+   "item_short_name": "TC",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-06-04 18:35:06"
+ },
+ {
+   "Id": 202,
+   "dt": "2025-06-04",
+   "item_full_name": "KURTI 2PC SET",
+   "item_short_name": "TC",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-06-04 18:36:37"
+ },
+ {
+   "Id": 203,
+   "dt": "2025-06-04",
+   "item_full_name": "KURTI SET 2PC",
+   "item_short_name": "TC",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-06-04 18:45:59"
+ },
+ {
+   "Id": 204,
+   "dt": "2025-06-04",
+   "item_full_name": "GOWN 2PC",
+   "item_short_name": "TC",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-06-04 18:53:09"
+ },
+ {
+   "Id": 205,
+   "dt": "2025-06-04",
+   "item_full_name": "SHORT KURTI 1PC",
+   "item_short_name": "TC",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-06-04 18:59:33"
+ },
+ {
+   "Id": 206,
+   "dt": "2025-06-04",
+   "item_full_name": "ALIA KURTI SET 2PC",
+   "item_short_name": "TC",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-06-04 19:02:59"
+ },
+ {
+   "Id": 207,
+   "dt": "2025-06-04",
+   "item_full_name": "ALIA KURTI SET 3PC",
+   "item_short_name": "TC",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-06-04 19:13:11"
+ },
+ {
+   "Id": 208,
+   "dt": "2025-06-04",
+   "item_full_name": " KURTI SET 3PC",
+   "item_short_name": "TC",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-06-04 19:14:43"
+ },
+ {
+   "Id": 209,
+   "dt": "2025-06-04",
+   "item_full_name": "CORD SET 2PC",
+   "item_short_name": "TC",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-06-04 19:33:29"
+ },
+ {
+   "Id": 210,
+   "dt": "2025-06-04",
+   "item_full_name": "LILEN KURTI SET 3PC",
+   "item_short_name": "TC",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-06-04 20:18:52"
+ },
+ {
+   "Id": 211,
+   "dt": "2025-06-04",
+   "item_full_name": "KALI SHORT KURTI 1PC",
+   "item_short_name": "TC",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-06-04 20:33:37"
+ },
+ {
+   "Id": 212,
+   "dt": "2025-06-04",
+   "item_full_name": "STRAIGHT KURTI SET 3PC",
+   "item_short_name": "TC",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-06-04 20:40:25"
+ },
+ {
+   "Id": 213,
+   "dt": "2025-06-05",
+   "item_full_name": "STRAIGHT PANT KURTI SET 3PC",
+   "item_short_name": "TC",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-06-05 10:53:18"
+ },
+ {
+   "Id": 214,
+   "dt": "2025-06-05",
+   "item_full_name": "KALI KURTI SET 3PC",
+   "item_short_name": "TC",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-06-05 10:55:38"
+ },
+ {
+   "Id": 215,
+   "dt": "2025-06-05",
+   "item_full_name": "JACQUAED KURTI SET 3PC",
+   "item_short_name": "TC",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-06-05 11:03:49"
+ },
+ {
+   "Id": 216,
+   "dt": "2025-06-05",
+   "item_full_name": " KURTI PANT SET 3PC",
+   "item_short_name": "TC",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-06-05 11:06:35"
+ },
+ {
+   "Id": 217,
+   "dt": "2025-06-09",
+   "item_full_name": "RAYON ACORD SET ",
+   "item_short_name": "HINAL",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-06-09 13:20:11"
+ },
+ {
+   "Id": 218,
+   "dt": "2025-06-09",
+   "item_full_name": "MATERNITY FD KURTI ",
+   "item_short_name": "MS",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-06-09 16:46:11"
+ },
+ {
+   "Id": 219,
+   "dt": "2025-06-18",
+   "item_full_name": "PASTEL",
+   "item_short_name": "LITTLE LACY",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-06-18 14:03:05"
+ },
+ {
+   "Id": 220,
+   "dt": "2025-06-18",
+   "item_full_name": "MARI GOLD",
+   "item_short_name": "FANCY",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-06-18 14:05:43"
+ },
+ {
+   "Id": 221,
+   "dt": "2025-06-18",
+   "item_full_name": "IRIS",
+   "item_short_name": "FANCY",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-06-18 14:07:30"
+ },
+ {
+   "Id": 222,
+   "dt": "2025-06-18",
+   "item_full_name": " PASTEL",
+   "item_short_name": "L.L",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-06-18 14:20:39"
+ },
+ {
+   "Id": 223,
+   "dt": "2025-06-18",
+   "item_full_name": "MARIGOLD",
+   "item_short_name": "FANCY",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-06-18 14:23:06"
+ },
+ {
+   "Id": 224,
+   "dt": "2025-06-18",
+   "item_full_name": "DAISY",
+   "item_short_name": "FANCY",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-06-18 14:26:00"
+ },
+ {
+   "Id": 225,
+   "dt": "2025-06-18",
+   "item_full_name": "BLOSSOM",
+   "item_short_name": "FANCY",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-06-18 14:27:36"
+ },
+ {
+   "Id": 226,
+   "dt": "2025-06-23",
+   "item_full_name": "PADDED SET",
+   "item_short_name": "L.L",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-06-23 12:09:26"
+ },
+ {
+   "Id": 227,
+   "dt": "2025-06-26",
+   "item_full_name": "SHAPE WEAR",
+   "item_short_name": "Z",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-06-26 13:15:34"
+ },
+ {
+   "Id": 228,
+   "dt": "2025-06-26",
+   "item_full_name": "DRY FIT PANT",
+   "item_short_name": "R",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-06-26 13:32:05"
+ },
+ {
+   "Id": 229,
+   "dt": "2025-06-28",
+   "item_full_name": "KURTI SET (2PC)",
+   "item_short_name": "ROSE PETALS(B2)",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-06-28 19:23:27"
+ },
+ {
+   "Id": 230,
+   "dt": "2025-06-28",
+   "item_full_name": "KURTI SET (2PC)",
+   "item_short_name": "[NR]",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-06-28 19:27:29"
+ },
+ {
+   "Id": 231,
+   "dt": "2025-06-28",
+   "item_full_name": "KURTI SET (2PC)",
+   "item_short_name": "NR",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-06-28 19:28:14"
+ },
+ {
+   "Id": 232,
+   "dt": "2025-06-28",
+   "item_full_name": "KURTI SET (2P)",
+   "item_short_name": "NR",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-06-28 19:34:06"
+ },
+ {
+   "Id": 233,
+   "dt": "2025-07-01",
+   "item_full_name": "LONG GOWN DENIM",
+   "item_short_name": "NR",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-07-01 12:32:22"
+ },
+ {
+   "Id": 234,
+   "dt": "2025-07-01",
+   "item_full_name": "DAISY",
+   "item_short_name": "N",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-07-01 13:22:03"
+ },
+ {
+   "Id": 235,
+   "dt": "2025-07-01",
+   "item_full_name": "XYZ",
+   "item_short_name": "MM",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-07-01 14:10:02"
+ },
+ {
+   "Id": 236,
+   "dt": "2025-07-01",
+   "item_full_name": "KKK",
+   "item_short_name": "K",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-07-01 14:14:15"
+ },
+ {
+   "Id": 237,
+   "dt": "2025-07-04",
+   "item_full_name": "AKR",
+   "item_short_name": "RR",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-07-04 16:11:07"
+ },
+ {
+   "Id": 238,
+   "dt": "2025-07-09",
+   "item_full_name": "CT U -CUT SLIP",
+   "item_short_name": "RIZA",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-07-09 17:50:50"
+ },
+ {
+   "Id": 239,
+   "dt": "2025-07-09",
+   "item_full_name": "CT STRAIGHT -CU",
+   "item_short_name": "RIZA",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-07-09 17:57:21"
+ },
+ {
+   "Id": 240,
+   "dt": "2025-07-09",
+   "item_full_name": "CT TANK TOP SLIP",
+   "item_short_name": "RIZA",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-07-09 18:08:10"
+ },
+ {
+   "Id": 241,
+   "dt": "2025-07-09",
+   "item_full_name": " CT TANK TOP",
+   "item_short_name": "RIZA",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-07-09 18:57:29"
+ },
+ {
+   "Id": 242,
+   "dt": "2025-07-10",
+   "item_full_name": "NIGHTSUIT",
+   "item_short_name": "ANGELINA",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-07-10 14:13:31"
+ },
+ {
+   "Id": 243,
+   "dt": "2025-07-10",
+   "item_full_name": "SATIN NIGHTY",
+   "item_short_name": "ANGELINA",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-07-10 14:50:05"
+ },
+ {
+   "Id": 244,
+   "dt": "2025-07-10",
+   "item_full_name": "KAFTAN NIGHTY",
+   "item_short_name": "ANGELINA",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-07-10 15:02:26"
+ },
+ {
+   "Id": 245,
+   "dt": "2025-07-15",
+   "item_full_name": "TOP -02 SLIP",
+   "item_short_name": "F.D",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-07-15 19:37:36"
+ },
+ {
+   "Id": 246,
+   "dt": "2025-07-15",
+   "item_full_name": "TOP -03  SLIP",
+   "item_short_name": "F.D",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-07-15 20:19:00"
+ },
+ {
+   "Id": 247,
+   "dt": "2025-07-15",
+   "item_full_name": "TOP -01  SLIP",
+   "item_short_name": "F.D",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-07-15 20:19:31"
+ },
+ {
+   "Id": 248,
+   "dt": "2025-07-15",
+   "item_full_name": "TOP -02  SLIP",
+   "item_short_name": "F.D",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-07-15 20:20:38"
+ },
+ {
+   "Id": 249,
+   "dt": "2025-07-16",
+   "item_full_name": "DZN-LOVELY",
+   "item_short_name": "RR",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-07-16 11:53:49"
+ },
+ {
+   "Id": 250,
+   "dt": "2025-07-16",
+   "item_full_name": "DZN-TOP -04",
+   "item_short_name": "RR",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-07-16 11:55:20"
+ },
+ {
+   "Id": 251,
+   "dt": "2025-07-16",
+   "item_full_name": "ROXY",
+   "item_short_name": "RR",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-07-16 12:02:21"
+ },
+ {
+   "Id": 252,
+   "dt": "2025-07-16",
+   "item_full_name": "ROXY",
+   "item_short_name": "FD",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-07-16 12:03:42"
+ },
+ {
+   "Id": 253,
+   "dt": "2025-07-24",
+   "item_full_name": "KURTI 1 PC",
+   "item_short_name": "JUST FEEL",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-07-24 12:32:00"
+ },
+ {
+   "Id": 254,
+   "dt": "2025-07-26",
+   "item_full_name": "ABSORB P.P",
+   "item_short_name": "SONARI",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-07-26 13:53:57"
+ },
+ {
+   "Id": 255,
+   "dt": "2025-07-29",
+   "item_full_name": "TSHIRT",
+   "item_short_name": "L",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-07-29 11:43:37"
+ },
+ {
+   "Id": 256,
+   "dt": "2025-07-29",
+   "item_full_name": "TSHORT",
+   "item_short_name": "LOBSTER",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-07-29 13:13:50"
+ },
+ {
+   "Id": 257,
+   "dt": "2025-07-29",
+   "item_full_name": "TLONG",
+   "item_short_name": "LOBSTER",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-07-29 13:21:16"
+ },
+ {
+   "Id": 258,
+   "dt": "2025-07-29",
+   "item_full_name": "T34",
+   "item_short_name": "LOBSTER",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-07-29 13:24:24"
+ },
+ {
+   "Id": 259,
+   "dt": "2025-07-30",
+   "item_full_name": "PANTIES",
+   "item_short_name": "IN CARE",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-07-30 12:51:11"
+ },
+ {
+   "Id": 260,
+   "dt": "2025-07-30",
+   "item_full_name": "SLAX",
+   "item_short_name": "IN CARE",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-07-30 13:29:02"
+ },
+ {
+   "Id": 261,
+   "dt": "2025-07-30",
+   "item_full_name": "SHAPERZ 1 PANTIES",
+   "item_short_name": "IN CARE",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-07-30 13:31:25"
+ },
+ {
+   "Id": 262,
+   "dt": "2025-07-30",
+   "item_full_name": "SHAPERZ 3 PANTIES",
+   "item_short_name": "IN CARE",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-07-30 13:40:04"
+ },
+ {
+   "Id": 263,
+   "dt": "2025-07-30",
+   "item_full_name": "BLUEBELL PRINT",
+   "item_short_name": "FANCY",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-07-30 19:17:12"
+ },
+ {
+   "Id": 264,
+   "dt": "2025-07-30",
+   "item_full_name": "SEAMLESS PANTY",
+   "item_short_name": "FANCY",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-07-30 19:19:45"
+ },
+ {
+   "Id": 265,
+   "dt": "2025-07-30",
+   "item_full_name": "SEAMLESS PANTY",
+   "item_short_name": "INCARE",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-07-30 19:22:16"
+ },
+ {
+   "Id": 266,
+   "dt": "2025-07-30",
+   "item_full_name": "LILY",
+   "item_short_name": "FENCY",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-07-30 20:14:27"
+ },
+ {
+   "Id": 267,
+   "dt": "2025-07-30",
+   "item_full_name": "JASMINE ",
+   "item_short_name": "FENCY",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-07-30 20:21:09"
+ },
+ {
+   "Id": 268,
+   "dt": "2025-07-30",
+   "item_full_name": "GUL",
+   "item_short_name": "FENCY",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-07-30 20:23:17"
+ },
+ {
+   "Id": 269,
+   "dt": "2025-07-30",
+   "item_full_name": "ROSE",
+   "item_short_name": "FENCY",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-07-30 20:27:17"
+ },
+ {
+   "Id": 270,
+   "dt": "2025-07-30",
+   "item_full_name": "BREATHE- C",
+   "item_short_name": "EXTRALIFE",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-07-30 20:32:47"
+ },
+ {
+   "Id": 271,
+   "dt": "2025-07-30",
+   "item_full_name": "BREATHE- D",
+   "item_short_name": "EXTRALIFE",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-07-30 20:33:16"
+ },
+ {
+   "Id": 272,
+   "dt": "2025-08-05",
+   "item_full_name": "CAPRI",
+   "item_short_name": "LOBSTER",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-08-05 10:59:40"
+ },
+ {
+   "Id": 273,
+   "dt": "2025-08-05",
+   "item_full_name": "NIGHT SUIT",
+   "item_short_name": "COMFORT",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-08-05 11:03:55"
+ },
+ {
+   "Id": 274,
+   "dt": "2025-08-05",
+   "item_full_name": "NIGHT SUIT (CHAMKI )",
+   "item_short_name": "ANGELINA",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-08-05 11:05:46"
+ },
+ {
+   "Id": 275,
+   "dt": "2025-08-05",
+   "item_full_name": "NIGHT SUIT SATIN",
+   "item_short_name": "FORAM",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-08-05 11:19:28"
+ },
+ {
+   "Id": 276,
+   "dt": "2025-08-05",
+   "item_full_name": "NEXA SET ",
+   "item_short_name": "SONARI",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-08-05 19:47:26"
+ },
+ {
+   "Id": 277,
+   "dt": "2025-08-05",
+   "item_full_name": "BIANCA ",
+   "item_short_name": "SONARI",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-08-05 19:48:47"
+ },
+ {
+   "Id": 278,
+   "dt": "2025-08-05",
+   "item_full_name": "LOVE SET",
+   "item_short_name": "SONARI",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-08-05 19:49:49"
+ },
+ {
+   "Id": 279,
+   "dt": "2025-08-05",
+   "item_full_name": "ESTER SET ",
+   "item_short_name": "SONARI",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-08-05 19:50:34"
+ },
+ {
+   "Id": 280,
+   "dt": "2025-08-05",
+   "item_full_name": "THUMB SOCKS",
+   "item_short_name": "SUPERSOX",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-08-05 19:52:35"
+ },
+ {
+   "Id": 281,
+   "dt": "2025-08-05",
+   "item_full_name": "YOGA  SOCKS",
+   "item_short_name": "SUPERSOX",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-08-05 19:53:28"
+ },
+ {
+   "Id": 282,
+   "dt": "2025-08-13",
+   "item_full_name": "SLAX",
+   "item_short_name": "F",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-08-13 19:11:27"
+ },
+ {
+   "Id": 283,
+   "dt": "2025-08-13",
+   "item_full_name": "PANTY",
+   "item_short_name": "R.R",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-08-13 19:41:30"
+ },
+ {
+   "Id": 284,
+   "dt": "2025-08-13",
+   "item_full_name": "NIGHT SHORTS",
+   "item_short_name": "A",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-08-13 20:08:49"
+ },
+ {
+   "Id": 285,
+   "dt": "2025-08-13",
+   "item_full_name": "NIGHT SUIT CAPRI",
+   "item_short_name": "A",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-08-13 20:10:13"
+ },
+ {
+   "Id": 286,
+   "dt": "2025-08-13",
+   "item_full_name": "NIGHT SUIT SHORTS",
+   "item_short_name": "A",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-08-13 20:13:52"
+ },
+ {
+   "Id": 287,
+   "dt": "2025-08-15",
+   "item_full_name": "CHURIDAR ",
+   "item_short_name": "DOLLAR",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-08-15 13:33:33"
+ },
+ {
+   "Id": 288,
+   "dt": "2025-08-15",
+   "item_full_name": "ANKLE LENGTH",
+   "item_short_name": "DOLLAR",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-08-15 13:39:44"
+ },
+ {
+   "Id": 289,
+   "dt": "2025-08-21",
+   "item_full_name": "PUSHUP  BRA",
+   "item_short_name": "IMP",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-08-21 13:00:51"
+ },
+ {
+   "Id": 290,
+   "dt": "2025-08-21",
+   "item_full_name": "SEAMLESS SPRT BRA",
+   "item_short_name": "IMP",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-08-21 13:06:02"
+ },
+ {
+   "Id": 291,
+   "dt": "2025-08-25",
+   "item_full_name": "PANTIES",
+   "item_short_name": "RIZA",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-08-25 14:34:30"
+ },
+ {
+   "Id": 292,
+   "dt": "2025-08-30",
+   "item_full_name": "T- SHIRT",
+   "item_short_name": "DOLLAR",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-08-30 17:43:35"
+ },
+ {
+   "Id": 293,
+   "dt": "2025-09-08",
+   "item_full_name": "ZARA",
+   "item_short_name": "N",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-09-08 18:37:29"
+ },
+ {
+   "Id": 294,
+   "dt": "2025-09-10",
+   "item_full_name": "TARA",
+   "item_short_name": "L",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-09-10 18:11:22"
+ },
+ {
+   "Id": 295,
+   "dt": "2025-09-10",
+   "item_full_name": "PADDED PANTY",
+   "item_short_name": "SONARI",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-09-10 18:28:15"
+ },
+ {
+   "Id": 296,
+   "dt": "2025-09-10",
+   "item_full_name": "ALFINE GOWN",
+   "item_short_name": "F.F",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-09-10 18:31:41"
+ },
+ {
+   "Id": 297,
+   "dt": "2025-09-10",
+   "item_full_name": "KHADI GOWN",
+   "item_short_name": "F.F",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-09-10 18:32:20"
+ },
+ {
+   "Id": 298,
+   "dt": "2025-09-10",
+   "item_full_name": "COTTON GOWN",
+   "item_short_name": "F.F",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-09-10 18:34:21"
+ },
+ {
+   "Id": 299,
+   "dt": "2025-09-10",
+   "item_full_name": "ALFINE  GOWN",
+   "item_short_name": "F.F",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-09-10 18:35:11"
+ },
+ {
+   "Id": 300,
+   "dt": "2025-09-10",
+   "item_full_name": "ALPINE F.D  GOWN",
+   "item_short_name": "JINAL",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-09-10 18:38:42"
+ },
+ {
+   "Id": 301,
+   "dt": "2025-09-10",
+   "item_full_name": "ALPINE F.D  NIGHTY",
+   "item_short_name": "JINAL",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-09-10 18:41:11"
+ },
+ {
+   "Id": 302,
+   "dt": "2025-09-10",
+   "item_full_name": "P.V F.D  NIGHTY",
+   "item_short_name": "JINAL",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-09-10 18:41:42"
+ },
+ {
+   "Id": 303,
+   "dt": "2025-09-10",
+   "item_full_name": "HOSIERY  F.D  NIGHTY",
+   "item_short_name": "JINAL",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-09-10 18:44:41"
+ },
+ {
+   "Id": 304,
+   "dt": "2025-09-10",
+   "item_full_name": "ALPINE  F.D  NIGHTY",
+   "item_short_name": "JINAL",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-09-10 18:45:31"
+ },
+ {
+   "Id": 305,
+   "dt": "2025-09-10",
+   "item_full_name": "BESTIE",
+   "item_short_name": "L.L",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-09-10 19:31:27"
+ },
+ {
+   "Id": 306,
+   "dt": "2025-09-12",
+   "item_full_name": "ZL 1207",
+   "item_short_name": "ZIVIRA",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-09-12 19:55:52"
+ },
+ {
+   "Id": 307,
+   "dt": "2025-09-12",
+   "item_full_name": "1141",
+   "item_short_name": "EXTRALIFE",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-09-12 19:57:15"
+ },
+ {
+   "Id": 308,
+   "dt": "2025-09-12",
+   "item_full_name": "1140",
+   "item_short_name": "EXTRALIFE",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-09-12 20:00:26"
+ },
+ {
+   "Id": 309,
+   "dt": "2025-09-12",
+   "item_full_name": "1142",
+   "item_short_name": "EXTRALIFE",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-09-12 20:01:44"
+ },
+ {
+   "Id": 310,
+   "dt": "2025-09-15",
+   "item_full_name": "SLIP",
+   "item_short_name": "DOLLAR",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-09-15 12:05:59"
+ },
+ {
+   "Id": 311,
+   "dt": "2025-09-18",
+   "item_full_name": "BABY DOLL",
+   "item_short_name": "ANGELINA",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-09-18 12:51:15"
+ },
+ {
+   "Id": 312,
+   "dt": "2025-09-18",
+   "item_full_name": "BEDROOM WEAR 2PC",
+   "item_short_name": "ANGELINA",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-09-18 12:56:24"
+ },
+ {
+   "Id": 313,
+   "dt": "2025-09-18",
+   "item_full_name": "P.V. GOWN",
+   "item_short_name": "ANGELINA",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-09-18 13:02:41"
+ },
+ {
+   "Id": 314,
+   "dt": "2025-09-18",
+   "item_full_name": "ALPINE GOWN",
+   "item_short_name": "ANGELINA",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-09-18 13:03:37"
+ },
+ {
+   "Id": 315,
+   "dt": "2025-09-19",
+   "item_full_name": "DRYFIT LEGGING",
+   "item_short_name": "RIZA",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-09-19 14:44:21"
+ },
+ {
+   "Id": 316,
+   "dt": "2025-09-21",
+   "item_full_name": "WIRE FREE BRA1722 ",
+   "item_short_name": "JOCKEY",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-09-21 15:47:50"
+ },
+ {
+   "Id": 317,
+   "dt": "2025-09-21",
+   "item_full_name": "HOSIERY GOWN",
+   "item_short_name": "ANGELINA",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-09-21 16:03:13"
+ },
+ {
+   "Id": 318,
+   "dt": "2025-09-21",
+   "item_full_name": "BACKLESS BRA",
+   "item_short_name": "IMP",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-09-21 16:10:15"
+ },
+ {
+   "Id": 319,
+   "dt": "2025-09-25",
+   "item_full_name": "ALPINE MIDDI NIGHTY",
+   "item_short_name": "COMFORT",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-09-25 18:16:54"
+ },
+ {
+   "Id": 320,
+   "dt": "2025-09-25",
+   "item_full_name": "COTTON NIGHTY",
+   "item_short_name": "COMFORT",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-09-25 18:17:44"
+ },
+ {
+   "Id": 321,
+   "dt": "2025-09-25",
+   "item_full_name": "ALPINE NIGHTY",
+   "item_short_name": "COMFORT",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-09-25 18:48:26"
+ },
+ {
+   "Id": 322,
+   "dt": "2025-09-25",
+   "item_full_name": "ALPINE  NIGHTY",
+   "item_short_name": "COMFORT",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-09-25 18:53:20"
+ },
+ {
+   "Id": 323,
+   "dt": "2025-09-25",
+   "item_full_name": "COTTON  NIGHTY",
+   "item_short_name": "COMFORT",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-09-25 19:00:38"
+ },
+ {
+   "Id": 324,
+   "dt": "2025-09-25",
+   "item_full_name": "SWISS MIDDI  NIGHTY",
+   "item_short_name": "COMFORT",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-09-25 19:02:38"
+ },
+ {
+   "Id": 325,
+   "dt": "2025-09-25",
+   "item_full_name": "SATIN  NIGHTY",
+   "item_short_name": "COMFORT",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-09-25 19:03:51"
+ },
+ {
+   "Id": 326,
+   "dt": "2025-09-25",
+   "item_full_name": "ALPINE NIGHTY",
+   "item_short_name": "F.F.",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-09-25 19:22:37"
+ },
+ {
+   "Id": 327,
+   "dt": "2025-09-25",
+   "item_full_name": "ALPINE NIGHTY",
+   "item_short_name": "ANGELINA",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-09-25 19:28:14"
+ },
+ {
+   "Id": 328,
+   "dt": "2025-09-26",
+   "item_full_name": "PRT PANTY",
+   "item_short_name": "DOLLAR ",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-09-26 17:56:30"
+ },
+ {
+   "Id": 329,
+   "dt": "2025-09-26",
+   "item_full_name": " PANTY",
+   "item_short_name": "DOLLAR ",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-09-26 17:58:50"
+ },
+ {
+   "Id": 330,
+   "dt": "2025-09-26",
+   "item_full_name": "PANTY",
+   "item_short_name": "DOLLAR",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-09-26 18:13:25"
+ },
+ {
+   "Id": 331,
+   "dt": "2025-09-27",
+   "item_full_name": "HIPSTER PANTY",
+   "item_short_name": "DOLLAR",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-09-27 12:27:10"
+ },
+ {
+   "Id": 332,
+   "dt": "2025-09-27",
+   "item_full_name": "CYCLING SHORTS",
+   "item_short_name": "DOLLAR",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-09-27 13:16:05"
+ },
+ {
+   "Id": 333,
+   "dt": "2025-09-28",
+   "item_full_name": "N CIRCLE",
+   "item_short_name": "N",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-09-28 16:13:12"
+ },
+ {
+   "Id": 334,
+   "dt": "2025-09-29",
+   "item_full_name": "P.V. NIGHT SUIT",
+   "item_short_name": "ANGELINA",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-09-29 18:57:23"
+ },
+ {
+   "Id": 335,
+   "dt": "2025-09-29",
+   "item_full_name": "NIGHT SUIT",
+   "item_short_name": "FORAM",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-09-29 19:04:33"
+ },
+ {
+   "Id": 336,
+   "dt": "2025-09-29",
+   "item_full_name": "NIGHT SUIT",
+   "item_short_name": "ANGELINA",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-09-29 19:05:39"
+ },
+ {
+   "Id": 337,
+   "dt": "2025-09-29",
+   "item_full_name": "HOSIERY NIGHT SUIT",
+   "item_short_name": "ANGELINA",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-09-29 20:01:31"
+ },
+ {
+   "Id": 338,
+   "dt": "2025-09-29",
+   "item_full_name": " NIGHT SUIT",
+   "item_short_name": "ANGELINA",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-09-29 20:03:24"
+ },
+ {
+   "Id": 339,
+   "dt": "2025-09-29",
+   "item_full_name": " HOSIERY NIGHT SUIT",
+   "item_short_name": "ANGELINA",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-09-29 20:04:04"
+ },
+ {
+   "Id": 340,
+   "dt": "2025-09-29",
+   "item_full_name": " NIGHT SUIT",
+   "item_short_name": "COMFORT",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-09-29 20:05:05"
+ },
+ {
+   "Id": 341,
+   "dt": "2025-09-29",
+   "item_full_name": "THREE FOURTH SHIRT",
+   "item_short_name": "R.R.",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-09-29 20:12:42"
+ },
+ {
+   "Id": 342,
+   "dt": "2025-09-29",
+   "item_full_name": "THREE FOURTH T-SHIRT",
+   "item_short_name": "R.R.",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-09-29 20:13:00"
+ },
+ {
+   "Id": 343,
+   "dt": "2025-09-29",
+   "item_full_name": "THREE FOURTH T-SHIRT",
+   "item_short_name": "AROLISA",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-09-29 20:17:27"
+ },
+ {
+   "Id": 344,
+   "dt": "2025-10-03",
+   "item_full_name": "ROXXY",
+   "item_short_name": "FLORICH",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-10-03 11:26:10"
+ },
+ {
+   "Id": 345,
+   "dt": "2025-10-06",
+   "item_full_name": "LIBRA ",
+   "item_short_name": "D-18 ( D )",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-10-06 20:25:08"
+ },
+ {
+   "Id": 346,
+   "dt": "2025-10-06",
+   "item_full_name": " D-18 (C)",
+   "item_short_name": "LIBRA",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-10-06 20:28:12"
+ },
+ {
+   "Id": 347,
+   "dt": "2025-10-06",
+   "item_full_name": " D-20 (D)",
+   "item_short_name": "LIBRA",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-10-06 20:29:09"
+ },
+ {
+   "Id": 348,
+   "dt": "2025-10-06",
+   "item_full_name": "ROSE (B)",
+   "item_short_name": "FLORICH",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-10-06 20:32:18"
+ },
+ {
+   "Id": 349,
+   "dt": "2025-10-06",
+   "item_full_name": "JUHI (B)",
+   "item_short_name": "FLORICH",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-10-06 20:34:15"
+ },
+ {
+   "Id": 350,
+   "dt": "2025-10-06",
+   "item_full_name": "SAFRON (B)",
+   "item_short_name": "FLORICH",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-10-06 20:48:03"
+ },
+ {
+   "Id": 351,
+   "dt": "2025-10-07",
+   "item_full_name": "D-18 ( D)",
+   "item_short_name": "LIBRA",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-10-07 15:16:32"
+ },
+ {
+   "Id": 352,
+   "dt": "2025-10-07",
+   "item_full_name": "DIMPI ( C )",
+   "item_short_name": "LIBRA",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-10-07 15:18:10"
+ },
+ {
+   "Id": 353,
+   "dt": "2025-10-07",
+   "item_full_name": "JANU ( C )",
+   "item_short_name": "LIBRA",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-10-07 15:21:19"
+ },
+ {
+   "Id": 354,
+   "dt": "2025-10-07",
+   "item_full_name": "SIA ( C )",
+   "item_short_name": "LIBRA",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-10-07 15:22:38"
+ },
+ {
+   "Id": 355,
+   "dt": "2025-10-07",
+   "item_full_name": "BLOSSOM ( D )",
+   "item_short_name": "LIBRA",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-10-07 15:23:40"
+ },
+ {
+   "Id": 356,
+   "dt": "2025-10-07",
+   "item_full_name": "BLOOM -G",
+   "item_short_name": "LIBRA",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-10-07 19:01:37"
+ },
+ {
+   "Id": 357,
+   "dt": "2025-10-07",
+   "item_full_name": "TIERA -C",
+   "item_short_name": "LIBRA",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-10-07 19:02:28"
+ },
+ {
+   "Id": 358,
+   "dt": "2025-10-07",
+   "item_full_name": "PAANERI -B",
+   "item_short_name": "LIBRA",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-10-07 19:03:44"
+ },
+ {
+   "Id": 359,
+   "dt": "2025-10-07",
+   "item_full_name": "D-18 ( D )",
+   "item_short_name": "LIBRA",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-10-07 19:05:09"
+ },
+ {
+   "Id": 360,
+   "dt": "2025-10-07",
+   "item_full_name": "BLOOM - E ",
+   "item_short_name": "LIBRA",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-10-07 19:06:41"
+ },
+ {
+   "Id": 361,
+   "dt": "2025-10-07",
+   "item_full_name": "TIERA - D",
+   "item_short_name": "LIBRA",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-10-07 19:08:51"
+ },
+ {
+   "Id": 362,
+   "dt": "2025-10-07",
+   "item_full_name": "JANU - D",
+   "item_short_name": "LIBRA",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-10-07 19:09:28"
+ },
+ {
+   "Id": 363,
+   "dt": "2025-10-07",
+   "item_full_name": "SIA - D",
+   "item_short_name": "LIBRA",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-10-07 19:10:04"
+ },
+ {
+   "Id": 364,
+   "dt": "2025-10-07",
+   "item_full_name": "BLOOM -H ",
+   "item_short_name": "LIBRA",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-10-07 19:16:16"
+ },
+ {
+   "Id": 365,
+   "dt": "2025-10-08",
+   "item_full_name": "WELL PRO ",
+   "item_short_name": "IMP",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-10-08 16:09:04"
+ },
+ {
+   "Id": 366,
+   "dt": "2025-10-08",
+   "item_full_name": "WELL PRO SPRT BRA",
+   "item_short_name": "IMP",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-10-08 16:09:28"
+ },
+ {
+   "Id": 367,
+   "dt": "2025-10-08",
+   "item_full_name": "PADDED PANTY",
+   "item_short_name": "IMP",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-10-08 16:18:09"
+ },
+ {
+   "Id": 368,
+   "dt": "2025-10-08",
+   "item_full_name": "BOY SHORT PANTY",
+   "item_short_name": "SONARI",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-10-08 16:30:46"
+ },
+ {
+   "Id": 369,
+   "dt": "2025-10-08",
+   "item_full_name": "SLIP",
+   "item_short_name": "IMP",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-10-08 16:37:49"
+ },
+ {
+   "Id": 370,
+   "dt": "2025-10-08",
+   "item_full_name": " SEAMLESS SLIP",
+   "item_short_name": "IMP",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-10-08 16:38:45"
+ },
+ {
+   "Id": 371,
+   "dt": "2025-10-08",
+   "item_full_name": "SANDO SLIP",
+   "item_short_name": "IMP",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-10-08 16:40:14"
+ },
+ {
+   "Id": 372,
+   "dt": "2025-10-08",
+   "item_full_name": " SLIP",
+   "item_short_name": "IMP",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-10-08 16:40:53"
+ },
+ {
+   "Id": 373,
+   "dt": "2025-10-08",
+   "item_full_name": " T-BACK  SLIP",
+   "item_short_name": "IMP",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-10-08 16:42:40"
+ },
+ {
+   "Id": 374,
+   "dt": "2025-10-08",
+   "item_full_name": "SANDO  SLIP",
+   "item_short_name": "IMP",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-10-08 16:45:48"
+ },
+ {
+   "Id": 375,
+   "dt": "2025-10-08",
+   "item_full_name": "SANDO SEAMLESS  SLIP",
+   "item_short_name": "IMP",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-10-08 16:47:15"
+ },
+ {
+   "Id": 376,
+   "dt": "2025-10-08",
+   "item_full_name": "T-BACK  SLIP",
+   "item_short_name": "IMP",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-10-08 16:48:53"
+ },
+ {
+   "Id": 377,
+   "dt": "2025-10-08",
+   "item_full_name": "PREGNANCY PANTY",
+   "item_short_name": "R.R.",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-10-08 17:02:47"
+ },
+ {
+   "Id": 378,
+   "dt": "2025-10-08",
+   "item_full_name": "PERIOD PANTY",
+   "item_short_name": "R.R.",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-10-08 17:03:51"
+ },
+ {
+   "Id": 379,
+   "dt": "2025-10-11",
+   "item_full_name": "SHORTS",
+   "item_short_name": "ZIVIRA",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-10-11 18:07:31"
+ },
+ {
+   "Id": 380,
+   "dt": "2025-10-11",
+   "item_full_name": "ZL SB0108",
+   "item_short_name": "ZIVIRA",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-10-11 18:22:30"
+ },
+ {
+   "Id": 381,
+   "dt": "2025-10-11",
+   "item_full_name": "PRT 444 ",
+   "item_short_name": "LIBRA",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-10-11 18:32:00"
+ },
+ {
+   "Id": 382,
+   "dt": "2025-10-11",
+   "item_full_name": "FP 03 - SET",
+   "item_short_name": "LIBRA",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-10-11 18:37:39"
+ },
+ {
+   "Id": 383,
+   "dt": "2025-10-11",
+   "item_full_name": "RT - 445",
+   "item_short_name": "LIBRA",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-10-11 18:40:04"
+ },
+ {
+   "Id": 384,
+   "dt": "2025-10-11",
+   "item_full_name": "RT - 444",
+   "item_short_name": "LIBRA",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-10-11 18:42:55"
+ },
+ {
+   "Id": 385,
+   "dt": "2025-10-11",
+   "item_full_name": "COCOON ",
+   "item_short_name": "L.L.",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-10-11 18:54:25"
+ },
+ {
+   "Id": 386,
+   "dt": "2025-10-11",
+   "item_full_name": "SPRT BRA",
+   "item_short_name": "LIBRA",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-10-11 18:59:20"
+ },
+ {
+   "Id": 387,
+   "dt": "2025-10-11",
+   "item_full_name": "RT 444",
+   "item_short_name": "LIBRA",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-10-11 19:01:52"
+ },
+ {
+   "Id": 388,
+   "dt": "2025-10-12",
+   "item_full_name": "DENIM GOWN",
+   "item_short_name": "MIRA CHOICE",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-10-12 16:01:43"
+ },
+ {
+   "Id": 389,
+   "dt": "2025-10-12",
+   "item_full_name": "ALPINE NIGHTY",
+   "item_short_name": "MIRA CHOICE",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-10-12 16:52:14"
+ },
+ {
+   "Id": 390,
+   "dt": "2025-10-13",
+   "item_full_name": "NYRA",
+   "item_short_name": "L.L.",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-10-13 16:31:00"
+ },
+ {
+   "Id": 391,
+   "dt": "2025-10-13",
+   "item_full_name": "SOFT BRA",
+   "item_short_name": "L.L.",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-10-13 16:36:43"
+ },
+ {
+   "Id": 392,
+   "dt": "2025-10-13",
+   "item_full_name": "GRACEFULL",
+   "item_short_name": "EXTRALIFE",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-10-13 16:42:03"
+ },
+ {
+   "Id": 393,
+   "dt": "2025-10-13",
+   "item_full_name": "TARA SET",
+   "item_short_name": "L.L.",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-10-13 16:50:56"
+ },
+ {
+   "Id": 394,
+   "dt": "2025-10-13",
+   "item_full_name": "BELOVED -B",
+   "item_short_name": "EXTRALIFE",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-10-13 17:01:49"
+ },
+ {
+   "Id": 395,
+   "dt": "2025-10-13",
+   "item_full_name": "ICONIC SET",
+   "item_short_name": "L.L.",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-10-13 17:03:48"
+ },
+ {
+   "Id": 396,
+   "dt": "2025-10-13",
+   "item_full_name": "TRIANA SET",
+   "item_short_name": "L.L.",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-10-13 17:04:25"
+ },
+ {
+   "Id": 397,
+   "dt": "2025-10-13",
+   "item_full_name": "BRALETTE SET",
+   "item_short_name": "L.L.",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-10-13 17:05:27"
+ },
+ {
+   "Id": 398,
+   "dt": "2025-10-13",
+   "item_full_name": "MEHR SET",
+   "item_short_name": "L.L.",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-10-13 17:21:10"
+ },
+ {
+   "Id": 399,
+   "dt": "2025-10-13",
+   "item_full_name": "SOFIA BRA",
+   "item_short_name": "L.L.",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-10-13 17:25:12"
+ },
+ {
+   "Id": 400,
+   "dt": "2025-10-13",
+   "item_full_name": "SALSA SET",
+   "item_short_name": "L.L.",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-10-13 17:33:17"
+ },
+ {
+   "Id": 401,
+   "dt": "2025-10-14",
+   "item_full_name": "THERMAL SOCKS",
+   "item_short_name": "SUPERSOX",
+   "sts": 0,
+   "firm_id": 0,
+   "edt": "2025-10-14 16:24:49"
+ }
+]

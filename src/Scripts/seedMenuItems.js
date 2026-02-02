@@ -11,114 +11,110 @@ const seedMenuItems = async () => {
         label: "Dashboard",
         icon: "LayoutDashboard",
         path: "/",
-        color: "from-blue-500 to-purple-600",
         roles: "admin,superadmin,employee"
-      },
-      {
-        label: "Category",
-        icon: "BookCopy",
-        path: "/category",
-        color: "from-orange-500 to-red-600",
-        roles: "admin,employee"
       },
       {
         label: "Firm",
         icon: "Landmark",
         path: "/firm",
-        color: "from-indigo-500 to-cyan-600",
-        roles: "admin,superadmin,employee",
+        roles: "superadmin,admin",
       },
       {
-        label: "Employee",
-        icon: "UserCog",
-        path: "/employee",
-        color: "from-pink-600 to-yellow-700",
+        label: "Sales",
+        icon: "HandCoins",
+        path: "/sells",
         roles: "admin,employee"
       },
       {
-        label: "Customers",
-        icon: "Users",
-        path: "/customers",
-        color: "from-pink-500 to-indigo-600",
+        label: "Expenses",
+        icon: "DollarSign",
+        path: "/expenses",
+        roles: "admin,employee"
+      },
+      {
+        label: "Return/Exchange",
+        icon: "RefreshCw",
+        path: "/return-exchange",
         roles: "admin,employee"
       },
       {
         label: "Products",
         icon: "PackagePlus",
         path: "/products",
-        color: "from-emerald-500 to-teal-600",
         roles: "admin,employee"
       },
       {
-        label: "Purchase Party",
-        icon: "TicketPercent",
-        path: "/purchase-party",
-        color: "from-yellow-500 to-amber-600",
+        label: "Sale-Customers",
+        icon: "Users",
+        path: "/customers",
         roles: "admin,employee"
       },
       {
-        label: "Sales",
-        icon: "HandCoins",
-        path: "/sells",
-        color: "from-purple-500 to-orange-600",
-        roles: "admin,employee"
-      },
-      {
-        label: "Purchase",
-        icon: "ShoppingBag",
-        path: "/purchase",
-        color: "from-green-600 to-yellow-600",
-        roles: "admin,employee"
-      },
-      {
-        label: "Receipt",
-        icon: "ClipboardList",
-        path: "/entry-receipt",
-        color: "from-fuchsia-500 to-pink-600",
-        roles: "admin,employee"
-      },
-      {
-        label: "Quotation",
-        icon: "NotebookPen",
-        path: "/quotation-entry",
-        color: "from-green-500 to-black-700",
+        label: "Employee",
+        icon: "UserCog",
+        path: "/employee",
         roles: "admin,employee"
       },
       {
         label: "Adv/RT Settlement",
         icon: "Banknote",
         path: "/advance-settlement",
-        color: "from-cyan-500 to-sky-600",
         roles: "admin,employee"
       },
       {
-        label: "Delivery Challan",
-        icon: "TruckElectric",
-        path: "/delivery-challan",
-        color: "from-pink-700 to-blue-800",
+        label: "Purchase",
+        icon: "ShoppingBag",
+        path: "/purchase",
         roles: "admin,employee"
+      },
+      {
+        label: "Purchase Party",
+        icon: "TicketPercent",
+        path: "/purchase-party",
+        roles: "admin,employee"
+      },
+      {
+        label: "Purchase Receipt",
+        icon: "ClipboardList",
+        path: "/entry-receipt",
+        roles: "admin,employee"
+      },
+      {
+        label: "Category",
+        icon: "BookCopy",
+        path: "/category",
+        roles: "admin,employee"
+      },
+      {
+        label: "Ledgers",
+        icon: "Cpu",
+        path: "/ledgers",
+        roles: "admin,superadmin"
       },
       {
         label: "Reports",
         icon: "PieChart",
         path: "/reports",
-        color: "from-rose-500 to-red-600",
-        roles: "admin,employee"
+        roles: "admin,superadmin"
+      },
+      {
+        label: "Quotation",
+        icon: "NotebookPen",
+        path: "/quotation-entry",
+        roles: ""
+      },
+      {
+        label: "Delivery Challan",
+        icon: "TruckElectric",
+        path: "/delivery-challan",
+        roles: ""
       },
       {
         label: "Payments",
         icon: "Wallet",
         path: "/payments",
-        color: "from-teal-500 to-emerald-600",
-        roles: "admin,employee"
+        roles: ""
       },
-      {
-        label: "Lasers",
-        icon: "Cpu",
-        path: "/lasers",
-        color: "from-green-500 to-lime-600",
-        roles: "admin,employee"
-      }
     ]);
 
     console.log('Menu items seeded successfully!');

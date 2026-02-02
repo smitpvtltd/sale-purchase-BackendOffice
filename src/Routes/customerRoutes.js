@@ -6,9 +6,15 @@ import {
   removeCustomer,
 } from '../Controllers/customerController.js';
 
+import { uploadFor } from "../Middleware/uploadMiddleware.js";
+
+
 const router = express.Router();
 
-router.post('/add', createCustomer);
+// Use upload middleware for 'customer' folder
+const customerUpload = uploadFor("customer");
+
+router.post('/add', customerUpload.array("customerImg", 5), createCustomer);
 router.get('/all', getCustomers);
 router.put('/edit/:id', editCustomer);
 router.delete('/delete/:id', removeCustomer);

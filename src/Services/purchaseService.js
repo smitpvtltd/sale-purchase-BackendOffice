@@ -1,5 +1,5 @@
 import { Purchase, PurchaseItem } from "../Models/purchaseModel.js";
-import Product from "../Models/productModel.js";
+import { decreaseStock, increaseStock } from "../Middleware/stockService.js";
 import PurchaseParty from '../Models/purchasePartyModel.js';
 import sequelize from "../Config/db.js";
 
@@ -10,10 +10,7 @@ export const createPurchaseService = async (data) => {
   const { items, userId, ...purchaseData } = data;
 
   return await sequelize.transaction(async (t) => {
-    const purchase = await Purchase.create({
-      ...purchaseData,
-      userId,
-    }, { transaction: t });
+    const purchase = await Purchase.create({ ...purchaseData, userId }, { transaction: t });
 
     const purchaseItems = items.map(item => ({
       ...item,
@@ -22,14 +19,11 @@ export const createPurchaseService = async (data) => {
     }));
     await PurchaseItem.bulkCreate(purchaseItems, { transaction: t });
 
-    // Increase product stock
+        // ✅ 3. Increase stock for each item
     for (const item of items) {
-      const product = await Product.findByPk(item.productId, { transaction: t });
-      if (product) {
-        product.totalQuantity += item.quantity;
-        await product.save({ transaction: t });
-      }
+      await increaseStock(item.productId, item.quantity);
     }
+
 
     return purchase;
   });
@@ -44,18 +38,13 @@ export const updatePurchaseService = async (id, updatedData) => {
     const purchase = await Purchase.findByPk(id, { transaction: t });
     if (!purchase) throw new Error("Purchase not found");
 
-    const oldItems = await PurchaseItem.findAll({
-      where: { purchaseId: id },
-      transaction: t
-    });
+    // 1. Decrease stock for old items
+    const oldItems = await PurchaseItem.findAll({ where: { purchaseId: id }, transaction: t });
     for (const old of oldItems) {
-      const product = await Product.findByPk(old.productId, { transaction: t });
-      if (product) {
-        product.totalQuantity -= old.quantity;
-        await product.save({ transaction: t });
-      }
+      await decreaseStock(old.productId, old.quantity); // ✅ use stockService
     }
 
+    // 2. Replace items and update purchase
     await PurchaseItem.destroy({ where: { purchaseId: id }, transaction: t });
     await purchase.update(purchaseDetails, { transaction: t });
 
@@ -66,17 +55,15 @@ export const updatePurchaseService = async (id, updatedData) => {
     }));
     await PurchaseItem.bulkCreate(newItems, { transaction: t });
 
+    // 3. Increase stock for new items
     for (const item of items) {
-      const product = await Product.findByPk(item.productId, { transaction: t });
-      if (product) {
-        product.totalQuantity += item.quantity;
-        await product.save({ transaction: t });
-      }
+      await increaseStock(item.productId, item.quantity); // ✅ use stockService
     }
 
     return purchase;
   });
 };
+
 
 
 // delete purchase 
@@ -85,24 +72,21 @@ export const deletePurchaseService = async (id) => {
     const purchase = await Purchase.findByPk(id, { transaction: t });
     if (!purchase) throw new Error("Purchase not found");
 
-    const purchaseItems = await PurchaseItem.findAll({
-      where: { purchaseId: id },
-      transaction: t
-    });
+    const purchaseItems = await PurchaseItem.findAll({ where: { purchaseId: id }, transaction: t });
+
+    // 1. Decrease stock for each item
     for (const item of purchaseItems) {
-      const product = await Product.findByPk(item.productId, { transaction: t });
-      if (product) {
-        product.totalQuantity -= item.quantity;
-        await product.save({ transaction: t });
-      }
+      await decreaseStock(item.productId, item.quantity); // ✅ use stockService
     }
 
+    // 2. Delete items and the purchase
     await PurchaseItem.destroy({ where: { purchaseId: id }, transaction: t });
     await purchase.destroy({ transaction: t });
 
     return { message: "Purchase deleted and inventory adjusted." };
   });
 };
+
 
 // get all purchases 
 export const getAllPurchasesService = async (userId) => {

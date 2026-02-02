@@ -1,149 +1,136 @@
-import Stock from '../Models/stockModel.js';
-import StockItem from '../Models/stockItemModel.js';
-import Product from '../Models/productModel.js';
-
-// Create a new stock entry with items
-  export const createStock = async ({ refNumber, userId, items }) => {
-    return await sequelize.transaction(async (t) => {
-      const stock = await Stock.create({ refNumber, userId }, { transaction: t });
-
-      const stockItems = items.map(item => ({
-        stockId: stock.id,
-        productId: item.productId,
-        quantity: item.quantity,
-      }));
-
-      await StockItem.bulkCreate(stockItems, { transaction: t });
-
-      for (const item of items) {
-        const product = await Product.findByPk(item.productId, { transaction: t });
-        if (product) {
-          product.totalQuantity += item.quantity;
-          await product.save({ transaction: t });
-        }
-      }
-
-      return stock;
-    });
-  };
+import sequelize from "../Config/db.js";
+import Stock from "../Models/stockModel.js";
+import StockItem from "../Models/stockItemModel.js";
+import Product from "../Models/productModel.js";
+import { increaseStock, decreaseStock } from "../Middleware/stockService.js";
 
 
-// Get all stocks for a user including items and product info
-export const getStocksByUser = async (userId) => {
+// Helper to generate the next ref number
+const generateNextRefNumber = async (transaction) => {
+  // Find the latest stock entry (sorted by id DESC)
+  const lastStock = await Stock.findOne({
+    order: [['id', 'DESC']],
+    transaction
+  });
+
+  // Extract numeric part from refNumber (like STK-000001 -> 1)
+  let nextNumber = 1;
+  if (lastStock && lastStock.refNumber) {
+    const match = lastStock.refNumber.match(/STK-(\d+)/);
+    if (match) nextNumber = parseInt(match[1]) + 1;
+  }
+
+  // Format as STK-000001
+  const formatted = `STK-${String(nextNumber).padStart(4, '0')}`;
+  return formatted;
+};
+
+
+// Create stock (add quantities)
+export const createStockService = async (data) => {
+  const { items, userId, ...stockData } = data;
+
+  return await sequelize.transaction(async (t) => {
+    // ✅ Generate refNumber automatically
+    const refNumber = await generateNextRefNumber(t);
+
+    // Create stock with auto refNumber
+    const stock = await Stock.create({ ...stockData, userId, refNumber }, { transaction: t });
+
+    const stockItems = items.map((item) => ({
+      ...item,
+      stockId: stock.id,
+    }));
+
+    await StockItem.bulkCreate(stockItems, { transaction: t });
+
+    // Increase product stock
+    for (const item of items) {
+      await increaseStock(item.productId, item.quantity, t);
+    }
+
+    return stock;
+  });
+};
+
+
+// Update stock (adjust quantities)
+export const updateStockService = async (id, data) => {
+  const { items, ...stockData } = data;
+
+  return await sequelize.transaction(async (t) => {
+    const stock = await Stock.findByPk(id, { transaction: t });
+    if (!stock) throw new Error("Stock not found");
+
+    const oldItems = await StockItem.findAll({ where: { stockId: id }, transaction: t });
+
+    // Decrease quantities for old items
+    for (const old of oldItems) {
+      await decreaseStock(old.productId, old.quantity, t);
+    }
+
+    // Delete old items and update stock info
+    await StockItem.destroy({ where: { stockId: id }, transaction: t });
+    await stock.update(stockData, { transaction: t });
+
+    // Add new items
+    const newItems = items.map((item) => ({
+      ...item,
+      stockId: id,
+    }));
+
+    await StockItem.bulkCreate(newItems, { transaction: t });
+
+    // Increase stock for new items
+    for (const item of items) {
+      await increaseStock(item.productId, item.quantity, t);
+    }
+
+    return stock;
+  });
+};
+
+// Delete stock (reduce quantities)
+export const deleteStockService = async (id) => {
+  return await sequelize.transaction(async (t) => {
+    const stock = await Stock.findByPk(id, { transaction: t });
+    if (!stock) throw new Error("Stock not found");
+
+    const items = await StockItem.findAll({ where: { stockId: id }, transaction: t });
+
+    for (const item of items) {
+      await decreaseStock(item.productId, item.quantity, t);
+    }
+
+    await StockItem.destroy({ where: { stockId: id }, transaction: t });
+    await stock.destroy({ transaction: t });
+
+    return { message: "Stock deleted and inventory adjusted." };
+  });
+};
+
+// Get all stocks by user
+export const getAllStocksService = async (userId) => {
   return await Stock.findAll({
     where: { userId },
-    include: {
-      model: StockItem,
-      include: 'Product', // or Product model imported and used here
-    },
-    order: [['createdAt', 'DESC']],
+    include: [
+      {
+        model: StockItem,
+        include: [Product],
+      },
+    ],
+    order: [["id", "DESC"]],
   });
 };
 
-// Get a single stock by ID with its items and product details
-export const getStockById = async (id) => {
+// Get stock by id
+export const getStockByIdService = async (id) => {
   return await Stock.findByPk(id, {
-    include: {
-      model: StockItem,
-      include: 'Product',
-    },
+    include: [
+      {
+        model: StockItem,
+        include: [Product],
+      },
+    ],
   });
-};
-
-// Update stock reference number and replace its items
-export const updateStock = async (id, { refNumber, items }) => {
-  const stock = await Stock.findByPk(id);
-  if (!stock) return null;
-
-  // Subtract old quantities from Products
-  const oldStockItems = await StockItem.findAll({ where: { stockId: id } });
-  for (const oldItem of oldStockItems) {
-    const product = await Product.findByPk(oldItem.productId);
-    if (product) {
-      product.totalQuantity -= oldItem.quantity;
-      await product.save();
-    }
-  }
-
-  await stock.update({ refNumber });
-
-  await StockItem.destroy({ where: { stockId: id } });
-
-  // Add new items and increment totalQuantity on Product
-  const stockItems = items.map(item => ({
-    stockId: id,
-    productId: item.productId,
-    quantity: item.quantity,
-  }));
-  await StockItem.bulkCreate(stockItems);
-
-  for (const item of items) {
-    const product = await Product.findByPk(item.productId);
-    if (product) {
-      product.totalQuantity += item.quantity;
-      await product.save();
-    }
-  }
-
-  return stock;
-};
-
-
-
-// Delete stock and its items
-export const deleteStockById = async (id) => {
-  const stock = await Stock.findByPk(id);
-  if (!stock) return null;
-
-  // Subtract quantities from Product.totalQuantity
-  const stockItems = await StockItem.findAll({ where: { stockId: id } });
-  for (const item of stockItems) {
-    const product = await Product.findByPk(item.productId);
-    if (product) {
-      product.totalQuantity -= item.quantity;
-      await product.save();
-    }
-  }
-
-  await StockItem.destroy({ where: { stockId: id } });
-  await stock.destroy();
-
-  return stock;
-};
-
-
-
-// stock deduction 
-export const deductStockForSell = async (sellItems) => {
-  for (const item of sellItems) {
-    const product = await Product.findByPk(item.productId);
-    if (!product) {
-      throw new Error(`Product with ID ${item.productId} not found`);
-    }
-
-    if (product.totalQuantity < item.quantity) {
-      throw new Error(`Insufficient stock for product: ${product.productName}`);
-    }
-
-    product.totalQuantity -= item.quantity;
-    await product.save();
-  }
-};
-
-
-
-
-
-// insufficient stock error handling
-  export const validateStockAvailability = async (items) => {
-  for (const item of items) {
-    const product = await Product.findByPk(item.productId);
-    if (!product) throw new Error(`Product with ID ${item.productId} not found`);
-
-    if (product.totalQuantity < item.quantity) {
-      throw new Error(
-        `Insufficient stock for product: ${product.productName} (required: ${item.quantity}, available: ${product.totalQuantity})`
-      );
-    }
-  }
 };

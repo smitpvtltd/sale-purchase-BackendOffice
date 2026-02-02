@@ -14,7 +14,7 @@ const addUsers = async () => {
   for (const user of usersToCreate) {
     try {
       const hashedPassword = await bcrypt.hash(user.password, 10);
-      const createdUser = await createUser(user.username, hashedPassword, user.role);
+      const createdUser = await createUser(user.username, hashedPassword, user.role, user.password, null);
       console.log(`✅ ${user.role} created:`, createdUser.username);
     } catch (err) {
       console.error(`❌ Error creating ${user.role} (${user.username}):`, err.message);

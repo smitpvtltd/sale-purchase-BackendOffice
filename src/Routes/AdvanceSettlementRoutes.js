@@ -6,6 +6,8 @@ import {
   deleteAdvanceSettlement,
 } from '../Controllers/AdvanceSettlementController.js';
 import AdvanceSettlement from '../Models/AdvanceSettlementModel.js';
+import { generateNextReceiptNumber } from '../Services/AdvanceSettlementService.js';
+
 
 const router = express.Router();
 
@@ -22,7 +24,7 @@ router.put('/update/:id', updateAdvanceSettlement);
 router.delete('/delete/:id', deleteAdvanceSettlement);
 
 
-// Add this before `export default router;`
+// new receipt number route
 router.get('/receipt-number', async (req, res) => {
   const { type, userId } = req.query;
 
@@ -31,15 +33,12 @@ router.get('/receipt-number', async (req, res) => {
   }
 
   try {
-    const settlements = await AdvanceSettlement.findAll({
-      where: { billType: type, userId },
-    });
+    const nextNumber = await generateNextReceiptNumber();
 
-    // Just return count, frontend formats number as needed
-    res.status(200).json(settlements);
+    res.status(200).json({ nextNumber });
   } catch (error) {
-    console.error('Error fetching receipt numbers:', error);
-    res.status(500).json({ message: 'Server error', error: error.message });
+    console.error('Error generating receipt number:', error);
+    res.status(500).json({ message: 'Server error.' });
   }
 });
 

@@ -6,8 +6,7 @@ const MenuItem = sequelize.define('MenuItem', {
   label: { type: DataTypes.STRING, allowNull: false },
   icon: { type: DataTypes.STRING, allowNull: false },
   path: { type: DataTypes.STRING, allowNull: false },
-  color: { type: DataTypes.STRING, allowNull: false },
-  roles: { type: DataTypes.STRING, allowNull: false }, // CSV of allowed roles, e.g. "admin,superadmin"
+  roles: { type: DataTypes.STRING, allowNull: false },
 }, {
   tableName: 'menu_items',
   timestamps: false,

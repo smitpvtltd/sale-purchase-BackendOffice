@@ -1,145 +1,87 @@
-import Stock from '../Models/stockModel.js';
-import StockItem from '../Models/stockItemModel.js';
-import Product from '../Models/productModel.js';
-import sequelize from '../Config/db.js';
+import Stock from "../Models/stockModel.js";
+import {
+  createStockService,
+  updateStockService,
+  deleteStockService,
+  getAllStocksService,
+  getStockByIdService
+} from "../Services/stockService.js";
 
 
+// Helper (reuse same logic as service)
+const generateNextRefNumber = async () => {
+  const lastStock = await Stock.findOne({ order: [['id', 'DESC']] });
+  let nextNumber = 1;
+  if (lastStock && lastStock.refNumber) {
+    const match = lastStock.refNumber.match(/STK-(\d+)/);
+    if (match) nextNumber = parseInt(match[1]) + 1;
+  }
+  return `STK-${String(nextNumber).padStart(4, '0')}`;
+};
 
-// Add new stock with items
-  export const addStock = async (req, res) => {
-    const t = await sequelize.transaction();  // start a transaction
-
-    try {
-      const { refNumber, userId, items } = req.body;
-
-      if (!refNumber || !userId || !Array.isArray(items) || items.length === 0) {
-        await t.rollback();
-        return res.status(400).json({ message: 'refNumber, userId and items are required.' });
-      }
-
-      // Create Stock entry inside transaction
-      const stock = await Stock.create({ refNumber, userId }, { transaction: t });
-
-      // Create stock items inside transaction
-      const stockItems = items.map(item => ({
-        stockId: stock.id,
-        productId: item.productId,
-        quantity: item.quantity
-      }));
-
-      await StockItem.bulkCreate(stockItems, { transaction: t });
-
-      // Update each Product totalQuantity inside transaction
-      for (const item of items) {
-        const product = await Product.findByPk(item.productId, { transaction: t });
-        if (product) {
-          product.totalQuantity += item.quantity;
-          await product.save({ transaction: t });
-        }
-      }
-
-      await t.commit();  // commit transaction if all successful
-      res.status(201).json({ message: 'Stock added successfully.', stockId: stock.id });
-    } catch (error) {
-      await t.rollback();  // rollback if error
-      console.error('Add Stock Error:', error);
-      res.status(500).json({ message: 'Internal server error.' });
-    }
-  };
-
-
-// Get all stocks for a user with items
-export const getStocks = async (req, res) => {
+// Controller to get next refNumber (optional)
+export const getNextRefNumber = async (req, res) => {
   try {
-    const { userId } = req.query;
-    if (!userId) return res.status(400).json({ message: 'userId is required' });
-
-    const stocks = await Stock.findAll({
-      where: { userId },
-      include: {
-        model: StockItem,
-        include: Product,
-      },
-      order: [['createdAt', 'DESC']]
-    });
-
-    res.status(200).json(stocks);
+    const nextRef = await generateNextRefNumber();
+    res.status(200).json({ nextRef });
   } catch (error) {
-    console.error('Get Stocks Error:', error);
-    res.status(500).json({ message: 'Internal server error.' });
+    console.error("Get Next Ref Error:", error);
+    res.status(500).json({ message: "Error generating next ref number" });
   }
 };
 
-// Get single stock with items
-export const getSingleStock = async (req, res) => {
+export const createStock = async (req, res) => {
   try {
-    const { id } = req.params;
+    const userId = req.body.userId || req.headers["x-user-id"];
+    if (!userId) return res.status(400).json({ message: "Missing userId" });
 
-    const stock = await Stock.findByPk(id, {
-      include: {
-        model: StockItem,
-        include: Product,
-      }
-    });
+    const newStock = await createStockService({ ...req.body, userId });
+    res.status(201).json(newStock);
+  } catch (error) {
+    console.error("Create Stock Error:", error);
+    res.status(500).json({ message: "Error creating stock" });
+  }
+};
 
-    if (!stock) return res.status(404).json({ message: 'Stock not found.' });
-
+export const updateStock = async (req, res) => {
+  try {
+    const stock = await updateStockService(req.params.id, req.body);
     res.status(200).json(stock);
   } catch (error) {
-    console.error('Get Single Stock Error:', error);
-    res.status(500).json({ message: 'Internal server error.' });
+    console.error("Update Stock Error:", error);
+    res.status(500).json({ message: "Error updating stock" });
   }
 };
 
-// Edit stock and its items
-export const editStock = async (req, res) => {
-  try {
-    const { id } = req.params;
-    const { refNumber, items } = req.body;
-
-    const stock = await Stock.findByPk(id);
-    if (!stock) return res.status(404).json({ message: 'Stock not found.' });
-
-    if (!refNumber || !Array.isArray(items) || items.length === 0) {
-      return res.status(400).json({ message: 'refNumber and items are required.' });
-    }
-
-    await stock.update({ refNumber });
-
-    // Delete existing items
-    await StockItem.destroy({ where: { stockId: id } });
-
-    // Add new items
-    const stockItems = items.map(item => ({
-      stockId: id,
-      productId: item.productId,
-      quantity: item.quantity
-    }));
-
-    await StockItem.bulkCreate(stockItems);
-
-    res.status(200).json({ message: 'Stock updated successfully.' });
-  } catch (error) {
-    console.error('Edit Stock Error:', error);
-    res.status(500).json({ message: 'Internal server error.' });
-  }
-};
-
-// Delete stock and its items
 export const deleteStock = async (req, res) => {
   try {
-    const { id } = req.params;
-
-    const stock = await Stock.findByPk(id);
-    if (!stock) return res.status(404).json({ message: 'Stock not found.' });
-
-    // Cascades delete items thanks to onDelete: 'CASCADE' in association, but safe to explicitly delete:
-    await StockItem.destroy({ where: { stockId: id } });
-    await stock.destroy();
-
-    res.status(200).json({ message: 'Stock deleted successfully.' });
+    const result = await deleteStockService(req.params.id);
+    res.status(200).json(result);
   } catch (error) {
-    console.error('Delete Stock Error:', error);
-    res.status(500).json({ message: 'Internal server error.' });
+    console.error("Delete Stock Error:", error);
+    res.status(500).json({ message: "Error deleting stock" });
+  }
+};
+
+export const getAllStocks = async (req, res) => {
+  try {
+    const userId = req.query.userId;
+    if (!userId) return res.status(400).json({ message: "Missing userId" });
+    const stocks = await getAllStocksService(userId);
+    res.status(200).json(stocks);
+  } catch (error) {
+    console.error("Get Stocks Error:", error);
+    res.status(500).json({ message: "Error fetching stocks" });
+  }
+};
+
+export const getStockById = async (req, res) => {
+  try {
+    const stock = await getStockByIdService(req.params.id);
+    if (!stock) return res.status(404).json({ message: "Stock not found" });
+    res.status(200).json(stock);
+  } catch (error) {
+    console.error("Get Stock Error:", error);
+    res.status(500).json({ message: "Error fetching stock" });
   }
 };

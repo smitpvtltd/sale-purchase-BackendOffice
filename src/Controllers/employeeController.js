@@ -64,7 +64,7 @@ export const addEmployee = async (req, res) => {
       viewPages,
     } = req.body;
 
-    if (!name || !contact || !email || !address || !firmId || !userName || !password || !userId) {
+    if (!name || !firmId || !userName || !password || !userId) {
       return res.status(400).json({ message: 'All fields are required.' });
     }
 
@@ -132,8 +132,17 @@ export const editEmployee = async (req, res) => {
       updatedData.image = req.file.filename;
     }
 
+    // Ensure viewPages is a valid JSON string
     if (updatedData.viewPages) {
-      updatedData.viewPages = JSON.parse(updatedData.viewPages);
+      try {
+        updatedData.viewPages = JSON.parse(updatedData.viewPages);
+        if (!Array.isArray(updatedData.viewPages)) {
+          return res.status(400).json({ message: 'viewPages must be an array.' });
+        }
+      } catch (err) {
+        console.error('Invalid viewPages format:', err);
+        return res.status(400).json({ message: 'Invalid viewPages format. Please provide a valid JSON array.' });
+      }
     }
 
     const employee = await updateEmployee(id, updatedData);
@@ -145,6 +154,7 @@ export const editEmployee = async (req, res) => {
     res.status(500).json({ message: 'Internal server error.' });
   }
 };
+
 
 
 // delete employee

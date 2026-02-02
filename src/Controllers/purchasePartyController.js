@@ -15,11 +15,13 @@ export const createPurchaseParty = async (req, res) => {
     city,
     gstNumber,
     companyName,
-    stateType,
+    // stateType,
     userId,
   } = req.body;
 
-  if (!name || !email || !mobile || !address || !state || !city || !stateType || !userId) {
+  if (!name || !email || !mobile
+    // || !stateType 
+     || !userId) {
     return res.status(400).json({ message: "Required fields are missing." });
   }
 
@@ -29,11 +31,11 @@ export const createPurchaseParty = async (req, res) => {
       email,
       mobile,
       address,
-      state,
-      city,
+      state: state === '' ? null : state,
+      city: city === '' ? null : city,
       gstNumber,
       companyName,
-      stateType,
+      // stateType,
       userId,
     });
 

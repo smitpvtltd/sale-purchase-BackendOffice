@@ -2,6 +2,7 @@ import express from 'express';
 import cors from 'cors';
 import userRoutes from './Routes/userRoutes.js';
 import categoryRoutes from './Routes/categoryRoutes.js';
+import subcategoryRoutes from './Routes/subcategoryRoutes.js';
 import customerRoutes from './Routes/customerRoutes.js';
 import productRoutes from './Routes/productRoutes.js';
 import stateRoute from './Routes/stateRoute.js';
@@ -19,12 +20,17 @@ import challanEntryRoutes from "./Routes/ChallanEntryRoutes.js";
 import quotationRoutes from "./Routes/QuotationRoutes.js";
 import menuRoutes from './Routes/menuRoutes.js';
 import employeeRoutes from './Routes/employeeRoutes.js';
+import expenseRoutes from './Routes/expenseRoutes.js';
+import returnRoutes from "./Routes/returnRoutes.js";
+import exchangeRoutes from "./Routes/exchangeRoutes.js";
+import reasonRoutes from "./Routes/reasonRoutes.js";
+
 
 
 
 const app = express();
 
-const allowedOrigins = ['http://localhost:5173', 'http://localhost:5174' , 'https://sp.smittech.in'];
+const allowedOrigins = ['http://localhost:5173', 'http://localhost:5174' , 'https://rp.smitsolutions.co.in'];
 
 app.use(cors({
   origin: function (origin, callback) {
@@ -44,6 +50,7 @@ app.use('/uploads', express.static('uploads'));
 // routes 
 app.use('/api/users', userRoutes);
 app.use('/api/category', categoryRoutes);
+app.use('/api/subcategory', subcategoryRoutes);
 app.use('/api/customer', customerRoutes);
 app.use('/api/product', productRoutes);
 app.use('/api/state', stateRoute);
@@ -61,6 +68,10 @@ app.use("/api/challan-entry", challanEntryRoutes); // for challan entry
 app.use("/api/quotation-entry", quotationRoutes); // for quotation entry
 app.use("/api/menu", menuRoutes); // for dynamic menu items
 app.use('/api/employee', employeeRoutes); // for employee management
+app.use('/api/expenses', expenseRoutes); // for eexpense management
+app.use("/api/return", returnRoutes); // for return
+app.use("/api/exchange", exchangeRoutes); // for return
+app.use("/api/reasons", reasonRoutes);
 
 
 

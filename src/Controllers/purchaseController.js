@@ -11,8 +11,13 @@ export const createPurchase = async (req, res) => {
     const userId = req.body.userId || req.headers["x-user-id"];
     if (!userId) return res.status(400).json({ message: "Missing userId" });
 
+    // Combine the userId with the incoming purchase data
     const newPurchaseData = { ...req.body, userId };
+
+    // Call the service to create a new purchase and update the stock
     const purchase = await createPurchaseService(newPurchaseData);
+
+    // Return the created purchase
     res.status(201).json(purchase);
   } catch (error) {
     console.error("Purchase Create Error:", error);
@@ -25,6 +30,7 @@ export const getAllPurchases = async (req, res) => {
     const userId = req.query.userId;
     if (!userId) return res.status(400).json({ message: "Missing userId" });
 
+    // Fetch all purchases for the user
     const purchases = await getAllPurchasesService(userId);
     res.status(200).json(purchases);
   } catch (error) {
@@ -35,8 +41,11 @@ export const getAllPurchases = async (req, res) => {
 
 export const getPurchaseById = async (req, res) => {
   try {
+    // Fetch purchase by its ID
     const purchase = await getPurchaseByIdService(req.params.id);
     if (!purchase) return res.status(404).json({ message: "Purchase not found" });
+
+    // Return the found purchase
     res.status(200).json(purchase);
   } catch (error) {
     console.error("Get Purchase Error:", error);
@@ -49,10 +58,13 @@ export const updatePurchase = async (req, res) => {
     const userId = req.body.userId || req.headers["x-user-id"];
     if (!userId) return res.status(400).json({ message: "Missing userId" });
 
+    // Call the service to update the purchase, passing along the userId
     const purchase = await updatePurchaseService(req.params.id, {
       ...req.body,
       userId
     });
+
+    // Return the updated purchase
     res.status(200).json(purchase);
   } catch (error) {
     console.error("Update Purchase Error:", error);
@@ -62,7 +74,10 @@ export const updatePurchase = async (req, res) => {
 
 export const deletePurchase = async (req, res) => {
   try {
+    // Call the service to delete the purchase and adjust stock accordingly
     const result = await deletePurchaseService(req.params.id);
+
+    // Return a success message
     res.status(200).json(result);
   } catch (error) {
     console.error("Delete Purchase Error:", error);

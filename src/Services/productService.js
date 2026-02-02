@@ -1,11 +1,15 @@
 import Product from '../Models/productModel.js';
 import { SellItem } from '../Models/sellModel.js'
+import { PurchaseItem } from '../Models/purchaseModel.js';
+import SubCategory from '../Models/subcategoryModel.js';
 
 
+// add product 
 export const createProduct = async (productData) => {
   return await Product.create(productData);
 };
 
+// get all products
 export const getAllProducts = async () => {
   return await Product.findAll({ order: [['id', 'DESC']] });
 };
@@ -15,13 +19,22 @@ export const getProductsByUser = async (userId) => {
   return await Product.findAll({
     where: { userId },
     order: [['id', 'DESC']],
+    include: [
+      {
+        model: SubCategory,
+        as: 'subcategory',  // Alias as per your association
+        attributes: ['subCatNm'], // Only include the name of the subcategory
+      }
+    ]
   });
 };
 
+// get product by id 
 export const getProductById = async (id) => {
   return await Product.findByPk(id);
 };
 
+// update product
 export const updateProduct = async (id, updateData) => {
   const product = await getProductById(id);
   if (!product) return null;
@@ -31,15 +44,20 @@ export const updateProduct = async (id, updateData) => {
 };
 
 
-export const deleteProduct = async (id) => {
+// delete product
+  export const deleteProduct = async (id) => {
   const product = await getProductById(id);
   if (!product) return null;
 
-  // Delete related sell_items first to avoid FK constraint error
+  // Check if product exists in any purchase
+  const purchaseItemCount = await PurchaseItem.count({ where: { productId: id } });
+  if (purchaseItemCount > 0) {
+    throw new Error("Cannot delete product because it exists in purchase records");
+  }
+
+  // Delete related SellItems if needed
   await SellItem.destroy({ where: { productId: id } });
 
-  // Now delete the product
   await product.destroy();
   return product;
 };
-
