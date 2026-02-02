@@ -1,0 +1,174 @@
+import {
+  addExchange,
+  getAllExchanges,
+  findExchangeByInvoice,
+  deleteExchange,
+} from "../Services/exchangeService.js";
+import { Exchange, ExchangeReturnItem, ExchangeGivenItem } from "../Models/exchangeModel.js";
+
+
+
+
+// add entry for exchange
+export const createExchange = async (req, res) => {
+  try {
+    const {
+      invoiceNumber,
+      date,
+      firmId,
+      customerId,
+      userId,
+      difference,
+      differenceType,
+      employeeName,
+      subtotal = 0,
+      billDiscount = 0,
+      billDiscountType = "₹", // ✅ new
+      returnTotal = 0, // ✅ new
+      gst = 0,
+      grandTotal = 0,
+      paymentMethod,
+      paymentStatus,
+      returnedItems = [],
+      givenItems = [],
+    } = req.body;
+
+    if (
+      !invoiceNumber ||
+      !date ||
+      !firmId ||
+      !customerId ||
+      !userId ||
+      !employeeName
+    ) {
+      return res.status(400).json({ message: "Missing required fields." });
+    }
+
+    const existing = await findExchangeByInvoice(invoiceNumber, userId);
+    if (existing) {
+      return res
+        .status(409)
+        .json({ message: "Exchange already exists for this invoice." });
+    }
+
+    // Only save payment info if customer needs to pay
+    let paymentInfo = {};
+    if (difference > 0) {
+      paymentInfo = {
+        paymentMethod: paymentMethod || "Cash",
+        paymentStatus: paymentStatus || "Not Paid",
+      };
+    } else {
+      // No payment for refunds
+      paymentInfo = {
+        paymentMethod: null,
+        paymentStatus: "Exchanged",
+      };
+    }
+
+    const exchangeData = {
+      invoiceNumber,
+      date,
+      firmId,
+      customerId,
+      userId,
+      difference,
+      differenceType,
+      employeeName,
+      subtotal,
+      billDiscount,
+      billDiscountType, // ✅ include here
+      returnTotal, // ✅ include here
+      gst,
+      grandTotal,
+      paymentMethod,
+      paymentStatus,
+      ...paymentInfo,
+    };
+
+    const result = await addExchange(exchangeData, returnedItems, givenItems);
+    res
+      .status(201)
+      .json({ message: "Exchange recorded successfully.", result });
+  } catch (err) {
+    console.error("Error creating exchange:", err);
+    res.status(500).json({ message: err.message || "Server error." });
+  }
+};
+
+// get all exchanges for a user
+export const getExchanges = async (req, res) => {
+  try {
+    const { userId } = req.query;
+    if (!userId) return res.status(400).json({ message: "userId is required" });
+
+    const data = await getAllExchanges(userId);
+    res.status(200).json(data);
+  } catch (err) {
+    console.error("Error fetching exchanges:", err);
+    res.status(500).json({ message: "Server error." });
+  }
+};
+
+
+// delete an exchange
+export const removeExchange = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const deleted = await deleteExchange(id);
+    if (!deleted) return res.status(404).json({ message: "Record not found." });
+    res.status(200).json({ message: "Deleted successfully.", deleted });
+  } catch (err) {
+    console.error("Error deleting exchange:", err);
+    res.status(500).json({ message: "Server error." });
+  }
+};
+
+// Update payment for an exchange
+export const updateExchangePayment = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { payingAmount, paymentMethod } = req.body;
+
+    const exchange = await Exchange.findByPk(id, {
+      include: [
+        { model: ExchangeReturnItem, as: "returnedItems" },
+        { model: ExchangeGivenItem, as: "givenItems" }
+      ],
+    });
+
+    if (!exchange) return res.status(404).json({ message: "Exchange not found" });
+
+    // Calculate difference
+    const totalReturned = exchange.returnedItems.reduce((sum, item) => sum + item.total, 0);
+    const totalGiven = exchange.grandTotal || 0;
+    const difference = totalGiven - totalReturned;
+
+    // Update cumulative payment
+    const totalPaid = (exchange.payingAmount || 0) + (payingAmount || 0);
+    const status = totalPaid >= difference ? "Paid" : "Advance";
+
+    exchange.payingAmount = totalPaid;
+    exchange.paymentMethod = paymentMethod || exchange.paymentMethod || "N/A";
+    exchange.paymentStatus = status;
+
+    await exchange.save();
+
+    // Re-fetch updated exchange with all associated items
+    const updatedExchange = await Exchange.findByPk(id, {
+      include: [
+        { model: ExchangeReturnItem, as: "returnedItems" },
+        { model: ExchangeGivenItem, as: "givenItems" }
+      ],
+    });
+
+    res.status(200).json({
+      message: "Payment updated successfully",
+      exchange: updatedExchange,
+      remainingAmount: difference - totalPaid,
+    });
+  } catch (err) {
+    console.error("Error updating payment:", err);
+    res.status(500).json({ message: "Server error" });
+  }
+};

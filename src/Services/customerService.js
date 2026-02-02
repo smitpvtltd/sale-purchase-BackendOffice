@@ -9,7 +9,7 @@ export const createCustomerService = async (data) => {
 export const getAllCustomersService = async (userId) => {
   return await Customer.findAll({
     where: { userId },
-    order: [['id', 'ASC']],
+    order: [['id', 'DESC']],
     include: [
       {
         model: State,
@@ -26,9 +26,8 @@ export const getAllCustomersService = async (userId) => {
       'email',
       'mobile',
       'address',
-      'gstNumber',
-      'companyName',
-      'stateType',
+      'aadharNumber',
+      'customerImg',
     ],
   });
 };

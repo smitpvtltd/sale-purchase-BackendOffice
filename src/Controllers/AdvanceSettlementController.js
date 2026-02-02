@@ -1,170 +1,121 @@
-import * as advanceSettlementService from "../Services/AdvanceSettlementService.js";
+import {
+  addAdvanceSettlement,
+  getAllAdvanceSettlements,
+  findSettlementById,
+  findSettlementByNumber,
+  updateAdvanceSettlementById,
+  deleteAdvanceSettlementById,
+  generateNextReceiptNumber,
+} from '../Services/AdvanceSettlementService.js';
 
-// Create a new advance settlement
+// Create
 export const createAdvanceSettlement = async (req, res) => {
+  const { date, settlementNumber, firmId, partyId, advanceAmount, userId } = req.body;
+
+  if (!date || !settlementNumber || !firmId || !partyId || !advanceAmount || !userId) {
+    return res.status(400).json({ message: 'All fields are required.' });
+  }
+
   try {
-    const {
-      date,
-      settlementNumber,
-      billType,
-      firmId,
-      receiptId,
-      advanceAmount,
-      billDetails,
-      userId,
-    } = req.body;
-
-    // Basic input validation (can be extended)
-    if (
-      !date ||
-      !settlementNumber ||
-      !billType ||
-      !firmId ||
-      !advanceAmount ||
-      !userId
-    ) {
-      return res.status(400).json({ message: "Required fields are missing." });
+    const existing = await findSettlementByNumber(settlementNumber);
+    if (existing) {
+      return res.status(409).json({ message: 'Settlement number already exists.' });
     }
 
-    // receiptId can be null if allowed by your logic; if required, add validation here
-
-    const settlementData = {
-      date,
-      settlementNumber,
-      billType,
-      firmId,
-      receiptId: receiptId || null,
-      advanceAmount,
-      billDetails,
-      userId,
-    };
-
-    const settlement = await advanceSettlementService.createSettlement(
-      settlementData
-    );
-
-    return res.status(201).json({
-      message: "Advance settlement created successfully",
-      settlement,
+    const settlement = await addAdvanceSettlement({
+      date, settlementNumber, firmId, partyId, advanceAmount, userId,
     });
-  } catch (error) {
-    // Detailed Sequelize validation error handling
-    if (error.name === "SequelizeValidationError") {
-      const validationErrors = error.errors.map((e) => ({
-        field: e.path,
-        message: e.message,
-      }));
-      return res.status(400).json({
-        message: "Validation error",
-        errors: validationErrors,
-      });
-    }
 
-    // General error fallback
-    console.error("Create advance settlement error:", error);
-    return res
-      .status(500)
-      .json({
-        message: "Error creating advance settlement",
-        error: error.message,
-      });
+    res.status(201).json({ message: 'Settlement created.', settlement });
+  } catch (error) {
+    console.error('Error creating settlement:', error);
+    res.status(500).json({ message: 'Server error.' });
   }
 };
 
-// Get all advance settlements for a user
+// Get all for a user
 export const getAdvanceSettlements = async (req, res) => {
-  try {
-    const { userId } = req.query;
-    if (!userId)
-      return res.status(400).json({ message: "userId is required." });
+  const { userId } = req.query;
 
-    const settlements = await advanceSettlementService.getSettlements(userId);
-    return res.status(200).json(settlements);
+  if (!userId) {
+    return res.status(400).json({ message: 'userId is required.' });
+  }
+
+  try {
+    const settlements = await getAllAdvanceSettlements(userId);
+    res.status(200).json(settlements);
   } catch (error) {
-    console.error(error);
-    return res
-      .status(500)
-      .json({
-        message: "Error fetching advance settlements",
-        error: error.message,
-      });
+    console.error('Error fetching settlements:', error);
+    res.status(500).json({ message: 'Server error.' });
   }
 };
 
-// Edit (Update) an existing advance settlement
+// Update existing by ID
 export const updateAdvanceSettlement = async (req, res) => {
-  try {
-    const { id } = req.params; // Settlement ID from URL
-    const {
-      date,
-      settlementNumber,
-      billType,
-      firmId,
-      receiptId,
-      advanceAmount,
-      billDetails,
-    } = req.body;
+  const { id } = req.params;
+  const { date, settlementNumber, firmId, partyId, advanceAmount } = req.body;
 
-    if (
-      !date ||
-      !settlementNumber ||
-      !billType ||
-      !firmId ||
-      !receiptId ||
-      !advanceAmount
-    ) {
-      return res.status(400).json({ message: "All fields are required." });
+  if (!date || !settlementNumber || !firmId || !partyId || !advanceAmount) {
+    return res.status(400).json({ message: 'All fields are required for update.' });
+  }
+
+  try {
+    const existing = await findSettlementById(id);
+    if (!existing) {
+      return res.status(404).json({ message: 'Settlement not found.' });
     }
 
-    const updatedSettlement = await advanceSettlementService.updateSettlement(
-      id,
-      {
-        date,
-        settlementNumber,
-        billType,
-        firmId,
-        receiptId,
-        advanceAmount,
-        billDetails,
+    // Check for duplicate settlement number on update
+    if (settlementNumber !== existing.settlementNumber) {
+      const conflict = await findSettlementByNumber(settlementNumber);
+      if (conflict) {
+        return res.status(409).json({ message: 'Settlement number already in use.' });
       }
-    );
+    }
 
-    return res.status(200).json({
-      message: "Advance settlement updated successfully",
-      updatedSettlement,
+    const updated = await updateAdvanceSettlementById(id, {
+      date, settlementNumber, firmId, partyId, advanceAmount,
     });
+
+    res.status(200).json({ message: 'Settlement updated.', settlement: updated });
   } catch (error) {
-    console.error(error);
-    return res
-      .status(500)
-      .json({
-        message: "Error updating advance settlement",
-        error: error.message,
-      });
+    console.error('Error updating settlement:', error);
+    res.status(500).json({ message: 'Server error.' });
   }
 };
 
-// Delete an existing advance settlement
+// Delete by ID
 export const deleteAdvanceSettlement = async (req, res) => {
+  const { id } = req.params;
+
   try {
-    const { id } = req.params; // Settlement ID from URL
-
-    const result = await advanceSettlementService.deleteSettlement(id);
-
-    if (result) {
-      return res
-        .status(200)
-        .json({ message: "Advance settlement deleted successfully" });
-    } else {
-      return res.status(404).json({ message: "Settlement not found" });
+    const existing = await findSettlementById(id);
+    if (!existing) {
+      return res.status(404).json({ message: 'Settlement not found.' });
     }
+
+    await deleteAdvanceSettlementById(id);
+
+    res.status(200).json({ message: 'Settlement deleted.' });
   } catch (error) {
-    console.error(error);
-    return res
-      .status(500)
-      .json({
-        message: "Error deleting advance settlement",
-        error: error.message,
-      });
+    console.error('Error deleting settlement:', error);
+    res.status(500).json({ message: 'Server error.' });
+  }
+};
+
+// Get receipt number helper (if needed separately)
+export const getReceiptNumber = async (req, res) => {
+  const { type, userId } = req.query;
+
+  if (!type || !userId) {
+    return res.status(400).json({ message: 'Both type and userId are required.' });
+  }
+
+  try {
+    const receiptNumber = await generateNextReceiptNumber();
+    res.status(200).json(receiptNumber);
+  } catch (error) {
+    console.error('Error generating receipt number:', error);
+    res.status(500).json({ message: 'Server error.' });
   }
 };

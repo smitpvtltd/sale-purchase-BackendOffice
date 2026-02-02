@@ -45,7 +45,7 @@ const Firm = sequelize.define('Firm', {
 });
 
 // ✅ Set association
-User.hasOne(Firm, { foreignKey: 'userId' });
+User.hasMany(Firm, { foreignKey: 'userId' });
 Firm.belongsTo(User, { foreignKey: 'userId' });
 
 

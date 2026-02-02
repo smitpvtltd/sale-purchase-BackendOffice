@@ -39,7 +39,8 @@ const PurchaseItem = sequelize.define("PurchaseItem", {
 
 // Associations
 Purchase.belongsTo(PurchaseParty, { foreignKey: "purchasePartyId", as: "purchaseParty", });
-PurchaseItem.belongsTo(Product, { foreignKey: "productId", onDelete: "CASCADE" });
-Purchase.hasMany(PurchaseItem, { foreignKey: "purchaseId", onDelete: "CASCADE" });
+// PurchaseItem.belongsTo(Product, { foreignKey: "productId", onDelete: "CASCADE" });
+PurchaseItem.belongsTo(Product, { foreignKey: "productId", onDelete: "RESTRICT" });
+Purchase.hasMany(PurchaseItem, { foreignKey: "purchaseId" });
 
 export { Purchase, PurchaseItem };

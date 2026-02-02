@@ -9,7 +9,7 @@ export const createPurchasePartyService = async (data) => {
 export const getAllPurchasePartiesService = async (userId) => {
   return await PurchaseParty.findAll({
     where: { userId },
-    order: [["id", "ASC"]],
+    order: [["id", "DESC"]],
     include: [
       { model: State, attributes: ["id", "statename"] },
       { model: City, attributes: ["id", "citynm"] },

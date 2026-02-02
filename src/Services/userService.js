@@ -1,12 +1,19 @@
 import User from "../Models/userModel.js";
 
 // create user
-export const createUser = async (username, hashedPassword, role = "admin", visiblePassword = "") => {
+export const createUser = async (
+  username,
+  hashedPassword,
+  role = "admin",
+  visiblePassword = "",
+  createdBy = null
+) => {
   return await User.create({
     username,
     password: hashedPassword,
-    visiblePassword,  // store raw password if needed (⚠️ avoid in production)
+    visiblePassword, // store raw password if needed (⚠️ avoid in production)
     role,
+    createdBy
   });
 };
 

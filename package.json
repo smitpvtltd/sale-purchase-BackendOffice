@@ -4,7 +4,10 @@
   "main": "server.js",
   "type": "module",
   "scripts": {
-    "server": "nodemon src/server.js"
+    "server": "nodemon src/server.js",
+    "admin": "node src/Scripts/addAdmin.js",
+    "menus": "node src/Scripts/seedMenuItems.js",
+    "states": "node src/Scripts/seedStates.js"
   },
   "author": "subhan shaikh",
   "license": "ISC",
@@ -12,6 +15,7 @@
   "dependencies": {
     "bcrypt": "^6.0.0",
     "cors": "^2.8.5",
+    "csv-parser": "^3.2.0",
     "dotenv": "^17.0.0",
     "express": "^5.1.0",
     "jsonwebtoken": "^9.0.2",

@@ -1,15 +1,17 @@
 import express from "express";
-import {
-  createSell,
-  getAllSells,
-  getSellById
-} from "../Controllers/sellController.js";
+import { createSell, getSells, editSell, removeSell, getInvoicePreview, getSellController } from "../Controllers/sellController.js";
 
 const router = express.Router();
 
-router.post("/create-bill", createSell);
-router.get("/get-bill", getAllSells);
-router.get("/:id", getSellById);
+router.post("/add", createSell);
+router.get("/all", getSells);
+router.get("/:id", getSellController);
+router.put("/edit/:id", editSell);
+router.delete("/delete/:id", removeSell);
 
+
+
+// Invoice preview route
+router.get("/invoice/preview", getInvoicePreview);
 
 export default router;

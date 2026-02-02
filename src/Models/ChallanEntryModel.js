@@ -7,55 +7,17 @@ import Firm from "./firmModel.js"; // Make sure this exists
 const DeliveryChallan = sequelize.define(
   "DeliveryChallan",
   {
-    id: {
-      type: DataTypes.INTEGER,
-      autoIncrement: true,
-      primaryKey: true,
-    },
-    billNumber: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      unique: true,
-    },
-    date: {
-      type: DataTypes.DATEONLY,
-      allowNull: false,
-    },
-    firmId: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-    },
-    partyId: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-    },
-    userId: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-    },
-    isGstApplicable: {
-      type: DataTypes.BOOLEAN,
-      defaultValue: true,
-    },
-    itemType: {
-      type: DataTypes.STRING, // "withGST" or "commonGST"
-      allowNull: false,
-    },
-    transportationCharges: {
-      type: DataTypes.FLOAT,
-      allowNull: true,
-      defaultValue: 0,
-    },
-    subtotal: {
-      type: DataTypes.FLOAT,
-      allowNull: false,
-      defaultValue: 0,
-    },
-    grandTotal: {
-      type: DataTypes.FLOAT,
-      allowNull: false,
-      defaultValue: 0,
-    },
+    id: {type: DataTypes.INTEGER,autoIncrement: true,primaryKey: true},
+    billNumber: {type: DataTypes.STRING, allowNull: false,unique: true},
+    date: {type: DataTypes.DATEONLY,allowNull: false,},
+    firmId: {type: DataTypes.INTEGER,allowNull: false},
+    partyId: {type: DataTypes.INTEGER, allowNull: false},
+    userId: {type: DataTypes.INTEGER,allowNull: false},
+    isGstApplicable: {type: DataTypes.BOOLEAN,defaultValue: true},
+    itemType: {type: DataTypes.STRING}, // "withGST" or "commonGST"allowNull: false
+    transportationCharges: {type: DataTypes.FLOAT,allowNull: true,defaultValue: 0},
+    subtotal: {type: DataTypes.FLOAT,allowNull: false,defaultValue: 0},
+    grandTotal: {type: DataTypes.FLOAT,allowNull: false,defaultValue: 0},
   },
   {
     tableName: "delivery_challans",

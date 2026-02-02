@@ -1,4 +1,4 @@
-import Category from '../Models/categoryModel.js';
+import Category from '../Models/Category/categoryModel.js';
 
 export const addCategory = async (catNm, userId) => {
   return await Category.create({ catNm, userId });
@@ -7,7 +7,7 @@ export const addCategory = async (catNm, userId) => {
 export const getAllCategories = async (userId) => {
   return await Category.findAll({
     where: { userId },
-    order: [['id', 'ASC']],
+    order: [['id', 'DESC']],
   });
 };
 

@@ -1,0 +1,74 @@
+[
+ {
+   "id": 1,
+   "dt": "2025-03-07",
+   "firm_id": 1,
+   "emp_code": 1,
+   "emp_name": "OWNER",
+   "sts": 0,
+   "edt": "2025-03-07 16:16:21"
+ },
+ {
+   "id": 2,
+   "dt": "2025-05-16",
+   "firm_id": 1,
+   "emp_code": 2,
+   "emp_name": "KALPANA CHAVAN",
+   "sts": 1,
+   "edt": "2025-05-16 12:37:55"
+ },
+ {
+   "id": 3,
+   "dt": "2025-05-16",
+   "firm_id": 1,
+   "emp_code": 3,
+   "emp_name": "AKANKSHA PIMPALKAR",
+   "sts": 1,
+   "edt": "2025-05-16 12:38:23"
+ },
+ {
+   "id": 4,
+   "dt": "2025-05-18",
+   "firm_id": 1,
+   "emp_code": 4,
+   "emp_name": "VRUTTI WASALWAR",
+   "sts": 1,
+   "edt": "2025-05-18 13:51:45"
+ },
+ {
+   "id": 5,
+   "dt": "2025-08-11",
+   "firm_id": 1,
+   "emp_code": 2,
+   "emp_name": "AKANKSHA PIMPALKAR",
+   "sts": 0,
+   "edt": "2025-08-11 20:12:17"
+ },
+ {
+   "id": 6,
+   "dt": "2025-08-11",
+   "firm_id": 1,
+   "emp_code": 3,
+   "emp_name": "SHIVANI PATEL",
+   "sts": 0,
+   "edt": "2025-08-11 20:12:43"
+ },
+ {
+   "id": 7,
+   "dt": "2025-08-11",
+   "firm_id": 1,
+   "emp_code": 4,
+   "emp_name": "SUNITA SINGH",
+   "sts": 0,
+   "edt": "2025-08-11 20:13:07"
+ },
+ {
+   "id": 8,
+   "dt": "2025-09-04",
+   "firm_id": 1,
+   "emp_code": 5,
+   "emp_name": "MAYURI  JADHAV",
+   "sts": 0,
+   "edt": "2025-09-04 19:18:27"
+ }
+]

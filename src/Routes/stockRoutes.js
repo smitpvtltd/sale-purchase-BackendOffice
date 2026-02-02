@@ -1,18 +1,20 @@
 import express from 'express';
 import {
-  addStock,
-  getStocks,
-  getSingleStock,
-  editStock,
-  deleteStock
+  createStock,
+  getAllStocks,
+  getStockById,
+  updateStock,
+  deleteStock,
+  getNextRefNumber
 } from '../Controllers/stockController.js';
 
 const router = express.Router();
 
-router.post('/add', addStock);
-router.get('/all', getStocks);
-router.get('/:id', getSingleStock);
-router.put('/edit/:id', editStock);
-router.delete('/delete/:id', deleteStock);
+router.get("/next-ref", getNextRefNumber); // ✅ route to get next refNumber
+router.post("/add", createStock);
+router.get("/all", getAllStocks);
+router.get("/:id", getStockById);
+router.put("/edit/:id", updateStock);
+router.delete("/delete/:id", deleteStock);
 
 export default router;

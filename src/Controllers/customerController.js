@@ -5,14 +5,19 @@ import {
   deleteCustomerService
 } from '../Services/customerService.js';
 
+// add customer 
 export const createCustomer = async (req, res) => {
-  const { name, email, mobile, address, state, city, gstNumber, companyName, stateType, userId } = req.body;
-
-  if (!name || !email || !mobile || !address || !state || !city || !stateType || !userId) {
-    return res.status(400).json({ message: 'Required fields are missing.' });
-  }
-
   try {
+    const {
+      name, email, mobile, address, state, city, aadharNumber, userId
+    } = req.body;
+
+    if (!name || !mobile || !userId) {
+      return res.status(400).json({ message: "Required fields are missing." });
+    }
+
+    const customerImg = req.files?.map(file => `uploads/customer/${file.filename}`) || [];
+
     const customer = await createCustomerService({
       name,
       email,
@@ -20,19 +25,20 @@ export const createCustomer = async (req, res) => {
       address,
       state,
       city,
-      gstNumber,
-      companyName,
-      stateType,
+      aadharNumber,
+      customerImg,
       userId
     });
 
-    res.status(201).json({ message: 'Customer added.', customer });
+    res.status(201).json({ message: "Customer created successfully", customer });
   } catch (error) {
-    console.error('Create Error:', error);
-    res.status(500).json({ message: 'Server error.' });
+    console.error("Create Customer Error:", error);
+    res.status(500).json({ message: "Internal Server Error" });
   }
 };
 
+
+// get all customers
 export const getCustomers = async (req, res) => {
   const { userId } = req.query;
 
@@ -49,27 +55,18 @@ export const getCustomers = async (req, res) => {
   }
 };
 
-
+// edit customer 
 export const editCustomer = async (req, res) => {
   const { id } = req.params;
-  const { name, email, mobile, address, state, city, gstNumber, companyName, stateType } = req.body;
-
-  if (!name || !email || !mobile || !address || !state || !city || !stateType) {
-    return res.status(400).json({ message: 'Required fields are missing.' });
-  }
+  const updatedData = req.body;
 
   try {
-    const updatedCustomer = await updateCustomerService(id, {
-      name,
-      email,
-      mobile,
-      address,
-      state,
-      city,
-      gstNumber,
-      companyName,
-      stateType,
-    });
+    // 👇 Handle updated images
+    if (req.files?.length > 0) {
+      updatedData.customerImg = req.files.map(file => file.filename);
+    }
+
+    const updatedCustomer = await updateCustomerService(id, updatedData);
 
     if (!updatedCustomer) return res.status(404).json({ message: 'Customer not found.' });
 
@@ -80,6 +77,7 @@ export const editCustomer = async (req, res) => {
   }
 };
 
+// delete customer
 export const removeCustomer = async (req, res) => {
   const { id } = req.params;
 

@@ -1,0 +1,6530 @@
+[
+  {
+    "exp_dt": "2025-03-07",
+    "to_whom": "TEST",
+    "reason": "TEA",
+    "expense_type": 0,
+    "expense_amt": "10",
+    "description": "DDFF"
+  },
+  {
+    "exp_dt": "2025-03-09",
+    "to_whom": "TEST",
+    "reason": "TEA",
+    "expense_type": 0,
+    "expense_amt": "1",
+    "description": "JJJ"
+  },
+  {
+    "exp_dt": "2025-03-09",
+    "to_whom": "TEA WALA",
+    "reason": "TEA",
+    "expense_type": 0,
+    "expense_amt": "102",
+    "description": "TEA"
+  },
+  {
+    "exp_dt": "2025-03-10",
+    "to_whom": "TEA",
+    "reason": "TEA",
+    "expense_type": 0,
+    "expense_amt": "1",
+    "description": "TEST"
+  },
+  {
+    "exp_dt": "2025-03-10",
+    "to_whom": "STAFF",
+    "reason": "NASTA",
+    "expense_type": 0,
+    "expense_amt": "100",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-03-09",
+    "to_whom": "FROM HOME",
+    "reason": "HOME",
+    "expense_type": 1,
+    "expense_amt": "7000",
+    "description": "CHILLER"
+  },
+  {
+    "exp_dt": "2025-03-10",
+    "to_whom": "HO",
+    "reason": "DIRECT PAYMENT",
+    "expense_type": 0,
+    "expense_amt": "1391",
+    "description": "ROHINI LOMATE"
+  },
+  {
+    "exp_dt": "2025-03-09",
+    "to_whom": "FROM HOME",
+    "reason": "HOME",
+    "expense_type": 1,
+    "expense_amt": "1407",
+    "description": "DIFFERENMACE AMOUNT FOR DATE 9 MARCH"
+  },
+  {
+    "exp_dt": "2025-03-10",
+    "to_whom": "NEHA TAILOR",
+    "reason": "ULTERATION",
+    "expense_type": 0,
+    "expense_amt": "150",
+    "description": "ULTERATION"
+  },
+  {
+    "exp_dt": "2025-03-10",
+    "to_whom": "TEA WALA",
+    "reason": "TEA",
+    "expense_type": 0,
+    "expense_amt": "70",
+    "description": "TEA"
+  },
+  {
+    "exp_dt": "2025-03-10",
+    "to_whom": "BABU BHAI BOOTWALA",
+    "reason": "SLIPPERS",
+    "expense_type": 0,
+    "expense_amt": "180",
+    "description": "SLIPPERS FOR MOHAN"
+  },
+  {
+    "exp_dt": "2025-03-11",
+    "to_whom": "HOME",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 0,
+    "expense_amt": "19500",
+    "description": "FOR OTHER THAN PETTY CASH "
+  },
+  {
+    "exp_dt": "2025-03-11",
+    "to_whom": "CHAKKE",
+    "reason": "HOLI",
+    "expense_type": 0,
+    "expense_amt": "50",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-03-11",
+    "to_whom": "DRAWING",
+    "reason": "FORAM",
+    "expense_type": 0,
+    "expense_amt": "2000",
+    "description": "PAID TO FORAM 32200 IN ALL"
+  },
+  {
+    "exp_dt": "2025-03-11",
+    "to_whom": "STAFF",
+    "reason": "NASTA",
+    "expense_type": 0,
+    "expense_amt": "50",
+    "description": "NASTA"
+  },
+  {
+    "exp_dt": "2025-03-11",
+    "to_whom": "TEA WALA",
+    "reason": "TEA",
+    "expense_type": 0,
+    "expense_amt": "60",
+    "description": "TEA"
+  },
+  {
+    "exp_dt": "2025-03-11",
+    "to_whom": "NEHA TAILOR",
+    "reason": "ULTERATION",
+    "expense_type": 0,
+    "expense_amt": "40",
+    "description": "ULTERATION"
+  },
+  {
+    "exp_dt": "2025-03-11",
+    "to_whom": "JAVED SHAIKH",
+    "reason": "AC FITTING",
+    "expense_type": 0,
+    "expense_amt": "1000",
+    "description": "AC FITTING"
+  },
+  {
+    "exp_dt": "2025-03-12",
+    "to_whom": "SUJATA",
+    "reason": "RETURN GOODS",
+    "expense_type": 0,
+    "expense_amt": "1256",
+    "description": "BILL NO 0014"
+  },
+  {
+    "exp_dt": "2025-03-12",
+    "to_whom": "CHHAKKE",
+    "reason": "HOLI",
+    "expense_type": 0,
+    "expense_amt": "150",
+    "description": "HOLI"
+  },
+  {
+    "exp_dt": "2025-03-12",
+    "to_whom": "CADBURY",
+    "reason": "CHOCKLETS",
+    "expense_type": 0,
+    "expense_amt": "400",
+    "description": "CHOCKLETS"
+  },
+  {
+    "exp_dt": "2025-03-12",
+    "to_whom": "STAFF",
+    "reason": "NASTA",
+    "expense_type": 0,
+    "expense_amt": "50",
+    "description": "NASTA"
+  },
+  {
+    "exp_dt": "2025-03-13",
+    "to_whom": "SANTOSH KADIYA",
+    "reason": "KADIYA LABOUR",
+    "expense_type": 0,
+    "expense_amt": "2000",
+    "description": "KADIYA LABOUR"
+  },
+  {
+    "exp_dt": "2025-03-13",
+    "to_whom": "TEA WALA",
+    "reason": "TEA",
+    "expense_type": 0,
+    "expense_amt": "126",
+    "description": "TEA 2 DAYS"
+  },
+  {
+    "exp_dt": "2025-03-13",
+    "to_whom": "DRAWING",
+    "reason": "DRAWINGS",
+    "expense_type": 0,
+    "expense_amt": "2000",
+    "description": "DRAWINGS"
+  },
+  {
+    "exp_dt": "2025-03-13",
+    "to_whom": "MAIN CASH",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 0,
+    "expense_amt": "2000",
+    "description": "FOR DEEPAK ELECTRIC"
+  },
+  {
+    "exp_dt": "2025-03-13",
+    "to_whom": "MEDICAL",
+    "reason": "RAT GUM",
+    "expense_type": 0,
+    "expense_amt": "100",
+    "description": "RAT GUM"
+  },
+  {
+    "exp_dt": "2025-03-13",
+    "to_whom": "NEHA TAILOR",
+    "reason": "ULTERATION",
+    "expense_type": 0,
+    "expense_amt": "110",
+    "description": "ULTERATION"
+  },
+  {
+    "exp_dt": "2025-03-15",
+    "to_whom": "STAFF",
+    "reason": "TEA",
+    "expense_type": 0,
+    "expense_amt": "40",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-03-15",
+    "to_whom": "TEA WALA",
+    "reason": "TEA",
+    "expense_type": 0,
+    "expense_amt": "96",
+    "description": "TEA"
+  },
+  {
+    "exp_dt": "2025-03-15",
+    "to_whom": "NO ONE",
+    "reason": "DIFFERENCE",
+    "expense_type": 0,
+    "expense_amt": "75",
+    "description": "CUSTOMERS PAID LESS"
+  },
+  {
+    "exp_dt": "2025-03-16",
+    "to_whom": "RAJU JAVERI",
+    "reason": "ELECTRITIAN",
+    "expense_type": 0,
+    "expense_amt": "4000",
+    "description": "FITTING CHARGES"
+  },
+  {
+    "exp_dt": "2025-03-16",
+    "to_whom": "SOUJANYA MITRA MANDAL",
+    "reason": "DONATION",
+    "expense_type": 0,
+    "expense_amt": "101",
+    "description": "SHIVJAYANTI CONTRIBUTION MANDAR SHINGASNE"
+  },
+  {
+    "exp_dt": "2025-03-16",
+    "to_whom": "SANTOSH KHOT",
+    "reason": "KADIA MISTRY",
+    "expense_type": 0,
+    "expense_amt": "2000",
+    "description": "BATHROO N TILES LABOUR"
+  },
+  {
+    "exp_dt": "2025-03-16",
+    "to_whom": "TEA WALA",
+    "reason": "TEA",
+    "expense_type": 0,
+    "expense_amt": "96",
+    "description": "TEA"
+  },
+  {
+    "exp_dt": "2025-03-17",
+    "to_whom": "MOHAN SIR",
+    "reason": "DRAWINGS",
+    "expense_type": 0,
+    "expense_amt": "500",
+    "description": "DRAWINGS"
+  },
+  {
+    "exp_dt": "2025-03-17",
+    "to_whom": "TEA WALA",
+    "reason": "TEA",
+    "expense_type": 0,
+    "expense_amt": "100",
+    "description": "TEA"
+  },
+  {
+    "exp_dt": "2025-03-17",
+    "to_whom": "STAFF",
+    "reason": "NASTA",
+    "expense_type": 0,
+    "expense_amt": "120",
+    "description": "NASTA"
+  },
+  {
+    "exp_dt": "2025-03-17",
+    "to_whom": "NEHA TAILOR",
+    "reason": "ULTERATION",
+    "expense_type": 0,
+    "expense_amt": "80",
+    "description": "ULTERATION"
+  },
+  {
+    "exp_dt": "2025-03-17",
+    "to_whom": "MAIN CASH",
+    "reason": "HOME",
+    "expense_type": 0,
+    "expense_amt": "4500",
+    "description": "HOME"
+  },
+  {
+    "exp_dt": "2025-03-18",
+    "to_whom": "TEA WALA",
+    "reason": "TEA",
+    "expense_type": 0,
+    "expense_amt": "90",
+    "description": "TEA"
+  },
+  {
+    "exp_dt": "2025-03-18",
+    "to_whom": "STAFF",
+    "reason": "NASTA",
+    "expense_type": 0,
+    "expense_amt": "50",
+    "description": "NASTA"
+  },
+  {
+    "exp_dt": "2025-03-19",
+    "to_whom": "STAFF",
+    "reason": "NASTA",
+    "expense_type": 0,
+    "expense_amt": "30",
+    "description": "NASTA"
+  },
+  {
+    "exp_dt": "2025-03-19",
+    "to_whom": "MAIN CASH",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 0,
+    "expense_amt": "7500",
+    "description": "HOME"
+  },
+  {
+    "exp_dt": "2025-03-19",
+    "to_whom": "TEA WALA",
+    "reason": "TEA",
+    "expense_type": 0,
+    "expense_amt": "54",
+    "description": "TEA"
+  },
+  {
+    "exp_dt": "2025-03-19",
+    "to_whom": "JAVED SHAIKH",
+    "reason": "AC FITTING",
+    "expense_type": 0,
+    "expense_amt": "1850",
+    "description": "AC"
+  },
+  {
+    "exp_dt": "2025-03-19",
+    "to_whom": "MAIN CASH",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 0,
+    "expense_amt": "6000",
+    "description": "HOME"
+  },
+  {
+    "exp_dt": "2025-03-19",
+    "to_whom": "NEHA TAILOR",
+    "reason": "ULTERATION",
+    "expense_type": 0,
+    "expense_amt": "100",
+    "description": "ULTERATION"
+  },
+  {
+    "exp_dt": "2025-03-20",
+    "to_whom": "STAFF",
+    "reason": "MISCELLANEOUS",
+    "expense_type": 0,
+    "expense_amt": "115",
+    "description": "COLINE"
+  },
+  {
+    "exp_dt": "2025-03-20",
+    "to_whom": "TEA WALA",
+    "reason": "TEA",
+    "expense_type": 0,
+    "expense_amt": "150",
+    "description": "TEA N NASTA"
+  },
+  {
+    "exp_dt": "2025-03-20",
+    "to_whom": "MAIN CASH",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 0,
+    "expense_amt": "5500",
+    "description": "HOME"
+  },
+  {
+    "exp_dt": "2025-03-21",
+    "to_whom": "SANTOSHI MATA MANDIR",
+    "reason": "DONATION",
+    "expense_type": 0,
+    "expense_amt": "201",
+    "description": "BHANDARA"
+  },
+  {
+    "exp_dt": "2025-03-21",
+    "to_whom": "MAIN CASH",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 0,
+    "expense_amt": "7000",
+    "description": "HOME"
+  },
+  {
+    "exp_dt": "2025-03-21",
+    "to_whom": "TEA WALA",
+    "reason": "TEA",
+    "expense_type": 0,
+    "expense_amt": "60",
+    "description": "TEA"
+  },
+  {
+    "exp_dt": "2025-03-21",
+    "to_whom": "STAFF",
+    "reason": "MISCELLANEOUS",
+    "expense_type": 0,
+    "expense_amt": "60",
+    "description": "VACCUM"
+  },
+  {
+    "exp_dt": "2025-03-21",
+    "to_whom": "MAIN CASH",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 0,
+    "expense_amt": "10000",
+    "description": "HOME"
+  },
+  {
+    "exp_dt": "2025-03-22",
+    "to_whom": "NEHA TAILOR",
+    "reason": "ULTERATION",
+    "expense_type": 0,
+    "expense_amt": "200",
+    "description": "5 DRESS"
+  },
+  {
+    "exp_dt": "2025-03-22",
+    "to_whom": "TEA WALA",
+    "reason": "TEA",
+    "expense_type": 0,
+    "expense_amt": "72",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-03-22",
+    "to_whom": "STAFF",
+    "reason": "NASTA",
+    "expense_type": 0,
+    "expense_amt": "50",
+    "description": "NASTA"
+  },
+  {
+    "exp_dt": "2025-03-22",
+    "to_whom": "MAIN CASH",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 0,
+    "expense_amt": "1500",
+    "description": "HOME"
+  },
+  {
+    "exp_dt": "2025-03-23",
+    "to_whom": "STAFF",
+    "reason": "POLITHINS",
+    "expense_type": 0,
+    "expense_amt": "130",
+    "description": "POLYTHINS FOR LEGGING PACKING"
+  },
+  {
+    "exp_dt": "2025-03-23",
+    "to_whom": "TEA WALA",
+    "reason": "TEA",
+    "expense_type": 0,
+    "expense_amt": "54",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-03-23",
+    "to_whom": "NEHA TAILOR",
+    "reason": "ULTERATION",
+    "expense_type": 0,
+    "expense_amt": "130",
+    "description": "ALTERATION"
+  },
+  {
+    "exp_dt": "2025-03-23",
+    "to_whom": "MAIN CASH",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 0,
+    "expense_amt": "4500",
+    "description": "HOME"
+  },
+  {
+    "exp_dt": "2025-03-23",
+    "to_whom": "MAIN CASH",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 0,
+    "expense_amt": "3500",
+    "description": "HOME"
+  },
+  {
+    "exp_dt": "2025-03-24",
+    "to_whom": "TEA WALA",
+    "reason": "TEA",
+    "expense_type": 0,
+    "expense_amt": "60",
+    "description": "TEA"
+  },
+  {
+    "exp_dt": "2025-03-24",
+    "to_whom": "STAFF",
+    "reason": "PETROL",
+    "expense_type": 0,
+    "expense_amt": "280",
+    "description": "ACTIVA PETROL"
+  },
+  {
+    "exp_dt": "2025-03-24",
+    "to_whom": "MAIN CASH",
+    "reason": "HOME",
+    "expense_type": 0,
+    "expense_amt": "1500",
+    "description": "HOME"
+  },
+  {
+    "exp_dt": "2025-03-25",
+    "to_whom": "NEHA TAILOR",
+    "reason": "SLEEVES ADD",
+    "expense_type": 0,
+    "expense_amt": "40",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-03-25",
+    "to_whom": "FROM HOME",
+    "reason": "NASTA",
+    "expense_type": 0,
+    "expense_amt": "30",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-03-25",
+    "to_whom": "MAIN CASH",
+    "reason": "NASTA",
+    "expense_type": 0,
+    "expense_amt": "10",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-03-25",
+    "to_whom": "MAIN CASH",
+    "reason": "NASTA",
+    "expense_type": 0,
+    "expense_amt": "30",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-03-25",
+    "to_whom": "TEA WALA",
+    "reason": "TEA",
+    "expense_type": 0,
+    "expense_amt": "40",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-03-25",
+    "to_whom": "STAFF",
+    "reason": "NASTA",
+    "expense_type": 0,
+    "expense_amt": "50",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-03-26",
+    "to_whom": "MAIN CASH",
+    "reason": "HOME",
+    "expense_type": 0,
+    "expense_amt": "9500",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-03-26",
+    "to_whom": "STAFF",
+    "reason": "STATIONERY",
+    "expense_type": 0,
+    "expense_amt": "180",
+    "description": "PRICE TAG MACHINE"
+  },
+  {
+    "exp_dt": "2025-03-26",
+    "to_whom": "TEA WALA",
+    "reason": "TEA",
+    "expense_type": 0,
+    "expense_amt": "72",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-03-27",
+    "to_whom": "STAFF",
+    "reason": "NASTA",
+    "expense_type": 0,
+    "expense_amt": "10",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-03-27",
+    "to_whom": "MAIN CASH",
+    "reason": "HOME",
+    "expense_type": 0,
+    "expense_amt": "500",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-03-27",
+    "to_whom": "HEMLATA PATIL",
+    "reason": "CASH",
+    "expense_type": 0,
+    "expense_amt": "460",
+    "description": "IN BILL NO 20059 RECEIVED 460 CASH N 5000 ONLINE BUT WRONGLY ENTERED ENTIRE AMOUNT AS ONLINE"
+  },
+  {
+    "exp_dt": "2025-03-27",
+    "to_whom": "HEMLATA PATIL",
+    "reason": "CASH",
+    "expense_type": 1,
+    "expense_amt": "460",
+    "description": "IN BILL NO 20059 RECEIVED 460 CASH N 5000 ONLINE BUT WRONGLY ENTERED ENTIRE AMOUNT AS ONLINE"
+  },
+  {
+    "exp_dt": "2025-03-27",
+    "to_whom": "ROZINA BHABE",
+    "reason": "CASH",
+    "expense_type": 1,
+    "expense_amt": "1690",
+    "description": "CASH BALANCE WITH US AS RETURN GOODS BY CUSTOMER BILL NO 20057 BUT WRONGLY ENTERED AS CASH RETURNED"
+  },
+  {
+    "exp_dt": "2025-03-27",
+    "to_whom": "TEA WALA",
+    "reason": "TEA",
+    "expense_type": 0,
+    "expense_amt": "162",
+    "description": "TEA"
+  },
+  {
+    "exp_dt": "2025-03-28",
+    "to_whom": "HANDLOOM SOCIETY",
+    "reason": "PAYPUSANI",
+    "expense_type": 0,
+    "expense_amt": "120",
+    "description": "PAYPUSANI"
+  },
+  {
+    "exp_dt": "2025-03-28",
+    "to_whom": "DIFFERANCE",
+    "reason": "DIFFERANCE",
+    "expense_type": 0,
+    "expense_amt": "86",
+    "description": "DIFFERANCE"
+  },
+  {
+    "exp_dt": "2025-03-28",
+    "to_whom": "TEA WALA",
+    "reason": "TEA",
+    "expense_type": 0,
+    "expense_amt": "90",
+    "description": "TEA"
+  },
+  {
+    "exp_dt": "2025-03-28",
+    "to_whom": "DIFFERANCE",
+    "reason": "DIFFERENCE",
+    "expense_type": 0,
+    "expense_amt": "45",
+    "description": "DIFFERENCE"
+  },
+  {
+    "exp_dt": "2025-03-28",
+    "to_whom": "STAFF",
+    "reason": "NASTA",
+    "expense_type": 0,
+    "expense_amt": "50",
+    "description": "NASTA"
+  },
+  {
+    "exp_dt": "2025-03-28",
+    "to_whom": "MAIN CASH",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 0,
+    "expense_amt": "5000",
+    "description": "HOME"
+  },
+  {
+    "exp_dt": "2025-03-29",
+    "to_whom": "NEHA TAILOR",
+    "reason": "ULTERATION",
+    "expense_type": 0,
+    "expense_amt": "80",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-03-29",
+    "to_whom": "TEA WALA",
+    "reason": "TEA",
+    "expense_type": 0,
+    "expense_amt": "84",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-03-30",
+    "to_whom": "TEA WALA",
+    "reason": "TEA",
+    "expense_type": 0,
+    "expense_amt": "50",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-04-01",
+    "to_whom": "TEA WALA",
+    "reason": "TEA",
+    "expense_type": 0,
+    "expense_amt": "84",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-04-02",
+    "to_whom": "TEA WALA",
+    "reason": "TEA",
+    "expense_type": 0,
+    "expense_amt": "96",
+    "description": "TEA"
+  },
+  {
+    "exp_dt": "2025-04-02",
+    "to_whom": "NASEEMA KHAN",
+    "reason": "DIRECT PAYMENT",
+    "expense_type": 1,
+    "expense_amt": "1780",
+    "description": "BILL NO 68 NOT SHOWING"
+  },
+  {
+    "exp_dt": "2025-04-03",
+    "to_whom": "MAIN CASH",
+    "reason": "HOME",
+    "expense_type": 0,
+    "expense_amt": "1500",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-04-03",
+    "to_whom": "TEA WALA",
+    "reason": "TEA",
+    "expense_type": 0,
+    "expense_amt": "116",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-04-05",
+    "to_whom": "STAFF",
+    "reason": "POLITHINS",
+    "expense_type": 0,
+    "expense_amt": "140",
+    "description": "POLITHINS"
+  },
+  {
+    "exp_dt": "2025-04-05",
+    "to_whom": "TEA WALA",
+    "reason": "TEA",
+    "expense_type": 0,
+    "expense_amt": "54",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-04-06",
+    "to_whom": "TEA WALA",
+    "reason": "TEA",
+    "expense_type": 0,
+    "expense_amt": "40",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-04-07",
+    "to_whom": "STAFF",
+    "reason": "NASTA",
+    "expense_type": 0,
+    "expense_amt": "50",
+    "description": "NASTA"
+  },
+  {
+    "exp_dt": "2025-04-07",
+    "to_whom": "DEEPIKA JAIN",
+    "reason": "NOT PAID",
+    "expense_type": 0,
+    "expense_amt": "1100",
+    "description": "BILL NO 70 "
+  },
+  {
+    "exp_dt": "2025-04-07",
+    "to_whom": "MAIN CASH",
+    "reason": "DRAWINGS",
+    "expense_type": 0,
+    "expense_amt": "600",
+    "description": "DRAWINGS"
+  },
+  {
+    "exp_dt": "2025-04-07",
+    "to_whom": "KALPANA CHOUHAN",
+    "reason": "SALARY",
+    "expense_type": 0,
+    "expense_amt": "5880",
+    "description": "FOR THE MONTH OF MARCH 25"
+  },
+  {
+    "exp_dt": "2025-04-07",
+    "to_whom": "POONAM GOHIL",
+    "reason": "SALARY",
+    "expense_type": 0,
+    "expense_amt": "1980",
+    "description": "FOR THE MONTH OF MARCH 25"
+  },
+  {
+    "exp_dt": "2025-04-07",
+    "to_whom": "POONAM GOHIL",
+    "reason": "SALARY",
+    "expense_type": 0,
+    "expense_amt": "2140",
+    "description": "SALARY"
+  },
+  {
+    "exp_dt": "2025-04-07",
+    "to_whom": "TEA WALA",
+    "reason": "TEA",
+    "expense_type": 0,
+    "expense_amt": "40",
+    "description": "TEA"
+  },
+  {
+    "exp_dt": "2025-04-08",
+    "to_whom": "KALPANA CHOUHAN",
+    "reason": "SALARY",
+    "expense_type": 0,
+    "expense_amt": "600",
+    "description": "EXTRA WORK EID"
+  },
+  {
+    "exp_dt": "2025-04-08",
+    "to_whom": "MAIN CASH",
+    "reason": "DRAWINGS",
+    "expense_type": 0,
+    "expense_amt": "1500",
+    "description": "DRAWINGS"
+  },
+  {
+    "exp_dt": "2025-04-08",
+    "to_whom": "BILL NO 75",
+    "reason": "SALES",
+    "expense_type": 0,
+    "expense_amt": "2130",
+    "description": "NOT SHOWIG"
+  },
+  {
+    "exp_dt": "2025-04-08",
+    "to_whom": "BILL NO 75",
+    "reason": "SALES",
+    "expense_type": 1,
+    "expense_amt": "2130",
+    "description": "NOT SHOWIG"
+  },
+  {
+    "exp_dt": "2025-04-08",
+    "to_whom": "TEA WALA",
+    "reason": "TEA",
+    "expense_type": 0,
+    "expense_amt": "34",
+    "description": "TEA"
+  },
+  {
+    "exp_dt": "2025-04-09",
+    "to_whom": "STAFF",
+    "reason": "NASTA",
+    "expense_type": 0,
+    "expense_amt": "50",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-04-09",
+    "to_whom": "TEA WALA",
+    "reason": "TEA",
+    "expense_type": 0,
+    "expense_amt": "46",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-04-10",
+    "to_whom": "MAIN CASH",
+    "reason": "HOME",
+    "expense_type": 0,
+    "expense_amt": "4500",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-04-10",
+    "to_whom": "F K ANGADIYA",
+    "reason": "TRANSPORT CHARGES",
+    "expense_type": 0,
+    "expense_amt": "120",
+    "description": "JUST FEEL CLOTHING P LTD"
+  },
+  {
+    "exp_dt": "2025-04-10",
+    "to_whom": "NEHA TAILOR",
+    "reason": "ULTERATION",
+    "expense_type": 0,
+    "expense_amt": "100",
+    "description": "ULTERATION"
+  },
+  {
+    "exp_dt": "2025-04-10",
+    "to_whom": "STAFF",
+    "reason": "NASTA",
+    "expense_type": 0,
+    "expense_amt": "50",
+    "description": "NASTA"
+  },
+  {
+    "exp_dt": "2025-04-10",
+    "to_whom": "TEA WALA",
+    "reason": "TEA",
+    "expense_type": 0,
+    "expense_amt": "40",
+    "description": "TEA"
+  },
+  {
+    "exp_dt": "2025-04-11",
+    "to_whom": "FROM HOME",
+    "reason": "NASTA",
+    "expense_type": 0,
+    "expense_amt": "10",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-04-11",
+    "to_whom": "PAANIWALA",
+    "reason": "PANIWALA",
+    "expense_type": 0,
+    "expense_amt": "350",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-04-11",
+    "to_whom": "STAFF",
+    "reason": "NASTA",
+    "expense_type": 0,
+    "expense_amt": "160",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-04-11",
+    "to_whom": "STAFF",
+    "reason": "NASTA",
+    "expense_type": 0,
+    "expense_amt": "10",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-04-11",
+    "to_whom": "TEA WALA",
+    "reason": "TEA",
+    "expense_type": 0,
+    "expense_amt": "36",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-04-12",
+    "to_whom": "STAFF",
+    "reason": "NASTA",
+    "expense_type": 0,
+    "expense_amt": "50",
+    "description": "NASTA"
+  },
+  {
+    "exp_dt": "2025-04-12",
+    "to_whom": "TEA WALA",
+    "reason": "TEA",
+    "expense_type": 0,
+    "expense_amt": "50",
+    "description": "TEA"
+  },
+  {
+    "exp_dt": "2025-04-13",
+    "to_whom": "STAFF",
+    "reason": "TEA",
+    "expense_type": 0,
+    "expense_amt": "30",
+    "description": "TEA"
+  },
+  {
+    "exp_dt": "2025-04-13",
+    "to_whom": "MAIN CASH",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 0,
+    "expense_amt": "8500",
+    "description": "MAIN CASH"
+  },
+  {
+    "exp_dt": "2025-04-13",
+    "to_whom": "STAFF",
+    "reason": "NASTA",
+    "expense_type": 0,
+    "expense_amt": "50",
+    "description": "NASTA"
+  },
+  {
+    "exp_dt": "2025-04-13",
+    "to_whom": "MAIN CASH",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 0,
+    "expense_amt": "7085",
+    "description": "MAIN CASH"
+  },
+  {
+    "exp_dt": "2025-04-14",
+    "to_whom": "MAIN CASH",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 0,
+    "expense_amt": "500",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-04-14",
+    "to_whom": "NITIN",
+    "reason": "DECORATION",
+    "expense_type": 0,
+    "expense_amt": "180",
+    "description": "PLASTICK FLOWERS LAD 2 PACKETS"
+  },
+  {
+    "exp_dt": "2025-04-14",
+    "to_whom": "STAFF",
+    "reason": "NASTA",
+    "expense_type": 0,
+    "expense_amt": "70",
+    "description": "NASTA"
+  },
+  {
+    "exp_dt": "2025-04-15",
+    "to_whom": "MAIN CASH",
+    "reason": "HOME",
+    "expense_type": 0,
+    "expense_amt": "3000",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-04-15",
+    "to_whom": "MAIN CASH",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 0,
+    "expense_amt": "1400",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-04-15",
+    "to_whom": "UNION BANK",
+    "reason": "BANK",
+    "expense_type": 0,
+    "expense_amt": "1065",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-04-15",
+    "to_whom": "STAFF",
+    "reason": "TEA",
+    "expense_type": 0,
+    "expense_amt": "70",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-04-15",
+    "to_whom": "SUNIL PATIL",
+    "reason": "ADVANCE",
+    "expense_type": 0,
+    "expense_amt": "2000",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-04-15",
+    "to_whom": "MAIN CASH",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 0,
+    "expense_amt": "2000",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-04-16",
+    "to_whom": "MAIN CASH",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 0,
+    "expense_amt": "2000",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-04-17",
+    "to_whom": "STAFF",
+    "reason": "NASTA",
+    "expense_type": 0,
+    "expense_amt": "50",
+    "description": "NASTA"
+  },
+  {
+    "exp_dt": "2025-04-17",
+    "to_whom": "MAIN CASH",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 0,
+    "expense_amt": "8500",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-04-17",
+    "to_whom": "STAFF",
+    "reason": "TEA",
+    "expense_type": 0,
+    "expense_amt": "65",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-04-19",
+    "to_whom": "DIFFERANCE",
+    "reason": "DIFFERENCE",
+    "expense_type": 0,
+    "expense_amt": "125",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-04-19",
+    "to_whom": "STAFF",
+    "reason": "NASTA",
+    "expense_type": 0,
+    "expense_amt": "50",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-04-20",
+    "to_whom": "MAIN CASH",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 0,
+    "expense_amt": "1500",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-04-20",
+    "to_whom": "STAFF",
+    "reason": "NASTA",
+    "expense_type": 0,
+    "expense_amt": "50",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-04-20",
+    "to_whom": "STAFF",
+    "reason": "TEA",
+    "expense_type": 0,
+    "expense_amt": "110",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-04-21",
+    "to_whom": "STAFF",
+    "reason": "TEA",
+    "expense_type": 0,
+    "expense_amt": "36",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-04-22",
+    "to_whom": "MAIN CASH",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 0,
+    "expense_amt": "1000",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-04-23",
+    "to_whom": "STAFF",
+    "reason": "NASTA",
+    "expense_type": 0,
+    "expense_amt": "46",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-04-23",
+    "to_whom": "NASTA",
+    "reason": "NASTA",
+    "expense_type": 0,
+    "expense_amt": "66",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-04-23",
+    "to_whom": "MAIN CASH",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 0,
+    "expense_amt": "1000",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-04-23",
+    "to_whom": "STAFF",
+    "reason": "TEA",
+    "expense_type": 0,
+    "expense_amt": "42",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-04-25",
+    "to_whom": "TRANSPORT",
+    "reason": "TRANSPORT CHARGES",
+    "expense_type": 0,
+    "expense_amt": "160",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-04-25",
+    "to_whom": "STAFF",
+    "reason": "NASTA",
+    "expense_type": 0,
+    "expense_amt": "50",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-04-26",
+    "to_whom": "CHASSWALA",
+    "reason": "CHASS",
+    "expense_type": 0,
+    "expense_amt": "20",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-04-26",
+    "to_whom": "STAFF",
+    "reason": "TEA",
+    "expense_type": 0,
+    "expense_amt": "104",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-04-27",
+    "to_whom": "CHASSWALA",
+    "reason": "CHASS",
+    "expense_type": 0,
+    "expense_amt": "30",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-04-27",
+    "to_whom": "DIFFERANCE",
+    "reason": "DIFFERENCE",
+    "expense_type": 0,
+    "expense_amt": "82",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-04-27",
+    "to_whom": "CUSTOMER",
+    "reason": "PADS",
+    "expense_type": 1,
+    "expense_amt": "100",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-04-27",
+    "to_whom": "MAIN CASH",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 0,
+    "expense_amt": "1500",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-04-28",
+    "to_whom": "MAIN CASH",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 0,
+    "expense_amt": "4000",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-04-28",
+    "to_whom": "AAHAN CREATIONS",
+    "reason": "TRANSPORT CHARGES",
+    "expense_type": 0,
+    "expense_amt": "200",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-04-28",
+    "to_whom": "MAIN CASH",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 0,
+    "expense_amt": "6500",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-04-28",
+    "to_whom": "CHASSWALA",
+    "reason": "CHASS",
+    "expense_type": 0,
+    "expense_amt": "20",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-04-28",
+    "to_whom": "TEAWALA",
+    "reason": "TEA",
+    "expense_type": 0,
+    "expense_amt": "86",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-04-29",
+    "to_whom": "STAFF",
+    "reason": "NASTA",
+    "expense_type": 0,
+    "expense_amt": "64",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-04-30",
+    "to_whom": "CHASSWALA",
+    "reason": "CHASS",
+    "expense_type": 0,
+    "expense_amt": "30",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-04-30",
+    "to_whom": "STAFF",
+    "reason": "TEA",
+    "expense_type": 0,
+    "expense_amt": "70",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-04-30",
+    "to_whom": "MAIN CASH",
+    "reason": "DRAWINGS",
+    "expense_type": 0,
+    "expense_amt": "2000",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-05-01",
+    "to_whom": "STAFF",
+    "reason": "NASTA",
+    "expense_type": 0,
+    "expense_amt": "50",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-05-01",
+    "to_whom": "MAIN CASH",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 0,
+    "expense_amt": "1000",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-05-02",
+    "to_whom": "TEAWALA",
+    "reason": "TEA",
+    "expense_type": 0,
+    "expense_amt": "98",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-05-02",
+    "to_whom": "MAIN CASH",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 0,
+    "expense_amt": "5000",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-05-02",
+    "to_whom": "DIFFERANCE",
+    "reason": "DIFFERENCE",
+    "expense_type": 0,
+    "expense_amt": "2",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-05-03",
+    "to_whom": "CHASSWALA",
+    "reason": "CHASS",
+    "expense_type": 0,
+    "expense_amt": "20",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-05-03",
+    "to_whom": "STAFF",
+    "reason": "NASTA",
+    "expense_type": 0,
+    "expense_amt": "50",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-05-03",
+    "to_whom": "A. CHAIWALA",
+    "reason": "TEA",
+    "expense_type": 0,
+    "expense_amt": "10",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-05-03",
+    "to_whom": "DAMYANTI GOHIL",
+    "reason": "SALARY",
+    "expense_type": 0,
+    "expense_amt": "2200",
+    "description": "FOR THE MONTH OF APRIL"
+  },
+  {
+    "exp_dt": "2025-05-03",
+    "to_whom": "TEAWALA",
+    "reason": "TEA",
+    "expense_type": 0,
+    "expense_amt": "40",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-05-03",
+    "to_whom": "MAIN CASH",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 0,
+    "expense_amt": "4000",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-05-03",
+    "to_whom": "CHILLAR",
+    "reason": "CHILLAR",
+    "expense_type": 1,
+    "expense_amt": "500",
+    "description": "20`S 25 NOTES ADDED"
+  },
+  {
+    "exp_dt": "2025-05-04",
+    "to_whom": "A. CHAIWALA",
+    "reason": "TEA",
+    "expense_type": 0,
+    "expense_amt": "20",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-05-04",
+    "to_whom": "A. CHAIWALA",
+    "reason": "TEA",
+    "expense_type": 0,
+    "expense_amt": "10",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-05-04",
+    "to_whom": "STAFF",
+    "reason": "NASTA",
+    "expense_type": 0,
+    "expense_amt": "80",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-05-05",
+    "to_whom": "STAFF",
+    "reason": "TEA",
+    "expense_type": 0,
+    "expense_amt": "30",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-05-05",
+    "to_whom": "STAFF",
+    "reason": "NASTA",
+    "expense_type": 0,
+    "expense_amt": "50",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-05-06",
+    "to_whom": "MAIN CASH",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 0,
+    "expense_amt": "2630",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-05-06",
+    "to_whom": "MAIN CASH",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 0,
+    "expense_amt": "3000",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-05-06",
+    "to_whom": "MAIN CASH",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 0,
+    "expense_amt": "9680",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-05-06",
+    "to_whom": "HARSHALI GAIKAWAD",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 0,
+    "expense_amt": "200",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-05-06",
+    "to_whom": "MAIN CASH",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 0,
+    "expense_amt": "300",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-05-07",
+    "to_whom": "SALES",
+    "reason": "SALES",
+    "expense_type": 1,
+    "expense_amt": "700",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-05-07",
+    "to_whom": "STAFF",
+    "reason": "TEA",
+    "expense_type": 0,
+    "expense_amt": "80",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-05-07",
+    "to_whom": "MAIN CASH",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 0,
+    "expense_amt": "200",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-05-07",
+    "to_whom": "MAIN CASH",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 0,
+    "expense_amt": "2500",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-05-07",
+    "to_whom": "TEAWALA",
+    "reason": "TEA",
+    "expense_type": 0,
+    "expense_amt": "60",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-05-08",
+    "to_whom": "MAIN CASH",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 0,
+    "expense_amt": "1500",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-05-08",
+    "to_whom": "SALES",
+    "reason": "SALES",
+    "expense_type": 1,
+    "expense_amt": "400",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-05-08",
+    "to_whom": "STAFF",
+    "reason": "TEA",
+    "expense_type": 0,
+    "expense_amt": "30",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-05-08",
+    "to_whom": "STAFF",
+    "reason": "NASTA",
+    "expense_type": 0,
+    "expense_amt": "49",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-05-08",
+    "to_whom": "A. CHAIWALA",
+    "reason": "TEA",
+    "expense_type": 0,
+    "expense_amt": "30",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-05-08",
+    "to_whom": "MAIN CASH",
+    "reason": "HOME",
+    "expense_type": 0,
+    "expense_amt": "5000",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-05-09",
+    "to_whom": "MAIN CASH",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 0,
+    "expense_amt": "1000",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-05-11",
+    "to_whom": "MAIN CASH",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 0,
+    "expense_amt": "12500",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-05-11",
+    "to_whom": "SALES",
+    "reason": "SALES",
+    "expense_type": 1,
+    "expense_amt": "6500",
+    "description": "BILL NO 170 PAID CASH 6500 N ONLINE 2950"
+  },
+  {
+    "exp_dt": "2025-05-11",
+    "to_whom": "NEETA PATEL",
+    "reason": "SALES",
+    "expense_type": 1,
+    "expense_amt": "5500",
+    "description": "ADVANCE "
+  },
+  {
+    "exp_dt": "2025-05-11",
+    "to_whom": "NEETA PATEL ",
+    "reason": "SALES",
+    "expense_type": 1,
+    "expense_amt": "2400",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-05-11",
+    "to_whom": "SALES",
+    "reason": "SALES",
+    "expense_type": 0,
+    "expense_amt": "675",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-05-11",
+    "to_whom": "SALES",
+    "reason": "SALES",
+    "expense_type": 1,
+    "expense_amt": "675",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-05-11",
+    "to_whom": "NEHA KESARWANI",
+    "reason": "SALES",
+    "expense_type": 0,
+    "expense_amt": "1030",
+    "description": "1620 N 163 TOTAL 1670 CREDITED BUT RETURNED 999 SHOULD BE DEDUCTED NET CASH RECEIVED 640 ONLY"
+  },
+  {
+    "exp_dt": "2025-05-11",
+    "to_whom": "STAFF",
+    "reason": "TEA",
+    "expense_type": 0,
+    "expense_amt": "47",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-05-12",
+    "to_whom": "SALES",
+    "reason": "SALES",
+    "expense_type": 0,
+    "expense_amt": "500",
+    "description": "RECEIVED ONLINE BUT WRONGLY ENTERD IN CASH"
+  },
+  {
+    "exp_dt": "2025-05-12",
+    "to_whom": "DRAWING",
+    "reason": "NASTA",
+    "expense_type": 0,
+    "expense_amt": "100",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-05-12",
+    "to_whom": "MAIN CASH",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 0,
+    "expense_amt": "2500",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-05-13",
+    "to_whom": "DIFFERENCE",
+    "reason": "DIFFERENCE",
+    "expense_type": 0,
+    "expense_amt": "12",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-05-13",
+    "to_whom": "STAFF",
+    "reason": "NASTA",
+    "expense_type": 0,
+    "expense_amt": "40",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-05-13",
+    "to_whom": "TEAWALA",
+    "reason": "TEA",
+    "expense_type": 0,
+    "expense_amt": "168",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-05-13",
+    "to_whom": "MAIN CASH",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 0,
+    "expense_amt": "1000",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-05-14",
+    "to_whom": "MAIN CASH",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 0,
+    "expense_amt": "4500",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-05-14",
+    "to_whom": "ANJALI CHUDASAMA",
+    "reason": "SALARY",
+    "expense_type": 0,
+    "expense_amt": "2000",
+    "description": "10 DAYS OF 9+1 MAY 2025"
+  },
+  {
+    "exp_dt": "2025-05-14",
+    "to_whom": "KALPANA CHAVAN",
+    "reason": "SALARY",
+    "expense_type": 0,
+    "expense_amt": "2850",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-05-14",
+    "to_whom": "MAIN CASH",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 1,
+    "expense_amt": "350",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-05-14",
+    "to_whom": "ABHISHEK PIMPALE",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 0,
+    "expense_amt": "300",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-05-14",
+    "to_whom": "NILIMA PATIL",
+    "reason": "SALES",
+    "expense_type": 1,
+    "expense_amt": "1240",
+    "description": "1015"
+  },
+  {
+    "exp_dt": "2025-05-14",
+    "to_whom": "NASHEEN GUJAR",
+    "reason": "SALES",
+    "expense_type": 1,
+    "expense_amt": "2900",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-05-14",
+    "to_whom": "SUREKHA LONDE",
+    "reason": "SALES",
+    "expense_type": 1,
+    "expense_amt": "1100",
+    "description": "1017"
+  },
+  {
+    "exp_dt": "2025-05-14",
+    "to_whom": "PAYTM",
+    "reason": "SALES",
+    "expense_type": 0,
+    "expense_amt": "500",
+    "description": "1017"
+  },
+  {
+    "exp_dt": "2025-05-14",
+    "to_whom": "TEAWALA",
+    "reason": "TEA",
+    "expense_type": 0,
+    "expense_amt": "60",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-05-14",
+    "to_whom": "ISHIKA BAFNA",
+    "reason": "SALES",
+    "expense_type": 1,
+    "expense_amt": "675",
+    "description": "MANUAL BILL 1018"
+  },
+  {
+    "exp_dt": "2025-05-14",
+    "to_whom": "MAIN CASH",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 0,
+    "expense_amt": "500",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-05-14",
+    "to_whom": "MAIN CASH",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 0,
+    "expense_amt": "1500",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-05-15",
+    "to_whom": "DIFFERANCE",
+    "reason": "DIFFERENCE",
+    "expense_type": 1,
+    "expense_amt": "63",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-05-15",
+    "to_whom": "TEAWALA",
+    "reason": "TEA",
+    "expense_type": 0,
+    "expense_amt": "36",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-05-15",
+    "to_whom": "TAILOR",
+    "reason": "ULTERATION",
+    "expense_type": 0,
+    "expense_amt": "120",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-05-16",
+    "to_whom": "DIFFERANCE",
+    "reason": "DIFFERANCE",
+    "expense_type": 1,
+    "expense_amt": "36",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-05-16",
+    "to_whom": "TEAWALA",
+    "reason": "TEA",
+    "expense_type": 0,
+    "expense_amt": "40",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-05-16",
+    "to_whom": "TEAWALA",
+    "reason": "TEA",
+    "expense_type": 0,
+    "expense_amt": "30",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-05-16",
+    "to_whom": "MAIN CASH",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 0,
+    "expense_amt": "4000",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-05-16",
+    "to_whom": "DIFFERANCE",
+    "reason": "DIFFERENCE",
+    "expense_type": 1,
+    "expense_amt": "80",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-05-17",
+    "to_whom": "KALPANA CHAVAN",
+    "reason": "ADVANCE",
+    "expense_type": 0,
+    "expense_amt": "1000",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-05-17",
+    "to_whom": "NAYAN STORES",
+    "reason": "PLASTIC BOXES",
+    "expense_type": 0,
+    "expense_amt": "1930",
+    "description": "5 BOX @ 300 AND 1 TRAY @ 130"
+  },
+  {
+    "exp_dt": "2025-05-17",
+    "to_whom": "STAFF",
+    "reason": "TEA",
+    "expense_type": 0,
+    "expense_amt": "40",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-05-17",
+    "to_whom": "MAIN CASH",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 0,
+    "expense_amt": "4000",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-05-17",
+    "to_whom": "STAFF",
+    "reason": "NASTA",
+    "expense_type": 0,
+    "expense_amt": "60",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-05-18",
+    "to_whom": "DIFFERANCE",
+    "reason": "DIFFERENCE",
+    "expense_type": 1,
+    "expense_amt": "6",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-05-18",
+    "to_whom": "MAIN CASH",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 0,
+    "expense_amt": "4500",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-05-18",
+    "to_whom": "MAIN CASH",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 0,
+    "expense_amt": "4000",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-05-18",
+    "to_whom": "8500",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 0,
+    "expense_amt": "8500",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-05-18",
+    "to_whom": "MAIN CASH",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 0,
+    "expense_amt": "9000",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-05-18",
+    "to_whom": "TEAWALA",
+    "reason": "TEA",
+    "expense_type": 0,
+    "expense_amt": "60",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-05-18",
+    "to_whom": "TEAWALA",
+    "reason": "TEA",
+    "expense_type": 0,
+    "expense_amt": "132",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-05-18",
+    "to_whom": "STAFF",
+    "reason": "NASTA",
+    "expense_type": 0,
+    "expense_amt": "30",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-05-18",
+    "to_whom": "MAIN CASH",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 0,
+    "expense_amt": "10000",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-05-19",
+    "to_whom": "MAIN CASH",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 0,
+    "expense_amt": "2000",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-05-19",
+    "to_whom": "STAFF",
+    "reason": "NASTA",
+    "expense_type": 0,
+    "expense_amt": "50",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-05-19",
+    "to_whom": "TEAWALA",
+    "reason": "TEA",
+    "expense_type": 0,
+    "expense_amt": "50",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-05-19",
+    "to_whom": "BAGS PACKING",
+    "reason": "BAGS PACKING",
+    "expense_type": 0,
+    "expense_amt": "180",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-05-19",
+    "to_whom": "TAILOR",
+    "reason": "ULTERATION",
+    "expense_type": 0,
+    "expense_amt": "100",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-05-19",
+    "to_whom": "DIFFERANCE",
+    "reason": "DIFFERANCE",
+    "expense_type": 1,
+    "expense_amt": "3",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-05-20",
+    "to_whom": "STAFF",
+    "reason": "NASTA",
+    "expense_type": 0,
+    "expense_amt": "50",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-05-20",
+    "to_whom": "DIFFERANCE",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 0,
+    "expense_amt": "700",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-05-20",
+    "to_whom": "KALPANA CHAVAN",
+    "reason": "ADVANCE",
+    "expense_type": 0,
+    "expense_amt": "3000",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-05-20",
+    "to_whom": "STAFF",
+    "reason": "NASTA",
+    "expense_type": 0,
+    "expense_amt": "50",
+    "description": "LUNCH KALPANA"
+  },
+  {
+    "exp_dt": "2025-05-20",
+    "to_whom": "TEAWALA",
+    "reason": "TEA",
+    "expense_type": 0,
+    "expense_amt": "50",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-05-20",
+    "to_whom": "NITA PATEL",
+    "reason": "SALES",
+    "expense_type": 1,
+    "expense_amt": "1000",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-05-20",
+    "to_whom": "VANI",
+    "reason": "SALES",
+    "expense_type": 0,
+    "expense_amt": "900",
+    "description": "E C PADS"
+  },
+  {
+    "exp_dt": "2025-05-20",
+    "to_whom": "VANI",
+    "reason": "SALES",
+    "expense_type": 1,
+    "expense_amt": "900",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-05-21",
+    "to_whom": "MAIN CASH",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 0,
+    "expense_amt": "6000",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-05-21",
+    "to_whom": "A. CHAIWALA",
+    "reason": "TEA",
+    "expense_type": 0,
+    "expense_amt": "50",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-05-21",
+    "to_whom": "STAFF",
+    "reason": "NASTA",
+    "expense_type": 0,
+    "expense_amt": "50",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-05-21",
+    "to_whom": "JAVED SHAIKH",
+    "reason": "AC SERVICE",
+    "expense_type": 0,
+    "expense_amt": "500",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-05-21",
+    "to_whom": "TAILOR",
+    "reason": "ULTERATION",
+    "expense_type": 0,
+    "expense_amt": "50",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-05-21",
+    "to_whom": "SALES",
+    "reason": "RETURN GOODS",
+    "expense_type": 0,
+    "expense_amt": "350",
+    "description": "EXCESS TAKEN IN EXCHANGE"
+  },
+  {
+    "exp_dt": "2025-05-21",
+    "to_whom": "SALES",
+    "reason": "SALES",
+    "expense_type": 1,
+    "expense_amt": "350",
+    "description": "EXCHANGE "
+  },
+  {
+    "exp_dt": "2025-05-21",
+    "to_whom": "MAIN CASH",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 0,
+    "expense_amt": "6000",
+    "description": "MAIN CASH"
+  },
+  {
+    "exp_dt": "2025-05-21",
+    "to_whom": "MAIN CASH",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 0,
+    "expense_amt": "1500",
+    "description": "M"
+  },
+  {
+    "exp_dt": "2025-05-22",
+    "to_whom": "STATIONERY",
+    "reason": "STATIONERY",
+    "expense_type": 0,
+    "expense_amt": "380",
+    "description": "PRINTER ROLL 10PC "
+  },
+  {
+    "exp_dt": "2025-05-22",
+    "to_whom": "TEA",
+    "reason": "TEA",
+    "expense_type": 0,
+    "expense_amt": "50",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-05-22",
+    "to_whom": "UBOI",
+    "reason": "BANK",
+    "expense_type": 0,
+    "expense_amt": "3000",
+    "description": "FROM KALPANA CHAVAN ONLINE RECEIVED "
+  },
+  {
+    "exp_dt": "2025-05-22",
+    "to_whom": "MAIN CASH ",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 0,
+    "expense_amt": "2500",
+    "description": "MAIN CASH "
+  },
+  {
+    "exp_dt": "2025-05-23",
+    "to_whom": "CUSTOMER",
+    "reason": "OUTFIT",
+    "expense_type": 1,
+    "expense_amt": "900",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-05-23",
+    "to_whom": "A. CHAIWALA",
+    "reason": "TEA",
+    "expense_type": 0,
+    "expense_amt": "20",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-05-23",
+    "to_whom": "MAIN CASH",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 0,
+    "expense_amt": "3000",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-05-23",
+    "to_whom": "SALES",
+    "reason": "SALES",
+    "expense_type": 1,
+    "expense_amt": "800",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-05-23",
+    "to_whom": "MAIN CASH",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 0,
+    "expense_amt": "5500",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-05-24",
+    "to_whom": "STAFF",
+    "reason": "NASTA",
+    "expense_type": 0,
+    "expense_amt": "40",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-05-24",
+    "to_whom": "TEA",
+    "reason": "TEA",
+    "expense_type": 0,
+    "expense_amt": "60",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-05-24",
+    "to_whom": "TAILOR ",
+    "reason": "ULTERATION",
+    "expense_type": 0,
+    "expense_amt": "10",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-05-24",
+    "to_whom": "PANDEY ",
+    "reason": "CASH BACK ",
+    "expense_type": 0,
+    "expense_amt": "90",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-05-24",
+    "to_whom": "MAIN CASH",
+    "reason": "HOME",
+    "expense_type": 0,
+    "expense_amt": "5500",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-05-24",
+    "to_whom": "MAIN CASH",
+    "reason": "DIFFERENCE",
+    "expense_type": 1,
+    "expense_amt": "391",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-05-25",
+    "to_whom": "STAFF",
+    "reason": "TEA",
+    "expense_type": 0,
+    "expense_amt": "24",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-05-25",
+    "to_whom": "A. CHAIWALA",
+    "reason": "TEA",
+    "expense_type": 0,
+    "expense_amt": "30",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-05-25",
+    "to_whom": "A. CHAIWALA",
+    "reason": "TEA",
+    "expense_type": 0,
+    "expense_amt": "20",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-05-25",
+    "to_whom": "MAIN CASH",
+    "reason": "TRANSPORT CHARGES",
+    "expense_type": 0,
+    "expense_amt": "120",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-05-25",
+    "to_whom": "MAIN CASH",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 0,
+    "expense_amt": "500",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-05-25",
+    "to_whom": "STAFF",
+    "reason": "NASTA",
+    "expense_type": 0,
+    "expense_amt": "56",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-05-26",
+    "to_whom": "TEAWALA",
+    "reason": "TEA",
+    "expense_type": 0,
+    "expense_amt": "120",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-05-26",
+    "to_whom": "A. CHAIWALA",
+    "reason": "TEA",
+    "expense_type": 0,
+    "expense_amt": "40",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-05-27",
+    "to_whom": "A. CHAIWALA",
+    "reason": "TEA",
+    "expense_type": 0,
+    "expense_amt": "20",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-05-27",
+    "to_whom": "STAFF",
+    "reason": "NASTA",
+    "expense_type": 0,
+    "expense_amt": "50",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-05-27",
+    "to_whom": "MAIN CASH",
+    "reason": "HOME",
+    "expense_type": 0,
+    "expense_amt": "500",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-05-28",
+    "to_whom": "A. CHAIWALA",
+    "reason": "TEA",
+    "expense_type": 0,
+    "expense_amt": "20",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-05-28",
+    "to_whom": "A. CHAIWALA",
+    "reason": "TEA",
+    "expense_type": 0,
+    "expense_amt": "40",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-05-28",
+    "to_whom": "MAIN CASH",
+    "reason": "TRANSPORT CHARGES",
+    "expense_type": 0,
+    "expense_amt": "120",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-05-28",
+    "to_whom": "STAFF",
+    "reason": "NASTA",
+    "expense_type": 0,
+    "expense_amt": "50",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-05-29",
+    "to_whom": "A. CHAIWALA",
+    "reason": "TEA",
+    "expense_type": 0,
+    "expense_amt": "20",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-05-29",
+    "to_whom": "STAFF",
+    "reason": "NASTA",
+    "expense_type": 0,
+    "expense_amt": "50",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-05-29",
+    "to_whom": "SALES",
+    "reason": "DIRECT PAYMENT",
+    "expense_type": 1,
+    "expense_amt": "1800",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-05-29",
+    "to_whom": "TEAWALA",
+    "reason": "TEA",
+    "expense_type": 0,
+    "expense_amt": "66",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-05-29",
+    "to_whom": "A. CHAIWALA",
+    "reason": "TEA",
+    "expense_type": 0,
+    "expense_amt": "40",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-05-30",
+    "to_whom": "STAFF",
+    "reason": "NASTA",
+    "expense_type": 0,
+    "expense_amt": "50",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-05-30",
+    "to_whom": "A. CHAIWALA",
+    "reason": "TEA",
+    "expense_type": 0,
+    "expense_amt": "60",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-05-30",
+    "to_whom": "STAFF",
+    "reason": "NASTA",
+    "expense_type": 0,
+    "expense_amt": "70",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-05-30",
+    "to_whom": "MAIN CASH",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 0,
+    "expense_amt": "14500",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-05-30",
+    "to_whom": "CHILLAR",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 1,
+    "expense_amt": "557",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-05-31",
+    "to_whom": "DIFFERANCE",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 0,
+    "expense_amt": "2170",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-05-31",
+    "to_whom": "STAFF",
+    "reason": "NASTA",
+    "expense_type": 0,
+    "expense_amt": "20",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-05-31",
+    "to_whom": "STAFF",
+    "reason": "JUICE",
+    "expense_type": 0,
+    "expense_amt": "30",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-05-31",
+    "to_whom": "STAFF",
+    "reason": "TEA",
+    "expense_type": 0,
+    "expense_amt": "50",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-05-31",
+    "to_whom": "STAFF",
+    "reason": "NASTA",
+    "expense_type": 0,
+    "expense_amt": "40",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-05-31",
+    "to_whom": "MAIN CASH",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 0,
+    "expense_amt": "1000",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-06-01",
+    "to_whom": "STAFF",
+    "reason": "TEA",
+    "expense_type": 0,
+    "expense_amt": "60",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-06-01",
+    "to_whom": "STAFF",
+    "reason": "NASTA",
+    "expense_type": 0,
+    "expense_amt": "70",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-06-01",
+    "to_whom": "MAIN CASH",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 0,
+    "expense_amt": "9000",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-06-01",
+    "to_whom": "STAFF",
+    "reason": "NASTA",
+    "expense_type": 0,
+    "expense_amt": "10",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-06-02",
+    "to_whom": "DIFFERENCE ",
+    "reason": "DIFFERENCE",
+    "expense_type": 1,
+    "expense_amt": "60",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-06-02",
+    "to_whom": "SALES",
+    "reason": "SALES",
+    "expense_type": 1,
+    "expense_amt": "580",
+    "description": "MANUAL BILL NO 1029"
+  },
+  {
+    "exp_dt": "2025-06-02",
+    "to_whom": "STAFF",
+    "reason": "TEA",
+    "expense_type": 0,
+    "expense_amt": "60",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-06-02",
+    "to_whom": "STAFF",
+    "reason": "NASTA",
+    "expense_type": 0,
+    "expense_amt": "40",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-06-02",
+    "to_whom": "MAIN CASH",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 0,
+    "expense_amt": "3500",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-06-03",
+    "to_whom": "SALES",
+    "reason": "SALES",
+    "expense_type": 1,
+    "expense_amt": "1595",
+    "description": "MANUAL BILL"
+  },
+  {
+    "exp_dt": "2025-06-03",
+    "to_whom": "STAFF",
+    "reason": "TEA",
+    "expense_type": 0,
+    "expense_amt": "30",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-06-03",
+    "to_whom": "TAILOR",
+    "reason": "ULTERATION",
+    "expense_type": 0,
+    "expense_amt": "300",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-06-03",
+    "to_whom": "MAIN CASH BOOK",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 0,
+    "expense_amt": "3500",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-06-03",
+    "to_whom": "STAFF",
+    "reason": "TEA",
+    "expense_type": 0,
+    "expense_amt": "30",
+    "description": "T"
+  },
+  {
+    "exp_dt": "2025-06-03",
+    "to_whom": "MAIN CASH BOOK",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 0,
+    "expense_amt": "1000",
+    "description": "M"
+  },
+  {
+    "exp_dt": "2025-06-04",
+    "to_whom": "KAJAL GUPTA ",
+    "reason": "ADVANCE",
+    "expense_type": 0,
+    "expense_amt": "100",
+    "description": "AD"
+  },
+  {
+    "exp_dt": "2025-06-04",
+    "to_whom": "TRANSPORT",
+    "reason": "TRANSPORT CHARGES",
+    "expense_type": 0,
+    "expense_amt": "1050",
+    "description": "TANISHA"
+  },
+  {
+    "exp_dt": "2025-06-04",
+    "to_whom": "STAFF",
+    "reason": "TEA",
+    "expense_type": 0,
+    "expense_amt": "40",
+    "description": "TEA"
+  },
+  {
+    "exp_dt": "2025-06-04",
+    "to_whom": "SALE",
+    "reason": "SALES",
+    "expense_type": 1,
+    "expense_amt": "415",
+    "description": "EC PADS 12PC"
+  },
+  {
+    "exp_dt": "2025-06-05",
+    "to_whom": "STAFF",
+    "reason": "TEA",
+    "expense_type": 0,
+    "expense_amt": "36",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-06-05",
+    "to_whom": "STAFF",
+    "reason": "NASTA",
+    "expense_type": 0,
+    "expense_amt": "60",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-06-05",
+    "to_whom": "STAFF",
+    "reason": "TEA",
+    "expense_type": 0,
+    "expense_amt": "40",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-06-05",
+    "to_whom": "MAIN CASH",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 0,
+    "expense_amt": "3500",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-06-05",
+    "to_whom": "TEA",
+    "reason": "TEA",
+    "expense_type": 0,
+    "expense_amt": "30",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-06-05",
+    "to_whom": "TEA ",
+    "reason": "TEA",
+    "expense_type": 0,
+    "expense_amt": "20",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-06-05",
+    "to_whom": "PANI WALA",
+    "reason": "PANIWALA",
+    "expense_type": 0,
+    "expense_amt": "420",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-06-05",
+    "to_whom": "CHILLAR",
+    "reason": "CHILLAR",
+    "expense_type": 1,
+    "expense_amt": "1600",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-06-05",
+    "to_whom": "STAFF ",
+    "reason": "NASTA",
+    "expense_type": 0,
+    "expense_amt": "60",
+    "description": "NASTA"
+  },
+  {
+    "exp_dt": "2025-06-06",
+    "to_whom": "TEA",
+    "reason": "TEA",
+    "expense_type": 0,
+    "expense_amt": "40",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-06-06",
+    "to_whom": "STAFF",
+    "reason": "NASTA",
+    "expense_type": 0,
+    "expense_amt": "80",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-06-06",
+    "to_whom": "STAFF",
+    "reason": "TEA",
+    "expense_type": 0,
+    "expense_amt": "50",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-06-06",
+    "to_whom": "MAIN CASH BOOK",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 0,
+    "expense_amt": "2000",
+    "description": "MN"
+  },
+  {
+    "exp_dt": "2025-06-07",
+    "to_whom": "SALES",
+    "reason": "SALES",
+    "expense_type": 1,
+    "expense_amt": "684",
+    "description": "MANUAL BILL NO 1030"
+  },
+  {
+    "exp_dt": "2025-06-07",
+    "to_whom": "SALES ",
+    "reason": "SALES",
+    "expense_type": 1,
+    "expense_amt": "686",
+    "description": "MANUAL BILL NO 1030"
+  },
+  {
+    "exp_dt": "2025-06-07",
+    "to_whom": "CHAIWALA",
+    "reason": "TEA",
+    "expense_type": 0,
+    "expense_amt": "162",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-06-08",
+    "to_whom": "STAFF",
+    "reason": "NASTA",
+    "expense_type": 0,
+    "expense_amt": "60",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-06-08",
+    "to_whom": "MAIN CASH BOOK",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 0,
+    "expense_amt": "4500",
+    "description": "MN"
+  },
+  {
+    "exp_dt": "2025-06-09",
+    "to_whom": "STAFF",
+    "reason": "TEA",
+    "expense_type": 0,
+    "expense_amt": "30",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-06-09",
+    "to_whom": "STAFF",
+    "reason": "NASTA",
+    "expense_type": 0,
+    "expense_amt": "60",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-06-09",
+    "to_whom": "STAFFF",
+    "reason": "TEA",
+    "expense_type": 0,
+    "expense_amt": "30",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-06-09",
+    "to_whom": "MAIN CASH BOOK",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 1,
+    "expense_amt": "3500",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-06-09",
+    "to_whom": "MAIN CASH ",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 0,
+    "expense_amt": "3500",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-06-09",
+    "to_whom": "DIFFERENCE ",
+    "reason": "DIFFERENCE",
+    "expense_type": 1,
+    "expense_amt": "13",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-06-10",
+    "to_whom": "AKANKSHA",
+    "reason": "MISCELLANEOUS",
+    "expense_type": 0,
+    "expense_amt": "200",
+    "description": "RAT PINZARA"
+  },
+  {
+    "exp_dt": "2025-06-10",
+    "to_whom": "AADARSH STORE",
+    "reason": "POLITHINS",
+    "expense_type": 0,
+    "expense_amt": "160",
+    "description": "PACKING BAGS"
+  },
+  {
+    "exp_dt": "2025-06-10",
+    "to_whom": "HANDLOOM SOCIETY",
+    "reason": "MISCELLANEOUS",
+    "expense_type": 0,
+    "expense_amt": "200",
+    "description": "PAYPUSANI"
+  },
+  {
+    "exp_dt": "2025-06-10",
+    "to_whom": "KALPANA",
+    "reason": "MISCELLANEOUS",
+    "expense_type": 0,
+    "expense_amt": "100",
+    "description": "DUSTBEEN"
+  },
+  {
+    "exp_dt": "2025-06-10",
+    "to_whom": "STAFF",
+    "reason": "TEA",
+    "expense_type": 0,
+    "expense_amt": "30",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-06-10",
+    "to_whom": "STAFF",
+    "reason": "TEA",
+    "expense_type": 0,
+    "expense_amt": "156",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-06-10",
+    "to_whom": "SATFF",
+    "reason": "TEA",
+    "expense_type": 0,
+    "expense_amt": "40",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-06-10",
+    "to_whom": "STAFF",
+    "reason": "NASTA",
+    "expense_type": 0,
+    "expense_amt": "94",
+    "description": "NASTA"
+  },
+  {
+    "exp_dt": "2025-06-10",
+    "to_whom": "MAIN CASH BOOK",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 0,
+    "expense_amt": "1500",
+    "description": "MN"
+  },
+  {
+    "exp_dt": "2025-06-11",
+    "to_whom": "STAFF",
+    "reason": "TEA",
+    "expense_type": 0,
+    "expense_amt": "50",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-06-11",
+    "to_whom": "STAFF",
+    "reason": "TEA",
+    "expense_type": 0,
+    "expense_amt": "40",
+    "description": "TEA"
+  },
+  {
+    "exp_dt": "2025-06-11",
+    "to_whom": "MAIN CASH",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 0,
+    "expense_amt": "1000",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-06-12",
+    "to_whom": "STAFF",
+    "reason": "JUICE",
+    "expense_type": 0,
+    "expense_amt": "50",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-06-12",
+    "to_whom": "STAFF",
+    "reason": "TEA",
+    "expense_type": 0,
+    "expense_amt": "50",
+    "description": "TEA"
+  },
+  {
+    "exp_dt": "2025-06-12",
+    "to_whom": "MAIN CASH",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 0,
+    "expense_amt": "4000",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-06-13",
+    "to_whom": "STAFF",
+    "reason": "NASTA",
+    "expense_type": 0,
+    "expense_amt": "80",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-06-13",
+    "to_whom": "STAFF",
+    "reason": "TEA",
+    "expense_type": 0,
+    "expense_amt": "30",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-06-13",
+    "to_whom": "STAFF",
+    "reason": "TEA",
+    "expense_type": 0,
+    "expense_amt": "40",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-06-13",
+    "to_whom": "MAIN CASH",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 0,
+    "expense_amt": "1000",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-06-14",
+    "to_whom": "STAFF",
+    "reason": "TEA",
+    "expense_type": 0,
+    "expense_amt": "48",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-06-14",
+    "to_whom": "SHREE CHAMUNDA",
+    "reason": "MOBILE",
+    "expense_type": 0,
+    "expense_amt": "1000",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-06-14",
+    "to_whom": "STAFF",
+    "reason": "TEA",
+    "expense_type": 0,
+    "expense_amt": "50",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-06-14",
+    "to_whom": "STAFF",
+    "reason": "TEA",
+    "expense_type": 0,
+    "expense_amt": "40",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-06-14",
+    "to_whom": "STAFF",
+    "reason": "NASTA",
+    "expense_type": 0,
+    "expense_amt": "80",
+    "description": "NASTA"
+  },
+  {
+    "exp_dt": "2025-06-14",
+    "to_whom": "KAJAL GUPTA",
+    "reason": "ADVANCE",
+    "expense_type": 0,
+    "expense_amt": "200",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-06-14",
+    "to_whom": "MAIN CASH",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 0,
+    "expense_amt": "2000",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-06-15",
+    "to_whom": "STAFF",
+    "reason": "TEA",
+    "expense_type": 0,
+    "expense_amt": "50",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-06-15",
+    "to_whom": "STAFF",
+    "reason": "TEA",
+    "expense_type": 0,
+    "expense_amt": "40",
+    "description": "TEA"
+  },
+  {
+    "exp_dt": "2025-06-16",
+    "to_whom": "STAFF",
+    "reason": "TEA",
+    "expense_type": 0,
+    "expense_amt": "36",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-06-16",
+    "to_whom": "STAFF",
+    "reason": "TEA",
+    "expense_type": 0,
+    "expense_amt": "50",
+    "description": "TEA"
+  },
+  {
+    "exp_dt": "2025-06-18",
+    "to_whom": "STAFF",
+    "reason": "TEA",
+    "expense_type": 0,
+    "expense_amt": "36",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-06-18",
+    "to_whom": "SHOP",
+    "reason": "TAG CARDS",
+    "expense_type": 0,
+    "expense_amt": "500",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-06-18",
+    "to_whom": "SHOP",
+    "reason": "GIFT BAG",
+    "expense_type": 0,
+    "expense_amt": "100",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-06-18",
+    "to_whom": "STAFF",
+    "reason": "TEA",
+    "expense_type": 0,
+    "expense_amt": "50",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-06-18",
+    "to_whom": "STAFF",
+    "reason": "NASTA",
+    "expense_type": 0,
+    "expense_amt": "100",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-06-18",
+    "to_whom": "HOME",
+    "reason": "HOME",
+    "expense_type": 0,
+    "expense_amt": "500",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-06-18",
+    "to_whom": "SHOP",
+    "reason": "DUSTBIN",
+    "expense_type": 0,
+    "expense_amt": "100",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-06-18",
+    "to_whom": "CHAIWALA",
+    "reason": "TEA",
+    "expense_type": 0,
+    "expense_amt": "50",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-06-19",
+    "to_whom": "STAFF",
+    "reason": "TEA",
+    "expense_type": 0,
+    "expense_amt": "40",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-06-19",
+    "to_whom": "CHAIWALA ",
+    "reason": "TEA",
+    "expense_type": 0,
+    "expense_amt": "50",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-06-19",
+    "to_whom": "SHOP",
+    "reason": "SALES",
+    "expense_type": 1,
+    "expense_amt": "1910",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-06-20",
+    "to_whom": "STAFF",
+    "reason": "TEA",
+    "expense_type": 0,
+    "expense_amt": "48",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-06-20",
+    "to_whom": "MAIN CASH",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 0,
+    "expense_amt": "6500",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-06-19",
+    "to_whom": "STAFF",
+    "reason": "NASTA",
+    "expense_type": 0,
+    "expense_amt": "90",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-06-20",
+    "to_whom": "HOME",
+    "reason": "HOME",
+    "expense_type": 0,
+    "expense_amt": "30",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-06-20",
+    "to_whom": "STAFF",
+    "reason": "TEA",
+    "expense_type": 0,
+    "expense_amt": "70",
+    "description": "TEA"
+  },
+  {
+    "exp_dt": "2025-06-20",
+    "to_whom": "STAFF",
+    "reason": "TEA",
+    "expense_type": 0,
+    "expense_amt": "25",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-06-20",
+    "to_whom": "STAFF",
+    "reason": "NASTA",
+    "expense_type": 0,
+    "expense_amt": "400",
+    "description": "SANDWICH SEVPURI "
+  },
+  {
+    "exp_dt": "2025-06-20",
+    "to_whom": "CHOCOLATE WALA",
+    "reason": "CHOCKLETS",
+    "expense_type": 0,
+    "expense_amt": "630",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-06-21",
+    "to_whom": "STAFF",
+    "reason": "TEA",
+    "expense_type": 0,
+    "expense_amt": "48",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-06-21",
+    "to_whom": "MAIN CASH ",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 0,
+    "expense_amt": "11500",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-06-21",
+    "to_whom": "CUSTOMER EXTRA",
+    "reason": "DIFFERENCE",
+    "expense_type": 0,
+    "expense_amt": "20",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-06-21",
+    "to_whom": "DHRUVI GAIKWAD",
+    "reason": "SALARY",
+    "expense_type": 0,
+    "expense_amt": "4810",
+    "description": "SALARY FOR THE MONTH MAY AND JUNE"
+  },
+  {
+    "exp_dt": "2025-06-21",
+    "to_whom": "MAIN CASH",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 1,
+    "expense_amt": "3000",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-06-21",
+    "to_whom": "STAFF",
+    "reason": "NASTA",
+    "expense_type": 0,
+    "expense_amt": "80",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-06-21",
+    "to_whom": "MAIN CASH",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 0,
+    "expense_amt": "2000",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-06-21",
+    "to_whom": "TEA",
+    "reason": "TEA",
+    "expense_type": 0,
+    "expense_amt": "68",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-06-22",
+    "to_whom": "STAFF",
+    "reason": "TEA",
+    "expense_type": 0,
+    "expense_amt": "36",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-06-22",
+    "to_whom": "STAFF",
+    "reason": "TEA",
+    "expense_type": 0,
+    "expense_amt": "94",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-06-22",
+    "to_whom": "HOME",
+    "reason": "HOME",
+    "expense_type": 0,
+    "expense_amt": "1500",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-06-23",
+    "to_whom": "SHOBHA KAK",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 1,
+    "expense_amt": "2000",
+    "description": "SWIPE MACHINE "
+  },
+  {
+    "exp_dt": "2025-06-23",
+    "to_whom": "CUSTOMER ",
+    "reason": "SALES",
+    "expense_type": 0,
+    "expense_amt": "180",
+    "description": "EXTRA DISCOUNT "
+  },
+  {
+    "exp_dt": "2025-06-23",
+    "to_whom": "STAFF",
+    "reason": "NASTA",
+    "expense_type": 0,
+    "expense_amt": "50",
+    "description": "YESTERDAY"
+  },
+  {
+    "exp_dt": "2025-06-23",
+    "to_whom": "STAFF",
+    "reason": "TEA",
+    "expense_type": 0,
+    "expense_amt": "50",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-06-23",
+    "to_whom": "STAFF",
+    "reason": "NASTA",
+    "expense_type": 0,
+    "expense_amt": "80",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-06-23",
+    "to_whom": "MAIN CASH",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 0,
+    "expense_amt": "3500",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-06-23",
+    "to_whom": "STAFF",
+    "reason": "TEA",
+    "expense_type": 0,
+    "expense_amt": "70",
+    "description": "TEA"
+  },
+  {
+    "exp_dt": "2025-06-26",
+    "to_whom": "SALES",
+    "reason": "SALES",
+    "expense_type": 1,
+    "expense_amt": "840",
+    "description": "BILL NO- 1037"
+  },
+  {
+    "exp_dt": "2025-06-26",
+    "to_whom": "STAFF",
+    "reason": "TEA",
+    "expense_type": 0,
+    "expense_amt": "48",
+    "description": "TEA"
+  },
+  {
+    "exp_dt": "2025-06-26",
+    "to_whom": "STAFF",
+    "reason": "NASTA",
+    "expense_type": 0,
+    "expense_amt": "40",
+    "description": "N"
+  },
+  {
+    "exp_dt": "2025-06-26",
+    "to_whom": "MAIN CASH BOOK",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 0,
+    "expense_amt": "1000",
+    "description": "MN"
+  },
+  {
+    "exp_dt": "2025-06-26",
+    "to_whom": "KAJAL GUPTA",
+    "reason": "ADVANCE",
+    "expense_type": 0,
+    "expense_amt": "200",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-06-27",
+    "to_whom": "KALPANA CHAVAN",
+    "reason": "SALARY",
+    "expense_type": 0,
+    "expense_amt": "4590",
+    "description": "FOR THE MONTH OF MAY 2025"
+  },
+  {
+    "exp_dt": "2025-06-27",
+    "to_whom": "MAIN CASH",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 1,
+    "expense_amt": "4000",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-06-27",
+    "to_whom": "MAIN CASH",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 1,
+    "expense_amt": "3000",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-06-27",
+    "to_whom": "KALPANA CHAVAN",
+    "reason": "SALARY",
+    "expense_type": 0,
+    "expense_amt": "3290",
+    "description": "SALARY FOR THE MONTH OF MAY CASH PAID 3290 AND ONLINE PAID 1300"
+  },
+  {
+    "exp_dt": "2025-06-27",
+    "to_whom": "DIFFERANCE",
+    "reason": "DIFFERENCE",
+    "expense_type": 0,
+    "expense_amt": "272",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-06-27",
+    "to_whom": "SALES",
+    "reason": "SALES",
+    "expense_type": 0,
+    "expense_amt": "840",
+    "description": "RECEIVED IN BANK BY MISTAKLE WRITTEN IN CASH"
+  },
+  {
+    "exp_dt": "2025-06-27",
+    "to_whom": "DIFFERANCE",
+    "reason": "DIFFERENCE",
+    "expense_type": 1,
+    "expense_amt": "568",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-06-28",
+    "to_whom": "MAIN CASH",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 0,
+    "expense_amt": "1500",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-06-28",
+    "to_whom": "TEA",
+    "reason": "TEA",
+    "expense_type": 0,
+    "expense_amt": "186",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-06-28",
+    "to_whom": "CHILLAR",
+    "reason": "CHILLAR",
+    "expense_type": 0,
+    "expense_amt": "24",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-06-29",
+    "to_whom": "STAFF",
+    "reason": "NASTA",
+    "expense_type": 0,
+    "expense_amt": "100",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-06-29",
+    "to_whom": "STAFF",
+    "reason": "TEA",
+    "expense_type": 0,
+    "expense_amt": "72",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-06-29",
+    "to_whom": "MAIN CASH",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 0,
+    "expense_amt": "8000",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-06-29",
+    "to_whom": "GIFT",
+    "reason": "CASH BACK",
+    "expense_type": 0,
+    "expense_amt": "60",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-06-30",
+    "to_whom": "PACKING POLITHINS",
+    "reason": "BAGS PACKING",
+    "expense_type": 0,
+    "expense_amt": "268",
+    "description": "330 - 62 EXCESS DIFFERANCE"
+  },
+  {
+    "exp_dt": "2025-06-30",
+    "to_whom": "PACKING POLITHINS",
+    "reason": "BAGS PACKING",
+    "expense_type": 0,
+    "expense_amt": "330",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-06-30",
+    "to_whom": "DIFFERANCE",
+    "reason": "DIFFERENCE",
+    "expense_type": 1,
+    "expense_amt": "18",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-06-30",
+    "to_whom": "MAIN CASH",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 1,
+    "expense_amt": "1500",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-06-30",
+    "to_whom": "KAJAL GUPTA",
+    "reason": "SALARY",
+    "expense_type": 0,
+    "expense_amt": "3100",
+    "description": "FOR THE JUNE"
+  },
+  {
+    "exp_dt": "2025-07-01",
+    "to_whom": "TAILOR",
+    "reason": "ALTERATION",
+    "expense_type": 0,
+    "expense_amt": "300",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-07-01",
+    "to_whom": "BHAIRAV TRANSPORT",
+    "reason": "TRANSPORT CHARGES",
+    "expense_type": 0,
+    "expense_amt": "350",
+    "description": "RETURN GOODS TO NEW RIYA CREATION"
+  },
+  {
+    "exp_dt": "2025-07-01",
+    "to_whom": "KALPANA CHAVAN",
+    "reason": "ADVANCE",
+    "expense_type": 0,
+    "expense_amt": "180",
+    "description": "CUSTOMER BALANCE TO BE PAID BY KALPANA OF LALITA MADAM"
+  },
+  {
+    "exp_dt": "2025-07-01",
+    "to_whom": "SHIVANI PATEL",
+    "reason": "SALARY",
+    "expense_type": 0,
+    "expense_amt": "1800",
+    "description": "JUNE 2025"
+  },
+  {
+    "exp_dt": "2025-07-01",
+    "to_whom": "MAIN CASH",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 1,
+    "expense_amt": "1800",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-07-01",
+    "to_whom": "MAIN CASH ",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 0,
+    "expense_amt": "1000",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-07-01",
+    "to_whom": "MAIN CASH ",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 1,
+    "expense_amt": "800",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-07-02",
+    "to_whom": "TEA",
+    "reason": "TEA",
+    "expense_type": 0,
+    "expense_amt": "120",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-07-02",
+    "to_whom": "MAIN CASH",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 1,
+    "expense_amt": "620",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-07-02",
+    "to_whom": "MAIN CASH",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 0,
+    "expense_amt": "3000",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-07-02",
+    "to_whom": "NASTA",
+    "reason": "NASTA",
+    "expense_type": 0,
+    "expense_amt": "40",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-07-02",
+    "to_whom": "CHILLAS",
+    "reason": "CHILLAR",
+    "expense_type": 0,
+    "expense_amt": "13",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-07-03",
+    "to_whom": "CASH",
+    "reason": "CARDBOARD",
+    "expense_type": 1,
+    "expense_amt": "50",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-07-03",
+    "to_whom": "STAFF",
+    "reason": "TEA",
+    "expense_type": 0,
+    "expense_amt": "48",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-07-03",
+    "to_whom": "TEA",
+    "reason": "TEA",
+    "expense_type": 0,
+    "expense_amt": "84",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-07-03",
+    "to_whom": "STAFF",
+    "reason": "NASTA",
+    "expense_type": 0,
+    "expense_amt": "60",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-07-03",
+    "to_whom": "SUNITA SINGH",
+    "reason": "SALARY",
+    "expense_type": 0,
+    "expense_amt": "3400",
+    "description": "SALARY FOR THE MONTH OF JUNE"
+  },
+  {
+    "exp_dt": "2025-07-04",
+    "to_whom": "MAIN CASH ",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 1,
+    "expense_amt": "2",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-07-04",
+    "to_whom": "SALES",
+    "reason": "SALES",
+    "expense_type": 1,
+    "expense_amt": "2379",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-07-04",
+    "to_whom": "MAIN CASH",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 1,
+    "expense_amt": "2500",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-07-04",
+    "to_whom": "AKANKSHA",
+    "reason": "SALARY",
+    "expense_type": 0,
+    "expense_amt": "5250",
+    "description": "SALARY FOR THE MONTH OF JUNE 2025"
+  },
+  {
+    "exp_dt": "2025-07-04",
+    "to_whom": "SALES",
+    "reason": "SALES",
+    "expense_type": 1,
+    "expense_amt": "1000",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-07-05",
+    "to_whom": "SALES",
+    "reason": "SALES",
+    "expense_type": 0,
+    "expense_amt": "1880",
+    "description": "BILL NO 362 NOT ADDED IN COMPUTER"
+  },
+  {
+    "exp_dt": "2025-07-05",
+    "to_whom": "SALES",
+    "reason": "SALES",
+    "expense_type": 1,
+    "expense_amt": "1880",
+    "description": "BILL NO 362 NOT ADDED IN COMPUTER"
+  },
+  {
+    "exp_dt": "2025-07-06",
+    "to_whom": "COLINE",
+    "reason": "MISCELLANEOUS",
+    "expense_type": 0,
+    "expense_amt": "110",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-07-06",
+    "to_whom": "RAT KILLER",
+    "reason": "MISCELLANEOUS",
+    "expense_type": 0,
+    "expense_amt": "300",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-07-06",
+    "to_whom": "RAT KILLER",
+    "reason": "MISCELLANEOUS",
+    "expense_type": 0,
+    "expense_amt": "160",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-07-06",
+    "to_whom": "STAFF",
+    "reason": "TEA",
+    "expense_type": 0,
+    "expense_amt": "192",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-07-06",
+    "to_whom": "MAIN CASH",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 0,
+    "expense_amt": "500",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-07-07",
+    "to_whom": "STAFF",
+    "reason": "NASTA",
+    "expense_type": 0,
+    "expense_amt": "40",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-07-07",
+    "to_whom": "MAIN CASH ",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 0,
+    "expense_amt": "4500",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-07-07",
+    "to_whom": "DIFFERENCE ",
+    "reason": "DIFFERENCE",
+    "expense_type": 0,
+    "expense_amt": "17",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-07-08",
+    "to_whom": "TAILOR",
+    "reason": "ALTERATION",
+    "expense_type": 0,
+    "expense_amt": "200",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-07-07",
+    "to_whom": "TAILOR",
+    "reason": "ALTERATION",
+    "expense_type": 0,
+    "expense_amt": "200",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-07-09",
+    "to_whom": "TEA",
+    "reason": "TEA",
+    "expense_type": 0,
+    "expense_amt": "162",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-07-09",
+    "to_whom": "MAIN CASH ",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 0,
+    "expense_amt": "1500",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-07-10",
+    "to_whom": "HOME",
+    "reason": "HOME",
+    "expense_type": 0,
+    "expense_amt": "60",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-07-10",
+    "to_whom": "MAIN CASH ",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 0,
+    "expense_amt": "2000",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-07-10",
+    "to_whom": "SALE",
+    "reason": "SALES",
+    "expense_type": 1,
+    "expense_amt": "108",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-07-11",
+    "to_whom": "MAIN CASH",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 0,
+    "expense_amt": "5500",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-07-11",
+    "to_whom": "RAT KILLAER",
+    "reason": "MISCELLANEOUS",
+    "expense_type": 0,
+    "expense_amt": "160",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-07-11",
+    "to_whom": "STAFF",
+    "reason": "NASTA",
+    "expense_type": 0,
+    "expense_amt": "80",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-07-11",
+    "to_whom": "TEA",
+    "reason": "TEA",
+    "expense_type": 0,
+    "expense_amt": "138",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-07-11",
+    "to_whom": "MAIN CASH",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 0,
+    "expense_amt": "500",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-07-11",
+    "to_whom": "CREDIT NOTE ISSUED",
+    "reason": "SALES",
+    "expense_type": 1,
+    "expense_amt": "2590",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-07-11",
+    "to_whom": "MISCELLANEOUS",
+    "reason": "MISCELLANEOUS",
+    "expense_type": 0,
+    "expense_amt": "100",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-07-11",
+    "to_whom": "MAIN CASH ",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 0,
+    "expense_amt": "6500",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-07-12",
+    "to_whom": "MAIN CASH",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 1,
+    "expense_amt": "1000",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-07-12",
+    "to_whom": "MAIN CASH",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 1,
+    "expense_amt": "2500",
+    "description": "50 NOTES OF 50"
+  },
+  {
+    "exp_dt": "2025-07-12",
+    "to_whom": "MAIN CASH",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 1,
+    "expense_amt": "1000",
+    "description": "M"
+  },
+  {
+    "exp_dt": "2025-07-12",
+    "to_whom": "MAIN CASH",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 0,
+    "expense_amt": "2000",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-07-12",
+    "to_whom": "CASH BACK ",
+    "reason": "MISCELLANEOUS",
+    "expense_type": 0,
+    "expense_amt": "126",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-07-13",
+    "to_whom": "TEA",
+    "reason": "TEA",
+    "expense_type": 0,
+    "expense_amt": "126",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-07-13",
+    "to_whom": "MAIN CASH ",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 0,
+    "expense_amt": "2500",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-07-14",
+    "to_whom": "KALPANA CHAVAN",
+    "reason": "SALARY",
+    "expense_type": 0,
+    "expense_amt": "6060",
+    "description": "SALARY FOR JUNE 2025"
+  },
+  {
+    "exp_dt": "2025-07-14",
+    "to_whom": "MAIN CASH",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 1,
+    "expense_amt": "6000",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-07-14",
+    "to_whom": "STAFF",
+    "reason": "TEA",
+    "expense_type": 0,
+    "expense_amt": "70",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-07-14",
+    "to_whom": "MAIN CASH",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 1,
+    "expense_amt": "18400",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-07-14",
+    "to_whom": "GOPI",
+    "reason": "GOPI ",
+    "expense_type": 0,
+    "expense_amt": "7400",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-07-14",
+    "to_whom": "KALPANA CHAVAN",
+    "reason": "ADVANCE",
+    "expense_type": 0,
+    "expense_amt": "5000",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-07-14",
+    "to_whom": "MAIN CASH",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 0,
+    "expense_amt": "6000",
+    "description": "WRONGLY DEED 2 TIMES ENTRY THIS AMOUNT INCLUDED IN 18400"
+  },
+  {
+    "exp_dt": "2025-07-15",
+    "to_whom": "HANGER",
+    "reason": "HANGER",
+    "expense_type": 0,
+    "expense_amt": "400",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-07-15",
+    "to_whom": "TAILOR",
+    "reason": "TAILOR",
+    "expense_type": 0,
+    "expense_amt": "120",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-07-15",
+    "to_whom": "STAFF",
+    "reason": "NASTA",
+    "expense_type": 0,
+    "expense_amt": "60",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-07-15",
+    "to_whom": "MAIN CASH ",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 0,
+    "expense_amt": "500",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-07-16",
+    "to_whom": "SHIVANI PATEL",
+    "reason": "ADVANCE",
+    "expense_type": 0,
+    "expense_amt": "1000",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-07-16",
+    "to_whom": "STAFF",
+    "reason": "PANIWALA",
+    "expense_type": 0,
+    "expense_amt": "390",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-07-16",
+    "to_whom": "LABOURER",
+    "reason": "LABOUR",
+    "expense_type": 0,
+    "expense_amt": "200",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-07-16",
+    "to_whom": "STAFF",
+    "reason": "TEA",
+    "expense_type": 0,
+    "expense_amt": "108",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-07-16",
+    "to_whom": "MAIN CASH",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 0,
+    "expense_amt": "6000",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-07-16",
+    "to_whom": "DIFFERENCE ",
+    "reason": "DIFFERENCE",
+    "expense_type": 1,
+    "expense_amt": "57",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-07-18",
+    "to_whom": "TAILOR",
+    "reason": "ALTERATION",
+    "expense_type": 0,
+    "expense_amt": "160",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-07-18",
+    "to_whom": "MAIN CASH",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 0,
+    "expense_amt": "1500",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-07-18",
+    "to_whom": "MAIN CASH BOOK",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 0,
+    "expense_amt": "1000",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-07-18",
+    "to_whom": "MAIN CASH",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 0,
+    "expense_amt": "1000",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-07-18",
+    "to_whom": "MAIN CASH",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 1,
+    "expense_amt": "845",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-07-18",
+    "to_whom": "STAFF ",
+    "reason": "NASTA",
+    "expense_type": 0,
+    "expense_amt": "40",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-07-18",
+    "to_whom": "MAIN CASH ",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 1,
+    "expense_amt": "1000",
+    "description": "WRONGLY ENTERED 2 TIMES"
+  },
+  {
+    "exp_dt": "2025-07-18",
+    "to_whom": "CASH BACK ",
+    "reason": "DIFFERENCE",
+    "expense_type": 0,
+    "expense_amt": "25",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-07-19",
+    "to_whom": "NASTA",
+    "reason": "NASTA",
+    "expense_type": 0,
+    "expense_amt": "60",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-07-19",
+    "to_whom": "TEA",
+    "reason": "TEA",
+    "expense_type": 0,
+    "expense_amt": "96",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-07-19",
+    "to_whom": "MAIN CASH BOOK",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 0,
+    "expense_amt": "2500",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-07-19",
+    "to_whom": "EXCESS",
+    "reason": "DIFFERENCE",
+    "expense_type": 0,
+    "expense_amt": "74",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-07-19",
+    "to_whom": "EXCESS",
+    "reason": "DIFFERENCE",
+    "expense_type": 1,
+    "expense_amt": "148",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-07-20",
+    "to_whom": "CUSTOMER",
+    "reason": "CASHBACK",
+    "expense_type": 0,
+    "expense_amt": "21",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-07-20",
+    "to_whom": "CUSTOMER",
+    "reason": "CASH BACK ",
+    "expense_type": 0,
+    "expense_amt": "21",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-07-20",
+    "to_whom": "STAFF",
+    "reason": "NASTA",
+    "expense_type": 0,
+    "expense_amt": "70",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-07-20",
+    "to_whom": "MAIN CASH ",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 0,
+    "expense_amt": "12500",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-07-20",
+    "to_whom": "EXCESS",
+    "reason": "DIFFERENCE",
+    "expense_type": 1,
+    "expense_amt": "27",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-07-21",
+    "to_whom": "STAFF",
+    "reason": "TEA",
+    "expense_type": 0,
+    "expense_amt": "96",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-07-21",
+    "to_whom": "MAIN CASH BOOK",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 0,
+    "expense_amt": "2000",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-07-22",
+    "to_whom": "EXCESS",
+    "reason": "DIFFERENCE",
+    "expense_type": 1,
+    "expense_amt": "62",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-07-21",
+    "to_whom": "EXCESS",
+    "reason": "DIFFERENCE",
+    "expense_type": 1,
+    "expense_amt": "62",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-07-22",
+    "to_whom": "MAIN CASH",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 0,
+    "expense_amt": "5000",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-07-22",
+    "to_whom": "CHOCOLATES",
+    "reason": "CHOCKLETS",
+    "expense_type": 0,
+    "expense_amt": "450",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-07-23",
+    "to_whom": "A.CHAIWALA",
+    "reason": "TEA",
+    "expense_type": 0,
+    "expense_amt": "10",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-07-23",
+    "to_whom": "MAIN CASH ",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 0,
+    "expense_amt": "500",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-07-24",
+    "to_whom": "TRANSPORT CHARGES",
+    "reason": "TRANSPORT CHARGES",
+    "expense_type": 0,
+    "expense_amt": "120",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-07-24",
+    "to_whom": "STAFF",
+    "reason": "TEA",
+    "expense_type": 0,
+    "expense_amt": "20",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-07-24",
+    "to_whom": "MAIN CASH",
+    "reason": "HOME",
+    "expense_type": 0,
+    "expense_amt": "1500",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-07-24",
+    "to_whom": "CHAIWALA",
+    "reason": "TEA",
+    "expense_type": 0,
+    "expense_amt": "144",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-07-24",
+    "to_whom": "SALES",
+    "reason": "SALES",
+    "expense_type": 0,
+    "expense_amt": "190",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-07-24",
+    "to_whom": "SALES",
+    "reason": "SALES",
+    "expense_type": 1,
+    "expense_amt": "190",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-07-24",
+    "to_whom": "MAIN CASH ",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 1,
+    "expense_amt": "900",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-07-24",
+    "to_whom": "AC SERVICE ",
+    "reason": "MISCELLANEOUS",
+    "expense_type": 0,
+    "expense_amt": "600",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-07-24",
+    "to_whom": "MAIN CASH",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 0,
+    "expense_amt": "1800",
+    "description": "WRONGLY CREDITED 900"
+  },
+  {
+    "exp_dt": "2025-07-24",
+    "to_whom": "EXCESS",
+    "reason": "DIFFERENCE",
+    "expense_type": 1,
+    "expense_amt": "34",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-07-26",
+    "to_whom": "AKANSHA",
+    "reason": "ADVANCE",
+    "expense_type": 0,
+    "expense_amt": "4000",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-07-26",
+    "to_whom": "MAIN CASH",
+    "reason": "HOME",
+    "expense_type": 0,
+    "expense_amt": "1500",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-07-26",
+    "to_whom": "SALES",
+    "reason": "SALES",
+    "expense_type": 1,
+    "expense_amt": "5500",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-07-27",
+    "to_whom": "STAFF",
+    "reason": "NASTA",
+    "expense_type": 0,
+    "expense_amt": "30",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-07-27",
+    "to_whom": "STAFF",
+    "reason": "TEA",
+    "expense_type": 0,
+    "expense_amt": "30",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-07-27",
+    "to_whom": "MAIN CASH",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 0,
+    "expense_amt": "2000",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-07-28",
+    "to_whom": "STAFF",
+    "reason": "TEA",
+    "expense_type": 0,
+    "expense_amt": "108",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-07-28",
+    "to_whom": "MIAN CASH",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 0,
+    "expense_amt": "3000",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-07-28",
+    "to_whom": "SALES",
+    "reason": "SALES",
+    "expense_type": 1,
+    "expense_amt": "2400",
+    "description": "BILL NO 1052"
+  },
+  {
+    "exp_dt": "2025-07-29",
+    "to_whom": "LABOUR",
+    "reason": "LABOUR",
+    "expense_type": 0,
+    "expense_amt": "200",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-07-29",
+    "to_whom": "TAILOR",
+    "reason": "TAILOR",
+    "expense_type": 0,
+    "expense_amt": "190",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-07-29",
+    "to_whom": "CUSTOMER",
+    "reason": "CASHBACK",
+    "expense_type": 0,
+    "expense_amt": "21",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-07-29",
+    "to_whom": "MAIN CASH ",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 0,
+    "expense_amt": "2000",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-07-30",
+    "to_whom": "SALES",
+    "reason": "SALES",
+    "expense_type": 1,
+    "expense_amt": "820",
+    "description": "BILL NO 1053"
+  },
+  {
+    "exp_dt": "2025-07-30",
+    "to_whom": "MAIN CASH",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 0,
+    "expense_amt": "1000",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-07-31",
+    "to_whom": "SCRAP",
+    "reason": "SALES",
+    "expense_type": 1,
+    "expense_amt": "20",
+    "description": "PUTTHA"
+  },
+  {
+    "exp_dt": "2025-07-31",
+    "to_whom": "STAFF",
+    "reason": "NASTA",
+    "expense_type": 0,
+    "expense_amt": "40",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-07-31",
+    "to_whom": "CASHBACK",
+    "reason": "LOYAL CUSTOMER OFFER",
+    "expense_type": 0,
+    "expense_amt": "42",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-07-31",
+    "to_whom": "CHAKKA",
+    "reason": "DONATION",
+    "expense_type": 0,
+    "expense_amt": "10",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-07-31",
+    "to_whom": "HOME",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 0,
+    "expense_amt": "3000",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-07-31",
+    "to_whom": "EXCESS",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 1,
+    "expense_amt": "23",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-08-01",
+    "to_whom": "MAIN CASH",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 0,
+    "expense_amt": "3500",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-08-01",
+    "to_whom": "MISCELLANEOUS",
+    "reason": "MISCELLANEOUS",
+    "expense_type": 0,
+    "expense_amt": "1800",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-08-01",
+    "to_whom": "MAIN CASH BOOK",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 0,
+    "expense_amt": "4500",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-08-02",
+    "to_whom": "PRASAD GLASS",
+    "reason": "MISCELLANEOUS",
+    "expense_type": 0,
+    "expense_amt": "1500",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-08-02",
+    "to_whom": "OFFER",
+    "reason": "CASH BACK ",
+    "expense_type": 0,
+    "expense_amt": "21",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-08-02",
+    "to_whom": "WATER CAN SUPPLIER",
+    "reason": "WATER CAN",
+    "expense_type": 0,
+    "expense_amt": "450",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-08-02",
+    "to_whom": "MAIN CASH",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 0,
+    "expense_amt": "500",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-08-02",
+    "to_whom": "MAIN CASH",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 1,
+    "expense_amt": "646",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-08-03",
+    "to_whom": "MAIN CASH",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 0,
+    "expense_amt": "2000",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-08-04",
+    "to_whom": "SUNITA SINGH",
+    "reason": "SALARY",
+    "expense_type": 0,
+    "expense_amt": "2560",
+    "description": "JULY 2025"
+  },
+  {
+    "exp_dt": "2025-08-04",
+    "to_whom": "SHIVANI PATEL",
+    "reason": "SALARY",
+    "expense_type": 0,
+    "expense_amt": "2180",
+    "description": "JULY 2025"
+  },
+  {
+    "exp_dt": "2025-08-04",
+    "to_whom": "MAIN CASH",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 0,
+    "expense_amt": "1000",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-08-05",
+    "to_whom": "TEA",
+    "reason": "TEA",
+    "expense_type": 0,
+    "expense_amt": "180",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-08-05",
+    "to_whom": "MAIN CASH",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 1,
+    "expense_amt": "1000",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-08-05",
+    "to_whom": "AKANKSHA PIMPALKAR",
+    "reason": "SALARY",
+    "expense_type": 0,
+    "expense_amt": "3740",
+    "description": "JULY 2025"
+  },
+  {
+    "exp_dt": "2025-08-06",
+    "to_whom": "AMRYTULYA TEA",
+    "reason": "TEA",
+    "expense_type": 0,
+    "expense_amt": "10",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-08-06",
+    "to_whom": "LOYAL CUSTOMER OFFER",
+    "reason": "CASH BACK ",
+    "expense_type": 0,
+    "expense_amt": "42",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-08-06",
+    "to_whom": "HOME",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 0,
+    "expense_amt": "4500",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-08-06",
+    "to_whom": "EXCESS",
+    "reason": "DIFFERENCE",
+    "expense_type": 1,
+    "expense_amt": "169",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-08-07",
+    "to_whom": "TAILOR",
+    "reason": "ALTERATION",
+    "expense_type": 0,
+    "expense_amt": "300",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-08-07",
+    "to_whom": "LOYAL CUSTOMER OFFER",
+    "reason": "CASH BACK ",
+    "expense_type": 0,
+    "expense_amt": "21",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-08-07",
+    "to_whom": "STAFF",
+    "reason": "NASTA",
+    "expense_type": 0,
+    "expense_amt": "60",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-08-07",
+    "to_whom": "MAIN CASH ",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 0,
+    "expense_amt": "1000",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-08-08",
+    "to_whom": "STAFF",
+    "reason": "TEA",
+    "expense_type": 0,
+    "expense_amt": "40",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-08-08",
+    "to_whom": "STAFF",
+    "reason": "TEA",
+    "expense_type": 0,
+    "expense_amt": "96",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-08-09",
+    "to_whom": "STAFF",
+    "reason": "TEA",
+    "expense_type": 0,
+    "expense_amt": "20",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-08-09",
+    "to_whom": "SALES ",
+    "reason": "SALES",
+    "expense_type": 0,
+    "expense_amt": "300",
+    "description": "BILL NO 471 POOJA SAKPAL NOT RECEIVED IN CASH BUT RECEIVED GPAY "
+  },
+  {
+    "exp_dt": "2025-08-09",
+    "to_whom": "DIFFERENCE ",
+    "reason": "DIFFERENCE",
+    "expense_type": 0,
+    "expense_amt": "153",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-08-10",
+    "to_whom": "STAFF",
+    "reason": "NASTA",
+    "expense_type": 0,
+    "expense_amt": "40",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-08-10",
+    "to_whom": "HOME",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 0,
+    "expense_amt": "4000",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-08-10",
+    "to_whom": "MAIN CASH",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 1,
+    "expense_amt": "505",
+    "description": "CHILLAR"
+  },
+  {
+    "exp_dt": "2025-08-11",
+    "to_whom": "HOME",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 0,
+    "expense_amt": "2000",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-08-11",
+    "to_whom": "LOYAL CUSTOMER OFFER",
+    "reason": "CASH BACK ",
+    "expense_type": 0,
+    "expense_amt": "21",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-08-11",
+    "to_whom": "DIFFERANCE",
+    "reason": "DIFFERENCE",
+    "expense_type": 1,
+    "expense_amt": "1",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-08-12",
+    "to_whom": "TEA",
+    "reason": "TEA",
+    "expense_type": 0,
+    "expense_amt": "20",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-08-12",
+    "to_whom": "CUSTOMER",
+    "reason": "SALES",
+    "expense_type": 1,
+    "expense_amt": "250",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-08-12",
+    "to_whom": "HOME",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 0,
+    "expense_amt": "500",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-08-12",
+    "to_whom": "TEA WALA",
+    "reason": "TEA",
+    "expense_type": 0,
+    "expense_amt": "84",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-08-13",
+    "to_whom": "CHOCOLATE WALA",
+    "reason": "CHOCKLETS",
+    "expense_type": 0,
+    "expense_amt": "650",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-08-14",
+    "to_whom": "A. TEA WALA",
+    "reason": "TEA",
+    "expense_type": 0,
+    "expense_amt": "20",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-08-14",
+    "to_whom": "SHOP",
+    "reason": "MISCELLANEOUS",
+    "expense_type": 0,
+    "expense_amt": "200",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-08-14",
+    "to_whom": "LOYAL CUSTOMER OFFER",
+    "reason": "CASH BACK ",
+    "expense_type": 0,
+    "expense_amt": "21",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-08-14",
+    "to_whom": "BOARDWALA",
+    "reason": "WIRE",
+    "expense_type": 0,
+    "expense_amt": "20",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-08-15",
+    "to_whom": "CUSTOMER",
+    "reason": "SALES",
+    "expense_type": 1,
+    "expense_amt": "1820",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-08-15",
+    "to_whom": "CUSTOMER",
+    "reason": "SALES",
+    "expense_type": 0,
+    "expense_amt": "2648",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-08-15",
+    "to_whom": "CUSTOMER",
+    "reason": "SALES",
+    "expense_type": 1,
+    "expense_amt": "2648",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-08-15",
+    "to_whom": "LOYAL CUSTOMER OFFER",
+    "reason": "CASH BACK ",
+    "expense_type": 0,
+    "expense_amt": "21",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-08-15",
+    "to_whom": "HOME",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 0,
+    "expense_amt": "2000",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-08-20",
+    "to_whom": "OIL FOR DOOR",
+    "reason": "MISCELLANEOUS",
+    "expense_type": 0,
+    "expense_amt": "10",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-08-20",
+    "to_whom": "CUSTOMER",
+    "reason": "SALES",
+    "expense_type": 0,
+    "expense_amt": "340",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-08-20",
+    "to_whom": "CUSTOMER",
+    "reason": "SALES",
+    "expense_type": 1,
+    "expense_amt": "340",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-08-20",
+    "to_whom": "A. TEA WALA",
+    "reason": "TEA",
+    "expense_type": 0,
+    "expense_amt": "30",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-08-21",
+    "to_whom": "MANDAL",
+    "reason": "MANDAL",
+    "expense_type": 0,
+    "expense_amt": "500",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-08-21",
+    "to_whom": "MAIN CASH",
+    "reason": "HOME",
+    "expense_type": 0,
+    "expense_amt": "2000",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-08-21",
+    "to_whom": "MAYURI STAFF",
+    "reason": "ADVANCE",
+    "expense_type": 0,
+    "expense_amt": "500",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-08-21",
+    "to_whom": "HOME",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 0,
+    "expense_amt": "1500",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-08-21",
+    "to_whom": "HOME",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 0,
+    "expense_amt": "500",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-08-21",
+    "to_whom": "TAILOR",
+    "reason": "ALTERATION",
+    "expense_type": 0,
+    "expense_amt": "60",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-08-22",
+    "to_whom": "CUSTOMER",
+    "reason": "SALES",
+    "expense_type": 1,
+    "expense_amt": "35",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-08-22",
+    "to_whom": "MAIN CASH",
+    "reason": "HOME",
+    "expense_type": 0,
+    "expense_amt": "6500",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-08-23",
+    "to_whom": "SALES",
+    "reason": "SALES",
+    "expense_type": 0,
+    "expense_amt": "640",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-08-23",
+    "to_whom": "STAFF",
+    "reason": "TEA",
+    "expense_type": 0,
+    "expense_amt": "240",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-08-23",
+    "to_whom": "MAIN CASH BOOK",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 0,
+    "expense_amt": "1500",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-08-23",
+    "to_whom": "EXCESS ",
+    "reason": "DIFFERENCE",
+    "expense_type": 1,
+    "expense_amt": "181",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-08-24",
+    "to_whom": "STAFF",
+    "reason": "NASTA",
+    "expense_type": 0,
+    "expense_amt": "120",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-08-24",
+    "to_whom": "MAIN CASH",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 0,
+    "expense_amt": "5000",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-08-24",
+    "to_whom": "SALES",
+    "reason": "SALES",
+    "expense_type": 0,
+    "expense_amt": "1729",
+    "description": "BILL NO 498 CANCELLED "
+  },
+  {
+    "exp_dt": "2025-08-24",
+    "to_whom": "SALES ",
+    "reason": "SALES",
+    "expense_type": 1,
+    "expense_amt": "1770",
+    "description": "BILL NO 498 CANCELLED "
+  },
+  {
+    "exp_dt": "2025-08-25",
+    "to_whom": "SALES",
+    "reason": "SALES",
+    "expense_type": 1,
+    "expense_amt": "460",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-08-26",
+    "to_whom": "MAIN CASH BOOK",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 0,
+    "expense_amt": "2000",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-08-25",
+    "to_whom": "MAIN CASH ",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 0,
+    "expense_amt": "2000",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-08-25",
+    "to_whom": "SALES",
+    "reason": "SALES",
+    "expense_type": 1,
+    "expense_amt": "200",
+    "description": "BILL NO 504 PARTLY RECEIVED IN CASH "
+  },
+  {
+    "exp_dt": "2025-08-28",
+    "to_whom": "MAIN CASH",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 0,
+    "expense_amt": "500",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-08-29",
+    "to_whom": "MAIN CASH",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 0,
+    "expense_amt": "500",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-08-29",
+    "to_whom": "MAIN CASH",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 0,
+    "expense_amt": "4000",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-08-30",
+    "to_whom": "MAIN CASH",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 0,
+    "expense_amt": "2000",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-08-31",
+    "to_whom": "CHAIWALA",
+    "reason": "TEA",
+    "expense_type": 0,
+    "expense_amt": "252",
+    "description": "7 DAY AMOUNT PAID"
+  },
+  {
+    "exp_dt": "2025-08-31",
+    "to_whom": "MAIN CASH",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 0,
+    "expense_amt": "2500",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-09-01",
+    "to_whom": "POLITHINS",
+    "reason": "POLITHINS",
+    "expense_type": 0,
+    "expense_amt": "130",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-09-03",
+    "to_whom": "MAIN  CASH BOOK",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 0,
+    "expense_amt": "500",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-09-03",
+    "to_whom": "AKANSHA ",
+    "reason": "ADVANCE",
+    "expense_type": 0,
+    "expense_amt": "1500",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-09-03",
+    "to_whom": "HOME",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 0,
+    "expense_amt": "500",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-09-03",
+    "to_whom": "CHAIWALA",
+    "reason": "TEA",
+    "expense_type": 0,
+    "expense_amt": "102",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-09-04",
+    "to_whom": "CUSTOMER",
+    "reason": "CASH BACK ",
+    "expense_type": 0,
+    "expense_amt": "21",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-09-04",
+    "to_whom": "SHINGHASANE SHETH",
+    "reason": "MANDAL",
+    "expense_type": 0,
+    "expense_amt": "501",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-09-04",
+    "to_whom": "TARAM",
+    "reason": "HOME",
+    "expense_type": 0,
+    "expense_amt": "3000",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-09-05",
+    "to_whom": "PRIYAM",
+    "reason": "NASTA",
+    "expense_type": 0,
+    "expense_amt": "28",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-09-05",
+    "to_whom": "PRIYAM",
+    "reason": "NASTA",
+    "expense_type": 0,
+    "expense_amt": "22",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-09-05",
+    "to_whom": "A.CHAIWALA",
+    "reason": "TEA",
+    "expense_type": 0,
+    "expense_amt": "30",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-09-05",
+    "to_whom": "OWNER",
+    "reason": "NASTA",
+    "expense_type": 0,
+    "expense_amt": "100",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-09-07",
+    "to_whom": "HOME",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 0,
+    "expense_amt": "2500",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-09-07",
+    "to_whom": "TARAM",
+    "reason": "HOME",
+    "expense_type": 0,
+    "expense_amt": "2500",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-09-08",
+    "to_whom": "CUSTOMER",
+    "reason": "CASH BACK ",
+    "expense_type": 0,
+    "expense_amt": "21",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-09-08",
+    "to_whom": "STAFF",
+    "reason": "NASTA",
+    "expense_type": 0,
+    "expense_amt": "40",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-09-08",
+    "to_whom": "TARAM",
+    "reason": "HOME",
+    "expense_type": 0,
+    "expense_amt": "500",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-09-09",
+    "to_whom": "TARAM",
+    "reason": "HOME",
+    "expense_type": 0,
+    "expense_amt": "1500",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-09-10",
+    "to_whom": "MAIN CASH",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 0,
+    "expense_amt": "1000",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-09-10",
+    "to_whom": "CUSTOMER",
+    "reason": "CASH BACK ",
+    "expense_type": 0,
+    "expense_amt": "51",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-09-10",
+    "to_whom": "DIFFERENCE ",
+    "reason": "BANK",
+    "expense_type": 0,
+    "expense_amt": "5028",
+    "description": "PAID ONLINE COMPUTER MISTAKE "
+  },
+  {
+    "exp_dt": "2025-09-11",
+    "to_whom": "DIFFERENCE ",
+    "reason": "DIFFERENCE",
+    "expense_type": 1,
+    "expense_amt": "5025",
+    "description": "COMPUTER MISTAKE "
+  },
+  {
+    "exp_dt": "2025-09-10",
+    "to_whom": "DIFFERENCE ",
+    "reason": "DIFFERENCE",
+    "expense_type": 1,
+    "expense_amt": "5025",
+    "description": "COMPUTER MISTAKE "
+  },
+  {
+    "exp_dt": "2025-09-11",
+    "to_whom": "DIFFERANCE",
+    "reason": "DIFFERANCE",
+    "expense_type": 1,
+    "expense_amt": "5025",
+    "description": "COMPUTER MISTAKE"
+  },
+  {
+    "exp_dt": "2025-09-11",
+    "to_whom": "WATER TANK WALA",
+    "reason": "WATER CAN",
+    "expense_type": 0,
+    "expense_amt": "450",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-09-11",
+    "to_whom": "TEA WALA",
+    "reason": "TEA",
+    "expense_type": 0,
+    "expense_amt": "245",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-09-11",
+    "to_whom": "CUSTOMER ONLINE",
+    "reason": "SALES",
+    "expense_type": 1,
+    "expense_amt": "480",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-09-11",
+    "to_whom": "BANK",
+    "reason": "DIRECT PAYMENT",
+    "expense_type": 0,
+    "expense_amt": "1000",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-09-11",
+    "to_whom": "AKANSHA STAFF",
+    "reason": "SALARY",
+    "expense_type": 0,
+    "expense_amt": "1370",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-09-11",
+    "to_whom": "STAFF",
+    "reason": "NASTA",
+    "expense_type": 0,
+    "expense_amt": "40",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-09-11",
+    "to_whom": "TARAM",
+    "reason": "HOME",
+    "expense_type": 0,
+    "expense_amt": "3000",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-09-11",
+    "to_whom": "CASH BACK ",
+    "reason": "CASH",
+    "expense_type": 0,
+    "expense_amt": "35",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-09-12",
+    "to_whom": "TARAM",
+    "reason": "HOME",
+    "expense_type": 0,
+    "expense_amt": "1500",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-09-12",
+    "to_whom": "CUSTOMER CASHBACK ",
+    "reason": "CASH BACK ",
+    "expense_type": 0,
+    "expense_amt": "21",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-09-12",
+    "to_whom": "CUSTOMER ",
+    "reason": "SALES",
+    "expense_type": 1,
+    "expense_amt": "190",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-09-12",
+    "to_whom": "TARAM",
+    "reason": "HOME",
+    "expense_type": 0,
+    "expense_amt": "2000",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-09-13",
+    "to_whom": "MAIN  CASH  BOOK",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 0,
+    "expense_amt": "500",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-09-15",
+    "to_whom": "MAIN  CASH ",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 0,
+    "expense_amt": "5000",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-09-16",
+    "to_whom": "TARAM",
+    "reason": "HOME",
+    "expense_type": 0,
+    "expense_amt": "500",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-09-17",
+    "to_whom": "MAIN CASH",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 0,
+    "expense_amt": "3000",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-09-17",
+    "to_whom": "MAIN CASH",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 0,
+    "expense_amt": "1500",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-09-18",
+    "to_whom": "MAIN CASH",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 0,
+    "expense_amt": "1000",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-09-18",
+    "to_whom": "MAIN CASH",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 0,
+    "expense_amt": "500",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-09-19",
+    "to_whom": "CUSTOMER",
+    "reason": "CASH BACK ",
+    "expense_type": 0,
+    "expense_amt": "21",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-09-19",
+    "to_whom": "STAFF",
+    "reason": "NASTA",
+    "expense_type": 0,
+    "expense_amt": "40",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-09-20",
+    "to_whom": "MAIN CASH",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 0,
+    "expense_amt": "1500",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-09-20",
+    "to_whom": "AKANSHA STAFF B2",
+    "reason": "ADVANCE",
+    "expense_type": 0,
+    "expense_amt": "500",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-09-21",
+    "to_whom": "STAFF",
+    "reason": "NASTA",
+    "expense_type": 0,
+    "expense_amt": "40",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-09-21",
+    "to_whom": "GARBAGE BAG",
+    "reason": "MISCELLANEOUS",
+    "expense_type": 0,
+    "expense_amt": "60",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-09-21",
+    "to_whom": "TARAM",
+    "reason": "HOME",
+    "expense_type": 0,
+    "expense_amt": "7000",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-09-22",
+    "to_whom": "CHAIWALA",
+    "reason": "TEA",
+    "expense_type": 0,
+    "expense_amt": "300",
+    "description": "50 CHAI 11 DAY"
+  },
+  {
+    "exp_dt": "2025-09-22",
+    "to_whom": "TARAM",
+    "reason": "HOME",
+    "expense_type": 0,
+    "expense_amt": "5000",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-09-23",
+    "to_whom": "SALES",
+    "reason": "SALES",
+    "expense_type": 1,
+    "expense_amt": "100",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-09-23",
+    "to_whom": "HOME",
+    "reason": "HOME",
+    "expense_type": 0,
+    "expense_amt": "200",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-09-24",
+    "to_whom": "MAIN CASH",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 0,
+    "expense_amt": "5500",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-09-25",
+    "to_whom": "MAIN  CASH BOOK",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 0,
+    "expense_amt": "5000",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-09-29",
+    "to_whom": "STAFF",
+    "reason": "TEA",
+    "expense_type": 0,
+    "expense_amt": "132",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-09-29",
+    "to_whom": "MAIN CASH BOOK",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 0,
+    "expense_amt": "3500",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-09-30",
+    "to_whom": "MAIN CASH",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 0,
+    "expense_amt": "1000",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-10-01",
+    "to_whom": "TARAM",
+    "reason": "HOME",
+    "expense_type": 0,
+    "expense_amt": "4000",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-10-02",
+    "to_whom": "MAIN CASH",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 0,
+    "expense_amt": "2500",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-10-02",
+    "to_whom": "MAIN CASH",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 0,
+    "expense_amt": "3000",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-10-02",
+    "to_whom": "STAFF",
+    "reason": "NASTA",
+    "expense_type": 0,
+    "expense_amt": "40",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-10-03",
+    "to_whom": "CHOCOLATE",
+    "reason": "CHOCKLETS",
+    "expense_type": 0,
+    "expense_amt": "668",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-10-03",
+    "to_whom": "TARAM",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 0,
+    "expense_amt": "1000",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-10-04",
+    "to_whom": "SALES",
+    "reason": "SALES",
+    "expense_type": 1,
+    "expense_amt": "1430",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-10-04",
+    "to_whom": "STAFF",
+    "reason": "PANIWALA",
+    "expense_type": 0,
+    "expense_amt": "420",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-10-04",
+    "to_whom": "STAFF",
+    "reason": "TEA",
+    "expense_type": 0,
+    "expense_amt": "144",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-10-04",
+    "to_whom": "STAFF",
+    "reason": "NASTA",
+    "expense_type": 0,
+    "expense_amt": "40",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-10-04",
+    "to_whom": "MAIN  CASH",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 0,
+    "expense_amt": "9500",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-10-05",
+    "to_whom": "MAIN CASH",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 0,
+    "expense_amt": "10000",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-10-05",
+    "to_whom": "AKANSHA PIMPLEKAR",
+    "reason": "SALARY",
+    "expense_type": 0,
+    "expense_amt": "5940",
+    "description": "SEPT 2025"
+  },
+  {
+    "exp_dt": "2025-10-05",
+    "to_whom": "SUNITA  SINGH",
+    "reason": "SALARY",
+    "expense_type": 0,
+    "expense_amt": "6000",
+    "description": "SEPT 2025"
+  },
+  {
+    "exp_dt": "2025-10-05",
+    "to_whom": "MAIN CASH ",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 0,
+    "expense_amt": "1500",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-10-06",
+    "to_whom": "AKANSHA",
+    "reason": "SALARY",
+    "expense_type": 1,
+    "expense_amt": "1500",
+    "description": "PAID ONLINE BUT ENTER BY MISTAKE IN CASH"
+  },
+  {
+    "exp_dt": "2025-10-06",
+    "to_whom": "TARAM",
+    "reason": "HOME",
+    "expense_type": 0,
+    "expense_amt": "9500",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-10-06",
+    "to_whom": "STAFF",
+    "reason": "NASTA",
+    "expense_type": 0,
+    "expense_amt": "40",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-10-07",
+    "to_whom": "MAIN CASH",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 0,
+    "expense_amt": "3500",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-10-07",
+    "to_whom": "DIFFERENCE ",
+    "reason": "DIFFERENCE",
+    "expense_type": 0,
+    "expense_amt": "144",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-10-08",
+    "to_whom": "MAIN  CASH",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 0,
+    "expense_amt": "1000",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-10-08",
+    "to_whom": "SALES",
+    "reason": "SALES",
+    "expense_type": 1,
+    "expense_amt": "551",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-10-09",
+    "to_whom": "BAGS PACKING",
+    "reason": "BAGS PACKING",
+    "expense_type": 0,
+    "expense_amt": "650",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-10-09",
+    "to_whom": "STAFF",
+    "reason": "TEA",
+    "expense_type": 0,
+    "expense_amt": "205",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-10-10",
+    "to_whom": "MAIN CASH",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 0,
+    "expense_amt": "3000",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-10-10",
+    "to_whom": "MAIN CASH",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 0,
+    "expense_amt": "2000",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-10-11",
+    "to_whom": "MAIN CASH",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 0,
+    "expense_amt": "4000",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-10-11",
+    "to_whom": "STAFF",
+    "reason": "NASTA",
+    "expense_type": 0,
+    "expense_amt": "80",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-10-12",
+    "to_whom": "TRANSPORT",
+    "reason": "TRANSPORT CHARGES",
+    "expense_type": 0,
+    "expense_amt": "450",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-10-12",
+    "to_whom": "MAIN CASH",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 0,
+    "expense_amt": "2000",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-10-12",
+    "to_whom": "MAIN  CASH",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 0,
+    "expense_amt": "2500",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-10-13",
+    "to_whom": "STAFF",
+    "reason": "TEA",
+    "expense_type": 0,
+    "expense_amt": "462",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-10-13",
+    "to_whom": "STAFF",
+    "reason": "NASTA",
+    "expense_type": 0,
+    "expense_amt": "80",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-10-13",
+    "to_whom": "MAIN  CASH",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 0,
+    "expense_amt": "5500",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-10-14",
+    "to_whom": "HOME",
+    "reason": "HOME",
+    "expense_type": 0,
+    "expense_amt": "80",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-10-14",
+    "to_whom": "MAIN  CASH",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 0,
+    "expense_amt": "1500",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-10-14",
+    "to_whom": "MAIN CASH",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 0,
+    "expense_amt": "2500",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-10-15",
+    "to_whom": "AKANKSHA",
+    "reason": "ADVANCE",
+    "expense_type": 0,
+    "expense_amt": "2000",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-10-15",
+    "to_whom": "MAIN CASH",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 1,
+    "expense_amt": "1000",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-10-15",
+    "to_whom": "HETAL STAFF",
+    "reason": "SALARY",
+    "expense_type": 0,
+    "expense_amt": "1000",
+    "description": "HETAL JULY BALANCE SALARY AMT"
+  },
+  {
+    "exp_dt": "2025-10-15",
+    "to_whom": "CUSTOMER",
+    "reason": "CASH BACK ",
+    "expense_type": 0,
+    "expense_amt": "20",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-10-15",
+    "to_whom": "SAYALI STAFF B2",
+    "reason": "MAIN STORE",
+    "expense_type": 0,
+    "expense_amt": "1500",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-10-15",
+    "to_whom": "CAHA WALA",
+    "reason": "TEA",
+    "expense_type": 0,
+    "expense_amt": "114",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-10-15",
+    "to_whom": "TARAM",
+    "reason": "HOME",
+    "expense_type": 0,
+    "expense_amt": "4000",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-10-16",
+    "to_whom": "SALES",
+    "reason": "SALES",
+    "expense_type": 1,
+    "expense_amt": "730",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-10-18",
+    "to_whom": "TARAM",
+    "reason": "HOME",
+    "expense_type": 0,
+    "expense_amt": "2500",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-10-18",
+    "to_whom": "STAFF",
+    "reason": "NASTA",
+    "expense_type": 0,
+    "expense_amt": "50",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-10-18",
+    "to_whom": "STAFF",
+    "reason": "TEA",
+    "expense_type": 0,
+    "expense_amt": "210",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-10-18",
+    "to_whom": "STAFF",
+    "reason": "TEA",
+    "expense_type": 0,
+    "expense_amt": "200",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-10-18",
+    "to_whom": "MAIN BOOK",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 0,
+    "expense_amt": "1500",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-10-18",
+    "to_whom": "MAIN CASH",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 0,
+    "expense_amt": "2500",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-10-19",
+    "to_whom": "SALES",
+    "reason": "SALES",
+    "expense_type": 1,
+    "expense_amt": "1299",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-10-19",
+    "to_whom": "SALES",
+    "reason": "SALES",
+    "expense_type": 1,
+    "expense_amt": "1080",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-10-19",
+    "to_whom": "SALES",
+    "reason": "SALES",
+    "expense_type": 0,
+    "expense_amt": "1240",
+    "description": "BILL NO- RPB20688"
+  },
+  {
+    "exp_dt": "2025-10-19",
+    "to_whom": "SALES",
+    "reason": "SALES",
+    "expense_type": 0,
+    "expense_amt": "309",
+    "description": "BILL NO - RPB20688"
+  },
+  {
+    "exp_dt": "2025-10-19",
+    "to_whom": "MAIN CASH",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 0,
+    "expense_amt": "5500",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-10-20",
+    "to_whom": "SHOP",
+    "reason": "SHOP RANGOLI",
+    "expense_type": 0,
+    "expense_amt": "50",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-10-20",
+    "to_whom": "MAIN CASH",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 0,
+    "expense_amt": "5000",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-10-20",
+    "to_whom": "SALES",
+    "reason": "SALES",
+    "expense_type": 1,
+    "expense_amt": "758",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-10-20",
+    "to_whom": "SATFF",
+    "reason": "TEA",
+    "expense_type": 0,
+    "expense_amt": "120",
+    "description": "2 DAYS"
+  },
+  {
+    "exp_dt": "2025-10-20",
+    "to_whom": "COMPUTER MISTAKE ",
+    "reason": "DIFFERENCE",
+    "expense_type": 0,
+    "expense_amt": "666",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-10-21",
+    "to_whom": "MAIN CASH ",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 0,
+    "expense_amt": "2000",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-10-22",
+    "to_whom": "TARAM",
+    "reason": "HOME",
+    "expense_type": 0,
+    "expense_amt": "2000",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-10-22",
+    "to_whom": "MAIN CASH",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 0,
+    "expense_amt": "2000",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-10-22",
+    "to_whom": "BALANCE WITH CUSTOMER ",
+    "reason": "DIFFERENCE",
+    "expense_type": 0,
+    "expense_amt": "360",
+    "description": "BILL NO RPB20698"
+  },
+  {
+    "exp_dt": "2025-10-22",
+    "to_whom": "NASTA",
+    "reason": "NASTA",
+    "expense_type": 0,
+    "expense_amt": "54",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-10-24",
+    "to_whom": "STAFF",
+    "reason": "TEA",
+    "expense_type": 0,
+    "expense_amt": "96",
+    "description": "2 DAYS"
+  },
+  {
+    "exp_dt": "2025-10-24",
+    "to_whom": "HETAL",
+    "reason": "ADVANCE",
+    "expense_type": 0,
+    "expense_amt": "500",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-10-24",
+    "to_whom": "MAIN CASH",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 0,
+    "expense_amt": "1000",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-10-25",
+    "to_whom": "MAIN CASH",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 0,
+    "expense_amt": "2000",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-10-25",
+    "to_whom": "DIFFERENCE ",
+    "reason": "DIFFERENCE",
+    "expense_type": 0,
+    "expense_amt": "112",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-10-26",
+    "to_whom": "MAIN CASH",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 0,
+    "expense_amt": "1500",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-10-27",
+    "to_whom": "EXCESS ",
+    "reason": "DIFFERENCE",
+    "expense_type": 1,
+    "expense_amt": "210",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-10-27",
+    "to_whom": "SHOP",
+    "reason": "BAGS PACKING",
+    "expense_type": 0,
+    "expense_amt": "160",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-10-27",
+    "to_whom": "EXCESS ",
+    "reason": "DIFFERENCE",
+    "expense_type": 1,
+    "expense_amt": "210",
+    "description": "DIFFERENCE "
+  },
+  {
+    "exp_dt": "2025-10-27",
+    "to_whom": "CUSTOMER",
+    "reason": "TAILOR",
+    "expense_type": 0,
+    "expense_amt": "120",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-10-27",
+    "to_whom": "MAIN  CASH",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 0,
+    "expense_amt": "8500",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-10-28",
+    "to_whom": "STAFF",
+    "reason": "DIFFERANCE",
+    "expense_type": 0,
+    "expense_amt": "300",
+    "description": "ONLINE RECEIVED FROM SAYLI"
+  },
+  {
+    "exp_dt": "2025-10-28",
+    "to_whom": "DIFFERANCE",
+    "reason": "DIFFERENCE",
+    "expense_type": 0,
+    "expense_amt": "292",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-10-28",
+    "to_whom": "MAIN CASH",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 0,
+    "expense_amt": "3000",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-10-28",
+    "to_whom": "STAFF",
+    "reason": "TEA",
+    "expense_type": 0,
+    "expense_amt": "100",
+    "description": "2 DAYS"
+  },
+  {
+    "exp_dt": "2025-10-28",
+    "to_whom": "MAIN CCASH",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 0,
+    "expense_amt": "6000",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-10-29",
+    "to_whom": "STAFF",
+    "reason": "TEA",
+    "expense_type": 0,
+    "expense_amt": "60",
+    "description": "TODAY"
+  },
+  {
+    "exp_dt": "2025-10-29",
+    "to_whom": "MAIN  CASH",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 0,
+    "expense_amt": "5500",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-10-30",
+    "to_whom": "SALES",
+    "reason": "SALES",
+    "expense_type": 1,
+    "expense_amt": "1140",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-10-30",
+    "to_whom": "SALES",
+    "reason": "SALES",
+    "expense_type": 0,
+    "expense_amt": "1140",
+    "description": "BILL NO -RPB207040"
+  },
+  {
+    "exp_dt": "2025-10-30",
+    "to_whom": "SHOP",
+    "reason": "AC CELL",
+    "expense_type": 0,
+    "expense_amt": "44",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-10-30",
+    "to_whom": "MOHAN SIR",
+    "reason": "TAILOR",
+    "expense_type": 0,
+    "expense_amt": "1000",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-10-30",
+    "to_whom": "MAIN CASH",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 0,
+    "expense_amt": "1500",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-10-30",
+    "to_whom": "VEDIKA DHAPSE",
+    "reason": "ADVANCE",
+    "expense_type": 0,
+    "expense_amt": "1000",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-10-30",
+    "to_whom": "MAIN CASH",
+    "reason": "MAIN CASH BOOK",
+    "expense_type": 0,
+    "expense_amt": "500",
+    "description": ""
+  },
+  {
+    "exp_dt": "2025-10-31",
+    "to_whom": "SALES",
+    "reason": "SALES",
+    "expense_type": 1,
+    "expense_amt": "1140",
+    "description": "BILL NO- RPB207040"
+  },
+  {
+    "exp_dt": "2025-10-31",
+    "to_whom": "SHOP",
+    "reason": "20 NOTE",
+    "expense_type": 1,
+    "expense_amt": "1000",
+    "description": ""
+  }
+]
