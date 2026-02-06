@@ -31,9 +31,9 @@ export const createSell = async (req, res) => {
     items,
     transactionId,
     onlinePaymentMethod = "NA",
-    chequeNumber = 0, 
-    chequeBankName = "NA", 
-    chequeDate = "NA", 
+    chequeNumber = 0,
+    chequeBankName = "NA",
+    chequeDate = "NA",
   } = req.body;
 
   // ✅ Validation
@@ -49,15 +49,34 @@ export const createSell = async (req, res) => {
     !Array.isArray(items) ||
     items.length === 0
   ) {
-    return res.status(400).json({ message: "Missing required fields or no items provided." });
+    return res
+      .status(400)
+      .json({ message: "Missing required fields or no items provided." });
   }
 
   try {
     // ✅ Check duplicate invoice
     const existing = await findSellByInvoice(invoiceNumber, userId);
     if (existing) {
-      return res.status(409).json({ message: "Invoice already exists for this user." });
+      return res
+        .status(409)
+        .json({ message: "Invoice already exists for this user." });
     }
+
+    // ✅ STEP 1: Calculate PRODUCT-wise GST total
+    const productGSTTotal = items.reduce(
+      (sum, item) => sum + (Number(item.gstAmount) || 0),
+      0,
+    );
+
+    // ✅ STEP 2: Calculate BILL-wise GST (only if no product GST)
+    const billGSTTotal =
+      productGSTTotal > 0
+        ? 0
+        : Number(igst || 0) + Number(cgst || 0) + Number(sgst || 0);
+
+    // ✅ STEP 3: Final GST stored in Sell table
+    const totalGST = productGSTTotal + billGSTTotal;
 
     // ✅ Map frontend → DB fields
     const sellData = {
@@ -70,24 +89,26 @@ export const createSell = async (req, res) => {
       totalAmount: subtotal,
       totalDiscount: overallDiscount,
       billDiscountType,
-      cgst: cgst,
-      sgst: sgst,
-      igst: igst,
-      totalGST: Number(igst) + Number(cgst) + Number(sgst),
+      cgst: productGSTTotal > 0 ? 0 : cgst,
+      sgst: productGSTTotal > 0 ? 0 : sgst,
+      igst: productGSTTotal > 0 ? 0 : igst,
+      totalGST,
       finalAmount: grandTotal,
       paymentMethod: paymentMode,
       paymentDetails: paymentStatus,
       payingAmount:
-        payingAmount !== undefined && payingAmount !== null ? payingAmount : grandTotal,
+        payingAmount !== undefined && payingAmount !== null
+          ? payingAmount
+          : grandTotal,
       balanceAmount:
         balanceAmount !== undefined && balanceAmount !== null
           ? balanceAmount
           : grandTotal - (payingAmount ?? 0),
-                  transactionId,
-        onlinePaymentMethod,
-        chequeNumber,
-        chequeBankName,
-        chequeDate,
+      transactionId,
+      onlinePaymentMethod,
+      chequeNumber,
+      chequeBankName,
+      chequeDate,
     };
 
     // ✅ Call transactional addSell (in sellService)
@@ -103,7 +124,10 @@ export const createSell = async (req, res) => {
     }
 
     // ✅ Handle Sequelize or rollback error
-    if (error.name === "SequelizeValidationError" || error.name === "SequelizeUniqueConstraintError") {
+    if (
+      error.name === "SequelizeValidationError" ||
+      error.name === "SequelizeUniqueConstraintError"
+    ) {
       return res.status(400).json({ message: error.message });
     }
 
@@ -111,8 +135,6 @@ export const createSell = async (req, res) => {
     res.status(500).json({ message: "Server error while creating sell." });
   }
 };
-
-
 
 // Get all sells (by userId)
 export const getSells = async (req, res) => {
@@ -138,29 +160,44 @@ export const editSell = async (req, res) => {
     cgst,
     sgst,
     grandTotal,
-     paymentMethod,
-     paymentDetails,
-    payingAmount,   // NEW
-    balanceAmount,  // NEW
+    paymentMethod,
+    paymentDetails,
+    payingAmount, // NEW
+    balanceAmount, // NEW
     items,
     ...rest
   } = req.body;
+
+  const productGSTTotal = items.reduce(
+    (sum, item) => sum + (Number(item.gstAmount) || 0),
+    0,
+  );
+
+  const billGSTTotal =
+    productGSTTotal > 0
+      ? 0
+      : Number(igst || 0) + Number(cgst || 0) + Number(sgst || 0);
 
   const sellData = {
     ...rest,
     totalAmount: subtotal,
     totalDiscount: overallDiscount,
-    totalGST: Number(igst) + Number(cgst) + Number(sgst),
+    totalGST: productGSTTotal + billGSTTotal,
+    cgst: productGSTTotal > 0 ? 0 : cgst,
+    sgst: productGSTTotal > 0 ? 0 : sgst,
+    igst: productGSTTotal > 0 ? 0 : igst,
     finalAmount: grandTotal,
     paymentMethod,
     paymentDetails,
-    payingAmount: payingAmount !== undefined && payingAmount !== null ? payingAmount : grandTotal,
-    balanceAmount: balanceAmount !== undefined && balanceAmount !== null
-      ? balanceAmount
-      : grandTotal - (payingAmount ?? 0),
-
+    payingAmount:
+      payingAmount !== undefined && payingAmount !== null
+        ? payingAmount
+        : grandTotal,
+    balanceAmount:
+      balanceAmount !== undefined && balanceAmount !== null
+        ? balanceAmount
+        : grandTotal - (payingAmount ?? 0),
   };
-
 
   try {
     const updated = await updateSell(id, sellData, items);
@@ -171,7 +208,6 @@ export const editSell = async (req, res) => {
     res.status(500).json({ message: "Server error." });
   }
 };
-
 
 // Delete Sell
 export const removeSell = async (req, res) => {
@@ -187,15 +223,18 @@ export const removeSell = async (req, res) => {
   }
 };
 
-
 // New: Get invoice preview
 export const getInvoicePreview = async (req, res) => {
   const { prefix, userId } = req.query;
 
-  if (!prefix || !userId) return res.status(400).json({ message: "Missing prefix or userId" });
+  if (!prefix || !userId)
+    return res.status(400).json({ message: "Missing prefix or userId" });
 
   try {
-    const invoiceNumber = await generateNextInvoiceNumber(prefix, Number(userId));
+    const invoiceNumber = await generateNextInvoiceNumber(
+      prefix,
+      Number(userId),
+    );
     res.status(200).json({ invoiceNumber });
   } catch (err) {
     console.error("Error generating invoice:", err);

@@ -54,7 +54,9 @@ const SellItem = sequelize.define("SellItem", {
   offerPrice: { type: DataTypes.FLOAT, allowNull: false },
   discount: { type: DataTypes.FLOAT, allowNull: false },
   discountType: { type: DataTypes.STRING, allowNull: true, defaultValue: "₹" },
-  // gst: { type: DataTypes.FLOAT, allowNull: true, defaultValue: 0 },
+    // ✅ PRODUCT WISE GST
+  gstRate: { type: DataTypes.FLOAT, defaultValue: 0 },
+  gstAmount: { type: DataTypes.FLOAT, defaultValue: 0 },
   totalPrice: { type: DataTypes.FLOAT, allowNull: false },
   userId: { type: DataTypes.INTEGER, allowNull: false },
 }, {
