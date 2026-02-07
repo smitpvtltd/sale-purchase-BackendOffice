@@ -30,7 +30,7 @@ import reasonRoutes from "./Routes/reasonRoutes.js";
 
 const app = express();
 
-const allowedOrigins = ['http://localhost:5173', 'http://localhost:5174' , 'https://rp.smitsolutions.co.in'];
+const allowedOrigins = ['http://localhost:5173', 'http://localhost:5174' , 'https://sp.smittech.in'];
 
 app.use(cors({
   origin: function (origin, callback) {
