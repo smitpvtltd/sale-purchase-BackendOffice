@@ -4,8 +4,20 @@ import {
   getProductById,
   updateProduct,
   deleteProduct,
-  getProductsByUser
+  getProductsByUser,
+  generateNextBarcode
 } from '../Services/productService.js';
+
+// Get next barcode preview
+export const getNextBarcodePreview = async (req, res) => {
+  try {
+    const barcode = await generateNextBarcode();
+    res.status(200).json({ barcode });
+  } catch (error) {
+    console.error("Barcode Preview Error:", error);
+    res.status(500).json({ message: "Error generating barcode" });
+  }
+};
 
 // add product 
 export const addProduct = async (req, res) => {
@@ -17,7 +29,6 @@ export const addProduct = async (req, res) => {
       price,
       offerPrice,
       // qty,
-      barcode,
       hsnCode,
       company,
       unit,
@@ -40,7 +51,6 @@ export const addProduct = async (req, res) => {
       price,
       offerPrice,
       // qty,
-      barcode,
       hsnCode,
       company,
       unit,
