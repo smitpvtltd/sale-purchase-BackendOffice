@@ -3,10 +3,33 @@ import { SellItem } from '../Models/sellModel.js'
 import { PurchaseItem } from '../Models/purchaseModel.js';
 import SubCategory from '../Models/subcategoryModel.js';
 
+// Generate next barcode like PRD-0001
+export const generateNextBarcode = async () => {
+  const lastProduct = await Product.findOne({
+    order: [['id', 'DESC']]
+  });
+
+  let nextNumber = 1;
+
+  if (lastProduct && lastProduct.barcode) {
+    const match = lastProduct.barcode.match(/PRD-(\d+)/);
+    if (match) {
+      nextNumber = parseInt(match[1]) + 1;
+    }
+  }
+
+  return `PRD-${String(nextNumber).padStart(4, '0')}`;
+};
 
 // add product 
 export const createProduct = async (productData) => {
-  return await Product.create(productData);
+
+  const barcode = await generateNextBarcode();
+
+  return await Product.create({
+    ...productData,
+    barcode
+  });
 };
 
 // get all products

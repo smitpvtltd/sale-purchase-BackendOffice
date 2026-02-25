@@ -15,13 +15,11 @@ export const createPurchaseParty = async (req, res) => {
     city,
     gstNumber,
     companyName,
-    // stateType,
+    stateType,
     userId,
   } = req.body;
 
-  if (!name || !email || !mobile
-    // || !stateType 
-     || !userId) {
+  if (!name || !email || !mobile || !stateType || !userId) {
     return res.status(400).json({ message: "Required fields are missing." });
   }
 
@@ -31,11 +29,11 @@ export const createPurchaseParty = async (req, res) => {
       email,
       mobile,
       address,
-      state: state === '' ? null : state,
-      city: city === '' ? null : city,
+      state: state === "" ? null : state,
+      city: city === "" ? null : city,
       gstNumber,
       companyName,
-      // stateType,
+      stateType,
       userId,
     });
 
@@ -93,9 +91,12 @@ export const editPurchaseParty = async (req, res) => {
       stateType,
     });
 
-    if (!updatedParty) return res.status(404).json({ message: "Purchase party not found." });
+    if (!updatedParty)
+      return res.status(404).json({ message: "Purchase party not found." });
 
-    res.status(200).json({ message: "Purchase party updated.", party: updatedParty });
+    res
+      .status(200)
+      .json({ message: "Purchase party updated.", party: updatedParty });
   } catch (error) {
     console.error("Update Error:", error);
     res.status(500).json({ message: "Server error." });
@@ -107,9 +108,12 @@ export const removePurchaseParty = async (req, res) => {
 
   try {
     const deletedParty = await deletePurchasePartyService(id);
-    if (!deletedParty) return res.status(404).json({ message: "Purchase party not found." });
+    if (!deletedParty)
+      return res.status(404).json({ message: "Purchase party not found." });
 
-    res.status(200).json({ message: "Purchase party deleted.", party: deletedParty });
+    res
+      .status(200)
+      .json({ message: "Purchase party deleted.", party: deletedParty });
   } catch (error) {
     console.error("Delete Error:", error);
     res.status(500).json({ message: "Server error." });

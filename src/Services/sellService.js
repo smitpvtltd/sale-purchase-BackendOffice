@@ -1,10 +1,11 @@
-import { decreaseStock, increaseStock, restoreStockAfterSellUpdate } from "../Middleware/stockService.js";
+import {
+  decreaseStock,
+  increaseStock,
+  restoreStockAfterSellUpdate,
+} from "../Middleware/stockService.js";
 import { Sell, SellItem } from "../Models/sellModel.js";
 import { Op } from "sequelize";
 import sequelize from "../Config/db.js";
-
-
-
 
 // Add Sell + Items
 export const addSell = async (sellData, items) => {
@@ -13,14 +14,20 @@ export const addSell = async (sellData, items) => {
     const sell = await Sell.create(sellData, { transaction: t });
 
     if (items && items.length > 0) {
-      const safeItems = items.map(item => ({
+      const safeItems = items.map((item) => ({
         ...item,
         sellId: sell.id,
         userId: sellData.userId,
         offerPrice: item.offerPrice ?? item.price, // fallback if missing
         discount: item.discount ?? 0,
         discountType: item.discountType ?? "₹",
-        totalPrice: item.totalPrice ?? (item.offerPrice ?? item.price) * item.quantity,
+        // ✅ PRODUCT GST SAFE
+        gstRate: item.gstRate ?? 0,
+        gstAmount: item.gstAmount ?? 0,
+        totalPrice:
+          item.totalPrice ??
+          (item.offerPrice ?? item.price) * item.quantity +
+            (item.gstAmount ?? 0),
       }));
 
       for (const item of safeItems) {
@@ -39,8 +46,6 @@ export const addSell = async (sellData, items) => {
     throw error;
   }
 };
-
-
 
 // Get all sells by user
 export const getAllSells = async (userId) => {
@@ -100,14 +105,19 @@ export const updateSell = async (id, sellData, items) => {
   if (items) {
     await SellItem.destroy({ where: { sellId: id } });
 
-    const safeItems = items.map(item => ({
+    const safeItems = items.map((item) => ({
       ...item,
       sellId: id,
       userId: sellData.userId,
       offerPrice: item.offerPrice ?? item.price,
       discount: item.discount ?? 0,
       discountType: item.discountType ?? "₹",
-      totalPrice: item.totalPrice ?? (item.offerPrice ?? item.price) * item.quantity,
+      //product GST
+      gstRate: item.gstRate ?? 0,
+      gstAmount: item.gstAmount ?? 0,
+      totalPrice:
+        item.totalPrice ??
+        (item.offerPrice ?? item.price) * item.quantity + (item.gstAmount ?? 0),
     }));
 
     for (const item of safeItems) {
@@ -134,8 +144,6 @@ export const deleteSell = async (id) => {
 
   return sell;
 };
-
-
 
 // Generate next invoice number
 export const generateNextInvoiceNumber = async (prefix, userId) => {
