@@ -164,7 +164,7 @@ export const editSell = async (req, res) => {
     paymentDetails,
     payingAmount, // NEW
     balanceAmount, // NEW
-    items,
+    items = [],
     ...rest
   } = req.body;
 
@@ -252,5 +252,28 @@ export const getSellController = async (req, res) => {
   } catch (err) {
     console.error("Error fetching sell:", err);
     res.status(500).json({ message: "Server error" });
+  }
+};
+
+// Approve Payment
+export const approvePayment = async (req, res) => {
+  const { id } = req.params;
+  const { paymentMethod, paymentDetails, payingAmount, balanceAmount } = req.body;
+
+  try {
+    const sell = await getSellById(id);
+    if (!sell) return res.status(404).json({ message: "Sell not found." });
+
+    const updated = await updateSell(id, {
+      paymentMethod,
+      paymentDetails,
+      payingAmount,
+      balanceAmount,
+    });
+
+    res.status(200).json({ message: "Payment approved.", sell: updated });
+  } catch (error) {
+    console.error("Error approving payment:", error);
+    res.status(500).json({ message: "Server error." });
   }
 };
