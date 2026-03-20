@@ -4,6 +4,26 @@ import {
   findReturnByInvoice,
   deleteReturn,
 } from "../Services/returnService.js";
+import { safeLogAudit } from "../Services/auditLogService.js";
+
+const getReturnAuditSnapshot = (record, items = []) => ({
+  id: record.id,
+  invoiceNumber: record.invoiceNumber,
+  returnBillNo: record.returnBillNo,
+  date: record.date,
+  firmId: record.firmId,
+  customerId: record.customerId,
+  userId: record.userId,
+  employeeName: record.employeeName,
+  subtotal: record.subtotal,
+  discount: record.discount,
+  gst: record.gst,
+  grandTotal: record.grandTotal,
+  totalReturnAmount: record.totalReturnAmount,
+  paymentMethod: record.paymentMethod,
+  paymentStatus: record.paymentStatus,
+  items,
+});
 
 export const createReturn = async (req, res) => {
   try {
@@ -52,7 +72,18 @@ export const createReturn = async (req, res) => {
     };
 
     const result = await addReturn(returnData, items);
+
     res.status(201).json({ message: "Return recorded successfully.", result });
+
+    await safeLogAudit({
+      module: "RETURN",
+      entityId: result.id,
+      action: "CREATE",
+      oldValue: null,
+      newValue: getReturnAuditSnapshot(result, items),
+      userId: result.userId,
+      metadata: { firmId: result.firmId, invoiceNumber: result.invoiceNumber },
+    });
   } catch (err) {
     console.error("Error creating return:", err);
     res.status(500).json({ message: err.message || "Server error." });
@@ -77,7 +108,18 @@ export const removeReturn = async (req, res) => {
     const { id } = req.params;
     const deleted = await deleteReturn(id);
     if (!deleted) return res.status(404).json({ message: "Record not found." });
+
     res.status(200).json({ message: "Deleted successfully.", deleted });
+
+    await safeLogAudit({
+      module: "RETURN",
+      entityId: deleted.id,
+      action: "DELETE",
+      oldValue: getReturnAuditSnapshot(deleted, deleted.items || []),
+      newValue: null,
+      userId: deleted.userId,
+      metadata: { firmId: deleted.firmId, invoiceNumber: deleted.invoiceNumber },
+    });
   } catch (err) {
     console.error("Error deleting return:", err);
     res.status(500).json({ message: "Server error." });

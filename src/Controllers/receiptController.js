@@ -1,5 +1,6 @@
 import * as receiptService from "../Services/receiptService.js";
 import Receipt from "../Models/receiptModel.js";
+import Firm from "../Models/firmModel.js";
 
 // Add receipt
 export const addReceipt = async (req, res) => {
@@ -18,8 +19,8 @@ export const addReceipt = async (req, res) => {
     res.status(201).json({ message: "Receipt added successfully", receipt });
   } catch (error) {
     res
-      .status(500)
-      .json({ message: error.message || "Error adding receipt", error });
+      .status(400)
+      .json({ message: error.message || "Error adding receipt" });
   }
 };
 
@@ -104,18 +105,17 @@ export const getLatestReceiptNumberForFirm = async (req, res) => {
         .json({ message: "firmId must be a valid number." });
     }
 
-    console.log("Fetching latest receipt for firmId:", firmIdNum);
+    const firm = await Firm.findByPk(firmIdNum);
+    if (!firm) {
+      return res.status(404).json({ message: "Firm not found." });
+    }
+
+    console.log(`Fetching latest receipt for firmId: ${firm}`);
 
     const latestReceipt = await Receipt.findOne({
       where: { firmId: firmIdNum },
       order: [["createdAt", "DESC"]],
     });
-
-    console.log("Latest receipt found:", latestReceipt);
-    console.log(
-      "Latest receiptNumber:",
-      latestReceipt ? latestReceipt.receiptNumber : "No receipt found"
-    );
 
     let lastNumber = 0;
 
@@ -128,13 +128,19 @@ export const getLatestReceiptNumberForFirm = async (req, res) => {
       const numPart = parts[parts.length - 1];
       lastNumber = parseInt(numPart, 10) || 0;
     } else {
-      console.log(
-        "No valid receiptNumber found or receiptNumber is null/empty"
-      );
       lastNumber = 0;
     }
 
-    return res.status(200).json({ lastNumber });
+    const prefix = firm.saleReceiptInitial?.trim() || "REC";
+    const nextNumber = lastNumber + 1;
+    const nextReceiptNumber = `${prefix}-${String(nextNumber).padStart(3, "0")}`;
+
+    return res.status(200).json({
+      prefix,
+      lastNumber,
+      nextNumber,
+      nextReceiptNumber,
+    });
   } catch (error) {
     console.error("Error fetching latest receipt number:", error);
     return res.status(500).json({

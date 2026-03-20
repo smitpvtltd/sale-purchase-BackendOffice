@@ -5,6 +5,7 @@ import User from './userModel.js';
 const Expense = sequelize.define('Expense', {
   id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
   userId: {type: DataTypes.INTEGER,allowNull: false, references: {model: User ,key: "id",},onDelete: "CASCADE"},
+  firmId: { type: DataTypes.INTEGER, allowNull: true },
   date: { type: DataTypes.DATEONLY, allowNull: false },
   toWhom: { type: DataTypes.STRING, allowNull: false },
   reason: { type: DataTypes.STRING, allowNull: false },

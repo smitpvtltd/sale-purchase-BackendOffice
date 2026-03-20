@@ -5,6 +5,7 @@ import {
   getPurchaseReceiptById,
   editPurchaseReceipt,
   deletePurchaseReceipt,
+  getLatestPurchaseReceiptNumberForFirm,
 } from "../Controllers/purchaseReceiptController.js";
 
 const router = express.Router();
@@ -14,6 +15,9 @@ router.post("/add", addPurchaseReceipt);
 
 // Route to get all purchase receipts for a user
 router.get("/all", getPurchaseReceipts);
+
+// Get latest purchase receipt number for a specific firm
+router.get("/latest-receipt-number", getLatestPurchaseReceiptNumberForFirm);
 
 // Route to get a purchase receipt by ID
 router.get("/:id", getPurchaseReceiptById);

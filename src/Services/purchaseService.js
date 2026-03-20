@@ -2,6 +2,7 @@ import { Purchase, PurchaseItem } from "../Models/purchaseModel.js";
 import { decreaseStock, increaseStock } from "../Middleware/stockService.js";
 import PurchaseParty from "../Models/purchasePartyModel.js";
 import sequelize from "../Config/db.js";
+import { Op } from "sequelize";
 
 // add purchase service
 export const createPurchaseService = async (data) => {
@@ -97,9 +98,23 @@ export const deletePurchaseService = async (id) => {
 };
 
 // get all purchases
-export const getAllPurchasesService = async (userId) => {
+export const getAllPurchasesService = async (userId, filters = {}) => {
+  const where = { userId };
+
+  if (filters.firmId) {
+    where.firmId = filters.firmId;
+  }
+
+  if (filters.purchasePartyId) {
+    where.purchasePartyId = filters.purchasePartyId;
+  }
+
+  if (filters.pendingOnly) {
+    where.balanceAmount = { [Op.gt]: 0 };
+  }
+
   return await Purchase.findAll({
-    where: { userId },
+    where,
     include: [
       { model: PurchaseItem },
       {

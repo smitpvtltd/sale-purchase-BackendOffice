@@ -8,12 +8,17 @@ const Customer = sequelize.define(
   {
     id: {type: DataTypes.INTEGER,primaryKey: true,autoIncrement: true},
     name: { type: DataTypes.STRING, allowNull: false },
+    firmId: { type: DataTypes.INTEGER, allowNull: true },
     email: { type: DataTypes.STRING, allowNull: true },
     mobile: { type: DataTypes.STRING, allowNull: false },
     address: { type: DataTypes.STRING, allowNull: true },
     state: { type: DataTypes.INTEGER, allowNull: true },
     city: { type: DataTypes.INTEGER, allowNull: true },
-    aadharNumber: { type: DataTypes.STRING, allowNull: true },
+    gstNumber: { type: DataTypes.STRING, allowNull: true },
+    accountName: { type: DataTypes.STRING, allowNull: true },
+    bankName: { type: DataTypes.STRING, allowNull: true },
+    accountNumber: { type: DataTypes.STRING, allowNull: true },
+    ifscCode: { type: DataTypes.STRING, allowNull: true },
       // ✅ JSON for multiple images (works with MySQL, PostgreSQL)
   customerImg: {
     type: DataTypes.JSONB, // or DataTypes.JSON if using MySQL

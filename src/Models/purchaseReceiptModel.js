@@ -12,7 +12,8 @@ const PurchaseReceipt = sequelize.define(
     id: {type: DataTypes.INTEGER,primaryKey: true,autoIncrement: true,allowNull: false},
     date: {type: DataTypes.DATEONLY,allowNull: false},
     receiptNumber: {type: DataTypes.STRING,allowNull: false,unique: true},
-    billNumber: {type: DataTypes.INTEGER,allowNull: true,unique: true},
+    billNumber: {type: DataTypes.INTEGER,allowNull: true},
+    settlementId: {type: DataTypes.INTEGER,allowNull: true},
     firmId: {type: DataTypes.INTEGER,allowNull: false,
       references: {
         model: "firms",

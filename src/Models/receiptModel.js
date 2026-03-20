@@ -9,6 +9,8 @@ const Receipt = sequelize.define('Receipt', {
   id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
   date: { type: DataTypes.DATE, allowNull: false },
   receiptNumber: { type: DataTypes.STRING, unique: true },
+  billNumber: { type: DataTypes.INTEGER, allowNull: true },
+  settlementId: { type: DataTypes.INTEGER, allowNull: true },
   firmId: { type: DataTypes.INTEGER, references: { model: 'firms', key: 'id' } },
   customerId: { type: DataTypes.INTEGER, references: { model: 'customers', key: 'id' } },
   totalAmount: { type: DataTypes.FLOAT, allowNull: false },

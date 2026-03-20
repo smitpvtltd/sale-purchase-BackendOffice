@@ -7,7 +7,9 @@
     "server": "nodemon src/server.js",
     "admin": "node src/Scripts/addAdmin.js",
     "menus": "node src/Scripts/seedMenuItems.js",
-    "states": "node src/Scripts/seedStates.js"
+    "states": "node src/Scripts/seedStates.js",
+    "ledger:backfill-labels": "node src/Scripts/backfillLedgerEntryTypeLabels.js",
+    "ledger:backfill-derived": "node src/Scripts/backfillLedgerDerivedFields.js"
   },
   "author": "subhan shaikh",
   "license": "ISC",

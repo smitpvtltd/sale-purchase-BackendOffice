@@ -7,6 +7,87 @@ import {
   generateNextInvoiceNumber,
   getSellById,
 } from "../Services/sellService.js";
+import {
+  createLedgerEntry,
+  markLedgerEntryDeletedBySource,
+  normalizePaymentStatus,
+  upsertLedgerEntryBySource,
+} from "../Services/ledgerService.js";
+import { safeLogAudit } from "../Services/auditLogService.js";
+
+const getSellLedgerMetadata = (sell) => ({
+  totalAmount: sell.totalAmount,
+  totalDiscount: sell.totalDiscount,
+  totalGST: sell.totalGST,
+  finalAmount: sell.finalAmount,
+  payingAmount: sell.payingAmount,
+  balanceAmount: sell.balanceAmount,
+  itemCount: Array.isArray(sell.items) ? sell.items.length : 0,
+  items: Array.isArray(sell.items)
+    ? sell.items.map((item) => ({
+        id: item.id,
+        productId: item.productId,
+        quantity: Number(item.quantity || 0),
+        size: item.size || null,
+        price: Number(item.price || 0),
+        offerPrice: Number(item.offerPrice || 0),
+        gstAmount: Number(item.gstAmount || 0),
+        totalPrice: Number(item.totalPrice || 0),
+      }))
+    : [],
+});
+
+const getSellAuditSnapshot = (sell) => ({
+  id: sell.id,
+  invoiceNumber: sell.invoiceNumber,
+  date: sell.date,
+  customerId: sell.customerId,
+  firmId: sell.firmId,
+  userId: sell.userId,
+  totalAmount: sell.totalAmount,
+  totalDiscount: sell.totalDiscount,
+  totalGST: sell.totalGST,
+  finalAmount: sell.finalAmount,
+  paymentMethod: sell.paymentMethod,
+  paymentDetails: sell.paymentDetails,
+  payingAmount: sell.payingAmount,
+  balanceAmount: sell.balanceAmount,
+  items: Array.isArray(sell.items)
+    ? sell.items.map((item) => ({
+        id: item.id,
+        productId: item.productId,
+        quantity: item.quantity,
+        size: item.size,
+        price: item.price,
+        offerPrice: item.offerPrice,
+        totalPrice: item.totalPrice,
+        gstAmount: item.gstAmount,
+      }))
+    : [],
+});
+
+const syncSellLedgerEntry = async (sell, narration) =>
+  upsertLedgerEntryBySource({
+    sourceType: "sell",
+    sourceId: sell.id,
+    entryDate: sell.date,
+    entryType: "sell",
+    voucherNumber: sell.invoiceNumber,
+    firmId: sell.firmId,
+    userId: sell.userId,
+    partyType: "customer",
+    partyId: sell.customerId,
+    amount: sell.finalAmount,
+    paymentMode: sell.paymentMethod,
+    paymentStatus: normalizePaymentStatus({
+      paymentStatus: sell.paymentDetails,
+      amount: sell.payingAmount,
+      balanceAmount: sell.balanceAmount,
+    }),
+    narration,
+    metadata: getSellLedgerMetadata(sell),
+  });
+
 
 // Create Sell
 export const createSell = async (req, res) => {
@@ -79,6 +160,18 @@ export const createSell = async (req, res) => {
     const totalGST = productGSTTotal + billGSTTotal;
 
     // ✅ Map frontend → DB fields
+    const resolvedPayingAmount =
+      payingAmount !== undefined && payingAmount !== null
+        ? Number(payingAmount)
+        : String(paymentStatus || "").trim().toLowerCase() === "paid"
+          ? Number(grandTotal)
+          : 0;
+
+    const resolvedBalanceAmount =
+      balanceAmount !== undefined && balanceAmount !== null
+        ? Number(balanceAmount)
+        : Number(grandTotal) - resolvedPayingAmount;
+
     const sellData = {
       invoiceNumber,
       date,
@@ -96,14 +189,8 @@ export const createSell = async (req, res) => {
       finalAmount: grandTotal,
       paymentMethod: paymentMode,
       paymentDetails: paymentStatus,
-      payingAmount:
-        payingAmount !== undefined && payingAmount !== null
-          ? payingAmount
-          : grandTotal,
-      balanceAmount:
-        balanceAmount !== undefined && balanceAmount !== null
-          ? balanceAmount
-          : grandTotal - (payingAmount ?? 0),
+      payingAmount: resolvedPayingAmount,
+      balanceAmount: resolvedBalanceAmount,
       transactionId,
       onlinePaymentMethod,
       chequeNumber,
@@ -114,7 +201,48 @@ export const createSell = async (req, res) => {
     // ✅ Call transactional addSell (in sellService)
     const sell = await addSell(sellData, items);
 
+    await createLedgerEntry({
+      entryDate: sell.date,
+      entryType: "sell",
+      voucherNumber: sell.invoiceNumber,
+      sourceType: "sell",
+      sourceId: sell.id,
+      firmId: sell.firmId,
+      userId: sell.userId,
+      partyType: "customer",
+      partyId: sell.customerId,
+      amount: sell.finalAmount,
+      paymentMode: sell.paymentMethod,
+      paymentStatus: normalizePaymentStatus({
+        paymentStatus: sell.paymentDetails,
+        amount: sell.payingAmount,
+        balanceAmount: sell.balanceAmount,
+      }),
+      narration: `Sale created for invoice ${sell.invoiceNumber}`,
+      metadata: {
+        totalAmount: sell.totalAmount,
+        totalDiscount: sell.totalDiscount,
+        totalGST: sell.totalGST,
+        finalAmount: sell.finalAmount,
+        payingAmount: sell.payingAmount,
+        balanceAmount: sell.balanceAmount,
+      },
+    });
+
     res.status(201).json({ message: "Sell created successfully", sell });
+
+    await safeLogAudit({
+      module: "SALE",
+      entityId: sell.id,
+      action: "CREATE",
+      oldValue: null,
+      newValue: getSellAuditSnapshot(sell),
+      userId: sell.userId,
+      metadata: {
+        invoiceNumber: sell.invoiceNumber,
+        firmId: sell.firmId,
+      },
+    });
   } catch (error) {
     console.error("❌ Error creating sell:", error.message);
 
@@ -138,11 +266,15 @@ export const createSell = async (req, res) => {
 
 // Get all sells (by userId)
 export const getSells = async (req, res) => {
-  const { userId } = req.query;
+  const { userId, firmId, customerId, pendingOnly } = req.query;
   if (!userId) return res.status(400).json({ message: "userId is required." });
 
   try {
-    const sells = await getAllSells(userId);
+    const sells = await getAllSells(userId, {
+      firmId,
+      customerId,
+      pendingOnly: String(pendingOnly || "").toLowerCase() === "true",
+    });
     res.status(200).json(sells);
   } catch (error) {
     console.error("Error fetching sells:", error);
@@ -200,9 +332,30 @@ export const editSell = async (req, res) => {
   };
 
   try {
+    const previousSell = await getSellById(id);
+    if (!previousSell) return res.status(404).json({ message: "Sell not found." });
+
     const updated = await updateSell(id, sellData, items);
-    if (!updated) return res.status(404).json({ message: "Sell not found." });
+
+    await syncSellLedgerEntry(
+      updated,
+      `Sale updated for invoice ${updated.invoiceNumber}`,
+    );
+
     res.status(200).json({ message: "Sell updated.", sell: updated });
+
+    await safeLogAudit({
+      module: "SALE",
+      entityId: updated.id,
+      action: "UPDATE",
+      oldValue: getSellAuditSnapshot(previousSell),
+      newValue: getSellAuditSnapshot(updated),
+      userId: updated.userId,
+      metadata: {
+        invoiceNumber: updated.invoiceNumber,
+        firmId: updated.firmId,
+      },
+    });
   } catch (error) {
     console.error("Error updating sell:", error);
     res.status(500).json({ message: "Server error." });
@@ -214,9 +367,31 @@ export const removeSell = async (req, res) => {
   const { id } = req.params;
 
   try {
+    const existingSell = await getSellById(id);
+    if (!existingSell) return res.status(404).json({ message: "Sell not found." });
+
     const deleted = await deleteSell(id);
-    if (!deleted) return res.status(404).json({ message: "Sell not found." });
+
+    await markLedgerEntryDeletedBySource({
+      sourceType: "sell",
+      sourceId: deleted.id,
+      narration: `Sale deleted for invoice ${deleted.invoiceNumber}`,
+    });
+
     res.status(200).json({ message: "Sell deleted.", sell: deleted });
+
+    await safeLogAudit({
+      module: "SALE",
+      entityId: existingSell.id,
+      action: "DELETE",
+      oldValue: getSellAuditSnapshot(existingSell),
+      newValue: null,
+      userId: existingSell.userId,
+      metadata: {
+        invoiceNumber: existingSell.invoiceNumber,
+        firmId: existingSell.firmId,
+      },
+    });
   } catch (error) {
     console.error("Error deleting sell:", error);
     res.status(500).json({ message: "Server error." });
@@ -255,25 +430,3 @@ export const getSellController = async (req, res) => {
   }
 };
 
-// Approve Payment
-export const approvePayment = async (req, res) => {
-  const { id } = req.params;
-  const { paymentMethod, paymentDetails, payingAmount, balanceAmount } = req.body;
-
-  try {
-    const sell = await getSellById(id);
-    if (!sell) return res.status(404).json({ message: "Sell not found." });
-
-    const updated = await updateSell(id, {
-      paymentMethod,
-      paymentDetails,
-      payingAmount,
-      balanceAmount,
-    });
-
-    res.status(200).json({ message: "Payment approved.", sell: updated });
-  } catch (error) {
-    console.error("Error approving payment:", error);
-    res.status(500).json({ message: "Server error." });
-  }
-};

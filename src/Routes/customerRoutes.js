@@ -16,7 +16,7 @@ const customerUpload = uploadFor("customer");
 
 router.post('/add', customerUpload.array("customerImg", 5), createCustomer);
 router.get('/all', getCustomers);
-router.put('/edit/:id', editCustomer);
+router.put('/edit/:id', customerUpload.array("customerImg", 5), editCustomer);
 router.delete('/delete/:id', removeCustomer);
 
 export default router;

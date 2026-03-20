@@ -76,6 +76,7 @@ export const getProducts = async (req, res) => {
     }
 
     const products = await getProductsByUser(userId);
+    console.log('Fetched Products:', products); // Debug log
     res.status(200).json(products);
   } catch (error) {
     console.error('Error fetching products:', error);

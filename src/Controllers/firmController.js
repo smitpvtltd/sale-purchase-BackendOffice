@@ -10,6 +10,8 @@ import User from "../Models/userModel.js"; // Import User model
 import { createUser, findUserByUsername } from "../Services/userService.js";
 import Firm from "../Models/firmModel.js";
 
+const getFirmLogoPath = (file) => (file ? `uploads/firm/${file.filename}` : undefined);
+
 // controllers/firmController.js
 export const addFirm = async (req, res) => {
   try {
@@ -74,7 +76,7 @@ export const addFirm = async (req, res) => {
 
     // 🖼️ Handle firm logo
     if (req.file) {
-      firmData.firmLogo = req.file.filename;
+      firmData.firmLogo = getFirmLogoPath(req.file);
     }
 
     // Assign userId to firm
@@ -163,7 +165,7 @@ export const editFirm = async (req, res) => {
     const updatedData = { ...req.body };
 
     if (req.file) {
-      updatedData.firmLogo = req.file.filename;
+      updatedData.firmLogo = getFirmLogoPath(req.file);
     }
 
     const firm = await updateFirm(id, updatedData);

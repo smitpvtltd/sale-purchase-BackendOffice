@@ -8,9 +8,15 @@ export const createExpense = async (expenseData) => {
 };
 
 // Get all expenses for a specific user
-export const getExpensesByUser = async (userId) => {
+export const getExpensesByUser = async (userId, firmId) => {
+  const where = { userId };
+
+  if (firmId) {
+    where.firmId = firmId;
+  }
+
   return await Expense.findAll({
-    where: { userId },
+    where,
     order: [["date", "DESC"]],
   });
 };

@@ -24,6 +24,8 @@ import expenseRoutes from './Routes/expenseRoutes.js';
 import returnRoutes from "./Routes/returnRoutes.js";
 import exchangeRoutes from "./Routes/exchangeRoutes.js";
 import reasonRoutes from "./Routes/reasonRoutes.js";
+import ledgerRoutes from "./Routes/ledgerRoutes.js";
+import auditLogRoutes from "./Routes/auditLogRoutes.js";
 
 
 
@@ -72,6 +74,8 @@ app.use('/api/expenses', expenseRoutes); // for eexpense management
 app.use("/api/return", returnRoutes); // for return
 app.use("/api/exchange", exchangeRoutes); // for return
 app.use("/api/reasons", reasonRoutes);
+app.use("/api/ledger", ledgerRoutes);
+app.use("/api/audit-logs", auditLogRoutes);
 
 
 

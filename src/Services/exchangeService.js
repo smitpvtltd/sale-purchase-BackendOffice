@@ -1,5 +1,6 @@
 import Product from "../Models/productModel.js";
 import { Exchange, ExchangeReturnItem, ExchangeGivenItem } from "../Models/exchangeModel.js";
+import Ledger from "../Models/ledgerModel.js";
 import { increaseStock, decreaseStock } from "../Middleware/stockService.js";
 
 
@@ -95,14 +96,63 @@ export const findExchangeByInvoice = async (invoiceNumber, userId) => {
 
 // 🗑️ Delete Exchange
 export const deleteExchange = async (id) => {
-  const record = await Exchange.findByPk(id);
-  if (!record) return null;
+  const transaction = await Exchange.sequelize.transaction();
 
-  await ExchangeReturnItem.destroy({ where: { exchangeId: id } });
-  await ExchangeGivenItem.destroy({ where: { exchangeId: id } });
-  await record.destroy();
+  try {
+    // Load the full exchange with both item collections so we can reverse
+    // stock and ledger side effects in one atomic transaction.
+    const record = await Exchange.findByPk(id, {
+      include: [
+        { model: ExchangeReturnItem, as: "returnedItems" },
+        { model: ExchangeGivenItem, as: "givenItems" },
+      ],
+      transaction,
+      lock: transaction.LOCK.UPDATE,
+    });
 
-  return record;
+    if (!record) {
+      await transaction.rollback();
+      return null;
+    }
+
+    // Reverse stock for returned items that were previously added.
+    for (const item of record.returnedItems || []) {
+      await decreaseStock(item.productId, item.quantity, transaction);
+    }
+
+    // Reverse stock for given items that were previously deducted.
+    for (const item of record.givenItems || []) {
+      await increaseStock(item.productId, item.quantity, transaction);
+    }
+
+    // Delete ledger rows tied to this exchange before removing the source record.
+    await Ledger.destroy({
+      where: {
+        sourceType: "exchange",
+        sourceId: id,
+      },
+      transaction,
+    });
+
+    await ExchangeReturnItem.destroy({
+      where: { exchangeId: id },
+      transaction,
+    });
+
+    await ExchangeGivenItem.destroy({
+      where: { exchangeId: id },
+      transaction,
+    });
+
+    await record.destroy({ transaction });
+
+    await transaction.commit();
+    return record;
+  } catch (err) {
+    await transaction.rollback();
+    console.error("Error deleting exchange with full reversal:", err);
+    throw err;
+  }
 };
 
 // 🗑️ Delete Exchange with stock adjustments

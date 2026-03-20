@@ -5,6 +5,31 @@ import {
   deleteExchange,
 } from "../Services/exchangeService.js";
 import { Exchange, ExchangeReturnItem, ExchangeGivenItem } from "../Models/exchangeModel.js";
+import { safeLogAudit } from "../Services/auditLogService.js";
+
+const getExchangeAuditSnapshot = (exchange, returnedItems = [], givenItems = []) => ({
+  id: exchange.id,
+  invoiceNumber: exchange.invoiceNumber,
+  exchangeBillNo: exchange.exchangeBillNo,
+  date: exchange.date,
+  firmId: exchange.firmId,
+  customerId: exchange.customerId,
+  userId: exchange.userId,
+  employeeName: exchange.employeeName,
+  difference: exchange.difference,
+  differenceType: exchange.differenceType,
+  subtotal: exchange.subtotal,
+  billDiscount: exchange.billDiscount,
+  billDiscountType: exchange.billDiscountType,
+  returnTotal: exchange.returnTotal,
+  gst: exchange.gst,
+  grandTotal: exchange.grandTotal,
+  payingAmount: exchange.payingAmount,
+  paymentMethod: exchange.paymentMethod,
+  paymentStatus: exchange.paymentStatus,
+  returnedItems,
+  givenItems,
+});
 
 
 
@@ -87,9 +112,20 @@ export const createExchange = async (req, res) => {
     };
 
     const result = await addExchange(exchangeData, returnedItems, givenItems);
+
     res
       .status(201)
       .json({ message: "Exchange recorded successfully.", result });
+
+    await safeLogAudit({
+      module: "EXCHANGE",
+      entityId: result.id,
+      action: "CREATE",
+      oldValue: null,
+      newValue: getExchangeAuditSnapshot(result, returnedItems, givenItems),
+      userId: result.userId,
+      metadata: { firmId: result.firmId, invoiceNumber: result.invoiceNumber },
+    });
   } catch (err) {
     console.error("Error creating exchange:", err);
     res.status(500).json({ message: err.message || "Server error." });
@@ -117,7 +153,22 @@ export const removeExchange = async (req, res) => {
     const { id } = req.params;
     const deleted = await deleteExchange(id);
     if (!deleted) return res.status(404).json({ message: "Record not found." });
+
     res.status(200).json({ message: "Deleted successfully.", deleted });
+
+    await safeLogAudit({
+      module: "EXCHANGE",
+      entityId: deleted.id,
+      action: "DELETE",
+      oldValue: getExchangeAuditSnapshot(
+        deleted,
+        deleted.returnedItems || [],
+        deleted.givenItems || [],
+      ),
+      newValue: null,
+      userId: deleted.userId,
+      metadata: { firmId: deleted.firmId, invoiceNumber: deleted.invoiceNumber },
+    });
   } catch (err) {
     console.error("Error deleting exchange:", err);
     res.status(500).json({ message: "Server error." });
@@ -138,6 +189,8 @@ export const updateExchangePayment = async (req, res) => {
     });
 
     if (!exchange) return res.status(404).json({ message: "Exchange not found" });
+
+    const previousExchange = exchange.toJSON();
 
     // Calculate difference
     const totalReturned = exchange.returnedItems.reduce((sum, item) => sum + item.total, 0);
@@ -166,6 +219,28 @@ export const updateExchangePayment = async (req, res) => {
       message: "Payment updated successfully",
       exchange: updatedExchange,
       remainingAmount: difference - totalPaid,
+    });
+
+    await safeLogAudit({
+      module: "EXCHANGE",
+      entityId: updatedExchange.id,
+      action: "UPDATE",
+      oldValue: getExchangeAuditSnapshot(
+        previousExchange,
+        previousExchange.returnedItems || [],
+        previousExchange.givenItems || [],
+      ),
+      newValue: getExchangeAuditSnapshot(
+        updatedExchange,
+        updatedExchange.returnedItems || [],
+        updatedExchange.givenItems || [],
+      ),
+      userId: updatedExchange.userId,
+      metadata: {
+        firmId: updatedExchange.firmId,
+        invoiceNumber: updatedExchange.invoiceNumber,
+        changeType: "payment_update",
+      },
     });
   } catch (err) {
     console.error("Error updating payment:", err);

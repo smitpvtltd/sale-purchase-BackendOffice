@@ -4,6 +4,22 @@ import {
   updatePurchasePartyService,
   deletePurchasePartyService,
 } from "../Services/purchasePartyService.js";
+import { safeLogAudit } from "../Services/auditLogService.js";
+import PurchaseParty from "../Models/purchasePartyModel.js";
+
+const getPurchasePartyAuditSnapshot = (party) => ({
+  id: party.id,
+  name: party.name,
+  email: party.email,
+  mobile: party.mobile,
+  address: party.address,
+  state: party.state,
+  city: party.city,
+  gstNumber: party.gstNumber,
+  companyName: party.companyName,
+  stateType: party.stateType,
+  userId: party.userId,
+});
 
 export const createPurchaseParty = async (req, res) => {
   const {
@@ -38,6 +54,15 @@ export const createPurchaseParty = async (req, res) => {
     });
 
     res.status(201).json({ message: "Purchase party added.", party });
+
+    await safeLogAudit({
+      module: "PURCHASE_PARTY",
+      entityId: party.id,
+      action: "CREATE",
+      oldValue: null,
+      newValue: getPurchasePartyAuditSnapshot(party),
+      userId: party.userId,
+    });
   } catch (error) {
     console.error("Create Error:", error);
     res.status(500).json({ message: "Server error." });
@@ -79,6 +104,7 @@ export const editPurchaseParty = async (req, res) => {
   }
 
   try {
+    const previousParty = await PurchaseParty.findByPk(id);
     const updatedParty = await updatePurchasePartyService(id, {
       name,
       email,
@@ -97,6 +123,15 @@ export const editPurchaseParty = async (req, res) => {
     res
       .status(200)
       .json({ message: "Purchase party updated.", party: updatedParty });
+
+    await safeLogAudit({
+      module: "PURCHASE_PARTY",
+      entityId: updatedParty.id,
+      action: "UPDATE",
+      oldValue: previousParty ? getPurchasePartyAuditSnapshot(previousParty) : null,
+      newValue: getPurchasePartyAuditSnapshot(updatedParty),
+      userId: updatedParty.userId,
+    });
   } catch (error) {
     console.error("Update Error:", error);
     res.status(500).json({ message: "Server error." });
@@ -114,6 +149,15 @@ export const removePurchaseParty = async (req, res) => {
     res
       .status(200)
       .json({ message: "Purchase party deleted.", party: deletedParty });
+
+    await safeLogAudit({
+      module: "PURCHASE_PARTY",
+      entityId: deletedParty.id,
+      action: "DELETE",
+      oldValue: getPurchasePartyAuditSnapshot(deletedParty),
+      newValue: null,
+      userId: deletedParty.userId,
+    });
   } catch (error) {
     console.error("Delete Error:", error);
     res.status(500).json({ message: "Server error." });

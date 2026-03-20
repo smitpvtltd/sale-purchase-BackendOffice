@@ -6,9 +6,15 @@ export const createCustomerService = async (data) => {
   return await Customer.create(data);
 };
 
-export const getAllCustomersService = async (userId) => {
+export const getAllCustomersService = async (userId, firmId) => {
+  const where = { userId };
+
+  if (firmId) {
+    where.firmId = firmId;
+  }
+
   return await Customer.findAll({
-    where: { userId },
+    where,
     order: [['id', 'DESC']],
     include: [
       {
@@ -23,11 +29,19 @@ export const getAllCustomersService = async (userId) => {
     attributes: [
       'id',
       'name',
+      'firmId',
       'email',
       'mobile',
       'address',
-      'aadharNumber',
+      'state',
+      'city',
+      'gstNumber',
+      'accountName',
+      'bankName',
+      'accountNumber',
+      'ifscCode',
       'customerImg',
+      'userId',
     ],
   });
 };

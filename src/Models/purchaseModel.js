@@ -14,6 +14,10 @@ const Purchase = sequelize.define("Purchase", {
   totalAmount: { type: DataTypes.FLOAT, allowNull: false },
   totalDiscount: { type: DataTypes.FLOAT, allowNull: false },
   totalGST: { type: DataTypes.FLOAT, allowNull: false, defaultValue: 0 },
+  payingAmount: { type: DataTypes.FLOAT, allowNull: false, defaultValue: 0 },
+  balanceAmount: { type: DataTypes.FLOAT, allowNull: false, defaultValue: 0 },
+  paymentStatus: { type: DataTypes.STRING, allowNull: true },
+  paymentMethod: { type: DataTypes.STRING, allowNull: true },
 }, {
   tableName: "purchases",
   timestamps: true,

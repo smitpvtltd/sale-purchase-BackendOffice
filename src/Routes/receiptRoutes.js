@@ -19,13 +19,13 @@ router.put("/edit/:id", editReceipt);
 // Get all receipts for a user
 router.get('/all', getAllReceipts);
 
+// Get latest receipt number for a specific firm
+router.get('/latest-receipt-number', getLatestReceiptNumberForFirm);
+
 // Get receipt by ID
 router.get('/:id', getReceiptById);
 
 // Delete receipt
 router.delete("/delete/:id", deleteReceipt);
-
-// Get latest receipt number for a specific firm
-router.get('/latest-receipt-number', getLatestReceiptNumberForFirm);
 
 export default router;

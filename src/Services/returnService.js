@@ -1,6 +1,7 @@
 import Product from "../Models/productModel.js";
 import { Return, ReturnItem } from "../Models/returnModel.js";
-import { increaseStock } from "../Middleware/stockService.js";
+import Ledger from "../Models/ledgerModel.js";
+import { decreaseStock, increaseStock } from "../Middleware/stockService.js";
 
 // ➕ Add Return
 export const addReturn = async (returnData, items) => {
@@ -51,11 +52,47 @@ export const findReturnByInvoice = async (invoiceNumber, userId) => {
 
 // 🗑️ Delete Return
 export const deleteReturn = async (id) => {
-  const record = await Return.findByPk(id);
-  if (!record) return null;
+  const transaction = await Return.sequelize.transaction();
 
-  await ReturnItem.destroy({ where: { returnId: id } });
-  await record.destroy();
+  try {
+    // Load the parent row with items so stock and ledger can be reversed atomically.
+    const record = await Return.findByPk(id, {
+      include: [{ model: ReturnItem, as: "items" }],
+      transaction,
+      lock: transaction.LOCK.UPDATE,
+    });
 
-  return record;
+    if (!record) {
+      await transaction.rollback();
+      return null;
+    }
+
+    // Reverse the stock increase that happened when the return was created.
+    for (const item of record.items || []) {
+      await decreaseStock(item.productId, item.quantity, transaction);
+    }
+
+    // Remove ledger rows linked to this return before deleting the source record.
+    await Ledger.destroy({
+      where: {
+        sourceType: "return",
+        sourceId: id,
+      },
+      transaction,
+    });
+
+    await ReturnItem.destroy({
+      where: { returnId: id },
+      transaction,
+    });
+
+    await record.destroy({ transaction });
+
+    await transaction.commit();
+    return record;
+  } catch (err) {
+    await transaction.rollback();
+    console.error("Error deleting return with full reversal:", err);
+    throw err;
+  }
 };
