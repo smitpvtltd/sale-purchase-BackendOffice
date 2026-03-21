@@ -128,16 +128,29 @@ export const createAdvanceSettlement = async (req, res) => {
   }
 
   try {
+    let resolvedSettlementNumber = settlementNumber;
     const existing = await findSettlementByNumber(settlementNumber);
     if (existing) {
-      return res.status(409).json({ message: 'Settlement number already exists.' });
+      resolvedSettlementNumber = await generateNextReceiptNumber();
     }
 
     const settlement = await addAdvanceSettlement({
-      date, settlementNumber, firmId, partyType, partyId, advanceAmount, userId,
+      date,
+      settlementNumber: resolvedSettlementNumber,
+      firmId,
+      partyType,
+      partyId,
+      advanceAmount,
+      userId,
     });
 
-    res.status(201).json({ message: 'Settlement created.', settlement });
+    res.status(201).json({
+      message:
+        resolvedSettlementNumber === settlementNumber
+          ? 'Settlement created.'
+          : `Settlement created. Number updated to ${resolvedSettlementNumber} because ${settlementNumber} already existed.`,
+      settlement,
+    });
 
     await safeLogAudit({
       module: "ADVANCE_SETTLEMENT",

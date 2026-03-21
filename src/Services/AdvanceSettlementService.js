@@ -4,6 +4,21 @@ import { Sell } from "../Models/sellModel.js";
 import { Purchase } from "../Models/purchaseModel.js";
 import sequelize from "../Config/db.js";
 
+const resolveSalePaymentStatus = (paidAmount, balanceAmount, currentStatus) => {
+  const normalizedPaidAmount = Number(paidAmount || 0);
+  const normalizedBalanceAmount = Number(balanceAmount || 0);
+
+  if (normalizedBalanceAmount === 0 && normalizedPaidAmount > 0) {
+    return "Paid";
+  }
+
+  if (normalizedPaidAmount > 0) {
+    return "Advance";
+  }
+
+  return currentStatus || "Not Paid";
+};
+
 const getDerivedSettlementState = (settlement) => {
   const advanceAmount = Number(settlement.advanceAmount || 0);
   const allocations = Array.isArray(settlement.allocations) ? settlement.allocations : [];
@@ -284,11 +299,17 @@ export const allocateAdvanceSettlementById = async ({
       const updatedPaidAmount = currentPaidAmount + amount;
       const updatedBalanceAmount = Math.max(0, billTotalAmount - updatedPaidAmount);
       const updatedPaymentStatus =
-        updatedBalanceAmount === 0
-          ? "Paid"
-          : billType === "sale"
-            ? bill.paymentDetails || "Advance"
-            : bill.paymentStatus || "Advance";
+        billType === "sale"
+          ? resolveSalePaymentStatus(
+              updatedPaidAmount,
+              updatedBalanceAmount,
+              bill.paymentDetails,
+            )
+          : updatedBalanceAmount === 0
+            ? "Paid"
+            : updatedPaidAmount > 0
+              ? "Advance"
+              : bill.paymentStatus || "Not Paid";
 
       await bill.update(
         billType === "sale"

@@ -8,8 +8,24 @@ import {
   createLedgerEntry,
   markLedgerEntryDeletedBySource,
   updateLedgerEntryBySource,
+  upsertLedgerEntryBySource,
 } from './ledgerService.js';
 import { safeLogAudit } from "./auditLogService.js";
+
+const resolveSellPaymentStatus = (paidAmount, balanceAmount, currentStatus, fallbackStatus) => {
+  const normalizedPaidAmount = Number(paidAmount || 0);
+  const normalizedBalanceAmount = Number(balanceAmount || 0);
+
+  if (normalizedBalanceAmount === 0 && normalizedPaidAmount > 0) {
+    return "Paid";
+  }
+
+  if (normalizedPaidAmount > 0) {
+    return "Advance";
+  }
+
+  return currentStatus || fallbackStatus || "Not Paid";
+};
 
 const getReceiptAuditSnapshot = (receipt) => ({
   id: receipt.id,
@@ -121,10 +137,12 @@ export const addReceipt = async (data) => {
       0,
       Number(bill.finalAmount || 0) - updatedPaidAmount,
     );
-    const updatedPaymentStatus =
-      updatedBalanceAmount === 0
-        ? "Paid"
-        : bill.paymentDetails || data.paymentStatus || "Advance";
+    const updatedPaymentStatus = resolveSellPaymentStatus(
+      updatedPaidAmount,
+      updatedBalanceAmount,
+      bill.paymentDetails,
+      data.paymentStatus,
+    );
 
     data.receiptNumber = receiptNumber;
     const receipt = await Receipt.create(
@@ -185,6 +203,32 @@ export const addReceipt = async (data) => {
       },
       { transaction },
     );
+
+    await upsertLedgerEntryBySource({
+      sourceType: "sell",
+      sourceId: bill.id,
+      entryDate: bill.date,
+      entryType: "sell",
+      voucherNumber: bill.invoiceNumber,
+      firmId: bill.firmId,
+      userId: bill.userId,
+      partyType: "customer",
+      partyId: bill.customerId,
+      amount: bill.finalAmount,
+      paymentMode: data.paymentMode || bill.paymentMethod,
+      paymentStatus: updatedPaymentStatus,
+      narration: `Sale payment updated for invoice ${bill.invoiceNumber}`,
+      metadata: {
+        totalAmount: bill.totalAmount,
+        totalDiscount: bill.totalDiscount,
+        totalGST: bill.totalGST,
+        finalAmount: bill.finalAmount,
+        payingAmount: updatedPaidAmount,
+        balanceAmount: updatedBalanceAmount,
+        receiptNumber,
+        lastReceiptAmount: paymentAmount,
+      },
+    });
 
     await createLedgerEntry({
       entryDate: receipt.date,
