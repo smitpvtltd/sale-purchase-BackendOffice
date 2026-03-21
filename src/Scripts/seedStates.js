@@ -5,7 +5,7 @@ const seedStates = async () => {
   try {
     await sequelize.sync({ force: false });
 
-    await State.bulkCreate([
+    const states = [
       { id: 1, statename: "Andaman and Nicobar Islands", codes: "35" },
       { id: 2, statename: "Andhra Pradesh", codes: "28" },
       { id: 3, statename: "Andhra Pradesh (New)", codes: "37" },
@@ -42,7 +42,11 @@ const seedStates = async () => {
       { id: 34, statename: "Uttar Pradesh", codes: "9" },
       { id: 35, statename: "Uttaranchal", codes: "5" },
       { id: 36, statename: "West Bengal", codes: "19" }
-    ]);
+    ];
+
+    await State.bulkCreate(states, {
+      updateOnDuplicate: ["statename", "codes"],
+    });
 
     console.log("States seeded successfully!");
     process.exit(0);
