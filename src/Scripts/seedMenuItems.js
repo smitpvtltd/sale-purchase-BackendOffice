@@ -110,6 +110,12 @@ const menuItems = [
     path: "/payments",
     roles: "",
   },
+  {
+    label: "Client Management",
+    icon: "Users",
+    path: "/clients",
+    roles: "superadmin",
+  },
 ];
 
 const seedMenuItems = async () => {
