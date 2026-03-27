@@ -6,10 +6,22 @@ import {
   getAllStocksService,
   getStockByIdService
 } from "../Services/stockService.js";
+import {
+  createTenantStock,
+  deleteTenantStockById,
+  getNextTenantStockRef,
+  getTenantStockById,
+  getTenantStocks,
+  isClientWorkspaceUser,
+  updateTenantStockById,
+} from "../Services/tenantDbService.js";
 
 
 // Helper (reuse same logic as service)
-const generateNextRefNumber = async () => {
+const generateNextRefNumber = async (userId) => {
+  if (userId && await isClientWorkspaceUser(userId)) {
+    return await getNextTenantStockRef(userId);
+  }
   const lastStock = await Stock.findOne({ order: [['id', 'DESC']] });
   let nextNumber = 1;
   if (lastStock && lastStock.refNumber) {
@@ -22,7 +34,8 @@ const generateNextRefNumber = async () => {
 // Controller to get next refNumber (optional)
 export const getNextRefNumber = async (req, res) => {
   try {
-    const nextRef = await generateNextRefNumber();
+    const userId = req.user?.id || req.query.userId;
+    const nextRef = await generateNextRefNumber(userId);
     res.status(200).json({ nextRef });
   } catch (error) {
     console.error("Get Next Ref Error:", error);
@@ -32,8 +45,13 @@ export const getNextRefNumber = async (req, res) => {
 
 export const createStock = async (req, res) => {
   try {
-    const userId = req.body.userId || req.headers["x-user-id"];
+    const userId = req.user?.id || req.body.userId || req.headers["x-user-id"];
     if (!userId) return res.status(400).json({ message: "Missing userId" });
+
+    if (await isClientWorkspaceUser(userId)) {
+      const newStock = await createTenantStock(userId, { ...req.body, userId });
+      return res.status(201).json(newStock);
+    }
 
     const newStock = await createStockService({ ...req.body, userId });
     res.status(201).json(newStock);
@@ -45,7 +63,11 @@ export const createStock = async (req, res) => {
 
 export const updateStock = async (req, res) => {
   try {
-    const stock = await updateStockService(req.params.id, req.body);
+    const userId = req.user?.id || req.body.userId;
+    const stock =
+      userId && await isClientWorkspaceUser(userId)
+        ? await updateTenantStockById(userId, req.params.id, req.body)
+        : await updateStockService(req.params.id, req.body);
     res.status(200).json(stock);
   } catch (error) {
     console.error("Update Stock Error:", error);
@@ -55,7 +77,11 @@ export const updateStock = async (req, res) => {
 
 export const deleteStock = async (req, res) => {
   try {
-    const result = await deleteStockService(req.params.id);
+    const userId = req.user?.id || req.query.userId;
+    const result =
+      userId && await isClientWorkspaceUser(userId)
+        ? await deleteTenantStockById(userId, req.params.id)
+        : await deleteStockService(req.params.id);
     res.status(200).json(result);
   } catch (error) {
     console.error("Delete Stock Error:", error);
@@ -65,9 +91,12 @@ export const deleteStock = async (req, res) => {
 
 export const getAllStocks = async (req, res) => {
   try {
-    const userId = req.query.userId;
+    const userId = req.user?.id || req.query.userId;
     if (!userId) return res.status(400).json({ message: "Missing userId" });
-    const stocks = await getAllStocksService(userId);
+    const isClientUser = await isClientWorkspaceUser(userId);
+    const stocks = isClientUser
+      ? await getTenantStocks(userId)
+      : await getAllStocksService(userId);
     res.status(200).json(stocks);
   } catch (error) {
     console.error("Get Stocks Error:", error);
@@ -77,7 +106,11 @@ export const getAllStocks = async (req, res) => {
 
 export const getStockById = async (req, res) => {
   try {
-    const stock = await getStockByIdService(req.params.id);
+    const userId = req.user?.id || req.query.userId;
+    const stock =
+      userId && await isClientWorkspaceUser(userId)
+        ? await getTenantStockById(userId, req.params.id)
+        : await getStockByIdService(req.params.id);
     if (!stock) return res.status(404).json({ message: "Stock not found" });
     res.status(200).json(stock);
   } catch (error) {

@@ -1,6 +1,20 @@
 import dotenv from 'dotenv';
 import app from './app.js';
 import sequelize from './Config/db.js';
+import './Models/userModel.js';
+import './Models/firmModel.js';
+import './Models/customerModel.js';
+import './Models/productModel.js';
+import './Models/stockModel.js';
+import './Models/sellModel.js';
+import './Models/purchasePartyModel.js';
+import './Models/purchaseModel.js';
+import './Models/receiptModel.js';
+import './Models/purchaseReceiptModel.js';
+import './Models/AdvanceSettlementModel.js';
+import './Models/advanceSettlementAllocationModel.js';
+import './Models/ledgerModel.js';
+import './Models/menuItemModel.js';
 
 
 

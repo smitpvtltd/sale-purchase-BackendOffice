@@ -6,6 +6,14 @@ import {
 } from "../Services/customerService.js";
 import Customer from "../Models/customerModel.js";
 import { safeLogAudit } from "../Services/auditLogService.js";
+import {
+  createTenantCustomer,
+  deleteTenantCustomer,
+  getTenantCustomers,
+  isClientWorkspaceUser,
+  resolveTenantRequestContext,
+  updateTenantCustomer,
+} from "../Services/tenantDbService.js";
 
 const getCustomerAuditSnapshot = (customer) => ({
   id: customer.id,
@@ -25,6 +33,20 @@ const getCustomerAuditSnapshot = (customer) => ({
   userId: customer.userId,
 });
 
+const normalizeOptionalCustomerFields = (data) => ({
+  ...data,
+  firmId: data.firmId === "" ? null : data.firmId,
+  email: data.email === "" ? null : data.email,
+  address: data.address === "" ? null : data.address,
+  state: data.state === "" ? null : data.state,
+  city: data.city === "" ? null : data.city,
+  gstNumber: data.gstNumber === "" ? null : data.gstNumber,
+  accountName: data.accountName === "" ? null : data.accountName,
+  bankName: data.bankName === "" ? null : data.bankName,
+  accountNumber: data.accountNumber === "" ? null : data.accountNumber,
+  ifscCode: data.ifscCode === "" ? null : data.ifscCode,
+});
+
 // add customer
 export const createCustomer = async (req, res) => {
   try {
@@ -41,36 +63,44 @@ export const createCustomer = async (req, res) => {
       bankName,
       accountNumber,
       ifscCode,
-      userId,
     } = req.body;
+    const { tenantOwnerId } = resolveTenantRequestContext(req);
 
-    if (!name || !mobile || !userId) {
+    if (!name || !mobile || !tenantOwnerId || !firmId) {
       return res.status(400).json({ message: "Required fields are missing." });
     }
 
     const customerImg =
       req.files?.map((file) => `uploads/customer/${file.filename}`) || [];
 
-    const customer = await createCustomerService({
-      name,
-      firmId,
-      email,
-      mobile,
-      address,
-      state,
-      city,
-      gstNumber,
-      accountName,
-      bankName,
-      accountNumber,
-      ifscCode,
-      customerImg,
-      userId,
-    });
+    const customerPayload = normalizeOptionalCustomerFields({
+        name,
+        firmId,
+        email,
+        mobile,
+        address,
+        state,
+        city,
+        gstNumber,
+        accountName,
+        bankName,
+        accountNumber,
+        ifscCode,
+        customerImg,
+        userId: tenantOwnerId,
+      });
 
-    res
-      .status(201)
-      .json({ message: "Customer created successfully", customer });
+    if (await isClientWorkspaceUser(tenantOwnerId)) {
+      const tenantCustomer = await createTenantCustomer(tenantOwnerId, customerPayload);
+
+      return res
+        .status(201)
+        .json({ message: "Customer created successfully", customer: tenantCustomer });
+    }
+
+    const customer = await createCustomerService(customerPayload);
+    
+    res.status(201).json({ message: "Customer created successfully", customer });
 
     await safeLogAudit({
       module: "CUSTOMER",
@@ -89,16 +119,26 @@ export const createCustomer = async (req, res) => {
 
 // get all customers
 export const getCustomers = async (req, res) => {
-  const { userId, firmId } = req.query;
+  const { tenantOwnerId } = resolveTenantRequestContext(req);
+  const { firmId } = req.query;
 
-  if (!userId || !firmId) {
+  if (!firmId) {
     return res
       .status(400)
-      .json({ message: "userId and firmId are required." });
+      .json({ message: "firmId is required." });
   }
 
   try {
-    const customers = await getAllCustomersService(userId, firmId);
+    if (!tenantOwnerId) {
+      return res.status(401).json({ message: "Authenticated user not found." });
+    }
+
+    if (await isClientWorkspaceUser(tenantOwnerId)) {
+      const customers = await getTenantCustomers(tenantOwnerId, firmId);
+      return res.status(200).json(customers);
+    }
+
+    const customers = await getAllCustomersService(tenantOwnerId, firmId);
     res.status(200).json(customers);
   } catch (error) {
     console.error("Fetch Error:", error);
@@ -109,7 +149,7 @@ export const getCustomers = async (req, res) => {
 // edit customer
 export const editCustomer = async (req, res) => {
   const { id } = req.params;
-  const updatedData = req.body;
+  const updatedData = normalizeOptionalCustomerFields(req.body);
 
   try {
     if (
@@ -119,13 +159,25 @@ export const editCustomer = async (req, res) => {
       delete updatedData.aadharNumber;
     }
 
-    const previousCustomer = await Customer.findByPk(id);
+    const { tenantOwnerId } = resolveTenantRequestContext(req);
 
     if (req.files?.length > 0) {
       updatedData.customerImg = req.files.map(
         (file) => `uploads/customer/${file.filename}`,
       );
     }
+
+    if (tenantOwnerId && (await isClientWorkspaceUser(tenantOwnerId))) {
+      const updatedCustomer = await updateTenantCustomer(tenantOwnerId, id, updatedData);
+      if (!updatedCustomer) {
+        return res.status(404).json({ message: "Customer not found." });
+      }
+      return res
+        .status(200)
+        .json({ message: "Customer updated.", customer: updatedCustomer });
+    }
+
+    const previousCustomer = await Customer.findByPk(id);
 
     const updatedCustomer = await updateCustomerService(id, updatedData);
 
@@ -155,8 +207,19 @@ export const editCustomer = async (req, res) => {
 // delete customer
 export const removeCustomer = async (req, res) => {
   const { id } = req.params;
+  const { tenantOwnerId } = resolveTenantRequestContext(req);
 
   try {
+    if (tenantOwnerId && (await isClientWorkspaceUser(tenantOwnerId))) {
+      const deletedCustomer = await deleteTenantCustomer(tenantOwnerId, id);
+      if (!deletedCustomer) {
+        return res.status(404).json({ message: "Customer not found." });
+      }
+      return res
+        .status(200)
+        .json({ message: "Customer deleted.", customer: deletedCustomer });
+    }
+
     const deletedCustomer = await deleteCustomerService(id);
     if (!deletedCustomer) {
       return res.status(404).json({ message: "Customer not found." });

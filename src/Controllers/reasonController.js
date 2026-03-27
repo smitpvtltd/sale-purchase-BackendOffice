@@ -1,5 +1,6 @@
 import Reason from "../Models/reasonModel.js";
 import { createReason, getAllReasons } from "../Services/reasonService.js";
+import { createTenantReason, getTenantReasons, isClientWorkspaceUser } from "../Services/tenantDbService.js";
 
 //add reasons
 export const addReason = async (req, res) => {
@@ -10,7 +11,11 @@ export const addReason = async (req, res) => {
     if (!reason) return res.status(400).json({ message: "Reason is required" });
     if (!userId) return res.status(400).json({ message: "userId is required" });
 
-    const saved = await createReason(reason, userId);
+    const saved = await (
+      await isClientWorkspaceUser(userId)
+        ? createTenantReason(userId, reason)
+        : createReason(reason, userId)
+    );
     res.status(201).json({ message: "Reason added", saved });
 
   } catch (err) {
@@ -28,10 +33,14 @@ export const fetchReasons = async (req, res) => {
   try {
     const userId = req.user.id;
 
-    const reasons = await Reason.findAll({
-      where: { userId },
-      order: [["reason", "ASC"]],
-    });
+    const reasons = await (
+      await isClientWorkspaceUser(userId)
+        ? getTenantReasons(userId)
+        : Reason.findAll({
+            where: { userId },
+            order: [["reason", "ASC"]],
+          })
+    );
 
     res.status(200).json(reasons);
   } catch (err) {

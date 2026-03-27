@@ -14,6 +14,17 @@ import {
   upsertLedgerEntryBySource,
 } from "../Services/ledgerService.js";
 import { safeLogAudit } from "../Services/auditLogService.js";
+import {
+  createTenantSell,
+  deleteTenantSellById,
+  findTenantSellByInvoice,
+  getNextTenantInvoiceNumber,
+  getTenantSellById,
+  getTenantSells,
+  isClientWorkspaceUser,
+  resolveTenantRequestContext,
+  updateTenantSellById,
+} from "../Services/tenantDbService.js";
 
 const getSellLedgerMetadata = (sell) => ({
   totalAmount: sell.totalAmount,
@@ -136,6 +147,71 @@ export const createSell = async (req, res) => {
   }
 
   try {
+    if (await isClientWorkspaceUser(userId)) {
+      const existing = await findTenantSellByInvoice(userId, invoiceNumber);
+      if (existing) {
+        return res
+          .status(409)
+          .json({ message: "Invoice already exists for this user." });
+      }
+
+      const productGSTTotal = items.reduce(
+        (sum, item) => sum + (Number(item.gstAmount) || 0),
+        0,
+      );
+      const billGSTTotal =
+        productGSTTotal > 0
+          ? 0
+          : Number(igst || 0) + Number(cgst || 0) + Number(sgst || 0);
+      const totalGST = productGSTTotal + billGSTTotal;
+      const resolvedPayingAmount =
+        payingAmount !== undefined && payingAmount !== null
+          ? Number(payingAmount)
+          : String(paymentStatus || "").trim().toLowerCase() === "paid"
+            ? Number(grandTotal)
+            : 0;
+      const resolvedBalanceAmount =
+        balanceAmount !== undefined && balanceAmount !== null
+          ? Number(balanceAmount)
+          : Number(grandTotal) - resolvedPayingAmount;
+      const sell = await createTenantSell(
+        userId,
+        {
+          invoiceNumber,
+          date,
+          customerId,
+          firmId,
+          userId,
+          gstApplicable,
+          totalAmount: subtotal,
+          totalDiscount: overallDiscount,
+          billDiscountType,
+          cgst: productGSTTotal > 0 ? 0 : cgst,
+          sgst: productGSTTotal > 0 ? 0 : sgst,
+          igst: productGSTTotal > 0 ? 0 : igst,
+          totalGST,
+          finalAmount: grandTotal,
+          paymentMethod: paymentMode,
+          paymentDetails: paymentStatus,
+          payingAmount: resolvedPayingAmount,
+          balanceAmount: resolvedBalanceAmount,
+          transactionId,
+          onlinePaymentMethod,
+          chequeNumber,
+          chequeBankName,
+          chequeDate,
+        },
+        items,
+      );
+
+      await syncSellLedgerEntry(
+        sell,
+        `Sale created for invoice ${sell.invoiceNumber}`,
+      );
+
+      return res.status(201).json({ message: "Sell created successfully", sell });
+    }
+
     // ✅ Check duplicate invoice
     const existing = await findSellByInvoice(invoiceNumber, userId);
     if (existing) {
@@ -266,11 +342,21 @@ export const createSell = async (req, res) => {
 
 // Get all sells (by userId)
 export const getSells = async (req, res) => {
-  const { userId, firmId, customerId, pendingOnly } = req.query;
-  if (!userId) return res.status(400).json({ message: "userId is required." });
+  const { tenantOwnerId } = resolveTenantRequestContext(req);
+  const { firmId, customerId, pendingOnly } = req.query;
+  if (!tenantOwnerId) return res.status(400).json({ message: "userId is required." });
 
   try {
-    const sells = await getAllSells(userId, {
+    if (await isClientWorkspaceUser(tenantOwnerId)) {
+      const sells = await getTenantSells(tenantOwnerId, {
+        firmId,
+        customerId,
+        pendingOnly: String(pendingOnly || "").toLowerCase() === "true",
+      });
+      return res.status(200).json(sells);
+    }
+
+    const sells = await getAllSells(tenantOwnerId, {
       firmId,
       customerId,
       pendingOnly: String(pendingOnly || "").toLowerCase() === "true",
@@ -332,6 +418,17 @@ export const editSell = async (req, res) => {
   };
 
   try {
+    const { tenantOwnerId } = resolveTenantRequestContext(req);
+    if (tenantOwnerId && await isClientWorkspaceUser(tenantOwnerId)) {
+      const updated = await updateTenantSellById(tenantOwnerId, id, sellData, items);
+      if (!updated) return res.status(404).json({ message: "Sell not found." });
+      await syncSellLedgerEntry(
+        updated,
+        `Sale updated for invoice ${updated.invoiceNumber}`,
+      );
+      return res.status(200).json({ message: "Sell updated.", sell: updated });
+    }
+
     const previousSell = await getSellById(id);
     if (!previousSell) return res.status(404).json({ message: "Sell not found." });
 
@@ -365,8 +462,21 @@ export const editSell = async (req, res) => {
 // Delete Sell
 export const removeSell = async (req, res) => {
   const { id } = req.params;
+  const { tenantOwnerId } = resolveTenantRequestContext(req);
 
   try {
+    if (tenantOwnerId && await isClientWorkspaceUser(tenantOwnerId)) {
+      const deleted = await deleteTenantSellById(tenantOwnerId, id);
+      if (!deleted) return res.status(404).json({ message: "Sell not found." });
+      await markLedgerEntryDeletedBySource({
+        sourceType: "sell",
+        sourceId: deleted.id,
+        userId: tenantOwnerId,
+        narration: `Sale deleted for invoice ${deleted.invoiceNumber}`,
+      });
+      return res.status(200).json({ message: "Sell deleted.", sell: deleted });
+    }
+
     const existingSell = await getSellById(id);
     if (!existingSell) return res.status(404).json({ message: "Sell not found." });
 
@@ -400,16 +510,20 @@ export const removeSell = async (req, res) => {
 
 // New: Get invoice preview
 export const getInvoicePreview = async (req, res) => {
-  const { prefix, userId } = req.query;
+  const { prefix } = req.query;
+  const { tenantOwnerId } = resolveTenantRequestContext(req);
 
-  if (!prefix || !userId)
+  if (!prefix || !tenantOwnerId)
     return res.status(400).json({ message: "Missing prefix or userId" });
 
   try {
-    const invoiceNumber = await generateNextInvoiceNumber(
-      prefix,
-      Number(userId),
-    );
+    const clientWorkspace = await isClientWorkspaceUser(tenantOwnerId);
+    const invoiceNumber = clientWorkspace
+      ? await getNextTenantInvoiceNumber(Number(tenantOwnerId), prefix)
+      : await generateNextInvoiceNumber(
+          prefix,
+          Number(tenantOwnerId),
+        );
     res.status(200).json({ invoiceNumber });
   } catch (err) {
     console.error("Error generating invoice:", err);
@@ -421,7 +535,11 @@ export const getInvoicePreview = async (req, res) => {
 export const getSellController = async (req, res) => {
   try {
     const { id } = req.params;
-    const sell = await getSellById(id);
+    const { tenantOwnerId } = resolveTenantRequestContext(req);
+    const sell =
+      tenantOwnerId && await isClientWorkspaceUser(tenantOwnerId)
+        ? await getTenantSellById(tenantOwnerId, id)
+        : await getSellById(id);
     if (!sell) return res.status(404).json({ message: "Sell not found" });
     res.status(200).json(sell);
   } catch (err) {

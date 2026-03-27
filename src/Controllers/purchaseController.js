@@ -13,6 +13,16 @@ import {
   updateLedgerEntryBySource,
 } from "../Services/ledgerService.js";
 import { safeLogAudit } from "../Services/auditLogService.js";
+import {
+  createTenantPurchase,
+  deleteTenantPurchaseById,
+  getTenantPurchaseById,
+  getTenantPurchasePartyById,
+  getTenantPurchases,
+  isClientWorkspaceUser,
+  resolveTenantRequestContext,
+  updateTenantPurchaseById,
+} from "../Services/tenantDbService.js";
 
 const getPurchaseAuditSnapshot = (purchase) => ({
   id: purchase.id,
@@ -41,11 +51,15 @@ const getPurchaseAuditSnapshot = (purchase) => ({
 
 export const createPurchase = async (req, res) => {
   try {
-    const userId = req.body.userId || req.headers["x-user-id"];
-    if (!userId) return res.status(400).json({ message: "Missing userId" });
+    const { tenantOwnerId } = resolveTenantRequestContext(req);
+    if (!tenantOwnerId) return res.status(400).json({ message: "Missing userId" });
 
     // Combine the userId with the incoming purchase data
-    const party = await PurchaseParty.findByPk(req.body.purchasePartyId);
+    const party = await (
+      await isClientWorkspaceUser(tenantOwnerId)
+        ? getTenantPurchasePartyById(tenantOwnerId, req.body.purchasePartyId)
+        : PurchaseParty.findByPk(req.body.purchasePartyId)
+    );
     if (!party) {
       return res.status(400).json({ message: "Invalid purchase party" });
     }
@@ -86,8 +100,42 @@ export const createPurchase = async (req, res) => {
                   ? req.body.grandTotal ?? req.body.totalAmount ?? req.body.subtotal ?? 0
                   : 0,
             ),
-      userId,
+      userId: tenantOwnerId,
     };
+
+    if (await isClientWorkspaceUser(tenantOwnerId)) {
+      const purchase = await createTenantPurchase(tenantOwnerId, newPurchaseData, normalizedItems);
+      const totalAmount = Number(
+        req.body.grandTotal ?? req.body.totalAmount ?? req.body.subtotal ?? 0,
+      );
+
+      await createLedgerEntry({
+        entryDate: purchase.date,
+        entryType: "purchase",
+        voucherNumber: purchase.invoiceNumber,
+        sourceType: "purchase",
+        sourceId: purchase.id,
+        firmId: purchase.firmId,
+        userId: purchase.userId,
+        partyType: "purchase_party",
+        partyId: purchase.purchasePartyId,
+        partyName: party.name,
+        amount: totalAmount,
+        paymentStatus: normalizePaymentStatus({
+          paymentStatus: req.body.paymentStatus,
+          amount: req.body.payingAmount ?? 0,
+          balanceAmount: req.body.balanceAmount ?? totalAmount,
+        }),
+        narration: `Purchase created for invoice ${purchase.invoiceNumber}`,
+        metadata: {
+          totalAmount,
+          totalDiscount: purchase.totalDiscount,
+          totalGST: purchase.totalGST,
+        },
+      });
+
+      return res.status(201).json(purchase);
+    }
 
     // Call the service to create a new purchase and update the stock
     const purchase = await createPurchaseService(newPurchaseData);
@@ -143,11 +191,21 @@ export const createPurchase = async (req, res) => {
 
 export const getAllPurchases = async (req, res) => {
   try {
-    const { userId, firmId, purchasePartyId, pendingOnly } = req.query;
-    if (!userId) return res.status(400).json({ message: "Missing userId" });
+    const { tenantOwnerId } = resolveTenantRequestContext(req);
+    const { firmId, purchasePartyId, pendingOnly } = req.query;
+    if (!tenantOwnerId) return res.status(400).json({ message: "Missing userId" });
+
+    if (await isClientWorkspaceUser(tenantOwnerId)) {
+      const purchases = await getTenantPurchases(tenantOwnerId, {
+        firmId,
+        purchasePartyId,
+        pendingOnly: String(pendingOnly || "").toLowerCase() === "true",
+      });
+      return res.status(200).json(purchases);
+    }
 
     // Fetch all purchases for the user
-    const purchases = await getAllPurchasesService(userId, {
+    const purchases = await getAllPurchasesService(tenantOwnerId, {
       firmId,
       purchasePartyId,
       pendingOnly: String(pendingOnly || "").toLowerCase() === "true",
@@ -161,6 +219,15 @@ export const getAllPurchases = async (req, res) => {
 
 export const getPurchaseById = async (req, res) => {
   try {
+    const { tenantOwnerId } = resolveTenantRequestContext(req);
+    if (tenantOwnerId && await isClientWorkspaceUser(tenantOwnerId)) {
+      const purchase = await getTenantPurchaseById(tenantOwnerId, req.params.id);
+      if (!purchase) {
+        return res.status(404).json({ message: "Purchase not found" });
+      }
+      return res.status(200).json(purchase);
+    }
+
     // Fetch purchase by its ID
     const purchase = await getPurchaseByIdService(req.params.id);
     if (!purchase)
@@ -180,7 +247,11 @@ export const updatePurchase = async (req, res) => {
     if (!userId) return res.status(400).json({ message: "Missing userId" });
 
     // Call the service to update the purchase, passing along the userId
-    const party = await PurchaseParty.findByPk(req.body.purchasePartyId);
+    const party = await (
+      await isClientWorkspaceUser(userId)
+        ? getTenantPurchasePartyById(userId, req.body.purchasePartyId)
+        : PurchaseParty.findByPk(req.body.purchasePartyId)
+    );
     if (!party) {
       return res.status(400).json({ message: "Invalid purchase party" });
     }
@@ -199,6 +270,50 @@ export const updatePurchase = async (req, res) => {
         };
       }
     });
+
+    if (await isClientWorkspaceUser(userId)) {
+      const purchase = await updateTenantPurchaseById(
+        userId,
+        req.params.id,
+        { ...req.body, userId },
+        normalizedItems,
+      );
+
+      if (!purchase) {
+        return res.status(404).json({ message: "Purchase not found" });
+      }
+
+      const totalAmount = Number(
+        req.body.grandTotal ?? req.body.totalAmount ?? req.body.subtotal ?? 0,
+      );
+
+      await updateLedgerEntryBySource({
+        sourceType: "purchase",
+        sourceId: purchase.id,
+        entryDate: purchase.date,
+        entryType: "purchase",
+        voucherNumber: purchase.invoiceNumber,
+        firmId: purchase.firmId,
+        userId: purchase.userId,
+        partyType: "purchase_party",
+        partyId: purchase.purchasePartyId,
+        partyName: party.name,
+        amount: totalAmount,
+        paymentStatus: normalizePaymentStatus({
+          paymentStatus: req.body.paymentStatus,
+          amount: req.body.payingAmount ?? 0,
+          balanceAmount: req.body.balanceAmount ?? totalAmount,
+        }),
+        narration: `Purchase updated for invoice ${purchase.invoiceNumber}`,
+        metadata: {
+          totalAmount,
+          totalDiscount: purchase.totalDiscount,
+          totalGST: purchase.totalGST,
+        },
+      });
+
+      return res.status(200).json(purchase);
+    }
 
     const previousPurchase = await getPurchaseByIdService(req.params.id);
     if (!previousPurchase) {
@@ -264,6 +379,27 @@ export const updatePurchase = async (req, res) => {
 
 export const deletePurchase = async (req, res) => {
   try {
+    const userId = req.user?.id || req.query.userId;
+    if (userId && await isClientWorkspaceUser(userId)) {
+      const purchase = await getTenantPurchaseById(userId, req.params.id);
+      if (!purchase) {
+        return res.status(404).json({ message: "Purchase not found" });
+      }
+
+      await deleteTenantPurchaseById(userId, req.params.id);
+
+      await markLedgerEntryDeletedBySource({
+        sourceType: "purchase",
+        sourceId: purchase.id,
+        userId,
+        narration: `Purchase deleted for invoice ${purchase.invoiceNumber}`,
+      });
+
+      return res
+        .status(200)
+        .json({ message: "Purchase deleted and inventory adjusted." });
+    }
+
     // Call the service to delete the purchase and adjust stock accordingly
     const purchase = await getPurchaseByIdService(req.params.id);
     if (!purchase) {

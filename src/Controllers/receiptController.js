@@ -1,6 +1,7 @@
 import * as receiptService from "../Services/receiptService.js";
 import Receipt from "../Models/receiptModel.js";
 import Firm from "../Models/firmModel.js";
+import { getTenantContext, isClientWorkspaceUser } from "../Services/tenantDbService.js";
 
 // Add receipt
 export const addReceipt = async (req, res) => {
@@ -63,7 +64,8 @@ export const getAllReceipts = async (req, res) => {
 export const getReceiptById = async (req, res) => {
   try {
     const { id } = req.params;
-    const receipt = await receiptService.getReceiptById(id);
+    const { userId } = req.query;
+    const receipt = await receiptService.getReceiptById(id, userId);
     if (receipt) {
       res.status(200).json(receipt);
     } else {
@@ -78,7 +80,8 @@ export const getReceiptById = async (req, res) => {
 export const deleteReceipt = async (req, res) => {
   try {
     const { id } = req.params;
-    const deleted = await receiptService.deleteReceipt(id);
+    const { userId } = req.query;
+    const deleted = await receiptService.deleteReceipt(id, userId);
     if (deleted) {
       res.status(200).json({ message: "Receipt deleted successfully" });
     } else {
@@ -92,7 +95,7 @@ export const deleteReceipt = async (req, res) => {
 // Get latest receipt number for a specific firm
 export const getLatestReceiptNumberForFirm = async (req, res) => {
   try {
-    const { firmId } = req.query;
+    const { firmId, userId } = req.query;
 
     if (!firmId) {
       return res.status(400).json({ message: "firmId is required." });
@@ -105,14 +108,19 @@ export const getLatestReceiptNumberForFirm = async (req, res) => {
         .json({ message: "firmId must be a valid number." });
     }
 
-    const firm = await Firm.findByPk(firmIdNum);
+    const clientWorkspace = userId && await isClientWorkspaceUser(userId);
+    const tenantContext = clientWorkspace ? await getTenantContext(userId) : null;
+    const FirmModel = tenantContext?.TenantFirm || Firm;
+    const ReceiptModel = tenantContext?.TenantReceipt || Receipt;
+
+    const firm = await FirmModel.findByPk(firmIdNum);
     if (!firm) {
       return res.status(404).json({ message: "Firm not found." });
     }
 
     console.log(`Fetching latest receipt for firmId: ${firm}`);
 
-    const latestReceipt = await Receipt.findOne({
+    const latestReceipt = await ReceiptModel.findOne({
       where: { firmId: firmIdNum },
       order: [["createdAt", "DESC"]],
     });

@@ -75,6 +75,7 @@ export const decreaseStock = async (productId, quantity, transaction) => {
   const { product, baseQty } = await checkStock(productId, quantity, transaction);
 
   product.qty -= baseQty;
+  product.totalQuantity = product.qty;
   await product.save({ transaction });
 
   return product;
@@ -98,6 +99,7 @@ export const increaseStock = async (productId, quantity, transaction) => {
   const baseQty = convertToBaseUnit(quantity, product.unit);
 
   product.qty += baseQty;
+  product.totalQuantity = product.qty;
   await product.save({ transaction });
 
   return product;

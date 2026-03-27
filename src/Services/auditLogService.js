@@ -2,6 +2,7 @@ import AuditLog from "../Models/auditLogModel.js";
 import Ledger from "../Models/ledgerModel.js";
 import { Sell } from "../Models/sellModel.js";
 import { Purchase } from "../Models/purchaseModel.js";
+import { getTenantContext, isClientWorkspaceUser } from "./tenantDbService.js";
 
 const normalizeModuleName = (moduleName) => {
   if (!moduleName) {
@@ -9,6 +10,25 @@ const normalizeModuleName = (moduleName) => {
   }
 
   return String(moduleName).trim().toUpperCase();
+};
+
+const getAuditModels = async (userId = null) => {
+  if (userId && await isClientWorkspaceUser(userId)) {
+    const context = await getTenantContext(userId);
+    return {
+      AuditLogModel: context.TenantAuditLog,
+      LedgerModel: context.TenantLedger,
+      SellModel: context.TenantSell,
+      PurchaseModel: context.TenantPurchase,
+    };
+  }
+
+  return {
+    AuditLogModel: AuditLog,
+    LedgerModel: Ledger,
+    SellModel: Sell,
+    PurchaseModel: Purchase,
+  };
 };
 
 export const logAudit = async ({
@@ -20,7 +40,8 @@ export const logAudit = async ({
   userId = null,
   metadata = {},
 }) => {
-  return AuditLog.create({
+  const { AuditLogModel } = await getAuditModels(userId);
+  return AuditLogModel.create({
     module: normalizeModuleName(module),
     entityId: String(entityId),
     action: String(action).toUpperCase(),
@@ -43,14 +64,16 @@ export const safeLogAudit = async (payload) => {
 export const getAuditLogsByModuleEntity = async ({
   module,
   entityId,
+  userId = null,
   page = 1,
   limit = 20,
 }) => {
+  const { AuditLogModel } = await getAuditModels(userId);
   const normalizedPage = Math.max(1, Number(page) || 1);
   const normalizedLimit = Math.max(1, Number(limit) || 20);
   const offset = (normalizedPage - 1) * normalizedLimit;
 
-  const { rows, count } = await AuditLog.findAndCountAll({
+  const { rows, count } = await AuditLogModel.findAndCountAll({
     where: {
       module: normalizeModuleName(module),
       entityId: String(entityId),
@@ -77,7 +100,8 @@ export const getAuditLogsByLedgerId = async ({
   page = 1,
   limit = 20,
 }) => {
-  const ledger = await Ledger.findOne({
+  const { LedgerModel } = await getAuditModels(userId);
+  const ledger = await LedgerModel.findOne({
     where: {
       id: ledgerId,
       ...(userId ? { userId } : {}),
@@ -113,6 +137,7 @@ export const getAuditLogsByLedgerId = async ({
   const auditLogs = await getAuditLogsByModuleEntity({
     module: referenceType,
     entityId: referenceId,
+    userId,
     page,
     limit,
   });
@@ -136,7 +161,8 @@ export const getAuditLogsByBill = async ({
     throw new Error("type must be either sale or purchase.");
   }
 
-  const Model = normalizedType === "sale" ? Sell : Purchase;
+  const { SellModel, PurchaseModel } = await getAuditModels(userId);
+  const Model = normalizedType === "sale" ? SellModel : PurchaseModel;
   const module = normalizedType === "sale" ? "SALE" : "PURCHASE";
 
   const entity = await Model.findOne({
@@ -157,6 +183,7 @@ export const getAuditLogsByBill = async ({
   const auditLogs = await getAuditLogsByModuleEntity({
     module,
     entityId: entity.id,
+    userId,
     page,
     limit,
   });

@@ -29,6 +29,7 @@ const PurchaseItem = sequelize.define("PurchaseItem", {
   productId: { type: DataTypes.INTEGER, allowNull: false },
   quantity: { type: DataTypes.INTEGER, allowNull: false },
   price: { type: DataTypes.FLOAT, allowNull: false },
+  offerPrice: { type: DataTypes.FLOAT, allowNull: false, defaultValue: 0 },
   discount: { type: DataTypes.FLOAT, allowNull: true },
   gst: { type: DataTypes.FLOAT, allowNull: true },
   cgst: { type: DataTypes.FLOAT, allowNull: true },

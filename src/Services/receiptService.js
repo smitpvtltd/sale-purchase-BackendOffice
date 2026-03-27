@@ -11,6 +11,7 @@ import {
   upsertLedgerEntryBySource,
 } from './ledgerService.js';
 import { safeLogAudit } from "./auditLogService.js";
+import { getTenantContext, isClientWorkspaceUser } from "./tenantDbService.js";
 
 const resolveSellPaymentStatus = (paidAmount, balanceAmount, currentStatus, fallbackStatus) => {
   const normalizedPaidAmount = Number(paidAmount || 0);
@@ -48,6 +49,31 @@ const getReceiptAuditSnapshot = (receipt) => ({
   userId: receipt.userId,
 });
 
+const getReceiptWorkspace = async (userId) => {
+  if (userId && await isClientWorkspaceUser(userId)) {
+    const context = await getTenantContext(userId);
+    return {
+      ReceiptModel: context.TenantReceipt,
+      FirmModel: context.TenantFirm,
+      CustomerModel: context.TenantCustomer,
+      SellModel: context.TenantSell,
+      SettlementModel: context.TenantAdvanceSettlement,
+      AllocationModel: context.TenantAdvanceSettlementAllocation,
+      sequelizeInstance: context.sequelize,
+    };
+  }
+
+  return {
+    ReceiptModel: Receipt,
+    FirmModel: Firm,
+    CustomerModel: Customer,
+    SellModel: Sell,
+    SettlementModel: AdvanceSettlement,
+    AllocationModel: AdvanceSettlementAllocation,
+    sequelizeInstance: Receipt.sequelize,
+  };
+};
+
 
 
 
@@ -65,7 +91,7 @@ export const addReceipt = async (data) => {
   let suffix = 1;
 
   // Loop to find unique receipt number if duplicate found
-  while (await receiptNumberExists(receiptNumber)) {
+  while (await receiptNumberExists(receiptNumber, data.userId)) {
     receiptNumber = `${data.receiptNumber}-${suffix}`;
     suffix++;
 
@@ -74,10 +100,18 @@ export const addReceipt = async (data) => {
     }
   }
 
-  const transaction = await Receipt.sequelize.transaction();
+  const {
+    ReceiptModel,
+    SellModel,
+    SettlementModel,
+    AllocationModel,
+    sequelizeInstance,
+  } = await getReceiptWorkspace(data.userId);
+
+  const transaction = await sequelizeInstance.transaction();
 
   try {
-    const bill = await Sell.findByPk(data.billNumber, { transaction, lock: transaction.LOCK.UPDATE });
+    const bill = await SellModel.findByPk(data.billNumber, { transaction, lock: transaction.LOCK.UPDATE });
     if (!bill) {
       throw new Error("Sale bill not found");
     }
@@ -106,7 +140,7 @@ export const addReceipt = async (data) => {
 
     let settlement = null;
     if (settlementId) {
-      settlement = await AdvanceSettlement.findByPk(settlementId, {
+      settlement = await SettlementModel.findByPk(settlementId, {
         transaction,
         lock: transaction.LOCK.UPDATE,
       });
@@ -145,7 +179,7 @@ export const addReceipt = async (data) => {
     );
 
     data.receiptNumber = receiptNumber;
-    const receipt = await Receipt.create(
+    const receipt = await ReceiptModel.create(
       {
         ...data,
         receiptNumber,
@@ -182,7 +216,7 @@ export const addReceipt = async (data) => {
         { transaction },
       );
 
-      await AdvanceSettlementAllocation.create(
+      await AllocationModel.create(
         {
           settlementId: settlement.id,
           billType: "sale",
@@ -285,7 +319,8 @@ export const addReceipt = async (data) => {
 
 // Edit an existing receipt
 export const editReceipt = async (id, data) => {
-  const receipt = await Receipt.findByPk(id);
+  const { ReceiptModel } = await getReceiptWorkspace(data.userId);
+  const receipt = await ReceiptModel.findByPk(id);
   if (!receipt) {
     return [0];
   }
@@ -332,16 +367,17 @@ export const editReceipt = async (id, data) => {
 
 // Get all receipts for a specific user
 export const getAllReceiptsByUser = async (userId) => {
-  return await Receipt.findAll({
+  const { ReceiptModel, FirmModel, CustomerModel } = await getReceiptWorkspace(userId);
+  return await ReceiptModel.findAll({
     where: { userId },
         include: [
       {
-        model: Firm,
+        model: FirmModel,
         as: 'firm',
         attributes: ['id', 'firmName'],
       },
       {
-        model: Customer,
+        model: CustomerModel,
         as: 'customer',
         attributes: ['id', 'name'],
       },
@@ -351,13 +387,15 @@ export const getAllReceiptsByUser = async (userId) => {
 };
 
 // Get a single receipt by ID
-export const getReceiptById = async (id) => {
-  return await Receipt.findOne({ where: { id } });
+export const getReceiptById = async (id, userId = null) => {
+  const { ReceiptModel } = await getReceiptWorkspace(userId);
+  return await ReceiptModel.findOne({ where: { id } });
 };
 
 // Delete receipt
-export const deleteReceipt = async (id) => {
-  const receipt = await Receipt.findByPk(id);
+export const deleteReceipt = async (id, userId = null) => {
+  const { ReceiptModel } = await getReceiptWorkspace(userId);
+  const receipt = await ReceiptModel.findByPk(id);
   if (!receipt) {
     return 0;
   }
@@ -385,7 +423,8 @@ export const deleteReceipt = async (id) => {
 
 
 // Check if receipt number already exists
-export const receiptNumberExists = async (receiptNumber) => {
-  const count = await Receipt.count({ where: { receiptNumber } });
+export const receiptNumberExists = async (receiptNumber, userId = null) => {
+  const { ReceiptModel } = await getReceiptWorkspace(userId);
+  const count = await ReceiptModel.count({ where: { receiptNumber } });
   return count > 0;
 };

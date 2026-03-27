@@ -5,6 +5,13 @@ import {
   deleteReturn,
 } from "../Services/returnService.js";
 import { safeLogAudit } from "../Services/auditLogService.js";
+import {
+  createTenantReturn,
+  deleteTenantReturn,
+  findTenantReturnByInvoice,
+  getTenantReturns,
+  isClientWorkspaceUser,
+} from "../Services/tenantDbService.js";
 
 const getReturnAuditSnapshot = (record, items = []) => ({
   id: record.id,
@@ -50,7 +57,11 @@ export const createReturn = async (req, res) => {
       return res.status(400).json({ message: "Missing required fields." });
     }
 
-    const existing = await findReturnByInvoice(invoiceNumber, userId);
+    const existing = await (
+      await isClientWorkspaceUser(userId)
+        ? findTenantReturnByInvoice(userId, invoiceNumber)
+        : findReturnByInvoice(invoiceNumber, userId)
+    );
     if (existing) {
       return res.status(409).json({ message: "Return already exists for this invoice." });
     }
@@ -71,7 +82,11 @@ export const createReturn = async (req, res) => {
       paymentStatus,
     };
 
-    const result = await addReturn(returnData, items);
+    const result = await (
+      await isClientWorkspaceUser(userId)
+        ? createTenantReturn(userId, returnData, items)
+        : addReturn(returnData, items)
+    );
 
     res.status(201).json({ message: "Return recorded successfully.", result });
 
@@ -92,10 +107,14 @@ export const createReturn = async (req, res) => {
 
 export const getReturns = async (req, res) => {
   try {
-    const { userId } = req.query;
+    const userId = req.user?.id || req.query.userId;
     if (!userId) return res.status(400).json({ message: "userId is required" });
 
-    const data = await getAllReturns(userId);
+    const data = await (
+      await isClientWorkspaceUser(userId)
+        ? getTenantReturns(userId)
+        : getAllReturns(userId)
+    );
     res.status(200).json(data);
   } catch (err) {
     console.error("Error fetching returns:", err);
@@ -106,7 +125,12 @@ export const getReturns = async (req, res) => {
 export const removeReturn = async (req, res) => {
   try {
     const { id } = req.params;
-    const deleted = await deleteReturn(id);
+    const userId = req.user?.id || req.query.userId;
+    const deleted = await (
+      userId && await isClientWorkspaceUser(userId)
+        ? deleteTenantReturn(userId, id)
+        : deleteReturn(id)
+    );
     if (!deleted) return res.status(404).json({ message: "Record not found." });
 
     res.status(200).json({ message: "Deleted successfully.", deleted });

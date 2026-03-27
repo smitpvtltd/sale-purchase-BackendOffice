@@ -1,6 +1,7 @@
 import * as purchaseReceiptService from "../Services/purchaseReceiptServices.js";
 import PurchaseReceipt from "../Models/purchaseReceiptModel.js";
 import Firm from "../Models/firmModel.js";
+import { getTenantContext, isClientWorkspaceUser } from "../Services/tenantDbService.js";
 
 // Add a new purchase receipt
 export const addPurchaseReceipt = async (req, res) => {
@@ -39,11 +40,12 @@ export const getPurchaseReceipts = async (req, res) => {
 export const getPurchaseReceiptById = async (req, res) => {
   try {
     const { id } = req.params;
+    const { userId } = req.query;
     if (!id) {
       return res.status(400).json({ message: "Receipt ID is required." });
     }
 
-    const receipt = await purchaseReceiptService.getPurchaseReceiptById(id);
+    const receipt = await purchaseReceiptService.getPurchaseReceiptById(id, userId);
     if (!receipt) {
       return res.status(404).json({ message: "Receipt not found" });
     }
@@ -79,12 +81,13 @@ export const editPurchaseReceipt = async (req, res) => {
 export const deletePurchaseReceipt = async (req, res) => {
   try {
     const { id } = req.params;
+    const { userId } = req.query;
 
     if (!id) {
       return res.status(400).json({ message: "Receipt ID is required." });
     }
 
-    const deletedReceipt = await purchaseReceiptService.deletePurchaseReceipt(id);
+    const deletedReceipt = await purchaseReceiptService.deletePurchaseReceipt(id, userId);
     if (!deletedReceipt) {
       return res.status(404).json({ message: "Receipt not found" });
     }
@@ -98,7 +101,7 @@ export const deletePurchaseReceipt = async (req, res) => {
 // Get latest purchase receipt number for a specific firm
 export const getLatestPurchaseReceiptNumberForFirm = async (req, res) => {
   try {
-    const { firmId } = req.query;
+    const { firmId, userId } = req.query;
 
     if (!firmId) {
       return res.status(400).json({ message: "firmId is required." });
@@ -111,12 +114,17 @@ export const getLatestPurchaseReceiptNumberForFirm = async (req, res) => {
         .json({ message: "firmId must be a valid number." });
     }
 
-    const firm = await Firm.findByPk(firmIdNum);
+    const clientWorkspace = userId && await isClientWorkspaceUser(userId);
+    const tenantContext = clientWorkspace ? await getTenantContext(userId) : null;
+    const FirmModel = tenantContext?.TenantFirm || Firm;
+    const PurchaseReceiptModel = tenantContext?.TenantPurchaseReceipt || PurchaseReceipt;
+
+    const firm = await FirmModel.findByPk(firmIdNum);
     if (!firm) {
       return res.status(404).json({ message: "Firm not found." });
     }
 
-    const latestReceipt = await PurchaseReceipt.findOne({
+    const latestReceipt = await PurchaseReceiptModel.findOne({
       where: { firmId: firmIdNum },
       order: [["createdAt", "DESC"]],
     });

@@ -7,19 +7,20 @@ import {
   deletePurchase
 } from "../Controllers/purchaseController.js";
 import { Purchase } from "../Models/purchaseModel.js";
+import { authenticateToken } from "../Middleware/authenticateToken.js";
 
 
 
 const router = express.Router();
 
-router.post("/create-bill", createPurchase);
-router.get("/get-bill", getAllPurchases);
-router.get("/:id", getPurchaseById);
-router.put("/edit/:id", updatePurchase);
-router.delete("/delete/:id", deletePurchase);
+router.post("/create-bill", authenticateToken, createPurchase);
+router.get("/get-bill", authenticateToken, getAllPurchases);
+router.get("/:id", authenticateToken, getPurchaseById);
+router.put("/edit/:id", authenticateToken, updatePurchase);
+router.delete("/delete/:id", authenticateToken, deletePurchase);
 
 // Invoice uniqueness check
-router.get("/check-invoice/:invoiceNumber", async (req, res) => {
+router.get("/check-invoice/:invoiceNumber", authenticateToken, async (req, res) => {
   const { invoiceNumber } = req.params;
   try {
     const existing = await Purchase.findOne({ where: { invoiceNumber } });

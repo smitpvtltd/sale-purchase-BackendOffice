@@ -6,6 +6,15 @@ import {
 } from "../Services/exchangeService.js";
 import { Exchange, ExchangeReturnItem, ExchangeGivenItem } from "../Models/exchangeModel.js";
 import { safeLogAudit } from "../Services/auditLogService.js";
+import {
+  createTenantExchange,
+  deleteTenantExchange,
+  findTenantExchangeByInvoice,
+  getTenantExchangeById,
+  getTenantExchanges,
+  isClientWorkspaceUser,
+  updateTenantExchangePayment,
+} from "../Services/tenantDbService.js";
 
 const getExchangeAuditSnapshot = (exchange, returnedItems = [], givenItems = []) => ({
   id: exchange.id,
@@ -69,7 +78,11 @@ export const createExchange = async (req, res) => {
       return res.status(400).json({ message: "Missing required fields." });
     }
 
-    const existing = await findExchangeByInvoice(invoiceNumber, userId);
+    const existing = await (
+      await isClientWorkspaceUser(userId)
+        ? findTenantExchangeByInvoice(userId, invoiceNumber)
+        : findExchangeByInvoice(invoiceNumber, userId)
+    );
     if (existing) {
       return res
         .status(409)
@@ -111,7 +124,11 @@ export const createExchange = async (req, res) => {
       ...paymentInfo,
     };
 
-    const result = await addExchange(exchangeData, returnedItems, givenItems);
+    const result = await (
+      await isClientWorkspaceUser(userId)
+        ? createTenantExchange(userId, exchangeData, returnedItems, givenItems)
+        : addExchange(exchangeData, returnedItems, givenItems)
+    );
 
     res
       .status(201)
@@ -135,10 +152,14 @@ export const createExchange = async (req, res) => {
 // get all exchanges for a user
 export const getExchanges = async (req, res) => {
   try {
-    const { userId } = req.query;
+    const userId = req.user?.id || req.query.userId;
     if (!userId) return res.status(400).json({ message: "userId is required" });
 
-    const data = await getAllExchanges(userId);
+    const data = await (
+      await isClientWorkspaceUser(userId)
+        ? getTenantExchanges(userId)
+        : getAllExchanges(userId)
+    );
     res.status(200).json(data);
   } catch (err) {
     console.error("Error fetching exchanges:", err);
@@ -151,7 +172,12 @@ export const getExchanges = async (req, res) => {
 export const removeExchange = async (req, res) => {
   try {
     const { id } = req.params;
-    const deleted = await deleteExchange(id);
+    const userId = req.user?.id || req.query.userId;
+    const deleted = await (
+      userId && await isClientWorkspaceUser(userId)
+        ? deleteTenantExchange(userId, id)
+        : deleteExchange(id)
+    );
     if (!deleted) return res.status(404).json({ message: "Record not found." });
 
     res.status(200).json({ message: "Deleted successfully.", deleted });
@@ -180,6 +206,32 @@ export const updateExchangePayment = async (req, res) => {
   try {
     const { id } = req.params;
     const { payingAmount, paymentMethod } = req.body;
+    const userId = req.user?.id || req.body.userId;
+
+    if (userId && await isClientWorkspaceUser(userId)) {
+      const updatedExchange = await updateTenantExchangePayment(
+        userId,
+        id,
+        payingAmount,
+        paymentMethod,
+      );
+
+      if (!updatedExchange) {
+        return res.status(404).json({ message: "Exchange not found" });
+      }
+
+      const totalReturned = (updatedExchange.returnedItems || []).reduce(
+        (sum, item) => sum + Number(item.total || 0),
+        0,
+      );
+      const difference = Number(updatedExchange.grandTotal || 0) - totalReturned;
+
+      return res.status(200).json({
+        message: "Payment updated successfully",
+        exchange: updatedExchange,
+        remainingAmount: difference - Number(updatedExchange.payingAmount || 0),
+      });
+    }
 
     const exchange = await Exchange.findByPk(id, {
       include: [

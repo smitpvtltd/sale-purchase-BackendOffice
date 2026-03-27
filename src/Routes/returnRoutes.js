@@ -4,11 +4,12 @@ import {
   getReturns,
   removeReturn,
 } from "../Controllers/returnController.js";
+import { authenticateToken } from "../Middleware/authenticateToken.js";
 
 const router = express.Router();
 
-router.post("/add", createReturn);
-router.get("/all", getReturns);
-router.delete("/delete/:id", removeReturn);
+router.post("/add", authenticateToken, createReturn);
+router.get("/all", authenticateToken, getReturns);
+router.delete("/delete/:id", authenticateToken, removeReturn);
 
 export default router;

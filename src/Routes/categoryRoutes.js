@@ -5,12 +5,13 @@ import {
   editCategory,
   removeCategory
 } from '../Controllers/categoryController.js';
+import { authenticateToken } from '../Middleware/authenticateToken.js';
 
 const router = express.Router();
 
-router.post('/add', createCategory);             // POST /category/add
-router.get('/all', getCategories);               // GET  /category/all
-router.put('/edit/:id', editCategory);           // PUT  /category/edit/:id
-router.delete('/delete/:id', removeCategory);    // DELETE /category/delete/:id
+router.post('/add', authenticateToken, createCategory);
+router.get('/all', authenticateToken, getCategories);
+router.put('/edit/:id', authenticateToken, editCategory);
+router.delete('/delete/:id', authenticateToken, removeCategory);
 
 export default router;

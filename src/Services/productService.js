@@ -23,8 +23,7 @@ export const generateNextBarcode = async () => {
 
 // add product 
 export const createProduct = async (productData) => {
-
-  const barcode = await generateNextBarcode();
+  const barcode = productData.barcode || await generateNextBarcode();
 
   return await Product.create({
     ...productData,
@@ -55,6 +54,12 @@ export const getProductsByUser = async (userId) => {
 // get product by id 
 export const getProductById = async (id) => {
   return await Product.findByPk(id);
+};
+
+export const findProductByNameAndSize = async (userId, productName, size) => {
+  return Product.findOne({
+    where: { userId, productName, size },
+  });
 };
 
 // update product

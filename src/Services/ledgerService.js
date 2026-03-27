@@ -3,6 +3,12 @@ import Customer from "../Models/customerModel.js";
 import PurchaseParty from "../Models/purchasePartyModel.js";
 import { Op } from "sequelize";
 import { safeLogAudit } from "./auditLogService.js";
+import {
+  getTenantContext,
+  getTenantLedgerModel,
+  getTenantPartyModels,
+  isClientWorkspaceUser,
+} from "./tenantDbService.js";
 
 const getLedgerReference = ({ referenceType, referenceId, sourceType, sourceId, entryType }) => {
   const resolvedReferenceType =
@@ -92,7 +98,7 @@ export const normalizePaymentStatus = ({
   return "Paid";
 };
 
-const attachResolvedPartyNames = async (ledgerRows) => {
+const attachResolvedPartyNames = async (ledgerRows, models = {}) => {
   if (!Array.isArray(ledgerRows) || ledgerRows.length === 0) {
     return [];
   }
@@ -125,15 +131,18 @@ const attachResolvedPartyNames = async (ledgerRows) => {
     ),
   ];
 
+  const CustomerModel = models.CustomerModel || Customer;
+  const PurchasePartyModel = models.PurchasePartyModel || PurchaseParty;
+
   const [customers, purchaseParties] = await Promise.all([
     customerIds.length
-      ? Customer.findAll({
+      ? CustomerModel.findAll({
           where: { id: customerIds },
           attributes: ["id", "name"],
         })
       : [],
     purchasePartyIds.length
-      ? PurchaseParty.findAll({
+      ? PurchasePartyModel.findAll({
           where: { id: purchasePartyIds },
           attributes: ["id", "name"],
         })
@@ -208,7 +217,7 @@ const buildLedgerWhereClause = ({
   return where;
 };
 
-const resolvePartyFilters = async ({ partyName }) => {
+const resolvePartyFilters = async ({ partyName, models = {} }) => {
   if (!partyName) {
     return [];
   }
@@ -218,8 +227,11 @@ const resolvePartyFilters = async ({ partyName }) => {
     return [];
   }
 
+  const CustomerModel = models.CustomerModel || Customer;
+  const PurchasePartyModel = models.PurchasePartyModel || PurchaseParty;
+
   const [customers, purchaseParties] = await Promise.all([
-    Customer.findAll({
+    CustomerModel.findAll({
       where: {
         name: {
           [Op.iLike]: `%${trimmedPartyName}%`,
@@ -227,7 +239,7 @@ const resolvePartyFilters = async ({ partyName }) => {
       },
       attributes: ["id"],
     }),
-    PurchaseParty.findAll({
+    PurchasePartyModel.findAll({
       where: {
         name: {
           [Op.iLike]: `%${trimmedPartyName}%`,
@@ -256,7 +268,7 @@ const resolvePartyFilters = async ({ partyName }) => {
   return filters;
 };
 
-const normalizeLedgerRows = async (ledgers) => {
+const normalizeLedgerRows = async (ledgers, models = {}) => {
   const normalizedLedgers = ledgers.map((ledger) => {
     const plainLedger = ledger.toJSON();
     return {
@@ -266,11 +278,29 @@ const normalizeLedgerRows = async (ledgers) => {
     };
   });
 
-  return attachResolvedPartyNames(normalizedLedgers);
+  return attachResolvedPartyNames(normalizedLedgers, models);
 };
 
 const getBalanceImpact = (ledger) =>
-  Number(ledger.debitAmount || 0) - Number(ledger.creditAmount || 0);
+  Number(ledger.creditAmount || 0) - Number(ledger.debitAmount || 0);
+
+const getLedgerDataSource = async (userId) => {
+  if (userId && await isClientWorkspaceUser(userId)) {
+    const LedgerModel = await getTenantLedgerModel(userId);
+    const { TenantCustomer, TenantPurchaseParty } = await getTenantPartyModels(userId);
+    return {
+      LedgerModel,
+      CustomerModel: TenantCustomer,
+      PurchasePartyModel: TenantPurchaseParty,
+    };
+  }
+
+  return {
+    LedgerModel: Ledger,
+    CustomerModel: Customer,
+    PurchasePartyModel: PurchaseParty,
+  };
+};
 
 export const createLedgerEntry = async ({
   entryDate,
@@ -296,6 +326,7 @@ export const createLedgerEntry = async ({
   transaction = null,
 }) => {
   const amounts = getLedgerAmounts(entryType, amount, debitAmount, creditAmount);
+  const { LedgerModel } = await getLedgerDataSource(userId);
   const reference = getLedgerReference({
     referenceType,
     referenceId,
@@ -304,7 +335,7 @@ export const createLedgerEntry = async ({
     entryType,
   });
 
-  const ledger = await Ledger.create(
+  const ledger = await LedgerModel.create(
     {
       entryDate,
       entryType,
@@ -370,7 +401,8 @@ export const updateLedgerEntryBySource = async ({
   referenceType = null,
   referenceId = null,
 }) => {
-  const ledger = await Ledger.findOne({
+  const { LedgerModel } = await getLedgerDataSource(userId);
+  const ledger = await LedgerModel.findOne({
     where: { sourceType, sourceId },
   });
 
@@ -503,10 +535,12 @@ export const upsertLedgerEntryBySource = async ({
 export const markLedgerEntryDeletedBySource = async ({
   sourceType,
   sourceId,
+  userId = null,
   deletedAt = new Date().toISOString(),
   narration,
 }) => {
-  const ledger = await Ledger.findOne({
+  const { LedgerModel } = await getLedgerDataSource(userId);
+  const ledger = await LedgerModel.findOne({
     where: { sourceType, sourceId },
     order: [["id", "ASC"]],
   });
@@ -556,7 +590,12 @@ export const getAllLedgerEntries = async ({
   dateFrom,
   dateTo,
 }) => {
-  const partyFilters = await resolvePartyFilters({ partyName });
+  const dataSource = await getLedgerDataSource(userId);
+  const { LedgerModel, CustomerModel, PurchasePartyModel } = dataSource;
+  const partyFilters = await resolvePartyFilters({
+    partyName,
+    models: { CustomerModel, PurchasePartyModel },
+  });
 
   if (partyName && partyFilters.length === 0) {
     return {
@@ -595,7 +634,7 @@ export const getAllLedgerEntries = async ({
   let openingBalance = 0;
 
   if (dateFrom) {
-    const openingEntries = await Ledger.findAll({
+    const openingEntries = await LedgerModel.findAll({
       where: {
         ...where,
         entryDate: {
@@ -615,7 +654,7 @@ export const getAllLedgerEntries = async ({
     );
   }
 
-  const ledgers = await Ledger.findAll({
+  const ledgers = await LedgerModel.findAll({
     where: rangeWhere,
     order: [
       ["entryDate", "ASC"],
@@ -624,7 +663,10 @@ export const getAllLedgerEntries = async ({
     ],
   });
 
-  const resolvedLedgers = await normalizeLedgerRows(ledgers);
+  const resolvedLedgers = await normalizeLedgerRows(ledgers, {
+    CustomerModel,
+    PurchasePartyModel,
+  });
 
   let runningBalance = openingBalance;
   const entries = resolvedLedgers.map((ledger) => {
@@ -646,7 +688,8 @@ export const getAllLedgerEntries = async ({
 };
 
 export const getLedgerEntryById = async (id, userId) => {
-  const ledger = await Ledger.findOne({
+  const { LedgerModel, CustomerModel, PurchasePartyModel } = await getLedgerDataSource(userId);
+  const ledger = await LedgerModel.findOne({
     where: { id, userId },
   });
 
@@ -660,7 +703,10 @@ export const getLedgerEntryById = async (id, userId) => {
     entryTypeLabel: plainLedger.entryTypeLabel || getEntryTypeLabel(plainLedger.entryType),
   };
 
-  const [resolvedLedger] = await attachResolvedPartyNames([normalizedLedger]);
+  const [resolvedLedger] = await attachResolvedPartyNames([normalizedLedger], {
+    CustomerModel,
+    PurchasePartyModel,
+  });
   return resolvedLedger;
 };
 

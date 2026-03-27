@@ -1,14 +1,17 @@
 import { getMenuItemsByRole } from '../Services/menuService.js';
 
 export const getMenuItems = async (req, res) => {
-  const { role } = req.query;
+  const { role, tenantOwnerId, workspaceUserId } = req.query;
 
   if (!role) {
     return res.status(400).json({ message: 'Role is required.' });
   }
 
   try {
-    const menuItems = await getMenuItemsByRole(role);
+    const menuItems = await getMenuItemsByRole(role, {
+      tenantOwnerId,
+      workspaceUserId,
+    });
     res.json(menuItems);
   } catch (error) {
     console.error('Error fetching menu items:', error);

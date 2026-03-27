@@ -26,6 +26,7 @@ import exchangeRoutes from "./Routes/exchangeRoutes.js";
 import reasonRoutes from "./Routes/reasonRoutes.js";
 import ledgerRoutes from "./Routes/ledgerRoutes.js";
 import auditLogRoutes from "./Routes/auditLogRoutes.js";
+import dashboardRoutes from "./Routes/dashboardRoutes.js";
 
 
 
@@ -76,6 +77,7 @@ app.use("/api/exchange", exchangeRoutes); // for return
 app.use("/api/reasons", reasonRoutes);
 app.use("/api/ledger", ledgerRoutes);
 app.use("/api/audit-logs", auditLogRoutes);
+app.use("/api/dashboard", dashboardRoutes);
 
 
 

@@ -5,13 +5,14 @@ import {
   removeExchange,
   updateExchangePayment,
 } from "../Controllers/exchangeController.js";
+import { authenticateToken } from "../Middleware/authenticateToken.js";
 
 const router = express.Router();
 
-router.post("/add", createExchange);
-router.get("/all", getExchanges);
-router.delete("/delete/:id", removeExchange);
-router.put("/edit/:id", updateExchangePayment);
+router.post("/add", authenticateToken, createExchange);
+router.get("/all", authenticateToken, getExchanges);
+router.delete("/delete/:id", authenticateToken, removeExchange);
+router.put("/edit/:id", authenticateToken, updateExchangePayment);
 
 
 export default router;

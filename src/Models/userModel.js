@@ -7,6 +7,12 @@ const User = sequelize.define('User', {
   password: { type: DataTypes.STRING, allowNull: false },
   visiblePassword: { type: DataTypes.STRING, allowNull: false },
   role: { type: DataTypes.STRING, allowNull: false, defaultValue: 'admin' },
+  clientName: { type: DataTypes.STRING, allowNull: true },
+  contact: { type: DataTypes.STRING, allowNull: true },
+  email: { type: DataTypes.STRING, allowNull: true },
+  clientLogo: { type: DataTypes.STRING, allowNull: true },
+  expiresAt: { type: DataTypes.DATEONLY, allowNull: true },
+  isActive: { type: DataTypes.BOOLEAN, allowNull: false, defaultValue: true },
   createdBy: { type: DataTypes.INTEGER, allowNull: true }, // points to admin who created this user
 }, {
   tableName: 'users',

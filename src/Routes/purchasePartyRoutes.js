@@ -5,12 +5,13 @@ import {
   editPurchaseParty,
   removePurchaseParty,
 } from "../Controllers/purchasePartyController.js";
+import { authenticateToken } from "../Middleware/authenticateToken.js";
 
 const router = express.Router();
 
-router.post("/add", createPurchaseParty);
-router.get("/all", getPurchaseParties);
-router.put("/edit/:id", editPurchaseParty);
-router.delete("/delete/:id", removePurchaseParty);
+router.post("/add", authenticateToken, createPurchaseParty);
+router.get("/all", authenticateToken, getPurchaseParties);
+router.put("/edit/:id", authenticateToken, editPurchaseParty);
+router.delete("/delete/:id", authenticateToken, removePurchaseParty);
 
 export default router;

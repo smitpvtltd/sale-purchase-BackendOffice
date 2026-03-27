@@ -9,14 +9,27 @@ import bcrypt from "bcrypt";
 import User from "../Models/userModel.js"; // Import User model
 import { createUser, findUserByUsername } from "../Services/userService.js";
 import Firm from "../Models/firmModel.js";
+import {
+  createTenantFirm,
+  createTenantWorkspaceUser,
+  deleteTenantFirm,
+  findAnyTenantWorkspaceUserByUsername,
+  getTenantFirmById,
+  getTenantFirmsByUserId,
+  updateTenantFirm,
+} from "../Services/tenantDbService.js";
 
 const getFirmLogoPath = (file) => (file ? `uploads/firm/${file.filename}` : undefined);
+const isTenantFirmAdmin = (user) =>
+  user?.role === "admin" && Boolean(user?.tenantOwnerId) && Boolean(user?.workspaceUserId);
 
 // controllers/firmController.js
 export const addFirm = async (req, res) => {
   try {
     const firmData = { ...req.body };
     const { firmUsername, firmPassword } = firmData;
+    delete firmData.firmUsername;
+    delete firmData.firmPassword;
 
     const loggedInUser = req.user; // { id, role, username }
     let userId;
@@ -41,6 +54,10 @@ export const addFirm = async (req, res) => {
 
         userId = newUser.id;
       }
+    }
+
+    else if (isTenantFirmAdmin(loggedInUser)) {
+      return res.status(403).json({ message: "Firm users cannot create firms." });
     }
 
     // 🔐 ADMIN
@@ -69,6 +86,40 @@ export const addFirm = async (req, res) => {
       userId = newUser.id;
     }
 
+    // CLIENT
+    else if (loggedInUser.role === "client") {
+      if (!firmUsername || !firmPassword) {
+        return res.status(400).json({
+          message: "Clients must provide username & password for each firm",
+        });
+      }
+
+      const existingUser = await findUserByUsername(firmUsername);
+      if (existingUser) {
+        return res.status(409).json({ message: "Username already exists" });
+      }
+
+      const existingTenantUser = await findAnyTenantWorkspaceUserByUsername(
+        firmUsername,
+        "admin",
+        { activeClientsOnly: false },
+      );
+      if (existingTenantUser) {
+        return res.status(409).json({ message: "Username already exists" });
+      }
+
+      const hashedPassword = await bcrypt.hash(firmPassword, 10);
+      const tenantFirmUser = await createTenantWorkspaceUser(loggedInUser.id, {
+        username: firmUsername,
+        password: hashedPassword,
+        visiblePassword: firmPassword,
+        role: "admin",
+        isActive: true,
+        createdBy: loggedInUser.id,
+      });
+
+      userId = tenantFirmUser.id;
+    }
     // ❌ Unauthorized role
     else {
       return res.status(403).json({ message: "Unauthorized role" });
@@ -81,6 +132,18 @@ export const addFirm = async (req, res) => {
 
     // Assign userId to firm
     firmData.userId = userId;
+
+    if (loggedInUser.role === "client") {
+      const tenantFirm = await createTenantFirm(loggedInUser.id, firmData);
+      return res.status(201).json({
+        message: "Firm created successfully in client database",
+        firm: tenantFirm,
+        firmUser: {
+          username: firmUsername,
+          role: "admin",
+        },
+      });
+    }
 
     // 🏗️ Create firm
     const firm = await createFirm(firmData);
@@ -113,31 +176,32 @@ export const getFirms = async (req, res) => {
         ],
         order: [["id", "DESC"]],
       });
+    } else if (isTenantFirmAdmin(req.user)) {
+      firms = await getTenantFirmsByUserId(id, req.user.workspaceUserId);
     } else if (role === "admin") {
-  // 1️⃣ Users created by this admin
-  const usersCreatedByAdmin = await User.findAll({
-    where: { createdBy: id },
-    attributes: ["id"],
-  });
+      const usersCreatedByAdmin = await User.findAll({
+        where: { createdBy: id },
+        attributes: ["id"],
+      });
 
-  const childUserIds = usersCreatedByAdmin.map((u) => u.id);
+      const childUserIds = usersCreatedByAdmin.map((u) => u.id);
+      const allowedUserIds = [id, ...childUserIds];
 
-  // 2️⃣ Include admin's own userId ALSO
-  const allowedUserIds = [id, ...childUserIds];
-
-  firms = await Firm.findAll({
-    where: {
-      userId: allowedUserIds,
-    },
-    include: [
-      {
-        model: User,
-        attributes: ["id", "username", "visiblePassword"],
-      },
-    ],
-    order: [["id", "DESC"]],
-  });
-} else {
+      firms = await Firm.findAll({
+        where: {
+          userId: allowedUserIds,
+        },
+        include: [
+          {
+            model: User,
+            attributes: ["id", "username", "visiblePassword"],
+          },
+        ],
+        order: [["id", "DESC"]],
+      });
+    } else if (role === "client") {
+      firms = await getTenantFirmsByUserId(id);
+    } else {
       return res.status(403).json({ message: "Unauthorized role" });
     }
 
@@ -151,6 +215,18 @@ export const getFirms = async (req, res) => {
 export const getSingleFirm = async (req, res) => {
   try {
     const { id } = req.params;
+    if (req.user.role === "client" || isTenantFirmAdmin(req.user)) {
+      const tenantFirm = await getTenantFirmById(
+        req.user.id,
+        id,
+        isTenantFirmAdmin(req.user) ? req.user.workspaceUserId : null,
+      );
+      if (!tenantFirm) {
+        return res.status(404).json({ message: "Firm not found." });
+      }
+      return res.status(200).json(tenantFirm);
+    }
+
     const firm = await getFirmById(id);
     if (!firm) return res.status(404).json({ message: "Firm not found." });
     res.status(200).json(firm);
@@ -168,7 +244,15 @@ export const editFirm = async (req, res) => {
       updatedData.firmLogo = getFirmLogoPath(req.file);
     }
 
-    const firm = await updateFirm(id, updatedData);
+    const firm =
+      req.user.role === "client" || isTenantFirmAdmin(req.user)
+        ? await updateTenantFirm(
+            req.user.id,
+            id,
+            updatedData,
+            isTenantFirmAdmin(req.user) ? req.user.workspaceUserId : null,
+          )
+        : await updateFirm(id, updatedData);
     if (!firm) return res.status(404).json({ message: "Firm not found." });
 
     res.status(200).json({ message: "Firm updated successfully.", firm });
@@ -191,7 +275,14 @@ export const editFirm = async (req, res) => {
 export const removeFirm = async (req, res) => {
   try {
     const { id } = req.params;
-    const deleted = await deleteFirm(id);
+    const deleted =
+      req.user.role === "client" || isTenantFirmAdmin(req.user)
+        ? await deleteTenantFirm(
+            req.user.id,
+            id,
+            isTenantFirmAdmin(req.user) ? req.user.workspaceUserId : null,
+          )
+        : await deleteFirm(id);
     if (!deleted) return res.status(404).json({ message: "Firm not found." });
 
     res.status(200).json({ message: "Firm deleted.", firm: deleted });

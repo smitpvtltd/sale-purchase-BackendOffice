@@ -8,9 +8,9 @@ const PurchaseParty = sequelize.define(
   {
     id: {type: DataTypes.INTEGER,primaryKey: true,autoIncrement: true},
     name: { type: DataTypes.STRING, allowNull: false },
-    email: { type: DataTypes.STRING, allowNull: false, unique: true },
+    email: { type: DataTypes.STRING, allowNull: true, unique: true },
     mobile: { type: DataTypes.STRING, allowNull: false },
-    address: { type: DataTypes.STRING, allowNull: false },
+    address: { type: DataTypes.STRING, allowNull: true },
     state: { type: DataTypes.INTEGER, allowNull: true },
     city: { type: DataTypes.INTEGER, allowNull: true },
     gstNumber: { type: DataTypes.STRING, allowNull: true },

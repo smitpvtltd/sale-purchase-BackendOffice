@@ -10,6 +10,7 @@ import {
 import { safeLogAudit } from "./auditLogService.js";
 import Firm from '../Models/firmModel.js';
 import Customer from '../Models/customerModel.js';
+import { getTenantContext, isClientWorkspaceUser } from "./tenantDbService.js";
 
 const getPurchaseReceiptAuditSnapshot = (receipt) => ({
   id: receipt.id,
@@ -33,6 +34,31 @@ const getPurchaseReceiptAuditSnapshot = (receipt) => ({
   userId: receipt.userId,
 });
 
+const getPurchaseReceiptWorkspace = async (userId) => {
+  if (userId && await isClientWorkspaceUser(userId)) {
+    const context = await getTenantContext(userId);
+    return {
+      PurchaseReceiptModel: context.TenantPurchaseReceipt,
+      PurchaseModel: context.TenantPurchase,
+      SettlementModel: context.TenantAdvanceSettlement,
+      AllocationModel: context.TenantAdvanceSettlementAllocation,
+      FirmModel: context.TenantFirm,
+      PartyModel: context.TenantPurchaseParty,
+      sequelizeInstance: context.sequelize,
+    };
+  }
+
+  return {
+    PurchaseReceiptModel: PurchaseReceipt,
+    PurchaseModel: Purchase,
+    SettlementModel: AdvanceSettlement,
+    AllocationModel: AdvanceSettlementAllocation,
+    FirmModel: Firm,
+    PartyModel: Customer,
+    sequelizeInstance: PurchaseReceipt.sequelize,
+  };
+};
+
 
 
 
@@ -44,10 +70,18 @@ export const addPurchaseReceipt = async (data) => {
       throw new Error("billNumber is required");
     }
 
-    const transaction = await PurchaseReceipt.sequelize.transaction();
+    const {
+      PurchaseReceiptModel,
+      PurchaseModel,
+      SettlementModel,
+      AllocationModel,
+      sequelizeInstance,
+    } = await getPurchaseReceiptWorkspace(data.userId);
+
+    const transaction = await sequelizeInstance.transaction();
 
     try {
-      const bill = await Purchase.findByPk(data.billNumber, {
+      const bill = await PurchaseModel.findByPk(data.billNumber, {
         transaction,
         lock: transaction.LOCK.UPDATE,
       });
@@ -81,7 +115,7 @@ export const addPurchaseReceipt = async (data) => {
 
       let settlement = null;
       if (settlementId) {
-        settlement = await AdvanceSettlement.findByPk(settlementId, {
+        settlement = await SettlementModel.findByPk(settlementId, {
           transaction,
           lock: transaction.LOCK.UPDATE,
         });
@@ -115,7 +149,7 @@ export const addPurchaseReceipt = async (data) => {
       const updatedPaymentStatus =
         updatedBalanceAmount === 0 ? "Paid" : bill.paymentStatus || "Advance";
 
-      const receipt = await PurchaseReceipt.create(
+      const receipt = await PurchaseReceiptModel.create(
         {
           ...data,
           customerId: partyId,
@@ -152,7 +186,7 @@ export const addPurchaseReceipt = async (data) => {
           { transaction },
         );
 
-        await AdvanceSettlementAllocation.create(
+        await AllocationModel.create(
           {
             settlementId: settlement.id,
             billType: "purchase",
@@ -234,16 +268,17 @@ export const addPurchaseReceipt = async (data) => {
 // Get all purchase receipts for a user
 export const getPurchaseReceipts = async (userId) => {
   try {
-    return await PurchaseReceipt.findAll({
+    const { PurchaseReceiptModel, FirmModel, PartyModel } = await getPurchaseReceiptWorkspace(userId);
+    return await PurchaseReceiptModel.findAll({
       where: { userId },
               include: [
       {
-        model: Firm,
+        model: FirmModel,
         as: 'firm',
         attributes: ['id', 'firmName'],
       },
       {
-        model: Customer,
+        model: PartyModel,
         as: 'customer',
         attributes: ['id', 'name'],
       },
@@ -256,9 +291,10 @@ export const getPurchaseReceipts = async (userId) => {
 };
 
 // Get a single purchase receipt by ID
-export const getPurchaseReceiptById = async (id) => {
+export const getPurchaseReceiptById = async (id, userId = null) => {
   try {
-    return await PurchaseReceipt.findByPk(id);
+    const { PurchaseReceiptModel } = await getPurchaseReceiptWorkspace(userId);
+    return await PurchaseReceiptModel.findByPk(id);
   } catch (error) {
     throw new Error("Error fetching receipt: " + error.message);
   }
@@ -267,7 +303,8 @@ export const getPurchaseReceiptById = async (id) => {
 // Edit a purchase receipt
 export const editPurchaseReceipt = async (id, data) => {
   try {
-    const receipt = await PurchaseReceipt.findByPk(id);
+    const { PurchaseReceiptModel } = await getPurchaseReceiptWorkspace(data.userId);
+    const receipt = await PurchaseReceiptModel.findByPk(id);
     if (!receipt) return null;
 
     const previousReceipt = receipt.toJSON();
@@ -315,9 +352,10 @@ export const editPurchaseReceipt = async (id, data) => {
 };
 
 // Delete a purchase receipt
-export const deletePurchaseReceipt = async (id) => {
+export const deletePurchaseReceipt = async (id, userId = null) => {
   try {
-    const receipt = await PurchaseReceipt.findByPk(id);
+    const { PurchaseReceiptModel } = await getPurchaseReceiptWorkspace(userId);
+    const receipt = await PurchaseReceiptModel.findByPk(id);
     if (!receipt) return null;
 
     await markLedgerEntryDeletedBySource({

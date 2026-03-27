@@ -16,6 +16,7 @@ import { safeLogAudit } from "../Services/auditLogService.js";
 import Receipt from "../Models/receiptModel.js";
 import PurchaseReceipt from "../Models/purchaseReceiptModel.js";
 import Firm from "../Models/firmModel.js";
+import { getTenantContext, isClientWorkspaceUser } from "../Services/tenantDbService.js";
 
 const getNextPrefixedNumber = async ({
   firmId,
@@ -23,8 +24,9 @@ const getNextPrefixedNumber = async ({
   defaultPrefix,
   model,
   numberField,
+  FirmModel = Firm,
 }) => {
-  const firm = await Firm.findByPk(firmId);
+  const firm = await FirmModel.findByPk(firmId);
   if (!firm) {
     throw new Error("Firm not found.");
   }
@@ -129,9 +131,9 @@ export const createAdvanceSettlement = async (req, res) => {
 
   try {
     let resolvedSettlementNumber = settlementNumber;
-    const existing = await findSettlementByNumber(settlementNumber);
+    const existing = await findSettlementByNumber(settlementNumber, userId);
     if (existing) {
-      resolvedSettlementNumber = await generateNextReceiptNumber();
+      resolvedSettlementNumber = await generateNextReceiptNumber(userId);
     }
 
     const settlement = await addAdvanceSettlement({
@@ -187,7 +189,7 @@ export const getAdvanceSettlements = async (req, res) => {
 // Update existing by ID
 export const updateAdvanceSettlement = async (req, res) => {
   const { id } = req.params;
-  const { date, settlementNumber, firmId, partyType, partyId, advanceAmount } = req.body;
+  const { date, settlementNumber, firmId, partyType, partyId, advanceAmount, userId } = req.body;
 
   if (!date || !settlementNumber || !firmId || !partyType || !partyId || !advanceAmount) {
     return res.status(400).json({ message: 'All fields are required for update.' });
@@ -198,14 +200,14 @@ export const updateAdvanceSettlement = async (req, res) => {
   }
 
   try {
-    const existing = await findSettlementById(id);
+    const existing = await findSettlementById(id, userId);
     if (!existing) {
       return res.status(404).json({ message: 'Settlement not found.' });
     }
 
     // Check for duplicate settlement number on update
     if (settlementNumber !== existing.settlementNumber) {
-      const conflict = await findSettlementByNumber(settlementNumber);
+      const conflict = await findSettlementByNumber(settlementNumber, userId);
       if (conflict) {
         return res.status(409).json({ message: 'Settlement number already in use.' });
       }
@@ -224,6 +226,7 @@ export const updateAdvanceSettlement = async (req, res) => {
       partyType,
       partyId,
       advanceAmount,
+      userId: existing.userId,
       unappliedAmount:
         Number(advanceAmount) - Number(existing.appliedAmount || 0),
       settlementStatus:
@@ -254,14 +257,15 @@ export const updateAdvanceSettlement = async (req, res) => {
 // Delete by ID
 export const deleteAdvanceSettlement = async (req, res) => {
   const { id } = req.params;
+  const { userId } = req.query;
 
   try {
-    const existing = await findSettlementById(id);
+    const existing = await findSettlementById(id, userId);
     if (!existing) {
       return res.status(404).json({ message: 'Settlement not found.' });
     }
 
-    await deleteAdvanceSettlementById(id);
+    await deleteAdvanceSettlementById(id, userId);
 
     res.status(200).json({ message: 'Settlement deleted.' });
 
@@ -282,9 +286,10 @@ export const deleteAdvanceSettlement = async (req, res) => {
 
 export const getAdvanceSettlementById = async (req, res) => {
   const { id } = req.params;
+  const { userId } = req.query;
 
   try {
-    const settlement = await findSettlementById(id);
+    const settlement = await findSettlementById(id, userId);
     if (!settlement) {
       return res.status(404).json({ message: "Settlement not found." });
     }
@@ -341,6 +346,12 @@ export const allocateAdvanceSettlement = async (req, res) => {
     allocations,
     });
 
+    const clientWorkspace = await isClientWorkspaceUser(userId);
+    const tenantContext = clientWorkspace ? await getTenantContext(userId) : null;
+    const ReceiptModel = tenantContext?.TenantReceipt || Receipt;
+    const PurchaseReceiptModel = tenantContext?.TenantPurchaseReceipt || PurchaseReceipt;
+    const FirmModel = tenantContext?.TenantFirm || Firm;
+
     const receipts = [];
 
     for (const item of result.allocations) {
@@ -349,11 +360,12 @@ export const allocateAdvanceSettlement = async (req, res) => {
           firmId: result.settlement.firmId,
           prefixField: "saleReceiptInitial",
           defaultPrefix: "REC",
-          model: Receipt,
+          model: ReceiptModel,
           numberField: "receiptNumber",
+          FirmModel,
         });
 
-        const receipt = await Receipt.create({
+        const receipt = await ReceiptModel.create({
           date: result.settlement.date,
           receiptNumber,
           billNumber: item.bill.id,
@@ -433,11 +445,12 @@ export const allocateAdvanceSettlement = async (req, res) => {
         firmId: result.settlement.firmId,
         prefixField: "purchaseRefInitial",
         defaultPrefix: "PREC",
-        model: PurchaseReceipt,
+        model: PurchaseReceiptModel,
         numberField: "receiptNumber",
+        FirmModel,
       });
 
-      const purchaseReceipt = await PurchaseReceipt.create({
+      const purchaseReceipt = await PurchaseReceiptModel.create({
         date: result.settlement.date,
         receiptNumber,
         billNumber: item.bill.id,
@@ -562,7 +575,7 @@ export const getReceiptNumber = async (req, res) => {
   }
 
   try {
-    const receiptNumber = await generateNextReceiptNumber();
+    const receiptNumber = await generateNextReceiptNumber(userId);
     res.status(200).json(receiptNumber);
   } catch (error) {
     console.error('Error generating receipt number:', error);

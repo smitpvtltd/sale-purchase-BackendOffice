@@ -6,6 +6,14 @@ import {
 } from "../Services/purchasePartyService.js";
 import { safeLogAudit } from "../Services/auditLogService.js";
 import PurchaseParty from "../Models/purchasePartyModel.js";
+import {
+  createTenantPurchaseParty,
+  deleteTenantPurchaseParty,
+  getTenantPurchaseParties,
+  isClientWorkspaceUser,
+  resolveTenantRequestContext,
+  updateTenantPurchaseParty,
+} from "../Services/tenantDbService.js";
 
 const getPurchasePartyAuditSnapshot = (party) => ({
   id: party.id,
@@ -21,7 +29,19 @@ const getPurchasePartyAuditSnapshot = (party) => ({
   userId: party.userId,
 });
 
+const normalizeOptionalPurchasePartyFields = (data) => ({
+  ...data,
+  email: data.email === "" ? null : data.email,
+  address: data.address === "" ? null : data.address,
+  state: data.state === "" ? null : data.state,
+  city: data.city === "" ? null : data.city,
+  gstNumber: data.gstNumber === "" ? null : data.gstNumber,
+  companyName: data.companyName === "" ? null : data.companyName,
+  stateType: data.stateType === "" ? "in_state" : data.stateType || "in_state",
+});
+
 export const createPurchaseParty = async (req, res) => {
+  const normalizedPayload = normalizeOptionalPurchasePartyFields(req.body);
   const {
     name,
     email,
@@ -32,25 +52,41 @@ export const createPurchaseParty = async (req, res) => {
     gstNumber,
     companyName,
     stateType,
-    userId,
-  } = req.body;
+  } = normalizedPayload;
+  const { tenantOwnerId } = resolveTenantRequestContext(req);
 
-  if (!name || !email || !mobile || !stateType || !userId) {
+  if (!name || !mobile || !tenantOwnerId) {
     return res.status(400).json({ message: "Required fields are missing." });
   }
 
   try {
+    if (await isClientWorkspaceUser(tenantOwnerId)) {
+      const party = await createTenantPurchaseParty(tenantOwnerId, {
+        name,
+        email,
+        mobile,
+        address,
+        state,
+        city,
+        gstNumber,
+        companyName,
+        stateType,
+        userId: tenantOwnerId,
+      });
+      return res.status(201).json({ message: "Purchase party added.", party });
+    }
+
     const party = await createPurchasePartyService({
       name,
       email,
       mobile,
       address,
-      state: state === "" ? null : state,
-      city: city === "" ? null : city,
+      state,
+      city,
       gstNumber,
       companyName,
       stateType,
-      userId,
+      userId: tenantOwnerId,
     });
 
     res.status(201).json({ message: "Purchase party added.", party });
@@ -70,14 +106,19 @@ export const createPurchaseParty = async (req, res) => {
 };
 
 export const getPurchaseParties = async (req, res) => {
-  const { userId } = req.query;
+  const { tenantOwnerId } = resolveTenantRequestContext(req);
 
-  if (!userId) {
+  if (!tenantOwnerId) {
     return res.status(400).json({ message: "userId is required." });
   }
 
   try {
-    const parties = await getAllPurchasePartiesService(userId);
+    if (await isClientWorkspaceUser(tenantOwnerId)) {
+      const parties = await getTenantPurchaseParties(tenantOwnerId);
+      return res.status(200).json(parties);
+    }
+
+    const parties = await getAllPurchasePartiesService(tenantOwnerId);
     res.status(200).json(parties);
   } catch (error) {
     console.error("Fetch Error:", error);
@@ -87,6 +128,7 @@ export const getPurchaseParties = async (req, res) => {
 
 export const editPurchaseParty = async (req, res) => {
   const { id } = req.params;
+  const normalizedPayload = normalizeOptionalPurchasePartyFields(req.body);
   const {
     name,
     email,
@@ -97,13 +139,37 @@ export const editPurchaseParty = async (req, res) => {
     gstNumber,
     companyName,
     stateType,
-  } = req.body;
+  } = normalizedPayload;
 
-  if (!name || !email || !mobile || !address || !state || !city || !stateType) {
+  if (!name || !mobile) {
     return res.status(400).json({ message: "Required fields are missing." });
   }
 
   try {
+    const { tenantOwnerId } = resolveTenantRequestContext(req);
+
+    if (tenantOwnerId && await isClientWorkspaceUser(tenantOwnerId)) {
+      const updatedParty = await updateTenantPurchaseParty(tenantOwnerId, id, {
+        name,
+        email,
+        mobile,
+        address,
+        state,
+        city,
+        gstNumber,
+        companyName,
+        stateType,
+      });
+
+      if (!updatedParty) {
+        return res.status(404).json({ message: "Purchase party not found." });
+      }
+
+      return res
+        .status(200)
+        .json({ message: "Purchase party updated.", party: updatedParty });
+    }
+
     const previousParty = await PurchaseParty.findByPk(id);
     const updatedParty = await updatePurchasePartyService(id, {
       name,
@@ -142,6 +208,19 @@ export const removePurchaseParty = async (req, res) => {
   const { id } = req.params;
 
   try {
+    const { tenantOwnerId } = resolveTenantRequestContext(req);
+
+    if (tenantOwnerId && await isClientWorkspaceUser(tenantOwnerId)) {
+      const deletedParty = await deleteTenantPurchaseParty(tenantOwnerId, id);
+      if (!deletedParty) {
+        return res.status(404).json({ message: "Purchase party not found." });
+      }
+
+      return res
+        .status(200)
+        .json({ message: "Purchase party deleted.", party: deletedParty });
+    }
+
     const deletedParty = await deletePurchasePartyService(id);
     if (!deletedParty)
       return res.status(404).json({ message: "Purchase party not found." });

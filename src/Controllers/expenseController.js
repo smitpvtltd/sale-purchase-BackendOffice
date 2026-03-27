@@ -13,6 +13,14 @@ import {
   updateLedgerEntryBySource,
 } from "../Services/ledgerService.js";
 import { safeLogAudit } from "../Services/auditLogService.js";
+import {
+  createTenantExpense,
+  deleteTenantExpense,
+  getTenantExpenseById,
+  getTenantExpenses,
+  isClientWorkspaceUser,
+  updateTenantExpense,
+} from "../Services/tenantDbService.js";
 
 const getExpenseAuditSnapshot = (expense) => ({
   id: expense.id,
@@ -44,7 +52,18 @@ export const addExpense = async (req, res) => {
       return res.status(400).json({ message: "All fields are required." });
     }
 
-    const expense = await createExpense({
+    const expense = await (await isClientWorkspaceUser(userId))
+      ? createTenantExpense(userId, {
+          userId,
+          firmId,
+          date,
+          toWhom,
+          reason,
+          expenseType,
+          amount,
+          description,
+        })
+      : createExpense({
       userId,
       firmId,
       date,
@@ -53,7 +72,7 @@ export const addExpense = async (req, res) => {
       expenseType,
       amount,
       description,
-    });
+      });
 
     await createLedgerEntry({
       entryDate: expense.date,
@@ -102,7 +121,9 @@ export const getExpenses = async (req, res) => {
 
     let expenses;
 
-    if (role === "superadmin") {
+    if (role === "client") {
+      expenses = await getTenantExpenses(id, firmId);
+    } else if (role === "superadmin") {
       expenses = await Expense.findAll({
         where: { firmId },
         order: [["date", "DESC"]],
@@ -134,7 +155,11 @@ export const getExpenses = async (req, res) => {
 export const getSingleExpense = async (req, res) => {
   try {
     const { id } = req.params;
-    const expense = await getExpenseById(id);
+    const { userId } = req.query;
+    const expense =
+      userId && await isClientWorkspaceUser(userId)
+        ? await getTenantExpenseById(userId, id)
+        : await getExpenseById(id);
     if (!expense) {
       return res.status(404).json({ message: "Expense not found." });
     }
@@ -155,7 +180,10 @@ export const editExpense = async (req, res) => {
       return res.status(400).json({ message: "firmId is required." });
     }
 
-    const expense = await getExpenseById(id);
+    const expense =
+      await isClientWorkspaceUser(loggedInUser.id)
+        ? await getTenantExpenseById(loggedInUser.id, id)
+        : await getExpenseById(id);
     if (!expense) {
       return res.status(404).json({ message: "Expense not found." });
     }
@@ -169,7 +197,11 @@ export const editExpense = async (req, res) => {
       return res.status(403).json({ message: "Unauthorized" });
     }
 
-    await expense.update(req.body);
+    if (await isClientWorkspaceUser(loggedInUser.id)) {
+      await updateTenantExpense(loggedInUser.id, id, req.body);
+    } else {
+      await expense.update(req.body);
+    }
 
     await updateLedgerEntryBySource({
       sourceType: "expense",
@@ -209,7 +241,10 @@ export const editExpense = async (req, res) => {
 export const removeExpense = async (req, res) => {
   try {
     const { id } = req.params;
-    const deleted = await deleteExpense(id);
+    const deleted =
+      await isClientWorkspaceUser(req.user.id)
+        ? await deleteTenantExpense(req.user.id, id)
+        : await deleteExpense(id);
     if (!deleted) {
       return res.status(404).json({ message: "Expense not found." });
     }
@@ -217,6 +252,7 @@ export const removeExpense = async (req, res) => {
     await markLedgerEntryDeletedBySource({
       sourceType: "expense",
       sourceId: deleted.id,
+      userId: deleted.userId,
       narration: `Expense deleted: ${deleted.reason}`,
     });
 

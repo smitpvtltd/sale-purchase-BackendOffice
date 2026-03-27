@@ -3,6 +3,20 @@ import AdvanceSettlementAllocation from "../Models/advanceSettlementAllocationMo
 import { Sell } from "../Models/sellModel.js";
 import { Purchase } from "../Models/purchaseModel.js";
 import sequelize from "../Config/db.js";
+import {
+  addTenantAdvanceSettlement,
+  findTenantSettlementById,
+  findTenantSettlementByNumber,
+  generateNextTenantSettlementNumber,
+  getTenantContext,
+  getTenantPendingBillsForParty,
+  getTenantAdvanceSettlements,
+  getTenantSellById,
+  getTenantPurchaseById,
+  isClientWorkspaceUser,
+  updateTenantAdvanceSettlementById,
+  deleteTenantAdvanceSettlementById,
+} from "./tenantDbService.js";
 
 const resolveSalePaymentStatus = (paidAmount, balanceAmount, currentStatus) => {
   const normalizedPaidAmount = Number(paidAmount || 0);
@@ -63,7 +77,34 @@ const syncSettlementState = async (settlement, options = {}) => {
   return settlement;
 };
 
+const getSettlementModels = async (userId) => {
+  if (userId && await isClientWorkspaceUser(userId)) {
+    const context = await getTenantContext(userId);
+    return {
+      isTenant: true,
+      sequelizeInstance: context.sequelize,
+      AdvanceSettlementModel: context.TenantAdvanceSettlement,
+      AllocationModel: context.TenantAdvanceSettlementAllocation,
+      SellModel: context.TenantSell,
+      PurchaseModel: context.TenantPurchase,
+    };
+  }
+
+  return {
+    isTenant: false,
+    sequelizeInstance: sequelize,
+    AdvanceSettlementModel: AdvanceSettlement,
+    AllocationModel: AdvanceSettlementAllocation,
+    SellModel: Sell,
+    PurchaseModel: Purchase,
+  };
+};
+
 export const addAdvanceSettlement = async (data) => {
+  if (await isClientWorkspaceUser(data.userId)) {
+    return addTenantAdvanceSettlement(data.userId, data);
+  }
+
   return await AdvanceSettlement.create({
     ...data,
     appliedAmount: Number(data.appliedAmount || 0),
@@ -76,6 +117,14 @@ export const addAdvanceSettlement = async (data) => {
 };
 
 export const getAllAdvanceSettlements = async (userId) => {
+  if (await isClientWorkspaceUser(userId)) {
+    const settlements = await getTenantAdvanceSettlements(userId);
+    for (const settlement of settlements) {
+      await syncSettlementState(settlement);
+    }
+    return settlements;
+  }
+
   const settlements = await AdvanceSettlement.findAll({
     where: { userId },
     include: [{ model: AdvanceSettlementAllocation, as: "allocations" }],
@@ -89,11 +138,22 @@ export const getAllAdvanceSettlements = async (userId) => {
   return settlements;
 };
 
-export const findSettlementByNumber = async (settlementNumber) => {
+export const findSettlementByNumber = async (settlementNumber, userId = null) => {
+  if (userId && await isClientWorkspaceUser(userId)) {
+    return findTenantSettlementByNumber(userId, settlementNumber);
+  }
+
   return await AdvanceSettlement.findOne({ where: { settlementNumber } });
 };
 
-export const findSettlementById = async (id) => {
+export const findSettlementById = async (id, userId = null) => {
+  if (userId && await isClientWorkspaceUser(userId)) {
+    const settlement = await findTenantSettlementById(userId, id);
+    if (!settlement) return null;
+    await syncSettlementState(settlement);
+    return settlement;
+  }
+
   const settlement = await AdvanceSettlement.findByPk(id, {
     include: [{ model: AdvanceSettlementAllocation, as: "allocations" }],
   });
@@ -124,6 +184,10 @@ export const findSettlementByIdForUpdate = async (id, transaction) => {
 };
 
 export const updateAdvanceSettlementById = async (id, updateData) => {
+  if (updateData.userId && await isClientWorkspaceUser(updateData.userId)) {
+    return updateTenantAdvanceSettlementById(updateData.userId, id, updateData);
+  }
+
   const settlement = await findSettlementById(id);
   if (!settlement) return null;
 
@@ -133,7 +197,11 @@ export const updateAdvanceSettlementById = async (id, updateData) => {
   return settlement;
 };
 
-export const deleteAdvanceSettlementById = async (id) => {
+export const deleteAdvanceSettlementById = async (id, userId = null) => {
+  if (userId && await isClientWorkspaceUser(userId)) {
+    return deleteTenantAdvanceSettlementById(userId, id);
+  }
+
   const settlement = await findSettlementById(id);
   if (!settlement) return null;
 
@@ -141,7 +209,11 @@ export const deleteAdvanceSettlementById = async (id) => {
   return settlement;
 };
 
-export const generateNextReceiptNumber = async () => {
+export const generateNextReceiptNumber = async (userId = null) => {
+  if (userId && await isClientWorkspaceUser(userId)) {
+    return generateNextTenantSettlementNumber(userId);
+  }
+
   const settlements = await AdvanceSettlement.findAll({
     attributes: ['settlementNumber']
   });
@@ -163,6 +235,15 @@ export const getPendingBillsForParty = async ({
   partyType,
   partyId,
 }) => {
+  if (await isClientWorkspaceUser(userId)) {
+    return getTenantPendingBillsForParty({
+      userId,
+      firmId,
+      partyType,
+      partyId,
+    });
+  }
+
   if (partyType === "customer") {
     const sells = await Sell.findAll({
       where: {
@@ -215,8 +296,37 @@ export const allocateAdvanceSettlementById = async ({
   userId,
   allocations,
 }) => {
-  return sequelize.transaction(async (transaction) => {
-    const settlement = await findSettlementByIdForUpdate(id, transaction);
+  const {
+    sequelizeInstance,
+    AdvanceSettlementModel,
+    AllocationModel,
+    SellModel,
+    PurchaseModel,
+  } = await getSettlementModels(userId);
+
+  return sequelizeInstance.transaction(async (transaction) => {
+    let settlement;
+
+    if (await isClientWorkspaceUser(userId)) {
+      settlement = await AdvanceSettlementModel.findByPk(id, {
+        transaction,
+        lock: transaction.LOCK.UPDATE,
+      });
+
+      if (!settlement) {
+        throw new Error("Settlement not found");
+      }
+
+      const allocationsList = await AllocationModel.findAll({
+        where: { settlementId: settlement.id },
+        transaction,
+        order: [["id", "ASC"]],
+      });
+      settlement.setDataValue("allocations", allocationsList);
+      await syncSettlementState(settlement, { transaction });
+    } else {
+      settlement = await findSettlementByIdForUpdate(id, transaction);
+    }
 
     if (!settlement) {
       throw new Error("Settlement not found");
@@ -253,7 +363,8 @@ export const allocateAdvanceSettlementById = async ({
       }
 
       const billType = String(allocation.billType || "").toLowerCase();
-      const billModel = billType === "sale" ? Sell : billType === "purchase" ? Purchase : null;
+      const billModel =
+        billType === "sale" ? SellModel : billType === "purchase" ? PurchaseModel : null;
 
       if (!billModel) {
         throw new Error("Invalid billType");
@@ -326,7 +437,7 @@ export const allocateAdvanceSettlementById = async ({
         { transaction },
       );
 
-      const createdAllocation = await AdvanceSettlementAllocation.create(
+      const createdAllocation = await AllocationModel.create(
         {
           settlementId: settlement.id,
           billType,

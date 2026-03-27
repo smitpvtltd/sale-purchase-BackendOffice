@@ -6,14 +6,16 @@ export const createUser = async (
   hashedPassword,
   role = "admin",
   visiblePassword = "",
-  createdBy = null
+  createdBy = null,
+  extraData = {},
 ) => {
   return await User.create({
     username,
     password: hashedPassword,
     visiblePassword, // store raw password if needed (⚠️ avoid in production)
     role,
-    createdBy
+    createdBy,
+    ...extraData,
   });
 };
 
