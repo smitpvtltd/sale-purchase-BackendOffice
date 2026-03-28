@@ -4,13 +4,16 @@ import {
   findReturnByInvoice,
   deleteReturn,
 } from "../Services/returnService.js";
+import { getEligibleReturnSellBills } from "../Services/sellService.js";
 import { safeLogAudit } from "../Services/auditLogService.js";
 import {
   createTenantReturn,
   deleteTenantReturn,
   findTenantReturnByInvoice,
+  getTenantEligibleReturnSellBills,
   getTenantReturns,
   isClientWorkspaceUser,
+  resolveTenantRequestContext,
 } from "../Services/tenantDbService.js";
 
 const getReturnAuditSnapshot = (record, items = []) => ({
@@ -41,7 +44,6 @@ export const createReturn = async (req, res) => {
       date,
       firmId,
       customerId,
-      userId,
       employeeName,
       subtotal = 0,
       discount = 0,
@@ -52,15 +54,16 @@ export const createReturn = async (req, res) => {
       paymentStatus,
       items = [],
     } = req.body;
+    const { tenantOwnerId } = resolveTenantRequestContext(req);
 
-    if (!invoiceNumber || !date || !firmId || !customerId || !userId || !employeeName) {
+    if (!invoiceNumber || !date || !firmId || !customerId || !tenantOwnerId || !employeeName) {
       return res.status(400).json({ message: "Missing required fields." });
     }
 
     const existing = await (
-      await isClientWorkspaceUser(userId)
-        ? findTenantReturnByInvoice(userId, invoiceNumber)
-        : findReturnByInvoice(invoiceNumber, userId)
+      await isClientWorkspaceUser(tenantOwnerId)
+        ? findTenantReturnByInvoice(tenantOwnerId, invoiceNumber)
+        : findReturnByInvoice(invoiceNumber, tenantOwnerId)
     );
     if (existing) {
       return res.status(409).json({ message: "Return already exists for this invoice." });
@@ -71,7 +74,7 @@ export const createReturn = async (req, res) => {
       date,
       firmId,
       customerId,
-      userId,
+      userId: tenantOwnerId,
       employeeName,
       subtotal,
       discount,
@@ -83,8 +86,8 @@ export const createReturn = async (req, res) => {
     };
 
     const result = await (
-      await isClientWorkspaceUser(userId)
-        ? createTenantReturn(userId, returnData, items)
+      await isClientWorkspaceUser(tenantOwnerId)
+        ? createTenantReturn(tenantOwnerId, returnData, items)
         : addReturn(returnData, items)
     );
 
@@ -107,7 +110,8 @@ export const createReturn = async (req, res) => {
 
 export const getReturns = async (req, res) => {
   try {
-    const userId = req.user?.id || req.query.userId;
+    const { tenantOwnerId } = resolveTenantRequestContext(req);
+    const userId = tenantOwnerId;
     if (!userId) return res.status(400).json({ message: "userId is required" });
 
     const data = await (
@@ -122,10 +126,38 @@ export const getReturns = async (req, res) => {
   }
 };
 
+export const getEligibleReturnBills = async (req, res) => {
+  try {
+    const { firmId } = req.query;
+    const { tenantOwnerId } = resolveTenantRequestContext(req);
+    const userId = tenantOwnerId;
+
+    if (!userId) {
+      return res.status(400).json({ message: "Authenticated user is required." });
+    }
+
+    if (!firmId) {
+      return res.status(400).json({ message: "firmId is required." });
+    }
+
+    const data = await (
+      await isClientWorkspaceUser(userId)
+        ? getTenantEligibleReturnSellBills(userId, Number(firmId))
+        : getEligibleReturnSellBills(userId, Number(firmId))
+    );
+
+    return res.status(200).json(data);
+  } catch (err) {
+    console.error("Error fetching eligible return bills:", err);
+    return res.status(500).json({ message: "Server error." });
+  }
+};
+
 export const removeReturn = async (req, res) => {
   try {
     const { id } = req.params;
-    const userId = req.user?.id || req.query.userId;
+    const { tenantOwnerId } = resolveTenantRequestContext(req);
+    const userId = tenantOwnerId;
     const deleted = await (
       userId && await isClientWorkspaceUser(userId)
         ? deleteTenantReturn(userId, id)

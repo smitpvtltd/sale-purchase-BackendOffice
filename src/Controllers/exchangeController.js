@@ -4,6 +4,7 @@ import {
   findExchangeByInvoice,
   deleteExchange,
 } from "../Services/exchangeService.js";
+import { getEligibleExchangeSellBills } from "../Services/sellService.js";
 import { Exchange, ExchangeReturnItem, ExchangeGivenItem } from "../Models/exchangeModel.js";
 import { safeLogAudit } from "../Services/auditLogService.js";
 import {
@@ -11,8 +12,10 @@ import {
   deleteTenantExchange,
   findTenantExchangeByInvoice,
   getTenantExchangeById,
+  getTenantEligibleExchangeSellBills,
   getTenantExchanges,
   isClientWorkspaceUser,
+  resolveTenantRequestContext,
   updateTenantExchangePayment,
 } from "../Services/tenantDbService.js";
 
@@ -51,7 +54,6 @@ export const createExchange = async (req, res) => {
       date,
       firmId,
       customerId,
-      userId,
       difference,
       differenceType,
       employeeName,
@@ -66,22 +68,23 @@ export const createExchange = async (req, res) => {
       returnedItems = [],
       givenItems = [],
     } = req.body;
+    const { tenantOwnerId } = resolveTenantRequestContext(req);
 
     if (
       !invoiceNumber ||
       !date ||
       !firmId ||
       !customerId ||
-      !userId ||
+      !tenantOwnerId ||
       !employeeName
     ) {
       return res.status(400).json({ message: "Missing required fields." });
     }
 
     const existing = await (
-      await isClientWorkspaceUser(userId)
-        ? findTenantExchangeByInvoice(userId, invoiceNumber)
-        : findExchangeByInvoice(invoiceNumber, userId)
+      await isClientWorkspaceUser(tenantOwnerId)
+        ? findTenantExchangeByInvoice(tenantOwnerId, invoiceNumber)
+        : findExchangeByInvoice(invoiceNumber, tenantOwnerId)
     );
     if (existing) {
       return res
@@ -109,7 +112,7 @@ export const createExchange = async (req, res) => {
       date,
       firmId,
       customerId,
-      userId,
+      userId: tenantOwnerId,
       difference,
       differenceType,
       employeeName,
@@ -125,8 +128,8 @@ export const createExchange = async (req, res) => {
     };
 
     const result = await (
-      await isClientWorkspaceUser(userId)
-        ? createTenantExchange(userId, exchangeData, returnedItems, givenItems)
+      await isClientWorkspaceUser(tenantOwnerId)
+        ? createTenantExchange(tenantOwnerId, exchangeData, returnedItems, givenItems)
         : addExchange(exchangeData, returnedItems, givenItems)
     );
 
@@ -152,7 +155,8 @@ export const createExchange = async (req, res) => {
 // get all exchanges for a user
 export const getExchanges = async (req, res) => {
   try {
-    const userId = req.user?.id || req.query.userId;
+    const { tenantOwnerId } = resolveTenantRequestContext(req);
+    const userId = tenantOwnerId;
     if (!userId) return res.status(400).json({ message: "userId is required" });
 
     const data = await (
@@ -167,12 +171,40 @@ export const getExchanges = async (req, res) => {
   }
 };
 
+export const getEligibleExchangeBills = async (req, res) => {
+  try {
+    const { firmId } = req.query;
+    const { tenantOwnerId } = resolveTenantRequestContext(req);
+    const userId = tenantOwnerId;
+
+    if (!userId) {
+      return res.status(400).json({ message: "Authenticated user is required." });
+    }
+
+    if (!firmId) {
+      return res.status(400).json({ message: "firmId is required." });
+    }
+
+    const data = await (
+      await isClientWorkspaceUser(userId)
+        ? getTenantEligibleExchangeSellBills(userId, Number(firmId))
+        : getEligibleExchangeSellBills(userId, Number(firmId))
+    );
+
+    return res.status(200).json(data);
+  } catch (err) {
+    console.error("Error fetching eligible exchange bills:", err);
+    return res.status(500).json({ message: "Server error." });
+  }
+};
+
 
 // delete an exchange
 export const removeExchange = async (req, res) => {
   try {
     const { id } = req.params;
-    const userId = req.user?.id || req.query.userId;
+    const { tenantOwnerId } = resolveTenantRequestContext(req);
+    const userId = tenantOwnerId;
     const deleted = await (
       userId && await isClientWorkspaceUser(userId)
         ? deleteTenantExchange(userId, id)
@@ -206,7 +238,8 @@ export const updateExchangePayment = async (req, res) => {
   try {
     const { id } = req.params;
     const { payingAmount, paymentMethod } = req.body;
-    const userId = req.user?.id || req.body.userId;
+    const { tenantOwnerId } = resolveTenantRequestContext(req);
+    const userId = tenantOwnerId;
 
     if (userId && await isClientWorkspaceUser(userId)) {
       const updatedExchange = await updateTenantExchangePayment(

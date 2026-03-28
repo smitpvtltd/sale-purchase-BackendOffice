@@ -1,5 +1,10 @@
 import { decreaseStock, increaseStock } from "../Middleware/stockService.js";
 import { Sell, SellItem } from "../Models/sellModel.js";
+import Customer from "../Models/customerModel.js";
+import Firm from "../Models/firmModel.js";
+import Product from "../Models/productModel.js";
+import { Return } from "../Models/returnModel.js";
+import { Exchange } from "../Models/exchangeModel.js";
 import Receipt from "../Models/receiptModel.js";
 import { Op } from "sequelize";
 import sequelize from "../Config/db.js";
@@ -19,6 +24,94 @@ const toSafeSellItem = (item, sellId, userId) => ({
     item.totalPrice ??
     (item.offerPrice ?? item.price) * item.quantity + (item.gstAmount ?? 0),
 });
+
+const toNumber = (value) => Number(value || 0);
+
+const buildEligibleBillPayload = (sell, firmName, memoPrefix) => ({
+  id: sell.id,
+  invoiceNumber: sell.invoiceNumber,
+  billDate: sell.date,
+  memoNumber: `${memoPrefix}-${sell.invoiceNumber}`,
+  firmId: sell.firmId,
+  firmName: firmName || "",
+  customerId: sell.customerId,
+  customerName: sell.Customer?.name || "",
+  subtotal: toNumber(sell.totalAmount),
+  originalBillDiscount: toNumber(sell.totalDiscount),
+  originalBillDiscountType: sell.billDiscountType || "Rs",
+  gst: toNumber(sell.totalGST),
+  cgst: toNumber(sell.cgst),
+  sgst: toNumber(sell.sgst),
+  igst: toNumber(sell.igst),
+  grandTotal: toNumber(sell.finalAmount),
+  payingAmount: toNumber(sell.payingAmount),
+  balanceAmount: toNumber(sell.balanceAmount),
+  paymentMethod: sell.paymentMethod || "",
+  items: (sell.items || []).map((item, index) => ({
+    id: item.id,
+    srNo: index + 1,
+    productId: item.productId,
+    productName: item.Product?.productName || "",
+    size: item.size || item.Product?.size || "",
+    totalQty: toNumber(item.quantity),
+    qtyReturn: toNumber(item.quantity),
+    qtyExchange: toNumber(item.quantity),
+    price: toNumber(item.price),
+    offerPrice: toNumber(item.offerPrice),
+    discount: toNumber(item.discount),
+    discountType: item.discountType || "Rs",
+    gst: toNumber(item.gstRate),
+    gstRate: toNumber(item.gstRate),
+    gstAmount: toNumber(item.gstAmount),
+    total: toNumber(item.totalPrice),
+  })),
+});
+
+const getEligibleSellBills = async (userId, firmId, exclusionModel, memoPrefix) => {
+  const excludedInvoices = await exclusionModel.findAll({
+    where: { userId, firmId },
+    attributes: ["invoiceNumber"],
+  });
+
+  const excludedInvoiceSet = new Set(
+    excludedInvoices.map((entry) => String(entry.invoiceNumber || "")),
+  );
+
+  const sells = await Sell.findAll({
+    where: {
+      userId,
+      firmId,
+      balanceAmount: { [Op.lte]: 0 },
+    },
+    include: [
+      {
+        model: SellItem,
+        as: "items",
+        include: [{ model: Product, attributes: ["id", "productName", "size"] }],
+      },
+      {
+        model: Customer,
+        attributes: ["id", "name"],
+      },
+    ],
+    order: [["date", "DESC"], ["id", "DESC"]],
+  });
+
+  const eligibleSells = sells.filter(
+    (sell) => !excludedInvoiceSet.has(String(sell.invoiceNumber || "")),
+  );
+
+  const firmIds = [...new Set(eligibleSells.map((sell) => sell.firmId).filter(Boolean))];
+  const firms = await Firm.findAll({
+    where: { id: firmIds },
+    attributes: ["id", "firmName"],
+  });
+  const firmNameMap = new Map(firms.map((firm) => [firm.id, firm.firmName]));
+
+  return eligibleSells.map((sell) =>
+    buildEligibleBillPayload(sell, firmNameMap.get(sell.firmId), memoPrefix),
+  );
+};
 
 // Add Sell + Items
 export const addSell = async (sellData, items) => {
@@ -232,4 +325,12 @@ export const getSellById = async (id) => {
 
   sell.setDataValue("receipts", receipts);
   return sell;
+};
+
+export const getEligibleReturnSellBills = async (userId, firmId) => {
+  return getEligibleSellBills(userId, firmId, Return, "RET");
+};
+
+export const getEligibleExchangeSellBills = async (userId, firmId) => {
+  return getEligibleSellBills(userId, firmId, Exchange, "EXC");
 };

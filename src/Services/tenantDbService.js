@@ -1268,6 +1268,95 @@ export const getTenantSells = async (userId, filters = {}) => {
   });
 };
 
+const formatEligibleTenantSellBill = (sell, memoPrefix) => ({
+  id: sell.id,
+  invoiceNumber: sell.invoiceNumber,
+  billDate: sell.date,
+  memoNumber: `${memoPrefix}-${sell.invoiceNumber}`,
+  firmId: sell.firmId,
+  firmName: sell.firmName || "",
+  customerId: sell.customerId,
+  customerName: sell.Customer?.name || sell.TenantCustomer?.name || "",
+  subtotal: Number(sell.totalAmount || 0),
+  originalBillDiscount: Number(sell.totalDiscount || 0),
+  originalBillDiscountType: sell.billDiscountType || "Rs",
+  gst: Number(sell.totalGST || 0),
+  cgst: Number(sell.cgst || 0),
+  sgst: Number(sell.sgst || 0),
+  igst: Number(sell.igst || 0),
+  grandTotal: Number(sell.finalAmount || 0),
+  payingAmount: Number(sell.payingAmount || 0),
+  balanceAmount: Number(sell.balanceAmount || 0),
+  paymentMethod: sell.paymentMethod || "",
+  items: (sell.items || []).map((item, index) => ({
+    id: item.id,
+    srNo: index + 1,
+    productId: item.productId,
+    productName: item.Product?.productName || item.TenantProduct?.productName || "",
+    size: item.size || item.Product?.size || item.TenantProduct?.size || "",
+    totalQty: Number(item.quantity || 0),
+    qtyReturn: Number(item.quantity || 0),
+    qtyExchange: Number(item.quantity || 0),
+    price: Number(item.price || 0),
+    offerPrice: Number(item.offerPrice || 0),
+    discount: Number(item.discount || 0),
+    discountType: item.discountType || "Rs",
+    gst: Number(item.gstRate || 0),
+    gstRate: Number(item.gstRate || 0),
+    gstAmount: Number(item.gstAmount || 0),
+    total: Number(item.totalPrice || 0),
+  })),
+});
+
+const getTenantEligibleSellBills = async (userId, firmId, exclusionModelName, memoPrefix) => {
+  const context = await getTenantContext(userId);
+  const excludedInvoices = await context[exclusionModelName].findAll({
+    where: { userId, firmId },
+    attributes: ["invoiceNumber"],
+  });
+
+  const excludedInvoiceSet = new Set(
+    excludedInvoices.map((entry) => String(entry.invoiceNumber || "")),
+  );
+
+  const sells = await context.TenantSell.findAll({
+    where: {
+      userId,
+      firmId,
+      balanceAmount: { [Op.lte]: 0 },
+    },
+    include: [
+      {
+        model: context.TenantSellItem,
+        as: "items",
+        include: [{ model: context.TenantProduct, attributes: ["id", "productName", "size"] }],
+      },
+      {
+        model: context.TenantCustomer,
+        attributes: ["id", "name"],
+      },
+    ],
+    order: [["date", "DESC"], ["id", "DESC"]],
+  });
+
+  const firm = await context.TenantFirm.findByPk(firmId, {
+    attributes: ["id", "firmName"],
+  });
+  const firmName = firm?.firmName || "";
+
+  return sells
+    .filter((sell) => !excludedInvoiceSet.has(String(sell.invoiceNumber || "")))
+    .map((sell) =>
+      formatEligibleTenantSellBill(
+        {
+          ...sell.toJSON(),
+          firmName,
+        },
+        memoPrefix,
+      ),
+    );
+};
+
 export const getNextTenantInvoiceNumber = async (userId, prefix) => {
   const context = await getTenantContext(userId);
   const latestInvoice = await context.TenantSell.findOne({
@@ -1278,6 +1367,14 @@ export const getNextTenantInvoiceNumber = async (userId, prefix) => {
   const match = latestInvoice.invoiceNumber.match(/\d+$/);
   const lastNumber = match ? Number(match[0]) : 0;
   return `${prefix}-${String(lastNumber + 1).padStart(3, "0")}`;
+};
+
+export const getTenantEligibleReturnSellBills = async (userId, firmId) => {
+  return getTenantEligibleSellBills(userId, firmId, "TenantReturn", "RET");
+};
+
+export const getTenantEligibleExchangeSellBills = async (userId, firmId) => {
+  return getTenantEligibleSellBills(userId, firmId, "TenantExchange", "EXC");
 };
 
 export const getTenantSellById = async (userId, id) => {
