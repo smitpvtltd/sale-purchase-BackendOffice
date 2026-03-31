@@ -21,6 +21,7 @@ import {
   isClientWorkspaceUser,
   updateTenantExpense,
 } from "../Services/tenantDbService.js";
+import { resolveTenantRequestContext } from "../Services/tenantDbService.js";
 
 const getExpenseAuditSnapshot = (expense) => ({
   id: expense.id,
@@ -37,8 +38,18 @@ const getExpenseAuditSnapshot = (expense) => ({
 // Add a new expense
 export const addExpense = async (req, res) => {
   try {
-    const { date, firmId, userId, toWhom, reason, expenseType, amount, description } =
-      req.body;
+    const { tenantOwnerId } = resolveTenantRequestContext(req);
+
+    const {
+      date,
+      firmId,
+      userId,
+      toWhom,
+      reason,
+      expenseType,
+      amount,
+      description,
+    } = req.body;
 
     if (
       !date ||
@@ -52,18 +63,7 @@ export const addExpense = async (req, res) => {
       return res.status(400).json({ message: "All fields are required." });
     }
 
-    const expense = await (await isClientWorkspaceUser(userId))
-      ? createTenantExpense(userId, {
-          userId,
-          firmId,
-          date,
-          toWhom,
-          reason,
-          expenseType,
-          amount,
-          description,
-        })
-      : createExpense({
+    const expenseData = {
       userId,
       firmId,
       date,
@@ -72,8 +72,18 @@ export const addExpense = async (req, res) => {
       expenseType,
       amount,
       description,
-      });
+    };
 
+    let expense;
+
+    // ✅ SAME AS SELL FLOW
+    if (tenantOwnerId && (await isClientWorkspaceUser(tenantOwnerId))) {
+      expense = await createTenantExpense(tenantOwnerId, expenseData);
+    } else {
+      expense = await createExpense(expenseData);
+    }
+
+    // ✅ Ledger (optional: convert to upsert like sell)
     await createLedgerEntry({
       entryDate: expense.date,
       entryType: "expense",
@@ -108,11 +118,11 @@ export const addExpense = async (req, res) => {
     res.status(500).json({ message: "Internal server error." });
   }
 };
-
 // Get all expenses for a user
 export const getExpenses = async (req, res) => {
   try {
-    const { id, role } = req.user;
+
+    const { tenantOwnerId } = resolveTenantRequestContext(req);
     const { firmId } = req.query;
 
     if (!firmId) {
@@ -121,25 +131,8 @@ export const getExpenses = async (req, res) => {
 
     let expenses;
 
-    if (role === "client") {
-      expenses = await getTenantExpenses(id, firmId);
-    } else if (role === "superadmin") {
-      expenses = await Expense.findAll({
-        where: { firmId },
-        order: [["date", "DESC"]],
-      });
-    } else if (role === "admin") {
-      const users = await User.findAll({
-        where: { createdBy: id },
-        attributes: ["id"],
-      });
-
-      const allowedUserIds = [id, ...users.map((u) => u.id)];
-
-      expenses = await Expense.findAll({
-        where: { userId: allowedUserIds, firmId },
-        order: [["date", "DESC"]],
-      });
+    if (tenantOwnerId && (await isClientWorkspaceUser(tenantOwnerId))) {
+      expenses = await getTenantExpenses(tenantOwnerId, firmId);
     } else {
       return res.status(403).json({ message: "Unauthorized role" });
     }
@@ -154,11 +147,11 @@ export const getExpenses = async (req, res) => {
 // Get a single expense by ID
 export const getSingleExpense = async (req, res) => {
   try {
+    const { tenantOwnerId } = resolveTenantRequestContext(req);
     const { id } = req.params;
-    const { userId } = req.query;
     const expense =
-      userId && await isClientWorkspaceUser(userId)
-        ? await getTenantExpenseById(userId, id)
+      tenantOwnerId && await isClientWorkspaceUser(tenantOwnerId)
+        ? await getTenantExpenseById(tenantOwnerId, id)
         : await getExpenseById(id);
     if (!expense) {
       return res.status(404).json({ message: "Expense not found." });
@@ -173,16 +166,16 @@ export const getSingleExpense = async (req, res) => {
 // Edit an existing expense
 export const editExpense = async (req, res) => {
   try {
+    const { tenantOwnerId } = resolveTenantRequestContext(req);
     const { id } = req.params;
-    const loggedInUser = req.user;
 
     if (!req.body.firmId) {
       return res.status(400).json({ message: "firmId is required." });
     }
 
     const expense =
-      await isClientWorkspaceUser(loggedInUser.id)
-        ? await getTenantExpenseById(loggedInUser.id, id)
+      await isClientWorkspaceUser(tenantOwnerId)
+        ? await getTenantExpenseById(tenantOwnerId, id)
         : await getExpenseById(id);
     if (!expense) {
       return res.status(404).json({ message: "Expense not found." });
@@ -191,14 +184,13 @@ export const editExpense = async (req, res) => {
     const previousExpense = expense.toJSON();
 
     if (
-      expense.userId !== loggedInUser.id &&
-      loggedInUser.role !== "superadmin"
+      expense.userId !== tenantOwnerId 
     ) {
       return res.status(403).json({ message: "Unauthorized" });
     }
 
-    if (await isClientWorkspaceUser(loggedInUser.id)) {
-      await updateTenantExpense(loggedInUser.id, id, req.body);
+    if (await isClientWorkspaceUser(tenantOwnerId)) {
+      await updateTenantExpense(tenantOwnerId, id, req.body);
     } else {
       await expense.update(req.body);
     }
